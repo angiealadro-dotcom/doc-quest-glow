@@ -1,0 +1,1488 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Enzimas Pancreáticas y Diagnóstico de Pancreatitis — Notas de Estudio</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #fdf6ec;
+    --cream-dark: #f5e9d4;
+    --cream-mid: #f9f0e1;
+    --ink: #2c1e0f;
+    --ink-light: #5a3e28;
+    --red: #c0392b;
+    --red-light: #f8d7d4;
+    --red-border: #e74c3c;
+    --teal: #1a7a6e;
+    --teal-light: #d4f0ed;
+    --teal-border: #2aa198;
+    --gold: #c9840a;
+    --gold-light: #fef3d0;
+    --gold-border: #f0a500;
+    --dark-box: #1e1208;
+    --green: #2e7d32;
+    --green-light: #e8f5e9;
+    --orange: #e65100;
+    --orange-light: #fff3e0;
+    --shadow: 0 4px 20px rgba(44,30,15,0.12);
+    --shadow-sm: 0 2px 8px rgba(44,30,15,0.08);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'Lora', Georgia, serif;
+    font-size: 16px;
+    line-height: 1.75;
+    background-image: 
+      radial-gradient(ellipse at 20% 10%, rgba(201,132,10,0.06) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 90%, rgba(26,122,110,0.05) 0%, transparent 50%);
+  }
+
+  /* HEADER */
+  .main-header {
+    background: linear-gradient(135deg, #2c1e0f 0%, #5a3e28 50%, #3d2a0f 100%);
+    color: var(--cream);
+    padding: 3rem 2rem 2.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .main-header::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c9840a' fill-opacity='0.07'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    opacity: 1;
+  }
+  .main-header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 5vw, 3rem);
+    font-weight: 900;
+    letter-spacing: 0.02em;
+    position: relative;
+    line-height: 1.2;
+  }
+  .main-header .subtitle {
+    font-family: 'Lora', serif;
+    font-style: italic;
+    color: #f0c97a;
+    margin-top: 0.5rem;
+    font-size: 1.05rem;
+    position: relative;
+  }
+  .main-header .institution {
+    margin-top: 1rem;
+    font-size: 0.85rem;
+    color: #c9b090;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    position: relative;
+  }
+
+  /* LAYOUT */
+  .container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+  }
+
+  /* INDEX */
+  .index-box {
+    background: var(--cream-dark);
+    border: 2px solid var(--gold-border);
+    border-radius: 12px;
+    padding: 1.8rem 2rem;
+    margin-bottom: 3rem;
+    box-shadow: var(--shadow);
+  }
+  .index-box h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    color: var(--gold);
+    margin-bottom: 1rem;
+    border-bottom: 1px solid var(--gold-border);
+    padding-bottom: 0.5rem;
+  }
+  .index-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 0.5rem;
+  }
+  .index-grid a {
+    color: var(--ink-light);
+    text-decoration: none;
+    font-size: 0.9rem;
+    padding: 0.3rem 0.6rem;
+    border-radius: 6px;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  .index-grid a:hover {
+    background: var(--gold-light);
+    color: var(--gold);
+  }
+  .index-num {
+    background: var(--gold);
+    color: white;
+    font-size: 0.7rem;
+    font-weight: 700;
+    border-radius: 50%;
+    width: 20px; height: 20px;
+    display: inline-flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  /* SECTIONS */
+  .section {
+    margin-bottom: 3.5rem;
+    scroll-margin-top: 1rem;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.4rem, 4vw, 2rem);
+    font-weight: 700;
+    color: var(--ink);
+    border-bottom: 3px solid var(--gold-border);
+    padding-bottom: 0.4rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .section-title .num {
+    background: var(--ink);
+    color: var(--gold);
+    font-size: 0.9rem;
+    font-family: 'JetBrains Mono', monospace;
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+  }
+  .subsection-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--teal);
+    margin: 1.5rem 0 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  /* TEXT CONTENT */
+  p { margin-bottom: 0.8rem; }
+  ul, ol { padding-left: 1.5rem; margin-bottom: 0.8rem; }
+  li { margin-bottom: 0.3rem; }
+
+  /* HIGHLIGHTS */
+  .red { text-decoration: underline; text-decoration-color: var(--red); text-underline-offset: 3px; color: var(--red); font-weight: 600; }
+  .teal-hl { text-decoration: underline; text-decoration-color: var(--teal); text-underline-offset: 3px; color: var(--teal); font-weight: 500; }
+  .gold-hl { text-decoration: underline; text-decoration-color: var(--gold); text-underline-offset: 3px; color: var(--gold); font-weight: 500; }
+  .star { color: var(--gold); font-size: 1.1em; }
+
+  /* BOXES */
+  .box {
+    border-radius: 10px;
+    padding: 1.2rem 1.5rem;
+    margin: 1rem 0;
+    border-left: 5px solid;
+    box-shadow: var(--shadow-sm);
+  }
+  .box-yellow { background: var(--gold-light); border-color: var(--gold-border); }
+  .box-red { background: var(--red-light); border-color: var(--red-border); }
+  .box-teal { background: var(--teal-light); border-color: var(--teal-border); }
+  .box-green { background: var(--green-light); border-color: var(--green); }
+  .box-orange { background: var(--orange-light); border-color: var(--orange); }
+  .box-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.5rem;
+  }
+  .box-yellow .box-title { color: var(--gold); }
+  .box-red .box-title { color: var(--red); }
+  .box-teal .box-title { color: var(--teal); }
+
+  /* IMAGE PLACEHOLDER */
+  .img-box {
+    border: 3px solid var(--red-border);
+    border-radius: 10px;
+    padding: 1.2rem 1.5rem;
+    margin: 1.2rem 0;
+    background: #fff8f8;
+    box-shadow: var(--shadow-sm);
+  }
+  .img-box-header {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 0.85rem;
+    color: var(--red);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.8rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #f5c6c2;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  .img-interpretation {
+    font-style: italic;
+    color: var(--ink-light);
+    font-size: 0.92rem;
+    line-height: 1.65;
+  }
+
+  /* FORMULA BOX */
+  .formula-box {
+    background: var(--dark-box);
+    color: #f0c97a;
+    border-radius: 10px;
+    padding: 1.2rem 1.5rem;
+    margin: 1rem 0;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.9rem;
+    line-height: 1.8;
+    box-shadow: var(--shadow);
+    overflow-x: auto;
+  }
+  .formula-box .label {
+    color: #c9b090;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    display: block;
+    margin-bottom: 0.4rem;
+  }
+
+  /* FP/FN BOXES */
+  .fp-fn-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin: 1rem 0;
+  }
+  .fp-box {
+    background: #fff0ee;
+    border: 2px solid var(--red-border);
+    border-radius: 10px;
+    padding: 1rem 1.2rem;
+  }
+  .fn-box {
+    background: #eef6ff;
+    border: 2px solid #2980b9;
+    border-radius: 10px;
+    padding: 1rem 1.2rem;
+  }
+  .fp-box h4 { color: var(--red); font-family: 'Playfair Display', serif; margin-bottom: 0.5rem; }
+  .fn-box h4 { color: #2980b9; font-family: 'Playfair Display', serif; margin-bottom: 0.5rem; }
+  .fp-fn-grid ul { padding-left: 1.2rem; font-size: 0.9rem; }
+
+  /* FLOW DIAGRAM */
+  .flow {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.4rem;
+    margin: 0.8rem 0;
+    font-size: 0.92rem;
+  }
+  .flow-box {
+    background: var(--cream-dark);
+    border: 1.5px solid var(--gold-border);
+    border-radius: 6px;
+    padding: 0.3rem 0.7rem;
+    font-weight: 500;
+    color: var(--ink);
+    white-space: nowrap;
+  }
+  .flow-arrow {
+    color: var(--red);
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+
+  /* SEVERITY CARDS */
+  .severity-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+    margin: 1rem 0;
+  }
+  .sev-card {
+    border-radius: 10px;
+    padding: 1rem 1.2rem;
+    border-top: 5px solid;
+    box-shadow: var(--shadow-sm);
+  }
+  .sev-mild { background: #e8f5e9; border-color: var(--green); }
+  .sev-mod { background: #fff8e1; border-color: #f9a825; }
+  .sev-sev { background: #fff3e0; border-color: var(--orange); }
+  .sev-crit { background: #ffebee; border-color: var(--red); }
+  .sev-card h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  .sev-mild h4 { color: var(--green); }
+  .sev-mod h4 { color: #f9a825; }
+  .sev-sev h4 { color: var(--orange); }
+  .sev-crit h4 { color: var(--red); }
+  .sev-card ul { padding-left: 1.2rem; font-size: 0.88rem; }
+
+  /* TABLES */
+  .table-wrapper {
+    overflow-x: auto;
+    margin: 1rem 0;
+    border-radius: 10px;
+    box-shadow: var(--shadow-sm);
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.88rem;
+  }
+  thead tr { background: var(--ink); color: var(--cream); }
+  thead th {
+    font-family: 'Playfair Display', serif;
+    padding: 0.7rem 1rem;
+    text-align: left;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+  }
+  tbody tr:nth-child(even) { background: var(--cream-dark); }
+  tbody tr:nth-child(odd) { background: white; }
+  tbody td { padding: 0.6rem 1rem; vertical-align: top; border-bottom: 1px solid #e8d8c0; }
+  tbody tr:hover { background: var(--gold-light); transition: background 0.2s; }
+
+  /* KINETICS BARS */
+  .kinetics-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 0.5rem 0;
+    font-size: 0.9rem;
+  }
+  .kin-label { width: 70px; font-weight: 600; color: var(--ink); }
+  .kin-bar-wrap { flex: 1; background: #e8d8c0; border-radius: 20px; overflow: hidden; height: 22px; position: relative; }
+  .kin-bar {
+    height: 100%;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: white;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .kin-amylase { background: linear-gradient(90deg, #c0392b, #e74c3c); width: 45%; }
+  .kin-lipase { background: linear-gradient(90deg, #1a7a6e, #2aa198); width: 80%; }
+
+  /* BACK TO TOP */
+  .back-top {
+    display: inline-block;
+    margin-top: 1rem;
+    color: var(--gold);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .back-top:hover { color: var(--red); }
+
+  /* DIVIDER */
+  .divider {
+    border: none;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold-border), transparent);
+    margin: 2rem 0;
+  }
+
+  /* CRITERIA ITEMS */
+  .criteria-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.8rem;
+    padding: 0.8rem 1rem;
+    border-radius: 8px;
+    margin: 0.5rem 0;
+  }
+  .criteria-a { background: #eef6ff; border-left: 4px solid #3498db; }
+  .criteria-b { background: #fff0ee; border-left: 4px solid var(--red); }
+  .criteria-c { background: #f0fff4; border-left: 4px solid var(--green); }
+  .criteria-letter {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    font-weight: 900;
+    line-height: 1;
+    flex-shrink: 0;
+  }
+  .criteria-a .criteria-letter { color: #3498db; }
+  .criteria-b .criteria-letter { color: var(--red); }
+  .criteria-c .criteria-letter { color: var(--green); }
+
+  /* ETIOLOGY BUBBLES */
+  .etio-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin: 0.8rem 0;
+  }
+  .etio-bubble {
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    font-size: 0.88rem;
+    font-weight: 500;
+    border: 1.5px solid;
+  }
+  .etio-main { background: #ffecec; border-color: var(--red); color: var(--red); }
+  .etio-sec { background: var(--gold-light); border-color: var(--gold-border); color: var(--gold); }
+  .etio-rare { background: var(--teal-light); border-color: var(--teal-border); color: var(--teal); }
+
+  /* RESPONSIVE */
+  @media (max-width: 600px) {
+    .fp-fn-grid { grid-template-columns: 1fr; }
+    .severity-grid { grid-template-columns: 1fr 1fr; }
+    .flow { flex-direction: column; align-items: flex-start; }
+    .index-grid { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════ HEADER ═══════════════ -->
+<div class="main-header">
+  <h1>Enzimas Pancreáticas<br>& Diagnóstico de Pancreatitis</h1>
+  <p class="subtitle">Notas de Estudio Completas</p>
+  <p class="institution">Patología Clínica · Facultad de Medicina U.A.N.L.</p>
+</div>
+
+<div class="container">
+
+<!-- ═══════════════ ÍNDICE ═══════════════ -->
+<div id="top" class="index-box">
+  <h2>📑 Índice Clickeable</h2>
+  <div class="index-grid">
+    <a href="#anatomia"><span class="index-num">1</span> Anatomía del Páncreas</a>
+    <a href="#funcion"><span class="index-num">2</span> Función & Fisiología</a>
+    <a href="#endocrina"><span class="index-num">3</span> Función Endocrina</a>
+    <a href="#exocrina"><span class="index-num">4</span> Función Exocrina</a>
+    <a href="#pancreatitis-aguda"><span class="index-num">5</span> Pancreatitis Aguda</a>
+    <a href="#etiologia"><span class="index-num">6</span> Etiología</a>
+    <a href="#epidemiologia"><span class="index-num">7</span> Epidemiología</a>
+    <a href="#fisiopatologia"><span class="index-num">8</span> Fisiopatología</a>
+    <a href="#diagnostico"><span class="index-num">9</span> Diagnóstico (Atlanta)</a>
+    <a href="#clinica"><span class="index-num">10</span> Presentación Clínica</a>
+    <a href="#laboratorio"><span class="index-num">11</span> Laboratorio</a>
+    <a href="#amilasa"><span class="index-num">12</span> Amilasa</a>
+    <a href="#lipasa"><span class="index-num">13</span> Lipasa</a>
+    <a href="#imagen"><span class="index-num">14</span> Imagen</a>
+    <a href="#severidad"><span class="index-num">15</span> Severidad</a>
+    <a href="#tratamiento"><span class="index-num">16</span> Tratamiento</a>
+    <a href="#cronica"><span class="index-num">17</span> Pancreatitis Crónica</a>
+  </div>
+</div>
+
+<!-- ═══════════════ 1. ANATOMÍA ═══════════════ -->
+<div class="section" id="anatomia">
+  <h2 class="section-title"><span class="num">01</span> Anatomía del Páncreas</h2>
+
+  <p>Órgano con la forma de una <span class="teal-hl">pera alargada y plana</span>:</p>
+  <ul>
+    <li>Longitud: <span class="gold-hl">15–20 cm</span></li>
+    <li>Grosor: <span class="gold-hl">4–5 cm</span></li>
+    <li>Peso: <span class="gold-hl">70–150 gr</span></li>
+  </ul>
+
+  <div class="subsection-title">Morfología</div>
+  <div class="flow">
+    <div class="flow-box">Cabeza</div><div class="flow-arrow">→</div>
+    <div class="flow-box">Cuello</div><div class="flow-arrow">→</div>
+    <div class="flow-box">Cuerpo</div><div class="flow-arrow">→</div>
+    <div class="flow-box">Cola</div>
+  </div>
+
+  <div class="img-box">
+    <div class="img-box-header">🖼 IMAGEN / DIAGRAMA DE LA DIAPOSITIVA — Anatomía del Páncreas</div>
+    <div class="img-interpretation">
+      <strong>Descripción:</strong> Imagen anatómica del retroperitoneo superior que muestra las relaciones del páncreas con estructuras vecinas. Se identifican: vena cava inferior, aorta abdominal, tronco celíaco, arteria esplénica, vena porta hepática, arteria hepática propia, conducto colédoco, borde libre derecho del omento menor, glándula suprarrenal, duodeno, riñón derecho (retroperitoneal), inserción del mesocolon transverso, flexura cólica derecha (hepática), y las partes del páncreas debidamente etiquetadas: <strong>Cabeza</strong> (región inferior derecha, relacionada con el duodeno), <strong>Cuello</strong> (zona central estrecha), <strong>Cuerpo</strong> (porción media horizontal), y <strong>Cola</strong> (extremo izquierdo, hacia el hilio esplénico).
+      <br><br>
+      ⟶ Clave: La cabeza está íntimamente relacionada con el duodeno (2.ª porción) y el esfínter de Oddi. La cola es intraperitoneal y llega hasta el hilio del bazo.
+    </div>
+  </div>
+
+  <div class="subsection-title">Ubicación</div>
+  <p>Órgano <span class="teal-hl">retroperitoneal</span>. Dispuesto en las regiones <strong>epigástrica</strong>, <strong>hipocóndrica izquierda</strong> y una porción de la región <strong>umbilical</strong>.</p>
+
+  <div class="subsection-title">Estructuras relacionadas</div>
+  <p>Conducto de Wirsung, ampolla de Vater, conducto de Santorini, papila duodenal menor, proceso uniforme, islotes de Langerhans.</p>
+
+  <div class="subsection-title">Irrigación <span class="star">⭐</span></div>
+  <ul>
+    <li>Arteria mesentérica superior</li>
+    <li>Arteria gastroduodenal</li>
+    <li>Arterias pancreaticoduodenales</li>
+    <li>Arteria esplénica</li>
+  </ul>
+
+  <div class="subsection-title">Inervación</div>
+  <ul>
+    <li><strong>Parasimpática:</strong> nervio vago (X par craneal)</li>
+    <li><strong>Simpática:</strong> nervio esplácnico mayor y menor</li>
+  </ul>
+</div>
+
+<hr class="divider">
+
+<!-- ═══════════════ 2. FISIOLOGÍA ═══════════════ -->
+<div class="section" id="funcion">
+  <h2 class="section-title"><span class="num">02</span> Fisiología General</h2>
+
+  <div class="img-box">
+    <div class="img-box-header">🖼 IMAGEN / DIAGRAMA DE LA DIAPOSITIVA — Fisiología del Páncreas</div>
+    <div class="img-interpretation">
+      <strong>Descripción:</strong> Diagrama esquemático que muestra la doble función del páncreas. Se ilustran: el estómago, el duodeno y el páncreas completo. En el interior del páncreas se distinguen dos tipos de tejido funcionalmente diferentes:
+      <br>• <strong>Células ductales (Duct cells):</strong> secretan solución acuosa de NaHCO₃ → función exocrina tampón
+      <br>• <strong>Células acinares (Acinar cells):</strong> secretan enzimas digestivas → función exocrina enzimática
+      <br>• <strong>Porción endocrina (Islotes de Langerhans):</strong> libera hormonas (insulina, glucagón) directamente al torrente sanguíneo.
+      <br><br>
+      Las flechas muestran que las enzimas fluyen hacia el conducto pancreático → duodeno, mientras que las hormonas van directamente a la sangre.
+    </div>
+  </div>
+
+  <div class="box box-teal">
+    <div class="box-title">🔑 Concepto Clave</div>
+    El páncreas tiene <span class="teal-hl">doble función glandular</span>:
+    <div class="flow" style="margin-top:0.6rem;">
+      <div class="flow-box">🔴 Endócrina</div>
+      <div class="flow-arrow">+</div>
+      <div class="flow-box">🔵 Exocrina</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-box">Función integrada</div>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- ═══════════════ 3. ENDÓCRINA ═══════════════ -->
+<div class="section" id="endocrina">
+  <h2 class="section-title"><span class="num">03</span> Función Endocrina</h2>
+
+  <div class="img-box">
+    <div class="img-box-header">🖼 IMAGEN / DIAGRAMA DE LA DIAPOSITIVA — Regulación Hormonal del Páncreas</div>
+    <div class="img-interpretation">
+      <strong>Descripción:</strong> Diagrama circular de retroalimentación que muestra cómo el páncreas regula la glucemia:
+      <br>• <strong>Glucemia alta (High blood sugar)</strong> → estimula liberación de <strong>Insulina</strong> (células β) → estimula captación de glucosa por tejidos periféricos + formación de glucógeno hepático → <em>baja glucemia</em>
+      <br>• <strong>Glucemia baja (Low blood sugar)</strong> → estimula liberación de <strong>Glucagón</strong> (células α) → estimula degradación de glucógeno hepático → <em>aumenta glucemia</em>
+      <br>• Las flechas rojas representan el eje insulínico y las verdes el glucagonémico.
+      <br><br>
+      ⭐⭐ Este circuito de retroalimentación negativa es esencial para comprender la fisiopatología de la DM pancreatogénica en pancreatitis crónica.
+    </div>
+  </div>
+
+  <p>Se refiere a la liberación de <span class="red">insulina y glucagón</span> en el torrente sanguíneo.</p>
+
+  <div class="subsection-title">Islotes de Langerhans — Células principales <span class="star">⭐⭐</span></div>
+
+  <div class="table-wrapper">
+    <table>
+      <thead>
+        <tr>
+          <th>Célula</th>
+          <th>Hormona Producida</th>
+          <th>Función Principal</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Células α</strong></td><td>Glucagón</td><td>↑ Glucemia (glucogenólisis)</td></tr>
+        <tr><td><strong>Células β</strong> <span class="star">⭐</span></td><td>Insulina</td><td>↓ Glucemia (captación celular)</td></tr>
+        <tr><td><strong>Células δ</strong></td><td>Somatostatina</td><td>Inhibe α y β; regula GI</td></tr>
+        <tr><td><strong>Células PP</strong></td><td>Polipéptido pancreático</td><td>Funciones GI (vaciamiento, secreción)</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- ═══════════════ 4. EXÓCRINA ═══════════════ -->
+<div class="section" id="exocrina">
+  <h2 class="section-title"><span class="num">04</span> Función Exocrina</h2>
+
+  <p>Incluye la síntesis y liberación de <span class="teal-hl">enzimas digestivas en el duodeno</span> del intestino delgado. Para su función y regulación depende del <strong>Nervio Vago</strong>.</p>
+
+  <div class="box box-teal">
+    <div class="box-title">🔑 Reguladores Principales</div>
+    <div class="flow">
+      <div class="flow-box">Secretina</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-box">↑ Agua + HCO₃⁻</div>
+    </div>
+    <div class="flow" style="margin-top:0.4rem;">
+      <div class="flow-box">Colecistocinina (CCK)</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-box">↑ Descarga de enzimas digestivas</div>
+    </div>
+  </div>
+
+  <div class="subsection-title">Enzimas Pancreáticas <span class="star">⭐⭐</span></div>
+  <div class="table-wrapper">
+    <table>
+      <thead>
+        <tr><th>Grupo</th><th>Enzimas</th><th>Sustrato</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><span class="teal-hl">Lipolíticas</span></td><td>Lipasa, esterasa del colesterol, fosfolipasa</td><td>Lípidos</td></tr>
+        <tr><td><span class="teal-hl">Amilolíticas</span></td><td>Amilasa</td><td>Polisacáridos</td></tr>
+        <tr><td><span class="red">Proteasas</span> <span class="star">⭐</span></td><td>Tripsina, quimiotripsina, elastasa, carboxipeptidasa, desoxiribonucleasa</td><td>Proteínas / ácidos nucleicos</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- ═══════════════ 5. PANCREATITIS AGUDA ═══════════════ -->
+<div class="section" id="pancreatitis-aguda">
+  <h2 class="section-title"><span class="num">05</span> Pancreatitis Aguda — Definición</h2>
+
+  <div class="box box-red">
+    <div class="box-title">⚠️ Definición (Harrison 18ª Ed)</div>
+    <p>Proceso <span class="red">inflamatorio del páncreas</span> asociado a la <strong>lesión de las células acinares</strong>, que se puede resolver con recuperación funcional y anatómica completa.</p>
+    <p>Varía desde la <span class="gold-hl">pancreatitis edematosa</span> (leve, autolimitada) hasta la <span class="red">pancreatitis necrosante</span> (grado de necrosis correlaciona con gravedad y manifestaciones sistémicas).</p>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- ═══════════════ 6. ETIOLOGÍA ═══════════════ -->
+<div class="section" id="etiologia">
+  <h2 class="section-title"><span class="num">06</span> Etiología</h2>
+
+  <div class="box box-yellow">
+    <div class="box-title">📊 Causas Principales (Harrison 18ª Ed)</div>
+    <div class="etio-grid">
+      <span class="etio-main">🪨 Litiasis — 21–33%</span>
+      <span class="etio-main">🍺 Alcohol — 16–27%</span>
+      <span class="etio-sec">📈 Hipertrigliceridemia — 2–5%</span>
+      <span class="etio-sec">💊 Fármacos — 2–5%</span>
+      <span class="etio-sec">🔬 CPRE / manometría biliar</span>
+      <span class="etio-sec">🏥 Estado posoperatorio</span>
+      <span class="etio-sec">🔄 Disfunción esfínter de Oddi</span>
+      <span class="etio-rare">🫀 Iatrogénico (ERCP/EUS)</span>
+      <span class="etio-rare">🧬 Hipercalcemia</span>
+      <span class="etio-rare">🦠 Infección</span>
+      <span class="etio-rare">🧬 Hereditario</span>
+      <span class="etio-rare">🛡️ Autoinmune</span>
+      <span class="etio-rare">🏗️ Structural (pánc. divisum, tumores)</span>
+    </div>
+    <p style="margin-top:0.6rem; font-size:0.85rem; color:var(--ink-light);">Litiasis + alcohol = <strong class="red">75–80%</strong> de todos los casos.</p>
+  </div>
+
+  <div class="img-box">
+    <div class="img-box-header">🖼 IMAGEN / TABLA DE LA DIAPOSITIVA — Box 1 JAMA 2021 (Etiologías PA)</div>
+    <div class="img-interpretation">
+      <strong>Descripción:</strong> Cuadro de texto del artículo <em>JAMA 2021;325(4):382-390</em> que lista las etiologías de la Pancreatitis Aguda:
+      <br>• Gallstones (21%–33%) — <strong>causa más frecuente</strong>
+      <br>• Alcohol (16%–27%)
+      <br>• Trigliceridemia (2%–5%)
+      <br>• Iatrogénica (ERCP/EUS)
+      <br>• Hipercalcemia
+      <br>• Infección
+      <br>• Hereditaria
+      <br>• Autoinmune
+      <br>• Medicamentos
+      <br>• Structural: pánc. divisum / tumores o lesiones quísticas
+      <br><br>
+      ⭐ Importante: en la práctica clínica, los cálculos biliares y el alcohol representan la gran mayoría de los casos. El resto son diagnósticos de exclusión.
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- ═══════════════ 7. EPIDEMIOLOGÍA ═══════════════ -->
+<div class="section" id="epidemiologia">
+  <h2 class="section-title"><span class="num">07</span> Epidemiología</h2>
+
+  <p><em>Forsmark CE. N Engl J Med 2016;375:1972-81</em></p>
+
+  <ul>
+    <li>En EE.UU.: costos de atención médica de <span class="red">$2.5 mil millones/año</span></li>
+    <li>Incidencia ha aumentado al menos <span class="red">20% en los últimos 10 años</span></li>
+    <li>En el resto del mundo: <span class="gold-hl">20–22%</span> de incremento</li>
+    <li>Gran incremento de incidencia en poblaciones <span class="teal-hl">pediátricas</span></li>
+    <li>En relación con la <strong>epidemia mundial de obesidad</strong> y aumento en tasas de cálculos biliares</li>
+  </ul>
+
+  <div class="box box-green">
+    <div class="box-title" style="color:var(--green);">✅ Pronóstico General</div>
+    <p><span class="star">⭐⭐</span> <strong>80%</strong> de pacientes tienen enfermedad <span class="teal-hl">leve o autolimitada</span>.</p>
+    <p>La mortalidad ha disminuido y actualmente representa el <span class="gold-hl">2%</span>.</p>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- ═══════════════ 8. FISIOPATOLOGÍA ═══════════════ -->
+<div class="section" id="fisiopatologia">
+  <h2 class="section-title"><span class="num">08</span> Fisiopatología</h2>
+
+  <div class="box box-teal">
+    <div class="box-title">⚙️ 3 Fases Fisiopatológicas <span class="star">⭐⭐⭐</span></div>
+  </div>
+
+  <div class="flow" style="flex-direction:column; align-items:flex-start; gap:0.6rem; margin:1rem 0;">
+    <div style="display:flex;align-items:center;gap:0.6rem;">
+      <div class="flow-box" style="background:#fff0ee; border-color:var(--red);">1ª Fase</div>
+      <div class="flow-arrow">→</div>
+      <span><strong>Activación de enzimas</strong> por daño celular (células acinares)</span>
+    </div>
+    <div style="padding-left:1.5rem; color:var(--red);">↓</div>
+    <div style="display:flex;align-items:center;gap:0.6rem;">
+      <div class="flow-box" style="background:#fff8e1; border-color:#f9a825;">2ª Fase</div>
+      <div class="flow-arrow">→</div>
+      <span><strong>Quimioatracción y secuestro de neutrófilos</strong> (respuesta inflamatoria)</span>
+    </div>
+    <div style="padding-left:1.5rem; color:var(--red);">↓</div>
+    <div style="display:flex;align-items:center;gap:0.6rem;">
+      <div class="flow-box" style="background:#ffebee; border-color:var(--red);">3ª Fase</div>
+      <div class="flow-arrow">→</div>
+      <span><strong>Efecto sistémico:</strong> digestión de membranas, proteólisis, edema, hemorragia, necrosis isquémica y grasa, daño vascular</span>
+    </div>
+  </div>
+
+  <div class="img-box">
+    <div class="img-box-header">🖼 IMAGEN / DIAGRAMA DE LA DIAPOSITIVA — Fisiopatología de Pancreatitis Aguda</div>
+    <div class="img-interpretation">
+      <strong>Descripción del diagrama:</strong> Esquema mecanístico completo con las siguientes vías:
+      <br><br>
+      <strong>Causas de lesión acinar:</strong>
+      <br>→ Exógenas: Alcohol, infección viral, fármacos, trauma
+      <br>→ Endógenas: Hipercalcemia, hiperlipemia
+      <br><br>
+      <strong>Obstrucción del conducto pancreático:</strong> cálculos en colédoco, moco espeso (fibrosis quística), tumor, espasmo del conducto → bloqueo del flujo → fuga enzimática
+      <br><br>
+      <strong>Fuga enzimática (Enzyme leakage):</strong>
+      <br>→ A la sangre: ↑ Amilasa y Lipasa sérica (se aprecia la curva temporal: amilasa pico temprano y corto, lipasa pico tardío y prolongado)
+      <br>→ A los tejidos:
+      <br>&emsp;• Lipasa → necrosis grasa (fat necrosis)
+      <br>&emsp;• Proteasas → destrucción de vasos sanguíneos y hemorragia
+      <br>→ Ambas vías convergen en: <strong>Pancreatitis Aguda</strong>
+      <br><br>
+      ⭐⭐⭐ La gráfica temporal integrada muestra cómo la amilasa sube antes (pico ~12–24h) y baja más rápido, mientras que la lipasa sube más tarde pero permanece elevada por más tiempo — clave diagnóstica.
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- ═══════════════ 9. DIAGNÓSTICO ═══════════════ -->
+<div class="section" id="diagnostico">
+  <h2 class="section-title"><span class="num">09</span> Diagnóstico — Criterios de Atlanta Revisados</h2>
+  <p><em>JAMA 2021;325(4):382-390</em></p>
+
+  <div class="box box-red">
+    <div class="box-title">⭐⭐⭐ Regla: Se requieren 2 o más de los siguientes</div>
+  </div>
+
+  <div class="criteria-item criteria-a">
+    <div class="criteria-letter">A</div>
+    <div><strong>Dolor abdominal</strong> sugestivo de pancreatitis (epigástrico, irradiado a espalda, persistente)</div>
+  </div>
+  <div class="criteria-item criteria-b">
+    <div class="criteria-letter">B</div>
+    <div><strong>Amilasa sérica o lipasa sérica</strong> elevada <span class="red">&gt; 3 × el límite superior de la normalidad (SLS)</span></div>
+  </div>
+  <div class="criteria-item criteria-c">
+    <div class="criteria-letter">C</div>
+    <div><strong>Hallazgos característicos</strong> en imagen (TC contrastada, RM; menos frecuentemente ecografía)</div>
+  </div>
+
+  <div class="box box-yellow" style="margin-top:1rem;">
+    <div class="box-title">📝 Nota Clínica</div>
+    <p>La biopsia se podría considerar estudio de referencia, sin embargo en la práctica se usa el <strong>criterio de consenso (2/3)</strong>.</p>
+  </div>
+
+  <div class="img-box">
+    <div class="img-box-header">🖼 IMAGEN / TABLA DE LA DIAPOSITIVA — Box 2 JAMA: Clasificación Atlanta Revisada</div>
+    <div class="img-interpretation">
+      <strong>A. Clasificación Morfológica:</strong>
+      <br>• <em>Pancreatitis Edematosa Intersticial:</em> agrandamiento difuso/focal con realce homogéneo del parénquima. Cambios inflamatorios de la grasa peripancreática. ±colecciones peripancreáticas.
+      <br>&emsp;– &lt;4 semanas → APFC (Acute Peripancreatic Fluid Collection): adyacente al páncreas, sin extensión intrapancreática, homogénea, sin necrosis.
+      <br>&emsp;– &gt;4 semanas → Pseudoquiste: colección encapsulada, madura, pared bien definida, sin componente sólido.
+      <br>• <em>Pancreatitis Necrotizante:</em> necrosis del parénquima pancreático y tejido peripancreático. Patrón de realce variable en primeros días. Áreas sin realce = necrosis después de la 1ª semana.
+      <br>&emsp;– &lt;4 semanas → ANC (Acute Necrotic Collection)
+      <br>&emsp;– &gt;4 semanas → WON (Walled-Off Necrosis): colección madura con pared bien definida, densidad heterogénea.
+      <br><br>
+      <strong>C. Grados de Severidad (criterios diagnósticos 2/3):</strong>
+      <br>• <span style="color:var(--green)">LEVE:</span> sin falla orgánica, sin complicaciones locales ni sistémicas
+      <br>• <span style="color:#f9a825;">MODERADAMENTE SEVERA:</span> falla orgánica que se resuelve en &lt;48h Y/O complicaciones locales/sistémicas sin falla orgánica persistente
+      <br>• <span style="color:var(--red)">SEVERA:</span> falla orgánica persistente (&gt;48h), falla orgánica única o múltiple
+    </div>
+  </div>
+
+  <div class="img-box">
+    <div class="img-box-header">🖼 IMAGEN / DIAGRAMA — Timeline de Pancreatitis Aguda (JAMA 2021)</div>
+    <div class="img-interpretation">
+      <strong>Descripción:</strong> Diagrama de flujo temporal que muestra la evolución de la PA desde el inicio de síntomas hasta &gt;4 semanas:
+      <br><br>
+      <strong>Eje temporal (Symptom onset → Admission → 24h → 48h → 72h → 2wk → 4wk → &gt;4wk):</strong>
+      <br><br>
+      <strong>Pancreatitis Edematosa Intersticial (LEVE):</strong>
+      <br>→ Resolución rápida del dolor
+      <br>→ O: Colección peripancreática aguda o falla orgánica transitoria ⟶ (si persiste &gt;4 semanas) → <strong>Pseudoquiste</strong>
+      <br><br>
+      <strong>Pancreatitis Necrotizante (MODERADA-SEVERA):</strong>
+      <br>→ Colección necrótica aguda o falla orgánica transitoria ⟶ a las 48–72h:
+      <br>&emsp;• Necrosis estéril ⟶ Walled-off necrosis
+      <br>&emsp;• Necrosis infectada ⟶ Walled-off necrosis infectada
+      <br>&emsp;• Falla orgánica persistente (SEVERA) ⟶ continúa indefinidamente
+      <br><br>
+      ⭐⭐ La transición de estéril a infectado ocurre alrededor de 72h–2 semanas. La TC con contraste está indicada en este período si hay deterioro clínico.
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- ═══════════════ 10. PRESENTACIÓN CLÍNICA ═══════════════ -->
+<div class="section" id="clinica">
+  <h2 class="section-title"><span class="num">10</span> Presentación Clínica</h2>
+  <p><em>Harrison, Principios de Medicina Interna 18ª ed</em></p>
+
+  <div class="subsection-title">Dolor Abdominal <span class="star">⭐⭐⭐</span></div>
+  <p>El dolor abdominal es el <span class="red">síntoma principal</span> de la pancreatitis aguda.</p>
+  <ul>
+    <li>Puede variar desde <strong>leve y tolerable</strong> hasta <strong>intenso, constante e incapacitante</strong></li>
+    <li>Localización: <span class="teal-hl">epigastrio y región periumbilical</span></li>
+    <li>Irradiación: <span class="red">espalda (50% casos)</span>, tórax, flancos y región inferior del abdomen</li>
+    <li>Puede persistir por <strong>horas a días</strong></li>
+    <li>Mejora con <span class="gold-hl">sedestación y flexión hacia delante</span> (posición antiálgica)</li>
+  </ul>
+
+  <div class="subsection-title">Otros Síntomas y Signos</div>
+  <ul>
+    <li><span class="teal-hl">Náuseas y vómito</span> en el <span class="red">90%</span> de los sujetos <span class="star">⭐⭐</span></li>
+    <li><strong>5–10%</strong> de pacientes con pancreatitis severa cursan <span class="red">sin dolor</span> e hipotensión inexplicada</li>
+    <li>Distensión abdominal e íleo</li>
+    <li>Bastante frecuentes: <span class="teal-hl">febrícula, taquicardia e hipotensión</span></li>
+  </ul>
+
+  <div class="subsection-title">Shock <span class="star">⭐⭐</span></div>
+  <p>El choque puede obedecer a:</p>
+  <div class="flow" style="flex-direction:column; gap:0.5rem;">
+    <div style="display:flex; gap:0.6rem; align-items:flex-start;">
+      <div class="flow-box" style="white-space:normal; min-width:50px;">1)</div>
+      <span><strong>Hipovolemia</strong> secundaria a exudación de proteínas sanguíneas y plasmáticas hacia el espacio retroperitoneal (<span class="teal-hl">"quemadura retroperitoneal"</span>)</span>
+    </div>
+    <div style="display:flex; gap:0.6rem; align-items:flex-start;">
+      <div class="flow-box" style="white-space:normal; min-width:50px;">2)</div>
+      <span>Mayor formación y liberación de <strong>péptidos de cininas</strong> → vasodilatación y ↑ permeabilidad vascular</span>
+    </div>
+    <div style="display:flex; gap:0.6rem; align-items:flex-start;">
+      <div class="flow-box" style="white-space:normal; min-width:50px;">3)</div>
+      <span>Efectos generalizados de enzimas <strong>proteolíticas y lipolíticas</strong> liberadas a la circulación</span>
+    </div>
+  </div>
+
+  <div class="subsection-title">Signos Adicionales</div>
+  <ul>
+    <li><span class="teal-hl">Ictericia:</span> por coledocolitiasis o edema de cabeza de páncreas</li>
+    <li>Nódulos eritematosos en piel por necrosis de grasa subcutánea (paniculitis) — <em>raros</em></li>
+    <li>Signos pulmonares (10–20%): estertores basales, atelectasias, derrame pleural</li>
+    <li>Ruidos intestinales disminuidos o ausentes</li>
+  </ul>
+
+  <div class="box box-red">
+    <div class="box-title">⚠️ Signos de Gravedad — &lt;3% de los casos <span class="star">⭐⭐⭐</span></div>
+    <p><span class="red">Signo de Cullen:</span> coloración azul pálido alrededor del ombligo — por hemoperitoneo</p>
+    <p><span class="red">Signo de Turner (Grey-Turner):</span> coloración azul, roja, morada o verde-parda en los flancos — por catabolismo hístico de hemoglobina</p>
+    <p style="margin-top:0.5rem; font-size:0.9rem;">→ Ambos son infrecuentes y revelan <strong>pancreatitis necrosante grave</strong>.</p>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- ═══════════════ 11. LABORATORIO ═══════════════ -->
+<div class="section" id="laboratorio">
+  <h2 class="section-title"><span class="num">11</span> Laboratorio</h2>
+  <p><em>Harrison, Principios de Medicina Interna 18ª ed</em></p>
+
+  <div class="table-wrapper">
+    <table>
+      <thead>
+        <tr><th>Causa/Mecanismo</th><th>Hallazgo de Laboratorio</th><th>Valor / Referencia</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Respuesta sistémica / hemoconcentración</td><td>Leucocitosis</td><td><span class="red">15,000–20,000 leuc/μl</span></td></tr>
+        <tr><td>Respuesta sistémica / hemoconcentración</td><td>↑ Hematocrito (Hto)</td><td><span class="red">Hto &gt;44% = mal pronóstico</span></td></tr>
+        <tr><td>Falla endócrina</td><td>Hiperglucemia / hipoglucemia</td><td>Múltiples mecanismos (↓ insulina, ↑ glucagón, ↑ glucocorticoides)</td></tr>
+        <tr><td>Lesión glandular</td><td>↑ ALT, AST, DHL</td><td>DHL muy alta = <span class="red">mal pronóstico</span></td></tr>
+        <tr><td>Lesión acinar</td><td><span class="star">⭐⭐</span> ↑ Amilasa sérica</td><td>&gt;3 × SLS para criterio Dx</td></tr>
+        <tr><td>Lesión acinar</td><td><span class="star">⭐⭐⭐</span> ↑ Lipasa sérica</td><td>&gt;3 × SLS para criterio Dx</td></tr>
+        <tr><td>Depósito de calcio en grasa necrótica</td><td>Hipocalcemia</td><td>~30% de los casos; Ca &lt;8 mg/dL en Ranson</td></tr>
+        <tr><td>Hipoalbuminemia</td><td>↓ Albúmina sérica (&lt;3 g/100ml)</td><td>10% de casos; asociado a PA grave y alta mortalidad</td></tr>
+        <tr><td>Hipoxemia</td><td>↓ PaO₂</td><td>~25% de los pacientes</td></tr>
+        <tr><td>Daño renal</td><td>↑ BUN y creatinina</td><td>BUN &gt;20 mg/dl = severidad</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="box box-red">
+    <div class="box-title">⚠️ Interferencias Importantes <span class="star">⭐⭐</span></div>
+    <ul>
+      <li><strong>Hipertrigliceridemia</strong> puede producir <span class="red">falsos resultados NORMALES de amilasa</span></li>
+      <li><strong>pH &lt;7.32</strong> produce una <span class="red">falsa hiperamilasemia</span></li>
+      <li>PFH: pueden demostrar obstrucción biliar</li>
+    </ul>
+  </div>
+
+  <div class="img-box">
+    <div class="img-box-header">🖼 IMAGEN / TABLA — Marcadores Séricos para Diagnóstico y Pronóstico en PA</div>
+    <div class="img-interpretation">
+      <strong>Tabla 2 — Marcadores séricos:</strong>
+      <div style="overflow-x:auto; margin-top:0.7rem;">
+        <table>
+          <thead><tr><th>Marcador</th><th>Inicio (horas)</th><th>Propósito</th><th>Observaciones / Limitaciones</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Alanina transaminasa (ALT)</strong></td><td>12–24</td><td>Diagnóstico y etiología</td><td>Asociada a pancreatitis por cálculos; elevación ≥3× = VPP 95% para pancreatitis biliar</td></tr>
+            <tr><td><strong>Amilasa</strong></td><td>2–12</td><td>Diagnóstico</td><td>Más precisa cuando ≥2× SLS; sensibilidad y especificidad disminuyen con el tiempo</td></tr>
+            <tr><td><strong>PCR</strong></td><td>24–48</td><td>Predictivo de severidad</td><td>Marcador tardío; niveles altos asociados a necrosis pancreática</td></tr>
+            <tr><td><strong>Interleucina-6</strong></td><td>18–48</td><td>Predictivo de severidad</td><td>Indicación temprana de severidad</td></tr>
+            <tr><td><strong>Interleucina-8</strong></td><td>12–24</td><td>Predictivo de severidad</td><td>Indicación temprana de severidad</td></tr>
+            <tr><td><strong>Lipasa</strong></td><td>4–8</td><td>Diagnóstico</td><td>Mayor sensibilidad en pancreatitis alcohólica; más específica y sensible que amilasa</td></tr>
+            <tr><td><strong>Fosfolipasa A₂</strong></td><td>24</td><td>Predictivo de severidad</td><td>Asociada a necrosis pancreática y falla pulmonar</td></tr>
+            <tr><td><strong>Procalcitonina</strong></td><td>24–36</td><td>Predictivo de severidad</td><td>Detección temprana de severidad; altas concentraciones en necrosis infectada</td></tr>
+            <tr><td><strong>Péptido de activación del tripsinógeno (TAP)</strong></td><td>Pocas horas</td><td>Diagnóstico y predicción de severidad</td><td>Marcador temprano; correlación estrecha con severidad</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- ═══════════════ 12. AMILASA ═══════════════ -->
+<div class="section" id="amilasa">
+  <h2 class="section-title"><span class="num">12</span> Amilasa</h2>
+  <p><em>Henry (2010), Laboratorio en el Diagnóstico Clínico 20ª Ed, Marban / Tietz 6ª Ed. 2018</em></p>
+
+  <div class="subsection-title">Bioquímica</div>
+  <p>Hidroliza uniones <span class="teal-hl">1,4-α-glucosídicos</span> en polisacáridos (amilosa, amilopectina y glicógeno).</p>
+  <p><strong>No es exclusiva del páncreas:</strong> también en glándulas salivales, enterocitos, y otros tejidos. Se filtran a través del riñón en condiciones normales.</p>
+
+  <div class="subsection-title">Cinética en Pancreatitis Aguda <span class="star">⭐⭐⭐</span></div>
+
+  <div class="formula-box">
+    <span class="label">⏱ AMILASA — Cinética temporal</span>
+    Elevación:   5–8 horas post-inicio
+    Pico:        12–72 horas  (4–6 × SLS)
+    Retorno basal: 3–4 días
+    Nota: El grado de elevación NO predice la gravedad
+  </div>
+
+  <div class="kinetics-row">
+    <span class="kin-label">Amilasa</span>
+    <div class="kin-bar-wrap">
+      <div class="kin-bar kin-amylase">pico 12–72h</div>
+    </div>
+    <span style="font-size:0.8rem; color:var(--ink-light);">regresa 3–4 días</span>
+  </div>
+  <div class="kinetics-row">
+    <span class="kin-label">Lipasa</span>
+    <div class="kin-bar-wrap">
+      <div class="kin-bar kin-lipase">pico 24h → persiste 7–14d</div>
+    </div>
+    <span style="font-size:0.8rem; color:var(--ink-light);">más tiempo elevada</span>
+  </div>
+
+  <div class="box box-yellow">
+    <div class="box-title">📝 Perlas Clínicas</div>
+    <ul>
+      <li>La concentración <span class="gold-hl">normal</span> de amilasa sérica <strong>NO descarta</strong> el diagnóstico</li>
+      <li>Aumentos importantes → principalmente lesión <span class="teal-hl">pancreática</span> o de <span class="teal-hl">glándula salival</span></li>
+      <li>Resto de causas producen elevaciones discretas-moderadas</li>
+    </ul>
+  </div>
+
+  <div class="subsection-title">Causas de Hiperamilasemia — Falsos Positivos <span class="star">⭐⭐</span></div>
+  
+  <div class="img-box">
+    <div class="img-box-header">🖼 IMAGEN / TABLA — Tabla 29.7 Tietz: Causas de Hiperamilasemia</div>
+    <div class="img-interpretation">
+      <strong>Causas listadas por grupo (tipo de isoenzima predominante en paréntesis: P-AMY = pancreática; S-AMY = salivar):</strong>
+      <br><br>
+      <strong>Enfermedades pancreáticas:</strong> Pancreatitis (cualquier causa) (P-AMY↑), trauma pancreático (P-AMY↑)
+      <br><br>
+      <strong>Enfermedades intraabdominales no pancreáticas:</strong> Enfermedad biliar (P-AMY↑), obstrucción intestinal (P-AMY↑), infarto mesentérico (P-AMY↑), úlcera péptica perforada (P-AMY↑), gastritis/duodenitis (P-AMY↑), aneurisma aórtico roto, apendicitis perforada, peritonitis, trauma
+      <br><br>
+      <strong>Enfermedad genitourinaria:</strong> Embarazo ectópico/roto, salpingitis (S-AMY↑), malignidad ovárica (S-AMY↑), insuficiencia renal (mixta)
+      <br><br>
+      <strong>Misceláneos:</strong> Lesiones de glándulas salivales (S-AMY↑), abuso alcohólico agudo (S-AMY↑), cetoacidosis diabética (S-AMY↑), macroamilasemia (S-AMY↑ o P-AMY↑), shock séptico (S-AMY↑), cirugía cardíaca (S-AMY↑), tumores (S-AMY↑), fármacos (S-AMY↑)
+      <br><br>
+      ⭐ Clave: Si hay hiperamilasemia sin causa evidente, descartar macroamilasemia midiendo amilasa en orina (estará normal en macroamilasemia porque no se filtra el complejo grande).
+    </div>
+  </div>
+
+  <div class="fp-fn-grid">
+    <div class="fp-box">
+      <h4>🔴 Falsos Positivos</h4>
+      <ul>
+        <li>Contaminación con saliva</li>
+        <li>Macroamilasemia</li>
+        <li>Insuficiencia renal</li>
+        <li>Cetoacidosis diabética</li>
+        <li>Enf. biliar / obstrucción intestinal</li>
+        <li>pH &lt;7.32</li>
+      </ul>
+    </div>
+    <div class="fn-box">
+      <h4>🔵 Falsos Negativos (Amilasa normal en PA)</h4>
+      <ul>
+        <li><strong>Hipertrigliceridemia</strong> (más común)</li>
+        <li>PA alcohólica crónica</li>
+        <li>Presentación tardía (&gt;3–4 días)</li>
+        <li>Pancreatitis crónica agudizada</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="subsection-title">Macroamilasa</div>
+  <p>Amilasa conjugada con <span class="teal-hl">inmunoglobulinas (IgG e IgA)</span>. Sujeto sano con amilasa sérica elevada (1.05%). Afección adquirida y benigna. Más frecuente en hombres.</p>
+  <p><strong>Confirmación:</strong> medir simultáneamente amilasa sérica y urinaria (<span class="gold-hl">amilasa urinaria normal</span> = macroamilasemia; también uso de polietilenglicol para precipitación).</p>
+  <p>Se asocia a: linfoma, infección por VIH, gamapatía monoclonal, artritis reumatoide, colitis ulcerativa.</p>
+</div>
+
+<hr class="divider">
+
+<!-- ═══════════════ 13. LIPASA ═══════════════ -->
+<div class="section" id="lipasa">
+  <h2 class="section-title"><span class="num">13</span> Lipasa <span class="star">⭐⭐⭐</span></h2>
+  <p><em>Tietz 6ª Ed. 2018 / Henry 2010</em></p>
+
+  <div class="box box-red">
+    <div class="box-title" style="background:var(--dark-box); color:var(--gold); padding:0.4rem 0.8rem; border-radius:6px; display:inline-block; margin-bottom:0.5rem;">⭐⭐⭐ ESTUDIO DE "ELECCIÓN" PARA PANCREATITIS AGUDA</div>
+    <p>Más <strong>específica y sensible</strong> que la amilasa para detectar pancreatitis aguda.</p>
+  </div>
+
+  <div class="subsection-title">Bioquímica</div>
+  <p>Hidrólisis de ésteres de glicerol en posiciones <strong>1 y 3</strong>. La actividad sérica es principalmente de origen pancreático, pero también secretada en estómago, mucosa intestinal y pulmonar.</p>
+  <p>Se cuantifica <strong>solamente en suero</strong>, ya que se reabsorbe completamente en los túbulos proximales del riñón.</p>
+
+  <div class="subsection-title">Cinética en Pancreatitis Aguda <span class="star">⭐⭐⭐</span></div>
+
+  <div class="formula-box">
+    <span class="label">⏱ LIPASA — Cinética temporal</span>
+    Elevación:    4–8 horas post-inicio
+    Pico:         24 horas (2–50 × SLS)
+    Retorno basal: 7–14 días
+    Estabilidad:  1 semana a temperatura ambiente
+    Muestra:      Suero (ictericia, lipemia y hemólisis NO interfieren)
+  </div>
+
+  <div class="img-box">
+    <div class="img-box-header">🖼 IMAGEN / DIAGRAMA — Curvas Temporales de Amilasa vs Lipasa</div>
+    <div class="img-interpretation">
+      <strong>Descripción del diagrama comparativo:</strong>
+      <br><br>
+      El diagrama muestra dos curvas superpuestas sobre un eje temporal de 0 a 48–72 horas desde el inicio:
+      <br><br>
+      <strong style="color:var(--red);">AMILASA (curva roja):</strong>
+      <br>• ↑ desde las 6–12h
+      <br>• t½ corta → se normaliza rápidamente tras 48–72h
+      <br>• Útil en presentaciones muy tempranas
+      <br><br>
+      <strong style="color:var(--teal);">LIPASA (curva morada/azul):</strong>
+      <br>• ↑ desde las 4–8h (levemente antes que la amilasa en algunos estudios)
+      <br>• t½ MAYOR que la amilasa → permanece elevada por 7–14 días
+      <br>• Preferida cuando el paciente consulta tardíamente (>48h del inicio)
+      <br><br>
+      ⭐⭐⭐ Interpretación clínica clave: Si el paciente llega TARDE (2–3 días después del inicio del dolor), la amilasa puede ya ser normal mientras la lipasa aún está elevada → pedir LIPASA en consultas tardías.
+    </div>
+  </div>
+
+  <div class="fp-fn-grid">
+    <div class="fp-box">
+      <h4>🔴 Falsos Positivos de Lipasa</h4>
+      <ul>
+        <li><strong>ERC con ↓FGR</strong> (acumulación)</li>
+        <li>Obstrucción del conducto pancreático (litiasis, neoplasia)</li>
+        <li>CPRE / instrumentación</li>
+        <li>Opioides (↑ tono esfínter Oddi)</li>
+        <li>Peritonitis de cualquier causa</li>
+      </ul>
+    </div>
+    <div class="fn-box">
+      <h4>🔵 Ventajas sobre Amilasa</h4>
+      <ul>
+        <li>Mayor especificidad pancreática</li>
+        <li>Mayor sensibilidad en PA alcohólica</li>
+        <li>Permanece elevada más tiempo</li>
+        <li>No afectada por lipemia/ictericia/hemólisis</li>
+        <li>No hay "macrolipasemia" relevante</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- ═══════════════ 14. IMAGEN ═══════════════ -->
+<div class="section" id="imagen">
+  <h2 class="section-title"><span class="num">14</span> Imagen</h2>
+  <p><em>Harrison Medicina Interna 16ª ed / UpToDate</em></p>
+
+  <div class="subsection-title">Radiografía Abdominal</div>
+  <ul>
+    <li>Normal en <span class="red">30–50%</span> de los casos</li>
+    <li>Hallazgos: <span class="teal-hl">Asa Centinela</span> y <span class="teal-hl">Signo de Corte de Colon</span> (distensión aislada de colon transverso)</li>
+    <li>Útil para <strong>descartar perforación intestinal</strong> con aire libre</li>
+  </ul>
+
+  <div class="subsection-title">Ecografía</div>
+  <ul>
+    <li>El páncreas frecuentemente no se visualiza por el <strong>gas intestinal suprayacente</strong></li>
+    <li>Permite ver: <span class="gold-hl">cálculos biliares, pseudoquistes, tumores y crecimiento pancreático</span></li>
+  </ul>
+
+  <div class="subsection-title">Tomografía Computarizada (TC) <span class="star">⭐⭐⭐</span></div>
+  <ul>
+    <li>Confirma el diagnóstico de pancreatitis (páncreas edematoso)</li>
+    <li>Útil para predecir complicaciones tardías</li>
+  </ul>
+
+  <div class="box box-red">
+    <div class="box-title">⚠️ Perlas sobre la TC (UpToDate)</div>
+    <ul>
+      <li><span class="red">TC NO es requerida</span> durante el primer día de atención, a menos que sea para diagnóstico diferencial</li>
+      <li>La necrosis tarda <span class="red">48–72 horas</span> para ser aparente en TC</li>
+      <li>TC contrastada indicada en pacientes con <strong>enfermedad severa</strong> (según distintas herramientas de estratificación)</li>
+    </ul>
+  </div>
+
+  <div class="subsection-title">Criterios de Balthazar (TC) <span class="star">⭐⭐</span></div>
+
+  <div class="severity-grid">
+    <div class="sev-card sev-mild">
+      <h4>Grado A — 0 pts</h4>
+      <ul><li>Páncreas de aspecto normal</li></ul>
+    </div>
+    <div class="sev-card sev-mild">
+      <h4>Grado B — 1 pt</h4>
+      <ul><li>Engrosamiento focal o difuso del páncreas</li></ul>
+    </div>
+    <div class="sev-card sev-mod">
+      <h4>Grado C — 2 pts</h4>
+      <ul><li>Hipertrofia con inflamación peripancreática</li></ul>
+    </div>
+    <div class="sev-card sev-sev">
+      <h4>Grado D — 3 pts</h4>
+      <ul><li>Colección líquida única</li></ul>
+    </div>
+    <div class="sev-card sev-crit">
+      <h4>Grado E — 4 pts</h4>
+      <ul><li>Múltiples colecciones líquidas y/o gas dentro del páncreas</li></ul>
+    </div>
+  </div>
+
+  <div class="box box-yellow" style="margin-top:1rem;">
+    <div class="box-title">📝 Limitación de Balthazar</div>
+    <p>La necrosis en TC no se refleja necesariamente en falla orgánica; sin correlación uniforme entre la extensión de la necrosis y la falla orgánica/mortalidad.</p>
+  </div>
+
+  <div class="img-box">
+    <div class="img-box-header">🖼 IMAGEN — Comparación Pancreatitis Edematosa vs Signos Clave</div>
+    <div class="img-interpretation">
+      <strong>Descripción:</strong> Imagen radiográfica abdominal AP que muestra un abdomen sin hallazgos específicos. La segunda imagen muestra una radiografía de tórax con tres flechas rojas señalando derrames pleurales bilaterales (base derecha, izquierda) y ensanchamiento mediastinal — hallazgos complicados de pancreatitis severa.
+      <br><br>
+      → El signo de corte de colon (colon cut-off sign) aparece por íleo paralítico segmentario: el colon transverso se dilata hasta un punto donde se "corta" abruptamente.
+      <br>→ El asa centinela es un asa de intestino delgado dilatada adyacente al área inflamada.
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- ═══════════════ 15. SEVERIDAD ═══════════════ -->
+<div class="section" id="severidad">
+  <h2 class="section-title"><span class="num">15</span> Evaluación de Severidad</h2>
+
+  <div class="subsection-title">Hallazgos Asociados con Enfermedad Severa (ACG) <span class="star">⭐⭐</span></div>
+
+  <div class="table-wrapper">
+    <table>
+      <thead><tr><th>Dominio</th><th>Factor</th></tr></thead>
+      <tbody>
+        <tr><td rowspan="4"><strong>Paciente</strong></td><td>Edad &gt;55 años</td></tr>
+        <tr><td>IMC &gt;30 kg/m²</td></tr>
+        <tr><td>Alteración del estado de conciencia</td></tr>
+        <tr><td>Comorbilidades</td></tr>
+        <tr><td><strong>SIRS</strong></td><td>Ver criterios abajo</td></tr>
+        <tr><td rowspan="3"><strong>Laboratorio</strong></td><td><span class="red">BUN &gt;20 mg/dl</span></td></tr>
+        <tr><td><span class="red">Hct &gt;44%</span></td></tr>
+        <tr><td>Creatinina elevada</td></tr>
+        <tr><td rowspan="3"><strong>Imagen</strong></td><td>Derrame pleural</td></tr>
+        <tr><td>Infiltrados pulmonares</td></tr>
+        <tr><td>Colecciones extrapancreáticas</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="subsection-title">SIRS — Criterios <span class="star">⭐⭐⭐</span></div>
+
+  <div class="box box-red">
+    <div class="box-title">⚠️ SIRS que persiste ≥48h = MAL PRONÓSTICO</div>
+  </div>
+
+  <div class="formula-box">
+    <span class="label">📋 Criterios SIRS (≥2 para diagnóstico)</span>
+    Temperatura:      &gt;38°C o &lt;36°C
+    Frecuencia cardiaca: &gt;90 lpm
+    Taquipnea:        FR &gt;20/min  o  PaCO₂ &lt;32 mmHg
+    Leucocitos:       &gt;12,000/mm³ o &lt;4,000/mm³
+                      o &gt;10% neutrófilos inmaduros
+  </div>
+
+  <div class="subsection-title">Escalas de Pronóstico <span class="star">⭐⭐</span></div>
+
+  <div class="img-box">
+    <div class="img-box-header">🖼 IMAGEN / TABLA — Comparación APACHE-II, BISAP y Ranson (JAMA 2021)</div>
+    <div class="img-interpretation">
+      <strong>Tabla comparativa de las 3 principales escalas:</strong>
+      <br><br>
+      <strong>APACHE-II:</strong> Variables: Edad, temperatura, PAM, pH, FC, FR, Na, K, creatinina, falla renal aguda, Hematocrito, leucocitos, Escala Glasgow, FiO₂ | Propósito original: severidad de enfermedad y mortalidad en UCI | AUC para predicción de severidad: 0.82 | Ventajas: puede calcularse en 24h | Limitaciones: diseñado para UCI, muchas variables, no específico para PA.
+      <br><br>
+      <strong>BISAP (2008, Gut):</strong> Variables: BUN &gt;25 mg/dL, estado mental alterado, ≥2 criterios SIRS, edad &gt;60 años, derrame pleural | Propósito: predicción de mortalidad en PA | Score ≥3: Sensibilidad 0.51, Especificidad 0.91 | Ventajas: 5 variables simples (1 punto c/u), calculable en 24h, específico para PA | Limitaciones: menor sensibilidad/especificidad para predecir severidad vs APACHE-II.
+      <br><br>
+      <strong>Ranson:</strong> Variables al ingreso: edad &gt;55, leucocitos &gt;16,000/μL, LDH &gt;350 U/L, AST &gt;250 U/L, glucosa &gt;200 mg/dL | A las 48h: caída del Hto &gt;10%, ↑BUN &gt;5 mg/dL, Ca &lt;8 mg/dL, PaO₂ &lt;60 mmHg, déficit de base &gt;4 mEq/L, pérdida de líquidos &gt;6L | Ventajas: específico para PA, comprehensivo | Limitaciones: requiere al menos 48h para calcular, no todos los datos se obtienen rutinariamente fuera de UCI.
+      <br><br>
+      ⭐ Para el examen: BISAP es la escala MÁS SIMPLE y PRÁCTICA. Ranson es el más ESPECÍFICO para PA. APACHE-II es el más COMPLEJO y tiene mejor AUC para mortalidad.
+    </div>
+  </div>
+
+  <div class="box box-yellow">
+    <div class="box-title">📝 Perlas sobre Escalas (UpToDate)</div>
+    <ul>
+      <li><strong>Ranson:</strong> pobre predictor de severidad, requiere 48 hrs para completarse</li>
+      <li><strong>APACHE-II:</strong> complejo, no distingue pancreatitis necrotizante, pobre valor predictivo a 24h</li>
+      <li><strong>SIRS score:</strong> simple, comparable a otros más complicados</li>
+      <li><strong>CT Severity Index (Balthazar):</strong> la necrosis NO se refleja necesariamente en falla orgánica; sin correlación uniforme entre extensión de necrosis y falla orgánica/mortalidad</li>
+    </ul>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- ═══════════════ 16. TRATAMIENTO ═══════════════ -->
+<div class="section" id="tratamiento">
+  <h2 class="section-title"><span class="num">16</span> Tratamiento</h2>
+  <p><em>JAMA 2021;325(4):382-390</em></p>
+
+  <div class="subsection-title">Medidas Generales <span class="star">⭐⭐</span></div>
+  <ul>
+    <li>Dieta absoluta (NPO)</li>
+    <li>Reposición de volumen con vigilancia cuidadosa del equilibrio hídrico (se puede producir secuestro de líquido en abdomen)</li>
+    <li>Analgesia</li>
+    <li>Antieméticos, sonda NG (si necesario)</li>
+    <li>Monitorizar electrolitos séricos (calcio) y glucosa</li>
+    <li>Supresión de ácidos en pacientes con factores de riesgo de hemorragia</li>
+    <li>Antibióticos (solo en pancreatitis necrotizante infectada confirmada)</li>
+  </ul>
+
+  <div class="img-box">
+    <div class="img-box-header">🖼 IMAGEN / TABLA — Comparación de Guías para Reanimación Hídrica y Nutrición (JAMA 2021)</div>
+    <div class="img-interpretation">
+      <strong>Tabla 3 — Comparación de guías IAP/APA (2013), AGA (2018), ACG/APA Task Force (2019), Quality Improvement Expert Panel (2019):</strong>
+      <br><br>
+      <strong>Tasa/objetivos de reanimación IV:</strong>
+      <br>• IAP/APA: LR a 5-10 ml/kg/h; FC &lt;120; PAM 65-85; diuresis &gt;0.5-1 ml/kg/h; Hto 35-44%
+      <br>• ACG: Bolo + mantenimiento con titulación según signos vitales, diuresis, BUN, Hto en las primeras 48h
+      <br>• Quality: ≥3 ml/kg/h (inicio); monitorizar BUN, Hto, creatinina c/8-12h en primeras 24-48h
+      <br><br>
+      <strong>Tipo de fluido:</strong> Lactato de Ringer (<em>todas las guías coinciden</em>) → superiores al SS 0.9%
+      <br><br>
+      <strong>Nutrición enteral:</strong>
+      <br>• En PA leve: alimentación oral puede reiniciarse cuando el dolor abdominal disminuya y los marcadores inflamatorios mejoren (dentro de 24h según AGA)
+      <br>• Ruta: nasogástrica o nasoyeyunal
+      <br>• En PA severa: iniciar dentro de 48–72h si se tolera
+      <br><br>
+      <strong>Colecistectomía en PA biliar leve:</strong> Preferiblemente dentro de las 24–48h (o antes del alta). En PA complicada: diferir hasta resolución.
+      <br><br>
+      ⭐⭐ Lactato de Ringer > Solución Salina Normal: reduce la acidemia hiperclorémica y posiblemente reduce la inflamación sistémica.
+    </div>
+  </div>
+
+  <div class="img-box">
+    <div class="img-box-header">🖼 IMAGEN / DIAGRAMA — Manejo Cronológico por Severidad (JAMA 2021)</div>
+    <div class="img-interpretation">
+      <strong>Descripción del diagrama temporal de manejo:</strong>
+      <br><br>
+      <strong>Para TODOS los niveles de severidad (desde admisión):</strong>
+      <br>→ Iniciar reanimación hídrica IV
+      <br><br>
+      <strong>PA LEVE:</strong>
+      <br>→ Iniciar dieta oral sólida una vez tolerable sin exacerbación del dolor
+      <br>→ Colecistectomía para PA por cálculos antes del alta (preferiblemente 24–48h)
+      <br><br>
+      <strong>PA MODERADA A SEVERA:</strong>
+      <br>→ Iniciar dieta oral o nutrición nasoenteral
+      <br>→ A las 48h: TC contrastada si hay SIRS persistente, deterioro clínico o sospecha de necrosis infectada
+      <br>→ Antibióticos si necrosis infectada confirmada (por TC o punción con aguja fina)
+      <br>→ A partir de 2 semanas: Manejo procedimental de complicaciones locales (enfoque escalonado "step-up approach")
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- ═══════════════ 17. PANCREATITIS CRÓNICA ═══════════════ -->
+<div class="section" id="cronica">
+  <h2 class="section-title"><span class="num">17</span> Pancreatitis Crónica</h2>
+  <p><em>Am Fam Physician. 2018;97(6):385-393</em></p>
+
+  <div class="subsection-title">Epidemiología y Clínica</div>
+  <ul>
+    <li>Incidencia: <span class="gold-hl">4–12/100,000/año</span></li>
+    <li><span class="red">Tríada clásica:</span> Dolor abdominal crónico + malabsorción + DM</li>
+    <li>10–20% cursan de manera <span class="teal-hl">indolora</span></li>
+    <li>Disfunción exócrina cuando <span class="red">90% de la función es perdida</span></li>
+  </ul>
+
+  <div class="subsection-title">Laboratorio en Pancreatitis Crónica</div>
+  <ul>
+    <li>Amilasa y lipasa: <span class="teal-hl">discretamente elevadas o normales</span> (contrario a PA)</li>
+    <li>Obstrucción de vías biliares en 5–10% de Px</li>
+    <li>Estudios de secreción pancreática: imprácticos, alto VPN</li>
+    <li>Elastasa fecal: altos falsos positivos</li>
+    <li>Coprológico: esteatorrea (casos avanzados; insensible en enfermedad temprana)</li>
+  </ul>
+
+  <div class="subsection-title">Factores de Riesgo — Clasificación TIGAR-O <span class="star">⭐⭐</span></div>
+
+  <div class="img-box">
+    <div class="img-box-header">🖼 IMAGEN / TABLA — TIGAR-O y Diagnóstico Diferencial de PC (Am Fam Physician 2018)</div>
+    <div class="img-interpretation">
+      <strong>Tabla 1: Clasificación TIGAR-O de Factores de Riesgo para Pancreatitis Crónica:</strong>
+      <br><br>
+      <strong>T — Tóxico-metabólico:</strong> Alcohol, insuficiencia renal crónica, hipercalcemia (hiperparatiroidismo), hiperlipidemia (raro), medicamentos*, tabaco, toxinas
+      <br><strong>I — Idiopático:</strong> inicio temprano y tardío; Pancreatitis tropical calcificante
+      <br><strong>G — Genético:</strong> Autosómico dominante (tripsinógeno catiónico [codones 29 y 122]); Genes modificadores autosómicos recesivos (mutaciones CFTR y SPINK1, tripsinógeno catiónico [codones 16, 22, 23], deficiencia de alfa-1 antitripsina)
+      <br><strong>A — Autoinmune:</strong> PC autoinmune asociada a EII, Sjögren, cirrosis biliar primaria; PC autoinmune aislada
+      <br><strong>R — Recurrente/severa:</strong> Post-irradiación, post-necrótica, pancreatitis aguda recurrente, isquemia vascular
+      <br><strong>O — Obstructiva:</strong> Obstrucción del conducto (tumores pancreáticos o ampulares, fibrosis post-trauma), páncreas divisum, trastornos del esfínter de Oddi
+      <br><br>
+      <strong>Tabla 2: Diagnóstico Diferencial de PC — Más comunes vs Menos comunes:</strong>
+      <br>• Más comunes: colecistitis aguda, pancreatitis aguda, isquemia intestinal/infarto, obstrucción del colédoco, tumores pancreáticos, úlcera péptica, insuficiencia renal
+      <br>• Menos comunes: apendicitis, salpingitis, Crohn, embarazo ectópico, gastroparesia, obstrucción intestinal, SII, malabsorción, quiste ovárico, etc.
+    </div>
+  </div>
+
+  <div class="subsection-title">Imagen en Pancreatitis Crónica <span class="star">⭐⭐⭐</span></div>
+
+  <p><strong>La imagen es la principal herramienta diagnóstica</strong> en PC.</p>
+
+  <div class="img-box">
+    <div class="img-box-header">🖼 IMAGEN / TABLA — Estudios de Imagen para Diagnóstico de PC (Am Fam Physician 2018)</div>
+    <div class="img-interpretation">
+      <strong>eTABLE A — Estudios de imagen y endoscópicos para PC:</strong>
+      <div style="overflow-x:auto; margin-top:0.7rem;">
+        <table>
+          <thead><tr><th>Estudio</th><th>Sensibilidad (%)</th><th>Especificidad (%)</th><th>Comentario</th></tr></thead>
+          <tbody>
+            <tr><td><strong>TC con contraste</strong></td><td>75–90</td><td>85–91</td><td>Prueba radiológica inicial de elección; puede visualizar calcificaciones, pseudoquistes, trombosis, seudoaneurismas, necrosis y atrofia</td></tr>
+            <tr><td><strong>CPRE</strong></td><td>75–95</td><td>90–94</td><td>Estándar de referencia en muchos estudios; invasivo; principalmente para Dx de PC temprana con TC y pruebas de función normales</td></tr>
+            <tr><td><strong>Ecografía endoscópica</strong></td><td>81–97</td><td>60–90</td><td>Útil para evaluar PC temprana, masa pancreática y lesiones quísticas; puede combinarse con biopsia por aspiración con aguja fina</td></tr>
+            <tr><td><strong>RM / CPRM</strong></td><td>78</td><td>96–100</td><td>No invasiva y sin radiación ionizante ni medio de contraste; menos sensible que CPRE para ramas laterales; puede combinarse con prueba de secretina</td></tr>
+            <tr><td><strong>Radiografía simple</strong></td><td>NA</td><td>NA</td><td>No se recomienda de rutina; pueden verse calcificaciones</td></tr>
+            <tr><td><strong>Ecografía abdominal</strong></td><td>67</td><td>98</td><td>Rara vez diagnóstica; puede ser útil para aspiración guiada de quiste</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="img-box">
+    <div class="img-box-header">🖼 IMAGEN / DIAGRAMA — Algoritmo por Pasos para Imagen en PC + Complicaciones (Am Fam Physician 2018)</div>
+    <div class="img-interpretation">
+      <strong>Figura 2 — Algoritmo escalonado de imagen para PC:</strong>
+      <br><br>
+      Ante signos y síntomas clínicos (dolor abdominal, pérdida de peso, esteatorrea, malabsorción, historia de abuso de alcohol, historia de pancreatitis recurrente):
+      <br>→ Realizar historia, examen físico y laboratorio
+      <br><br>
+      <div style="margin-left:1rem;">
+        Paso 1: TC → si criterios diagnósticos: No más imagen. Si inconcluso → Paso 2<br>
+        Paso 2: RM/CPRM → si criterios: diagnóstico confirmado. Si inconcluso → Paso 3<br>
+        Paso 3: Ecografía endoscópica → si criterios: confirmado. Si inconcluso → Paso 4<br>
+        Paso 4: Pruebas de función pancreática → si criterios: confirmado. Si inconcluso → Paso 5<br>
+        Paso 5: CPRE → si criterios: PC crónica confirmada. Si inconcluso: monitorizar síntomas y repetir imagen en 6 meses–1 año
+      </div>
+      <br>
+      <strong>Tabla 6 — Complicaciones de Pancreatitis Crónica e incidencias:</strong>
+      <br>• Pancreatitis aguda: recurrente
+      <br>• Dolor crónico: 80–90%
+      <br>• Osteoporosis u osteopenia: 65%
+      <br>• Diabetes mellitus: &gt;40%
+      <br>• Pérdida de peso: &gt;40%
+      <br>• Pseudoquiste: 25–30%
+      <br>• Cáncer de páncreas: 15–40%
+      <br>• Malabsorción y esteatorrea: 10–15%
+      <br>• Obstrucción biliar, duodenal o gástrica: 5–10%
+      <br>• Ascitis pancreática o derrame pleural: &lt;10%
+      <br>• Seudoaneurisma (especialmente arteria esplénica): &lt;1%
+      <br>• Trombosis esplénica o portal: &lt;1%
+      <br>• Deficiencia de vitaminas (A, D*, E, K, B₁₂): Rara
+      <br>*La deficiencia de vitamina D se ha reportado más frecuentemente en disfunción exócrina pancreática
+    </div>
+  </div>
+
+  <div class="box box-red">
+    <div class="box-title">⚠️ Riesgo de Cáncer</div>
+    <p>La pancreatitis crónica aumenta el riesgo de <span class="red">cáncer de páncreas (15–40%)</span>. Vigilancia con imagen periódica es necesaria.</p>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- RESUMEN FINAL -->
+<div class="section" id="resumen">
+  <h2 class="section-title"><span class="num">✦</span> Resumen Rápido para el Examen</h2>
+
+  <div class="box box-red">
+    <div class="box-title">⭐⭐⭐ LO MÁS IMPORTANTE</div>
+    <ul>
+      <li><strong>Diagnóstico PA:</strong> 2/3 criterios Atlanta (dolor + lipasa/amilasa &gt;3×SLS + imagen)</li>
+      <li><strong>Lipasa &gt; Amilasa</strong> para diagnóstico: más específica, permanece elevada más tiempo (7–14 días vs 3–4 días)</li>
+      <li><strong>Etiología:</strong> Cálculos biliares (21–33%) + Alcohol (16–27%) = 75–80% de todos los casos</li>
+      <li><strong>Hipertrigliceridemia</strong> → falso NORMAL de amilasa; pH &lt;7.32 → falsa hiperamilasemia</li>
+      <li><strong>Severidad grave:</strong> Signo de Cullen + Signo de Turner (&lt;3% de casos)</li>
+      <li><strong>TC NO al primer día;</strong> necrosis aparente a 48–72h; indicar en deterioro clínico/SIRS &gt;48h</li>
+      <li><strong>Fluido de elección:</strong> Lactato de Ringer &gt; Solución Salina Normal</li>
+      <li><strong>Pancreatitis crónica:</strong> amilasa/lipasa normales o ligeramente elevadas; imagen es la herramienta principal</li>
+      <li><strong>80%</strong> de PA es leve o autolimitada; mortalidad actual = 2%</li>
+    </ul>
+  </div>
+</div>
+
+<p style="text-align:center; margin-top:2rem;">
+  <a class="back-top" href="#top">↑ Volver al índice</a>
+</p>
+
+<p style="text-align:center; font-size:0.8rem; color:var(--ink-light); margin-top:1.5rem; padding-bottom:2rem; font-style:italic;">
+  Notas basadas en: Harrison 18ª Ed · JAMA 2021;325(4):382-390 · N Engl J Med 2016;375:1972 · Am Fam Physician 2018;97(6):385-393 · Tietz 6ª Ed 2018 · Henry 2010 · UpToDate
+</p>
+
+</div><!-- /container -->
+
+</body>
+</html>

@@ -1,0 +1,1642 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Evaluación del Funcionamiento Hepático — Notas de Estudio</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #faf6ef;
+    --cream-dark: #f0e8d8;
+    --cream-border: #e8d9c0;
+    --ink: #2c1a0e;
+    --ink-light: #5a3e2b;
+    --red: #c0392b;
+    --red-light: #f8d7d4;
+    --red-border: #e57369;
+    --teal: #0f7b7b;
+    --teal-light: #d4f0ef;
+    --teal-border: #5dbfbf;
+    --gold: #b8860b;
+    --gold-light: #fff8dc;
+    --gold-border: #d4a843;
+    --formula-bg: #1a120a;
+    --formula-text: #f5d87c;
+    --green: #27723a;
+    --green-light: #d4edda;
+    --orange: #d4650a;
+    --orange-light: #fde8d0;
+    --severity-green: #2d7a3a;
+    --severity-yellow: #a07800;
+    --severity-orange: #c05500;
+    --severity-red: #b01020;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background-color: var(--cream);
+    color: var(--ink);
+    font-family: 'Lora', Georgia, serif;
+    font-size: 16px;
+    line-height: 1.75;
+    padding: 0;
+  }
+
+  /* ===== HEADER ===== */
+  .page-header {
+    background: linear-gradient(135deg, #2c1a0e 0%, #5a2d0c 40%, #8b4513 70%, #a0522d 100%);
+    color: #fdf6e3;
+    padding: 3rem 2rem 2.5rem;
+    text-align: center;
+    border-bottom: 5px solid var(--gold);
+    position: relative;
+    overflow: hidden;
+  }
+  .page-header::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    opacity: 0.4;
+  }
+  .page-header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.6rem, 4vw, 2.8rem);
+    font-weight: 900;
+    letter-spacing: 0.02em;
+    margin-bottom: 0.4rem;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+  }
+  .page-header .subtitle {
+    font-family: 'Lora', serif;
+    font-style: italic;
+    font-size: 1.05rem;
+    color: #f5d87c;
+    letter-spacing: 0.06em;
+  }
+  .page-header .badge {
+    display: inline-block;
+    background: var(--gold);
+    color: #fff;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 0.2rem 0.7rem;
+    border-radius: 20px;
+    margin-top: 0.8rem;
+    letter-spacing: 0.1em;
+  }
+
+  /* ===== LAYOUT ===== */
+  .container { max-width: 960px; margin: 0 auto; padding: 2rem 1.5rem; }
+
+  /* ===== INDEX ===== */
+  .index-section {
+    background: var(--cream-dark);
+    border: 2px solid var(--cream-border);
+    border-radius: 12px;
+    padding: 1.8rem 2rem;
+    margin-bottom: 2.5rem;
+  }
+  .index-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    color: var(--ink);
+    margin-bottom: 1rem;
+    border-bottom: 2px solid var(--gold);
+    padding-bottom: 0.5rem;
+  }
+  .index-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 0.4rem 1.5rem;
+  }
+  .index-grid a {
+    color: var(--teal);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    display: flex; align-items: center; gap: 0.4rem;
+    transition: color 0.2s;
+    padding: 0.15rem 0;
+    border-bottom: 1px dashed var(--teal-border);
+  }
+  .index-grid a:hover { color: var(--red); border-color: var(--red); }
+  .index-grid a::before { content: '→'; font-size: 0.8rem; color: var(--gold); }
+
+  /* ===== SECTION ===== */
+  .section {
+    margin-bottom: 3rem;
+    animation: fadeIn 0.5s ease;
+  }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.3rem, 3vw, 1.8rem);
+    font-weight: 700;
+    color: var(--ink);
+    border-left: 5px solid var(--gold);
+    padding-left: 0.9rem;
+    margin-bottom: 1.2rem;
+    line-height: 1.3;
+  }
+  .slide-number {
+    display: inline-block;
+    background: var(--formula-bg);
+    color: var(--formula-text);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    padding: 0.1rem 0.5rem;
+    border-radius: 4px;
+    vertical-align: middle;
+    margin-left: 0.6rem;
+  }
+
+  .slide-content {
+    background: #fff;
+    border: 1px solid var(--cream-border);
+    border-radius: 10px;
+    padding: 1.5rem 1.8rem;
+    margin-bottom: 1.2rem;
+    box-shadow: 0 2px 8px rgba(44,26,14,0.06);
+  }
+
+  /* ===== TEXT HIGHLIGHTS ===== */
+  .red { color: var(--red); font-weight: 600; border-bottom: 2px solid var(--red); }
+  .teal { color: var(--teal); font-weight: 600; border-bottom: 2px solid var(--teal); }
+  .gold { color: var(--gold); font-weight: 600; border-bottom: 2px solid var(--gold); }
+  .star { color: #f0a500; font-size: 0.9em; }
+
+  /* ===== BOXES ===== */
+  .box { border-radius: 8px; padding: 1rem 1.2rem; margin: 1rem 0; font-size: 0.95rem; }
+  .box-yellow { background: var(--gold-light); border-left: 4px solid var(--gold); }
+  .box-red { background: var(--red-light); border-left: 4px solid var(--red); }
+  .box-teal { background: var(--teal-light); border-left: 4px solid var(--teal); }
+  .box-green { background: var(--green-light); border-left: 4px solid var(--green); }
+  .box-title { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 0.85rem; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.4rem; }
+  .box-yellow .box-title { color: var(--gold); }
+  .box-red .box-title { color: var(--red); }
+  .box-teal .box-title { color: var(--teal); }
+  .box-green .box-title { color: var(--green); }
+
+  /* ===== FORMULA ===== */
+  .formula {
+    background: var(--formula-bg);
+    color: var(--formula-text);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.95rem;
+    padding: 1rem 1.4rem;
+    border-radius: 8px;
+    margin: 1rem 0;
+    line-height: 1.8;
+    border: 1px solid #4a3520;
+    overflow-x: auto;
+  }
+  .formula .formula-label {
+    color: #aaa;
+    font-size: 0.75rem;
+    display: block;
+    margin-bottom: 0.3rem;
+    letter-spacing: 0.1em;
+  }
+
+  /* ===== TABLES ===== */
+  .table-wrap { overflow-x: auto; margin: 1rem 0; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+  th {
+    background: var(--ink);
+    color: #fdf6e3;
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    padding: 0.6rem 0.8rem;
+    text-align: left;
+    border: 1px solid #4a3520;
+  }
+  td {
+    padding: 0.55rem 0.8rem;
+    border: 1px solid var(--cream-border);
+    vertical-align: top;
+    line-height: 1.5;
+  }
+  tr:nth-child(even) td { background: var(--cream-dark); }
+  tr:hover td { background: #fff3e0; }
+  .td-category { font-weight: 600; color: var(--ink); font-family: 'Playfair Display', serif; white-space: nowrap; }
+
+  /* ===== IMAGE PLACEHOLDER ===== */
+  .image-box {
+    border: 3px solid var(--red);
+    border-radius: 10px;
+    margin: 1.2rem 0;
+    overflow: hidden;
+  }
+  .image-box-header {
+    background: var(--red);
+    color: #fff;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    letter-spacing: 0.08em;
+  }
+  .image-box-body { padding: 1.2rem 1.5rem; background: #fff9f9; }
+  .image-box-interpret {
+    background: var(--red-light);
+    border-top: 1px solid var(--red-border);
+    padding: 0.8rem 1.2rem;
+    font-size: 0.88rem;
+    font-style: italic;
+    color: var(--ink-light);
+  }
+
+  /* ===== FLOW DIAGRAM ===== */
+  .flow { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; margin: 1rem 0; }
+  .flow-box {
+    background: var(--teal-light);
+    border: 2px solid var(--teal-border);
+    border-radius: 6px;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--ink);
+    text-align: center;
+  }
+  .flow-arrow { color: var(--gold); font-size: 1.2rem; font-weight: 700; }
+  .flow-box.red-box { background: var(--red-light); border-color: var(--red-border); }
+  .flow-box.gold-box { background: var(--gold-light); border-color: var(--gold-border); }
+
+  /* ===== SEVERITY CARDS ===== */
+  .severity-row { display: flex; flex-wrap: wrap; gap: 0.8rem; margin: 1rem 0; }
+  .severity-card {
+    flex: 1; min-width: 160px;
+    border-radius: 8px;
+    padding: 0.8rem 1rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+  }
+  .sev-green { background: #e8f5e9; border: 2px solid var(--severity-green); color: var(--severity-green); }
+  .sev-yellow { background: #fffde7; border: 2px solid var(--severity-yellow); color: var(--severity-yellow); }
+  .sev-orange { background: #fff3e0; border: 2px solid var(--severity-orange); color: var(--severity-orange); }
+  .sev-red { background: #ffebee; border: 2px solid var(--severity-red); color: var(--severity-red); }
+  .severity-card .sev-label { font-family: 'Playfair Display', serif; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; display: block; margin-bottom: 0.3rem; }
+
+  /* ===== FP/FN BOXES ===== */
+  .fp-fn-row { display: flex; flex-wrap: wrap; gap: 1rem; margin: 1rem 0; }
+  .fp-box, .fn-box { flex: 1; min-width: 220px; padding: 1rem; border-radius: 8px; font-size: 0.88rem; }
+  .fp-box { background: #fff0f0; border: 2px solid var(--red); }
+  .fn-box { background: #e8f4ff; border: 2px solid #2563ab; }
+  .fp-box strong { color: var(--red); font-family: 'Playfair Display', serif; }
+  .fn-box strong { color: #2563ab; font-family: 'Playfair Display', serif; }
+
+  /* ===== VALUES TABLE ===== */
+  .values-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 0.8rem; margin: 1rem 0; }
+  .value-card {
+    background: var(--gold-light);
+    border: 2px solid var(--gold-border);
+    border-radius: 8px;
+    padding: 0.8rem 1rem;
+    font-size: 0.88rem;
+  }
+  .value-card .vc-name { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 0.95rem; color: var(--ink); margin-bottom: 0.2rem; }
+  .value-card .vc-val { font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; color: var(--gold); font-weight: 600; }
+
+  /* ===== LIST STYLES ===== */
+  ul.styled { list-style: none; padding-left: 0; margin: 0.6rem 0; }
+  ul.styled li { padding-left: 1.5rem; position: relative; margin-bottom: 0.3rem; line-height: 1.6; }
+  ul.styled li::before { content: '▸'; color: var(--gold); position: absolute; left: 0; }
+  ol.styled { padding-left: 1.5rem; margin: 0.6rem 0; }
+  ol.styled li { margin-bottom: 0.35rem; }
+
+  /* ===== SECTION DIVIDER ===== */
+  .divider { border: none; border-top: 2px dashed var(--cream-border); margin: 2.5rem 0; }
+
+  /* ===== RATIO CALLOUT ===== */
+  .ratio-callout {
+    display: flex; flex-wrap: wrap; gap: 1rem;
+    margin: 1rem 0;
+  }
+  .ratio-item {
+    flex: 1; min-width: 150px;
+    padding: 0.8rem;
+    border-radius: 8px;
+    text-align: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    font-weight: 600;
+  }
+  .ri-hepato { background: #ffebee; border: 2px solid var(--red); color: var(--red); }
+  .ri-mixed { background: #fff8e1; border: 2px solid var(--gold); color: var(--gold); }
+  .ri-colesta { background: #e0f7fa; border: 2px solid var(--teal); color: var(--teal); }
+
+  /* ===== MNEMONIC ===== */
+  .mnemonic-table { width: 100%; }
+  .mnemonic-table tr td:first-child {
+    background: var(--ink);
+    color: var(--formula-text);
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    font-weight: 900;
+    text-align: center;
+    width: 50px;
+    border: 2px solid var(--gold);
+  }
+  .mnemonic-table tr td:last-child {
+    background: var(--cream-dark);
+    border: 1px solid var(--cream-border);
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 600px) {
+    .container { padding: 1rem; }
+    .slide-content { padding: 1rem; }
+    .fp-fn-row, .severity-row { flex-direction: column; }
+    .ratio-callout { flex-direction: column; }
+  }
+
+  /* ===== PRINT ===== */
+  @media print {
+    body { font-size: 13px; }
+    .page-header { background: #333 !important; -webkit-print-color-adjust: exact; }
+  }
+
+  /* scroll margin for anchor */
+  [id] { scroll-margin-top: 1rem; }
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <h1>Evaluación del Funcionamiento Hepático</h1>
+  <div class="subtitle">Patología Clínica — Facultad de Medicina UANL</div>
+  <div class="badge">📚 NOTAS DE ESTUDIO COMPLETAS</div>
+</div>
+
+<div class="container">
+
+  <!-- ===== INDEX ===== -->
+  <div class="index-section">
+    <h2>📋 Índice de Contenidos</h2>
+    <div class="index-grid">
+      <a href="#intro">1. Introducción y Utilidad de las PFHs</a>
+      <a href="#biomarcadores">2. Bioquímica Hepática (Biomarcadores)</a>
+      <a href="#alt">3. ALT (Alanino Aminotransferasa)</a>
+      <a href="#ast">4. AST (Aspartato Aminotransferasa)</a>
+      <a href="#fa">5. Fosfatasa Alcalina (Fa)</a>
+      <a href="#ggt">6. GGT (Gamma Glutamiltranspeptidasa)</a>
+      <a href="#nucleotidasa">7. 5'-Nucleotidasa</a>
+      <a href="#ldh">8. LDH (Lactato Deshidrogenasa)</a>
+      <a href="#funcion-sintesis">9. Función de Síntesis Hepática</a>
+      <a href="#evaluacion">10. Evaluación Clínica</a>
+      <a href="#historia">11. Historia Clínica</a>
+      <a href="#exploracion">12. Exploración Física</a>
+      <a href="#laboratorio">13. Laboratorio — Patrones</a>
+      <a href="#patrones">14. Patrón Hepatocelular vs Colestásico</a>
+      <a href="#bilirrubina">15. Bilirrubina</a>
+      <a href="#fha">16. Falla Hepática Aguda</a>
+      <a href="#hepatitis-viral">17. Hepatitis Inducida por Virus</a>
+      <a href="#referir">18. ¿Cuándo Referir?</a>
+    </div>
+  </div>
+
+  <!-- ===== SLIDE 1-2: INTRO ===== -->
+  <div class="section" id="intro">
+    <h2 class="section-title">Introducción y Utilidad de las PFHs <span class="slide-number">DIAP 1–3</span></h2>
+    <div class="slide-content">
+      <div class="box box-yellow">
+        <div class="box-title">⚠ Concepto Fundamental</div>
+        Las <span class="teal">Pruebas de Función Hepática (PFHs)</span> <strong>reflejan la salud del hígado</strong>, sin embargo algunas de estas pruebas <strong>no miden directamente su función</strong>.
+        <br><br>
+        <span class="red">"Pueden presentarse anormales aun cuando el hígado se encuentre sano"</span> <span class="star">⭐⭐⭐</span>
+      </div>
+
+      <h3 style="font-family:'Playfair Display',serif; margin: 1.2rem 0 0.6rem; color: var(--ink);">Utilidad de las PFHs <span class="star">⭐⭐</span></h3>
+      <ul class="styled">
+        <li>Método <span class="teal">no invasivo</span> útil como <strong>screening</strong> ante la presencia de enfermedad hepática</li>
+        <li>Medición de la <strong>eficacia del tratamiento</strong> de una enfermedad hepática</li>
+        <li>Monitoreo de la <strong>progresión de la enfermedad</strong></li>
+        <li>Severidad en pacientes con cirrosis: <span class="gold">Child-Turcotte-Pugh score</span></li>
+      </ul>
+
+      <h3 style="font-family:'Playfair Display',serif; margin: 1.2rem 0 0.6rem; color: var(--ink);">Categorización por Utilidad</h3>
+      <ul class="styled">
+        <li><span class="red">Lesión a los hepatocitos</span>: medición de la actividad de las enzimas hepáticas circulantes (son intracelulares y se liberan por lesión)</li>
+        <li><span class="teal">Capacidad de transporte de aniones orgánicos</span> y metabolismo de los fármacos</li>
+        <li><span class="gold">Capacidad de biosíntesis</span>: algunos factores de coagulación se producen en el hígado</li>
+        <li>Detección de inflamación crónica, inmunorregulación alterada o hepatitis viral</li>
+      </ul>
+      <div class="box box-teal" style="font-size:0.8rem; margin-top:0.8rem;">
+        <div class="box-title">🔖 Fuente</div>
+        UpToDate. <em>Approach to the patient with abnormal liver biochemical and function tests</em>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ===== SLIDE 4: BIOMARCADORES ===== -->
+  <div class="section" id="biomarcadores">
+    <h2 class="section-title">Bioquímica Hepática — Biomarcadores <span class="slide-number">DIAP 4</span></h2>
+    <div class="slide-content">
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; flex-wrap:wrap;">
+        <div class="box box-red">
+          <div class="box-title">🔴 LESIÓN HEPÁTICA</div>
+          <ul class="styled">
+            <li><span class="red">Alanina aminotransferasa (ALT)</span></li>
+            <li><span class="red">Aspartato aminotransferasa (AST)</span></li>
+            <li>Fosfatasa alcalina (Fa)</li>
+            <li>Bilirrubina</li>
+          </ul>
+        </div>
+        <div class="box box-teal">
+          <div class="box-title">🟢 FUNCIÓN HEPATOCELULAR</div>
+          <ul class="styled">
+            <li><span class="teal">Albúmina</span></li>
+            <li><span class="teal">Bilirrubina</span></li>
+            <li><span class="teal">Tiempo de Protrombina (TP)</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="box box-yellow" style="margin-top:1rem;">
+        <div class="box-title">📌 Nota sobre Bilirrubina</div>
+        La <span class="gold">Bilirrubina</span> <span class="star">⭐⭐</span> mide la capacidad de desintoxicación hepática y transporta aniones orgánicos dentro de la bilis. Aparece en <strong>ambas categorías</strong>.
+      </div>
+
+      <h3 style="font-family:'Playfair Display',serif; margin: 1.2rem 0 0.5rem;">Enzimas Hepáticas Séricas</h3>
+      <ul class="styled">
+        <li>ALT o Glutámico pirúvico transaminasa (GPT)</li>
+        <li>AST o Glutámico oxalacético transaminasa (GOT)</li>
+        <li>Fosfatasa alcalina (Fa)</li>
+        <li>Gamma glutamil transpeptidasa (GGT)</li>
+        <li>5' nucleotidasa</li>
+        <li>Lactato deshidrogenasa (LDH)</li>
+      </ul>
+    </div>
+
+    <div class="image-box">
+      <div class="image-box-header">🖼 IMAGEN / TABLA DE LA DIAPOSITIVA — Localización de las enzimas hepatocelulares (Diap. 30)</div>
+      <div class="image-box-body">
+        <p style="font-size:0.9rem; margin-bottom:0.8rem;">Diagrama de un <strong>hepatocito</strong> mostrando la localización subcelular de cada enzima:</p>
+        <div class="flow">
+          <div class="flow-box" style="background:#e8daef; border-color:#8e44ad;">🟣 <strong>ASTc</strong><br><small>citosol</small></div>
+          <div class="flow-arrow">·</div>
+          <div class="flow-box red-box">🔴 <strong>ALT</strong><br><small>citosol</small></div>
+          <div class="flow-arrow">·</div>
+          <div class="flow-box" style="background:#d4edda; border-color:#27723a;">🟢 <strong>ALP</strong><br><small>membrana sinusoidal</small></div>
+          <div class="flow-arrow">·</div>
+          <div class="flow-box" style="background:#d6eaf8; border-color:#2e86c1;">🔵 <strong>ASTm</strong><br><small>mitocondrias</small></div>
+          <div class="flow-arrow">·</div>
+          <div class="flow-box gold-box">🟠 <strong>GGT</strong><br><small>RE liso / membrana biliar</small></div>
+        </div>
+      </div>
+      <div class="image-box-interpret">
+        <strong>Interpretación:</strong> Las enzimas intracelulares (ALT, ASTc) se liberan al torrente cuando hay <em>lesión de la membrana del hepatocito</em>. La ASTm requiere daño mitocondrial más profundo (ej. alcoholismo severo). ALP y GGT se localizan más hacia el polo biliar. Esta localización explica por qué el patrón de elevación orienta al tipo de daño (hepatocelular vs colestásico).
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ===== ALT ===== -->
+  <div class="section" id="alt">
+    <h2 class="section-title">ALT — Alanino Aminotransferasa <span class="slide-number">DIAP 5</span></h2>
+    <div class="slide-content">
+      <div class="box box-teal">
+        <div class="box-title">🔬 Origen</div>
+        <strong>Principalmente en el hígado</strong> → <span class="star">⭐⭐⭐</span> marcador más específico de daño hepático (vs AST)
+      </div>
+
+      <div class="values-grid">
+        <div class="value-card">
+          <div class="vc-name">♂ Hombres</div>
+          <div class="vc-val">29 – 33 U/L</div>
+        </div>
+        <div class="value-card">
+          <div class="vc-name">♀ Mujeres</div>
+          <div class="vc-val">19 – 25 U/L</div>
+        </div>
+        <div class="value-card">
+          <div class="vc-name">👦 Niños</div>
+          <div class="vc-val">17 – 21 U/L</div>
+        </div>
+        <div class="value-card">
+          <div class="vc-name">👧 Niñas</div>
+          <div class="vc-val">14 – 21 U/L</div>
+        </div>
+      </div>
+
+      <div class="box box-red" style="margin-top:1rem;">
+        <div class="box-title">⚠ Dato Crítico</div>
+        Valor elevado → <span class="red">sospecha de enfermedad hepática</span> <span class="star">⭐⭐⭐</span>
+        <br>Hay <strong>correlación con el grado de tejido adiposo abdominal</strong>
+      </div>
+      <p style="font-size:0.8rem; color:var(--ink-light); margin-top:0.5rem;">Ref: Bussler S, et al. <em>Hepatology</em> 2018; 68:1319.</p>
+    </div>
+  </div>
+
+  <!-- ===== AST ===== -->
+  <div class="section" id="ast">
+    <h2 class="section-title">AST — Aspartato Aminotransferasa <span class="slide-number">DIAP 6</span></h2>
+    <div class="slide-content">
+      <div class="box box-yellow">
+        <div class="box-title">📍 Distribución Tisular — Poco Específica</div>
+        Presente en: <span class="teal">hígado</span>, <span class="teal">músculo cardíaco y esquelético</span>, riñón, cerebro, páncreas, pulmones, leucocitos y eritrocitos.
+      </div>
+
+      <div class="values-grid">
+        <div class="value-card">
+          <div class="vc-name">♂ Hombres</div>
+          <div class="vc-val">10 – 40 U/L</div>
+        </div>
+        <div class="value-card">
+          <div class="vc-name">♀ Mujeres</div>
+          <div class="vc-val">9 – 32 U/L</div>
+        </div>
+      </div>
+
+      <div class="box box-teal" style="margin-top:1rem;">
+        <div class="box-title">💡 Clave Clínica — Ratio AST:ALT</div>
+        El <span class="star">⭐⭐⭐</span> <strong>ratio AST/ALT</strong> ayuda a orientar el diagnóstico etiológico (ver sección de Laboratorio)
+      </div>
+      <p style="font-size:0.8rem; color:var(--ink-light); margin-top:0.5rem;">Ref: Bussler S, et al. <em>Hepatology</em> 2018; 68:1319.</p>
+    </div>
+  </div>
+
+  <!-- ===== FA ===== -->
+  <div class="section" id="fa">
+    <h2 class="section-title">Fosfatasa Alcalina (Fa) <span class="slide-number">DIAP 7–8</span></h2>
+    <div class="slide-content">
+      <div class="box box-yellow">
+        <div class="box-title">📍 Origen</div>
+        Derivada de <span class="teal">hígado y hueso (principalmente)</span>, placenta e intestino.
+        <br>Puede medirse <strong>fraccionada</strong> para determinar el origen. En rutina se mide en su totalidad.
+      </div>
+
+      <div class="values-grid">
+        <div class="value-card">
+          <div class="vc-name">♂ Hombres</div>
+          <div class="vc-val">45 – 115 U/L</div>
+        </div>
+        <div class="value-card">
+          <div class="vc-name">♀ Mujeres</div>
+          <div class="vc-val">30 – 100 U/L</div>
+        </div>
+      </div>
+
+      <div class="box box-red" style="margin-top:1rem;">
+        <div class="box-title">⭐⭐⭐ Dato Crítico</div>
+        <span class="red">Fa</span> y <span class="red">GGT elevadas</span> juntas sugieren <strong>COLESTASIS</strong>
+      </div>
+
+      <div class="image-box" style="margin-top:1.2rem;">
+        <div class="image-box-header">🖼 IMAGEN / TABLA DE LA DIAPOSITIVA — Rangos de referencia Fa en niños y adolescentes</div>
+        <div class="image-box-body">
+          <p style="font-size:0.9rem; margin-bottom:0.8rem;">Gráfica de áreas superpuestas (niños = azul, niñas = rojo) de 0 a 20 años, eje Y: U/L hasta 450.</p>
+          <div class="severity-row">
+            <div class="severity-card sev-green">
+              <span class="sev-label">0–2 años (ambos)</span>
+              Pico inicial ~380 U/L (niños) / ~350 U/L (niñas) → muy altos al nacer
+            </div>
+            <div class="severity-card sev-yellow">
+              <span class="sev-label">6–8 años</span>
+              Nadir (~50–80 U/L) → valores más bajos en niñez media
+            </div>
+            <div class="severity-card sev-orange">
+              <span class="sev-label">10–14 años (pubertad)</span>
+              Segundo pico niños ~400 U/L, niñas ~350 U/L → crecimiento óseo
+            </div>
+            <div class="severity-card sev-red">
+              <span class="sev-label">18–20 años</span>
+              Descenso a niveles adultos: niños ~130 U/L, niñas ~50–80 U/L
+            </div>
+          </div>
+        </div>
+        <div class="image-box-interpret">
+          <strong>Interpretación:</strong> Los dos picos fisiológicos de Fa en niños y adolescentes se deben al alto recambio óseo (crecimiento). Interpretar Fa elevada en pediatría SIEMPRE considerando la edad y etapa puberal. Un valor de 350 U/L puede ser completamente normal en un niño de 12 años pero patológico en un adulto. Datos del NIH Clinical Reference Laboratory.
+        </div>
+      </div>
+
+      <p style="font-size:0.8rem; color:var(--ink-light); margin-top:0.5rem;">Ref: Nannipieri M, et al. <em>Diabetes Care</em> 2005; 28:1757</p>
+    </div>
+  </div>
+
+  <!-- ===== GGT ===== -->
+  <div class="section" id="ggt">
+    <h2 class="section-title">GGT — Gamma Glutamiltranspeptidasa <span class="slide-number">DIAP 9</span></h2>
+    <div class="slide-content">
+      <div class="box box-yellow">
+        <div class="box-title">📍 Distribución Tisular</div>
+        Presente en hepatocitos y células del epitelio biliar, riñón, vesículas seminales, páncreas, bazo, corazón y cerebro.
+      </div>
+
+      <div class="values-grid">
+        <div class="value-card">
+          <div class="vc-name">♂ Hombres</div>
+          <div class="vc-val">8 – 61 U/L</div>
+        </div>
+        <div class="value-card">
+          <div class="vc-name">♀ Mujeres</div>
+          <div class="vc-val">5 – 36 U/L</div>
+        </div>
+      </div>
+
+      <div class="box box-red" style="margin-top:1rem;">
+        <div class="box-title">⭐⭐⭐ Comportamiento en Neonatos y Adolescentes</div>
+        <ul class="styled">
+          <li>Elevada <span class="red">6–7x LNS</span> en neonatos a término</li>
+          <li>Declina y llega a niveles más bajos a los <strong>~6 meses</strong> de edad</li>
+          <li>Nuevamente <strong>incrementa durante la adolescencia</strong> hasta los límites de referencia del adulto</li>
+        </ul>
+        <small>LNS = veces valor límite normal superior de referencia en el adulto</small>
+      </div>
+
+      <p style="font-size:0.8rem; color:var(--ink-light); margin-top:0.5rem;">Ref: Goldberg DM. CRC Crit Rev Clin Lab Sci 1980; 12:1.</p>
+    </div>
+  </div>
+
+  <!-- ===== NUCLEOTIDASA ===== -->
+  <div class="section" id="nucleotidasa">
+    <h2 class="section-title">5'-Nucleotidasa <span class="slide-number">DIAP 10</span></h2>
+    <div class="slide-content">
+      <div class="box box-yellow">
+        <div class="box-title">ℹ Características Generales</div>
+        <ul class="styled">
+          <li><span class="red">No utilizada de rutina</span></li>
+          <li>Se encuentra en hígado (principalmente), intestino, cerebro, corazón, vasos sanguíneos y páncreas endocrino</li>
+          <li><span class="teal">Liberada en suero <strong>únicamente por tejido hepatobiliar</strong></span> <span class="star">⭐⭐⭐</span></li>
+          <li>Función desconocida</li>
+          <li>Cataliza la hidrólisis de nucleótidos (adenosina 5'-fosfato e inosina 5'-fosfato)</li>
+          <li><span class="gold">Alta especificidad para enfermedad hepatobiliar</span> (obstrucción biliar, infiltración hepática)</li>
+        </ul>
+      </div>
+      <div class="box box-teal">
+        <div class="box-title">💡 Utilidad Práctica</div>
+        Si Fa está elevada pero GGT y 5'-nucleotidasa son normales → <strong>origen óseo probable</strong> (no hepático)
+      </div>
+      <p style="font-size:0.8rem; color:var(--ink-light); margin-top:0.5rem;">Ref: Hill PG, Sammons HG. <em>Q J Med</em> 1967; 36:457</p>
+    </div>
+  </div>
+
+  <!-- ===== LDH ===== -->
+  <div class="section" id="ldh">
+    <h2 class="section-title">LDH — Lactato Deshidrogenasa <span class="slide-number">DIAP 11–15</span></h2>
+    <div class="slide-content">
+      <div class="box box-yellow">
+        <div class="box-title">🔬 Características</div>
+        <ul class="styled">
+          <li>Conformada por <strong>5 isoenzimas</strong> (en múltiples tejidos)</li>
+          <li>Es posible medir por separado cada isoenzima por técnicas electroforéticas</li>
+          <li><span class="red">Altamente inespecífica</span> como marcador hepático aislado</li>
+        </ul>
+      </div>
+
+      <div class="box box-teal">
+        <div class="box-title">⭐⭐⭐ Utilidad Principal</div>
+        <ul class="styled">
+          <li><span class="teal">Marcador de hemólisis</span></li>
+          <li><span class="teal">Diferenciación: Hepatitis isquémica vs viral</span></li>
+        </ul>
+      </div>
+
+      <div class="formula">
+        <span class="formula-label">RATIO DIAGNÓSTICO — LDH ⭐⭐⭐</span>
+        Hepatitis ISQUÉMICA  → Ratio ALT:LDH &lt; 1.5  (Sens 94%, Esp 84%)
+        Hepatitis VIRAL      → Ratio ALT:LDH &gt; 1.5  (Sens 94%, Esp 84%)
+      </div>
+
+      <div class="box box-red">
+        <div class="box-title">⭐ Dato Adicional</div>
+        LDH elevada → <span class="red">mal pronóstico en melanoma metastásico</span>, primer indicador de metástasis hepática
+      </div>
+
+      <h3 style="font-family:'Playfair Display',serif; margin:1.2rem 0 0.6rem;">Causas de LDH Sérica Elevada</h3>
+
+      <div class="image-box">
+        <div class="image-box-header">🖼 IMAGEN / TABLA DE LA DIAPOSITIVA — Causas de LDH sérica elevada (Diap. 12–15)</div>
+        <div class="image-box-body">
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Sistema</th><th>Causas</th></tr></thead>
+              <tbody>
+                <tr>
+                  <td class="td-category">Cardíacas</td>
+                  <td>Lesión del miocito: isquemia por demanda, trauma, cirugía CV, toxinas, infección (miocarditis, fiebre reumática), fármacos (alcohol, quimioterapia, cocaína, metisergida, monóxido de carbono)<br>Congestión hepática por insuficiencia cardíaca<br>Hemólisis por válvulas prostéticas</td>
+                </tr>
+                <tr>
+                  <td class="td-category">SNC</td>
+                  <td>Meningitis bacteriana, hemorragia cerebral, trombosis venosa cerebral</td>
+                </tr>
+                <tr>
+                  <td class="td-category">Inducida por fármacos</td>
+                  <td>Agentes neurolépticos, retiro de L-Dopa o agonista dopaminérgico, síndrome serotoninérgico, hipertermia maligna, drogas recreativas, miopatías (colchicina, antipalúdicos, estatinas, cocaína, glucocorticoides)</td>
+                </tr>
+                <tr>
+                  <td class="td-category">Endocrinas</td>
+                  <td>Hipotiroidismo, acromegalia, síndrome de Cushing, infarto muscular diabético</td>
+                </tr>
+                <tr>
+                  <td class="td-category">Gastrointestinales</td>
+                  <td>Pancreatitis aguda, obstrucción intestinal, hepatitis aguda temprana, hepatitis isquémica</td>
+                </tr>
+                <tr>
+                  <td class="td-category">Hematológicas</td>
+                  <td>Anemias hemolíticas (hereditarias: esferocitosis, drepanocitosis; adquiridas: microangiopáticas, PNH, hemólisis inmune), eritropoyesis inefectiva (anemia perniciosa, déficit de folato, déficit de hierro, mielofibrosis primaria)</td>
+                </tr>
+                <tr>
+                  <td class="td-category">Infecciosas</td>
+                  <td>Neumonía por Pneumocystis (tardía), tuberculosis, malaria, parasitosis, Legionella, histoplasmosis, toxoplasmosis</td>
+                </tr>
+                <tr>
+                  <td class="td-category">Malignas</td>
+                  <td>Leucemias, linfomas, tumores sólidos (tumores de células germinales testiculares), síndrome de lisis tumoral</td>
+                </tr>
+                <tr>
+                  <td class="td-category">Neuromusculares</td>
+                  <td>Miopatías (hereditarias, adquiridas, por fármacos), parálisis periódicas</td>
+                </tr>
+                <tr>
+                  <td class="td-category">Embarazo</td>
+                  <td>Preeclampsia, masa anexial en embarazo, síndrome HELLP</td>
+                </tr>
+                <tr>
+                  <td class="td-category">Pulmonares</td>
+                  <td>Embolia/infarto pulmonar, proteinosis alveolar pulmonar</td>
+                </tr>
+                <tr>
+                  <td class="td-category">Renales</td>
+                  <td>Infarto renal</td>
+                </tr>
+                <tr>
+                  <td class="td-category">Reumatológicas</td>
+                  <td>Dermatomiositis, EMTC, artritis reumatoide, esclerodermia, síndrome de Sjögren, LES</td>
+                </tr>
+                <tr>
+                  <td class="td-category">Trauma</td>
+                  <td>Rabdomiólisis, cirugía</td>
+                </tr>
+                <tr>
+                  <td class="td-category">Vasculitis</td>
+                  <td>Poliarteritis nodosa, granulomatosis eosinofílica con poliangeítis (Churg-Strauss), granulomatosis con poliangeítis [Wegener's], enfermedad de Behçet, sarcoidosis</td>
+                </tr>
+                <tr>
+                  <td class="td-category">Elevación idiosincrásica</td>
+                  <td>Presencia de macro-LDH (LDH combinada con inmunoglobulina), no asociada a síntomas ni enfermedad particular</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div style="font-size:0.78rem; margin-top:0.6rem; color:var(--ink-light);">
+            <strong>Abreviaturas:</strong> PNH: hemoglobinuria paroxística nocturna; HELLP: hemólisis, enzimas hepáticas elevadas, plaquetas bajas; EMTC: enfermedad mixta del tejido conectivo; LES: lupus eritematoso sistémico; LDH: lactato deshidrogenasa.
+          </div>
+        </div>
+        <div class="image-box-interpret">
+          <strong>Interpretación:</strong> La tabla evidencia que la LDH es extremadamente inespecífica. Su elevación aislada rara vez orienta al diagnóstico. Su valor clínico real está en el <em>ratio con ALT</em> para distinguir hepatitis isquémica de viral, y como marcador pronóstico en neoplasias.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ===== FUNCION SINTESIS ===== -->
+  <div class="section" id="funcion-sintesis">
+    <h2 class="section-title">Función de Síntesis Hepática <span class="slide-number">DIAP 16</span></h2>
+    <div class="slide-content">
+      <div class="values-grid">
+        <div class="value-card">
+          <div class="vc-name">Albúmina</div>
+          <div class="vc-val">3.3 – 5.0 g/dL</div>
+        </div>
+        <div class="value-card">
+          <div class="vc-name">Tiempo de Protrombina (TP)</div>
+          <div class="vc-val">11 – 13.7 seg</div>
+        </div>
+        <div class="value-card">
+          <div class="vc-name">INR</div>
+          <div class="vc-val">~1.0 (normal)</div>
+        </div>
+        <div class="value-card">
+          <div class="vc-name">Bilirrubina total</div>
+          <div class="vc-val">0.0 – 1.0 mg/dL</div>
+        </div>
+        <div class="value-card">
+          <div class="vc-name">Bilirrubina indirecta</div>
+          <div class="vc-val">0.0 – 0.4 mg/dL</div>
+        </div>
+        <div class="value-card">
+          <div class="vc-name">Bilirrubina directa</div>
+          <div class="vc-val">= BT − BI</div>
+        </div>
+      </div>
+
+      <div class="box box-red" style="margin-top:1rem;">
+        <div class="box-title">⭐⭐⭐ Recordar</div>
+        <span class="red">"Los valores de referencia varían entre laboratorios"</span><br>
+        El resultado debe interpretarse como normal o anormal <strong>de acuerdo a los valores de referencia emitidos en el reporte de resultados</strong>.
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ===== EVALUACION ===== -->
+  <div class="section" id="evaluacion">
+    <h2 class="section-title">Evaluación Clínica <span class="slide-number">DIAP 18</span></h2>
+    <div class="slide-content">
+      <div class="flow">
+        <div class="flow-box">📋 Historia clínica<br><small>Riesgos potenciales</small></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-box">🔍 Exploración física<br><small>Etiología y hepatopatía crónica</small></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-box">🧪 Laboratorio<br><small>Patrones diagnósticos</small></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== HISTORIA ===== -->
+  <div class="section" id="historia">
+    <h2 class="section-title">Historia Clínica <span class="slide-number">DIAP 19–24</span></h2>
+    <div class="slide-content">
+      <h3 style="font-family:'Playfair Display',serif; margin-bottom:0.6rem;">Con asociación a enfermedad hepática:</h3>
+      <ul class="styled">
+        <li>Exposición a hepatotoxinas (p.ej. alcohol o medicamentos)</li>
+        <li>Riesgo de hepatitis viral</li>
+        <li>Padecimiento relacionado con enfermedad hepática</li>
+        <li>Síntomas relacionados</li>
+        <li>Predisposición</li>
+      </ul>
+
+      <h3 style="font-family:'Playfair Display',serif; margin: 1.2rem 0 0.6rem;">Alcoholismo <span class="star">⭐⭐⭐</span></h3>
+      <div class="box box-red">
+        <div class="box-title">⚠ Criterios de Consumo Crónico</div>
+        <ul class="styled">
+          <li>♂ Hombres: <span class="red">&gt; 210 g/semana / 2 años</span></li>
+          <li>♀ Mujeres: <span class="red">&gt; 140 g/semana / 2 años</span></li>
+        </ul>
+      </div>
+      <div class="box box-yellow" style="margin-top:0.8rem;">
+        <div class="box-title">🍺 Equivalencias (14 g de alcohol estándar)</div>
+        <ul class="styled">
+          <li>Cerveza: <span class="gold">360 ml</span></li>
+          <li>Vino: <span class="gold">150 ml</span></li>
+          <li>Bebida con 40% de alcohol "80 proof spirits": <span class="gold">45 ml</span></li>
+        </ul>
+        <div style="margin-top:0.6rem; color: var(--red); font-weight:600;">¿Uso de fármacos (de cualquier tipo), suplementos dietéticos o drogas ilícitas?</div>
+      </div>
+
+      <h3 style="font-family:'Playfair Display',serif; margin: 1.2rem 0 0.6rem;">Riesgo de Hepatitis Viral</h3>
+      <ul class="styled">
+        <li>Uso de sustancias parenterales</li>
+        <li>Transfusión previa <span class="red">(antes del año 1992)</span></li>
+        <li>Visita a sitios endémicos</li>
+        <li>Exposición a pacientes con ictericia</li>
+        <li>Ingesta de alimentos contaminados</li>
+      </ul>
+
+      <h3 style="font-family:'Playfair Display',serif; margin: 1.2rem 0 0.6rem;">Signos y Síntomas</h3>
+      <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(200px, 1fr)); gap:0.5rem;">
+        <div class="box box-red" style="padding:0.6rem 0.9rem;">🟡 Ictericia</div>
+        <div class="box box-red" style="padding:0.6rem 0.9rem;">🤕 Dolor y distensión abdominal</div>
+        <div class="box box-red" style="padding:0.6rem 0.9rem;">🦵 Edema de piernas y tobillos</div>
+        <div class="box box-red" style="padding:0.6rem 0.9rem;">😣 Prurito</div>
+        <div class="box box-yellow" style="padding:0.6rem 0.9rem;">🟤 Coluria (orina oscura)</div>
+        <div class="box box-yellow" style="padding:0.6rem 0.9rem;">⬜ Acolia (heces blancas)</div>
+        <div class="box box-yellow" style="padding:0.6rem 0.9rem;">😴 Fatiga crónica</div>
+        <div class="box box-yellow" style="padding:0.6rem 0.9rem;">🤢 Náuseas o vómitos</div>
+        <div class="box box-yellow" style="padding:0.6rem 0.9rem;">🚫 Anorexia</div>
+        <div class="box box-yellow" style="padding:0.6rem 0.9rem;">🩸 Hematomas</div>
+      </div>
+
+      <h3 style="font-family:'Playfair Display',serif; margin: 1.2rem 0 0.6rem;">Padecimientos Asociados <span class="star">⭐⭐</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Padecimiento</th><th>⟶ Asociación Hepática</th></tr></thead>
+          <tbody>
+            <tr><td>Insuficiencia ventricular derecha</td><td>⟶ Hepatopatía congestiva</td></tr>
+            <tr><td>Diabetes mellitus</td><td>⟶ Hígado graso (NAFLD)</td></tr>
+            <tr><td>Pigmentación de la piel + artritis + hipogonadismo + cardiomiopatía dilatada</td><td>⟶ <span class="red">Hemocromatosis</span></td></tr>
+            <tr><td>Obesidad</td><td>⟶ Hígado graso</td></tr>
+            <tr><td>Embarazo</td><td>⟶ Cálculos biliares</td></tr>
+            <tr><td>Enfermedad inflamatoria intestinal</td><td>⟶ Colangitis esclerosante primaria / cálculos biliares</td></tr>
+            <tr><td>Enfisema de inicio temprano</td><td>⟶ <span class="teal">Deficiencia de α1-antitripsina</span></td></tr>
+            <tr><td>Enfermedad celiaca</td><td>⟶ Afección hepática</td></tr>
+            <tr><td>Enfermedad tiroidea</td><td>⟶ Alteraciones enzimáticas hepáticas</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 style="font-family:'Playfair Display',serif; margin: 1.2rem 0 0.6rem;">Exposición a Hepatotoxinas</h3>
+      <ul class="styled">
+        <li>Ocupacional o recreativa → Recolección de hongos (<span class="red">amatoxina</span>)</li>
+        <li>Industria química → <span class="red">Cloruro de vinilo</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ===== EXPLORACION ===== -->
+  <div class="section" id="exploracion">
+    <h2 class="section-title">Exploración Física <span class="slide-number">DIAP 25–26</span></h2>
+    <div class="slide-content">
+      <h3 style="font-family:'Playfair Display',serif; margin-bottom:0.6rem;">Enfoque Hepático</h3>
+      <ul class="styled">
+        <li>Tamaño y <strong>consistencia hepática</strong></li>
+        <li>Tamaño del bazo (<strong>palpable = agrandado 2–3×</strong>)</li>
+        <li>Ascitis</li>
+      </ul>
+
+      <div class="box box-teal" style="margin-top:1rem;">
+        <div class="box-title">⭐⭐⭐ Sospechas Diagnósticas por EF</div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Hallazgo</th><th>⟶ Sospecha</th></tr></thead>
+            <tbody>
+              <tr><td>Hígado agrandado, endurecido, nodular, masa abdominal</td><td><span class="red">Malignidad</span></td></tr>
+              <tr><td>Hepatomegalia sensible</td><td>Hepatitis viral / alcohólica / congestión aguda</td></tr>
+              <tr><td>CSD sensible + Murphy positivo</td><td>Colecistitis / colangitis ascendente</td></tr>
+              <tr><td>Ascitis + ictericia</td><td><span class="red">Cirrosis o malignidad</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <h3 style="font-family:'Playfair Display',serif; margin: 1.2rem 0 0.6rem;">Algunos Patrones Semiológicos <span class="star">⭐⭐⭐</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Hallazgo en EF</th><th>⟶ Orientación Diagnóstica</th></tr></thead>
+          <tbody>
+            <tr><td>Atrofia muscular temporal y proximal</td><td>Hepatopatía crónica</td></tr>
+            <tr><td>Arañas vasculares, eritema palmar, ginecomastia, caput medusae</td><td><span class="teal">Enfermedad hepática crónica</span></td></tr>
+            <tr><td>Ascitis o encefalopatía hepática</td><td><span class="red">Cirrosis descompensada</span></td></tr>
+            <tr><td>Contractura de Dupuytren + agrandamiento parotídeo + atrofia testicular</td><td><span class="red">Cirrosis alcohólica avanzada</span></td></tr>
+            <tr><td>Nodo de Virchow o nódulo periumbilical</td><td>Malignidad abdominal</td></tr>
+            <tr><td>↑ Presión venosa yugular</td><td>Congestión hepática</td></tr>
+            <tr><td>Efusión pleural derecha</td><td>Cirrosis avanzada</td></tr>
+            <tr><td>Signos y síntomas neurológicos y psiquiátricos</td><td><span class="teal">Enfermedad de Wilson</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ===== LABORATORIO PATRONES ===== -->
+  <div class="section" id="laboratorio">
+    <h2 class="section-title">Laboratorio — Conceptos Generales <span class="slide-number">DIAP 27</span></h2>
+    <div class="slide-content">
+      <ul class="styled">
+        <li>Los patrones sugieren la causa subyacente de enfermedad hepática</li>
+        <li><span class="red">Transaminasas elevadas</span> → Lesión hepática</li>
+        <li><span class="red">Fa elevada</span> → Colestasis</li>
+        <li><span class="teal">Ratio AST/ALT</span> → orienta al diagnóstico más probable</li>
+      </ul>
+
+      <h3 style="font-family:'Playfair Display',serif; margin:1rem 0 0.5rem;">Clasificación temporal</h3>
+      <div class="severity-row">
+        <div class="severity-card sev-green"><span class="sev-label">Agudo</span>&lt; 6 semanas</div>
+        <div class="severity-card sev-yellow"><span class="sev-label">Subagudo</span>6 semanas – 6 meses</div>
+        <div class="severity-card sev-red"><span class="sev-label">Crónico</span>&gt; 6 meses</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== PATRONES ===== -->
+  <div class="section" id="patrones">
+    <h2 class="section-title">Patrón Hepatocelular vs Colestásico <span class="slide-number">DIAP 29–38</span></h2>
+    <div class="slide-content">
+      <div class="fp-fn-row">
+        <div class="fp-box">
+          <strong>🔴 PATRÓN HEPATOCELULAR</strong>
+          <ul class="styled" style="margin-top:0.5rem;">
+            <li>Elevación <em>desproporcionada</em> de transaminasas con respecto a Fa</li>
+            <li>Bilirrubina elevada o normal</li>
+          </ul>
+        </div>
+        <div class="fn-box">
+          <strong>🔵 PATRÓN COLESTÁSICO</strong>
+          <ul class="styled" style="margin-top:0.5rem;">
+            <li>Elevación <em>desproporcionada</em> de Fa con respecto a las transaminasas</li>
+            <li>Bilirrubina elevada o normal</li>
+          </ul>
+        </div>
+      </div>
+      <div class="box box-yellow">
+        <div class="box-title">📌 En ambos casos</div>
+        Pruebas de función de síntesis pueden estar anormales (aunque también pueden ser normales ocasionalmente)
+      </div>
+
+      <div class="formula">
+        <span class="formula-label">⭐⭐⭐ VALOR R — Determina el tipo de lesión</span>
+        R = (ALT / LNS_ALT) ÷ (Fa / LNS_Fa)
+        <br>
+        ────────────────────────────────────────
+        R &gt; 5      →  Lesión HEPATOCELULAR
+        R &gt;2 a &lt;5  →  Patrón MIXTO
+        R &lt; 2      →  Lesión COLESTÁSICA
+        <br>
+        LNS = Límite Normal Superior
+      </div>
+
+      <h3 style="font-family:'Playfair Display',serif; margin:1.2rem 0 0.6rem;">Ratio AST:ALT — Orientación Etiológica <span class="star">⭐⭐⭐</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Patrón / Ratio</th><th>Diagnóstico sugerido</th><th>Niveles</th></tr></thead>
+          <tbody>
+            <tr><td><span class="red">AST:ALT ≥ 2:1 + GGT elevada</span></td><td>Hepatopatía <strong>alcohólica</strong> (>90% sensibilidad en biopsia)</td><td>—</td></tr>
+            <tr><td>Hígado graso alcohólico</td><td>NAFLD alcohólica</td><td>AST &lt;8×LNS; ALT &lt;5×LNS</td></tr>
+            <tr><td>Hígado graso no alcohólico</td><td>NAFLD</td><td>AST y ALT &lt;4×LNS</td></tr>
+            <tr><td>Hepatitis viral aguda o por toxinas + ictericia</td><td>Hepatitis aguda</td><td><span class="red">AST y ALT &gt;25×LNS</span></td></tr>
+            <tr><td>Hepatitis isquémica / shock hepático / hipóxica</td><td>Hipoperfusión</td><td><span class="red">AST y ALT &gt;50×LNS</span></td></tr>
+            <tr><td>Hepatitis crónica VHC</td><td>Crónica VHC</td><td>Variable, típicamente &lt;2×LNS</td></tr>
+            <tr><td>Hepatitis crónica VHB</td><td>Portadores: normal; Leve/moderada: ambas 2×LNS; Exacerbación: &gt;10×LNS</td><td>—</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 style="font-family:'Playfair Display',serif; margin:1.2rem 0 0.6rem;">Aminotransferasas Elevadas — Interpretación por Magnitud <span class="star">⭐⭐⭐</span></h3>
+      <div class="severity-row">
+        <div class="severity-card sev-yellow">
+          <span class="sev-label">&gt;10× LNS</span>
+          Falla hepática aguda: encefalopatía + INR &gt;1.5
+        </div>
+        <div class="severity-card sev-orange">
+          <span class="sev-label">&gt;15× LNS sin falla</span>
+          Hepatitis aguda o crónica subyacente (Wilson, exacerbación VHB)
+        </div>
+        <div class="severity-card sev-red">
+          <span class="sev-label">&gt;5,000 U/L</span>
+          Hepatitis isquémica o inducida por fármacos
+        </div>
+      </div>
+
+      <h3 style="font-family:'Playfair Display',serif; margin:1.2rem 0 0.6rem;">Albúmina y TP en la evaluación</h3>
+      <ul class="styled">
+        <li><span class="teal">Albúmina baja</span> → proceso crónico (cáncer, cirrosis)</li>
+        <li><span class="teal">Albúmina normal</span> → procesos agudos (viral o coledocolitiasis)</li>
+        <li><span class="red">TP prolongado por déficit vitamina K</span> → ictericia crónica prolongada / mala absorción intestinal</li>
+        <li><span class="red">TP prolongado por disfunción hepatocelular</span></li>
+        <li><span class="red">Falla de corrección de TP con vitamina K</span> → daño severo <span class="star">⭐⭐⭐</span></li>
+        <li><span class="gold">"Albúmina o TP anormales de manera aislada deben evaluarse por causas extrahepáticas"</span></li>
+      </ul>
+
+      <div class="image-box" style="margin-top:1.2rem;">
+        <div class="image-box-header">🖼 IMAGEN / TABLA DE LA DIAPOSITIVA — Diagnóstico diferencial aminotransferasas levemente elevadas (&lt;15× LNS) (Diap. 35)</div>
+        <div class="image-box-body">
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th colspan="2">Enfermedad Hepática</th>
+                  <th>Enfermedad No Hepática</th>
+                </tr>
+                <tr>
+                  <th>Predominio ALT (AST/ALT &lt;1)</th>
+                  <th>Predominio AST (AST/ALT ≥1)</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Daño hepático inducido por fármacos</td><td>Hepatitis alcohólica</td><td>Lesión muscular (ejercicio extenuante, miopatía)</td></tr>
+                <tr><td>Hepatitis viral crónica (VHB, VHC)</td><td>Cirrosis por hepatitis viral o NAFLD</td><td>Insuficiencia suprarrenal</td></tr>
+                <tr><td>Daño hepatocelular ocupacional/toxinas</td><td>Enfermedad de Wilson</td><td>Infarto al miocardio, insuficiencia cardíaca</td></tr>
+                <tr><td>Hepatitis autoinmune</td><td></td><td>Anorexia nerviosa</td></tr>
+                <tr><td>NAFLD</td><td></td><td>Enfermedad tiroidea</td></tr>
+                <tr><td>Trastornos genéticos (Wilson, hemocromatosis, déficit α1-antitripsina)</td><td></td><td>Enfermedad celíaca</td></tr>
+                <tr><td>Hepatopatía congestiva</td><td></td><td>Macro-AST</td></tr>
+                <tr><td>Infiltración maligna del hígado</td><td></td><td></td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div style="font-size:0.78rem; margin-top:0.5rem; color:var(--ink-light);">ALT: alanina aminotransferasa; AST: aspartato aminotransferasa; VHB: virus hepatitis B; VHC: virus hepatitis C; NAFLD: enfermedad hepática grasa no alcohólica.</div>
+        </div>
+        <div class="image-box-interpret">
+          <strong>Interpretación:</strong> La tabla clasifica el diagnóstico diferencial según el predominio del patrón AST/ALT. Cuando ALT predomina (AST/ALT &lt;1) orienta a daño hepatocelular directo (viral, tóxico, autoinmune, metabólico). Cuando AST predomina (AST/ALT ≥1) orienta a alcoholismo, Wilson o cirrosis establecida. Las causas no hepáticas siempre deben descartarse antes de hacer biopsia.
+        </div>
+      </div>
+
+      <div class="image-box" style="margin-top:1.2rem;">
+        <div class="image-box-header">🖼 IMAGEN / TABLA DE LA DIAPOSITIVA — Evaluación de elevación leve crónica de aminotransferasas (Diap. 36)</div>
+        <div class="image-box-body">
+          <p style="font-size:0.9rem; font-weight:600; margin-bottom:0.8rem;">Algoritmo escalonado de 4 pasos — De lo más común a lo menos frecuente</p>
+          <div class="flow" style="flex-direction:column; align-items:flex-start; gap:0.4rem;">
+            <div class="flow-box gold-box" style="width:100%;">
+              <strong>Paso 1 — Evaluación inicial:</strong> Revisar medicamentos/hierbas/drogas; tamizar alcoholismo (historia, AST/ALT &gt;2:1); serología VHB/VHC; tamizar hemocromatosis (Fe/TIBC &gt;45%); hígado graso (USG)
+            </div>
+            <div class="flow-arrow" style="align-self:center;">↓</div>
+            <div class="flow-box" style="width:100%;">
+              <strong>Paso 2 — Evaluación de 2ª línea (si paso 1 negativo):</strong> Hepatitis autoinmune (ANA, ASMA); función tiroidea; enfermedad celíaca (IgA anti-transglutaminasa)
+            </div>
+            <div class="flow-arrow" style="align-self:center;">↓</div>
+            <div class="flow-box red-box" style="width:100%;">
+              <strong>Paso 3 — Causas poco comunes:</strong> Enfermedad de Wilson (&lt;40 años: ceruloplasmina); déficit α1-antitripsina; insuficiencia suprarrenal; trastornos musculares (creatina quinasa, aldolasa)
+            </div>
+            <div class="flow-arrow" style="align-self:center;">↓</div>
+            <div class="flow-box" style="width:100%; background:#f0f0f0; border-color:#888;">
+              <strong>Paso 4 — Si no hay fuente identificada:</strong> Observar si ALT y AST &lt;2× LNS; si no, considerar biopsia hepática
+            </div>
+          </div>
+        </div>
+        <div class="image-box-interpret">
+          <strong>Interpretación:</strong> El algoritmo prioriza las causas más frecuentes (medicamentos, alcohol, viral, metabólico) antes de investigar causas raras. La biopsia es el último recurso cuando todo lo demás es negativo. "Mild" = 2–10× LNS durante más de 6 meses.
+        </div>
+      </div>
+
+      <h3 style="font-family:'Playfair Display',serif; margin:1.2rem 0 0.6rem;">Fosfatasa Alcalina y Colestasis <span class="star">⭐⭐⭐</span></h3>
+      <div class="box box-red">
+        <div class="box-title">Colestasis → Fa elevada al menos 4× LNS</div>
+        <ul class="styled">
+          <li><span class="teal">Extrahepática</span>: dilatación del tracto biliar por ultrasonido</li>
+          <li><span class="teal">Intrahepática</span></li>
+          <li>La magnitud de elevación es inespecífica para otras hepatopatías</li>
+          <li>GGT se eleva conjuntamente con Fa pero no es específica</li>
+        </ul>
+      </div>
+
+      <div class="image-box" style="margin-top:1rem;">
+        <div class="image-box-header">🖼 IMAGEN / TABLA DE LA DIAPOSITIVA — Causas de Fosfatasa Alcalina Elevada (Diap. 38–39)</div>
+        <div class="image-box-body">
+          <h4 style="font-family:'Playfair Display',serif; margin-bottom:0.5rem; color:var(--red);">Elevación MARCADA (≥4× LNS)</h4>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Origen</th><th>Causas</th></tr></thead>
+              <tbody>
+                <tr>
+                  <td class="td-category">Obstrucción biliar extrahepática</td>
+                  <td>Coledocolitiasis (MÁS COMÚN): no complicada / complicada (pancreatitis biliar, colangitis aguda)<br>Obstrucción maligna: páncreas, vesícula biliar, ámpula de Vater, conducto biliar, metástasis a ganglios perihiliares<br>Estenosis biliares: CEP con estenosis del conducto biliar extrahepático, complicaciones post-procedimientos, pancreatitis crónica con estenosis del conducto biliar distal, estenosis anastomótica post-trasplante<br>Infecciones: colangiopatía SIDA, Ascaris lumbricoides, duelas hepáticas</td>
+                </tr>
+                <tr>
+                  <td class="td-category">Colestasis intrahepática</td>
+                  <td>Fármacos y toxinas asociados a colestasis; Colangitis biliar primaria; Colangitis esclerosante primaria; Colestasis intrahepática del embarazo; Colestasis postoperatoria benigna; Nutrición parenteral total; Enfermedades infiltrativas (amiloidosis, linfoma, sarcoidosis, tuberculosis, absceso hepático); Carcinoma metastásico al hígado; Rechazo de aloinjerto hepático; Colangiopatía isquémica; Hepatitis alcohólica asociada; Enfermedad de células falciformes (crisis hepática)</td>
+                </tr>
+                <tr>
+                  <td class="td-category">Causas no hepáticas</td>
+                  <td>Hiperfosfatasemia transitoria de infancia y niñez</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h4 style="font-family:'Playfair Display',serif; margin:1rem 0 0.5rem; color:var(--orange);">Elevación MODERADA (&lt;4× LNS)</h4>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Origen</th><th>Causas</th></tr></thead>
+              <tbody>
+                <tr>
+                  <td class="td-category">Hepáticas</td>
+                  <td>Inespecífico, se ve con todos los tipos de hepatopatía: hepatitis viral/crónica/alcohólica, cirrosis, enfermedades infiltrativas, estados de hipoperfusión (sepsis, insuficiencia cardíaca)</td>
+                </tr>
+                <tr>
+                  <td class="td-category">No hepáticas</td>
+                  <td>Fisiológica (niños y adolescentes); 3er trimestre del embarazo; Influx de Fa intestinal después de comida grasa (grupo sanguíneo O o B); Alto recambio óseo (crecimiento, fracturas en cicatrización, osteomalacia, Paget, osteosarcoma, metástasis óseas, hiperparatiroidismo, hipertiroidismo); Enfermedad extrahepática: metaplasia mieloide, peritonitis, DM, tiroiditis subaguda, úlcera gástrica no complicada, tumores extrahepáticos (osteosarcoma, pulmón, gástrico, cabeza y cuello, células renales, ovárico, uterino, linfoma de Hodgkin)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div style="font-size:0.78rem; margin-top:0.5rem; color:var(--ink-light);">
+            * El valor de Fa puede variar y ser &lt;4× en etapas tempranas. ¶ Puede causar elevación aislada de Fa hepática en obstrucción parcial. Δ Puede causar elevación aislada. ◇ La Fa puede derivar de hígado, hueso, placenta 3er trimestre, intestino y riñones. Una Fa elevada con GGT o 5'-nucleotidasa normales sugiere origen no hepático.
+          </div>
+        </div>
+        <div class="image-box-interpret">
+          <strong>Interpretación:</strong> La magnitud de elevación orienta la etiología. Elevación ≥4× LNS casi siempre indica colestasis (biliar u obstructiva). Elevación moderada es muy inespecífica. La combinación con GGT o 5'-nucleotidasa permite confirmar origen hepatobiliar. La coledocolitiasis es la causa más común de elevación marcada.
+        </div>
+      </div>
+
+      <div class="image-box" style="margin-top:1rem;">
+        <div class="image-box-header">🖼 IMAGEN / TABLA DE LA DIAPOSITIVA — Algoritmo: Evaluación de Fosfatasa Alcalina Sérica Elevada (Diap. 41)</div>
+        <div class="image-box-body">
+          <div class="flow" style="flex-direction:column; align-items:flex-start; gap:0.35rem;">
+            <div class="flow-box gold-box">Descartar causas fisiológicas: embarazo, aumento postprandial (hasta 1.5–2× LNS); repetir en ayuno</div>
+            <div class="flow-arrow" style="align-self:center;">↓</div>
+            <div class="flow-box"><strong>Determinar el origen:</strong> Medir GGT o 5'-nucleotidasa</div>
+            <div style="display:flex; gap:2rem; flex-wrap:wrap; width:100%;">
+              <div style="flex:1; min-width:160px;">
+                <div class="flow-arrow">↓ Normal</div>
+                <div class="flow-box" style="background:#f9f9f9; border-color:#999;">Fa de probable <strong>origen óseo</strong> → Evaluar trastornos óseos</div>
+              </div>
+              <div style="flex:1; min-width:160px;">
+                <div class="flow-arrow">↓ Aumentado</div>
+                <div class="flow-box teal" style="background:var(--teal-light); border-color:var(--teal);">Fa de probable <strong>origen hepatobiliar</strong> → USG cuadrante superior derecho</div>
+                <div class="flow-arrow">↓</div>
+                <div style="display:flex; gap:1rem; flex-wrap:wrap;">
+                  <div style="flex:1; min-width:140px;">
+                    <div class="flow-box red-box">Conductos biliares dilatados<br>→ CPRE o CPRM</div>
+                  </div>
+                  <div style="flex:1; min-width:140px;">
+                    <div class="flow-box">Sin dilatación biliar<br>→ Verificar AMA<br>→ Si + o parénquima anormal: biopsia<br>→ Si − y USG normal: evaluar grado de elevación<br>&nbsp;&nbsp;≥50%: CPRE, CPRM o biopsia<br>&nbsp;&nbsp;&lt;50%: observación</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="font-size:0.78rem; margin-top:0.6rem; color:var(--ink-light);">AMA: anticuerpos antimitocondriales; CPRE: colangiopancreatografía retrógrada endoscópica; CPRM: colangiopancreatografía por resonancia magnética; LNS: límite normal superior.</div>
+        </div>
+        <div class="image-box-interpret">
+          <strong>Interpretación:</strong> El algoritmo usa GGT/5'-nucleotidasa como pivote para confirmar origen hepático. El ultrasonido diferencia obstrucción extrahepática (conductos dilatados) de intrahepática (sin dilatación). Los AMA positivos con USG normal apuntan a colangitis biliar primaria y requieren biopsia para confirmar.
+        </div>
+      </div>
+
+      <div class="image-box" style="margin-top:1rem;">
+        <div class="image-box-header">🖼 IMAGEN / TABLA DE LA DIAPOSITIVA — Hallazgos de laboratorio para diagnósticos específicos comunes (Diap. 55)</div>
+        <div class="image-box-body">
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Enfermedad</th><th>Pruebas y Hallazgos</th></tr></thead>
+              <tbody>
+                <tr><td class="td-category">Enf. hepática alcohólica</td><td>Historia de abuso de alcohol; AST/ALT &gt;2 con ambas &lt;500 UI/mL si hay hepatitis alcohólica</td></tr>
+                <tr><td class="td-category">Hepatitis C crónica</td><td>ELISA para anti-VHC; PCR para ARN de VHC si se necesita prueba confirmatoria</td></tr>
+                <tr><td class="td-category">Colangitis biliar primaria</td><td>Anticuerpos antimitocondriales como hallazgo aislado; elevación de IgM</td></tr>
+                <tr><td class="td-category">Colangitis esclerosante primaria</td><td>Fuerte asociación con EII; colangiografía para establecer diagnóstico; ANA y ASMA y ANCA (no diagnósticos)</td></tr>
+                <tr><td class="td-category">Hepatitis autoinmune</td><td>Hipergammaglobulinemia; ANA y ASMA y ANCA (tipo 1); anti-LKM-1 (tipo 2)</td></tr>
+                <tr><td class="td-category">Hepatitis B crónica</td><td>HBsAg y HBeAg; en algunos casos ADN VHB por hibridación o bDNA</td></tr>
+                <tr><td class="td-category">Hemocromatosis hereditaria</td><td>Historia familiar de cirrosis; saturación de transferrina y ferritina plasmática (pueden elevarse por la propia hepatopatía); diagnóstico definitivo: prueba genética o biopsia (índice de hierro hepático)</td></tr>
+                <tr><td class="td-category">Enfermedad de Wilson</td><td>Historia familiar/personal de cirrosis en joven; ceruloplasmina sérica reducida en 95% de pxs; biopsia muestra ↑ contenido de cobre</td></tr>
+                <tr><td class="td-category">Déficit α1-antitripsina</td><td>Historia familiar/personal de cirrosis en joven; nivel sérico de AAT; fenotipificación si valores bajos o fronterizos</td></tr>
+                <tr><td class="td-category">NAFLD</td><td>Historia de DM o síndrome metabólico; puede sospecharse por pruebas bioquímicas + imagen con infiltración grasa; se confirma por biopsia</td></tr>
+                <tr><td class="td-category">Hepatopatía congestiva</td><td>Historia de IC derecha, pericarditis constrictiva, estenosis mitral, regurgitación tricuspídea, cor pulmonale, cardiomiopatía; USG abdominal con Doppler de venas portales y hepáticas y arteria hepática, ECG y ecocardiograma</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div style="font-size:0.78rem; margin-top:0.5rem; color:var(--ink-light);">AAT: alfa-1 antitripsina; ANCA: anticuerpo anticitoplasma de neutrófilos; anti-LKM-1: anticuerpos antimicrosomales hígado-riñón tipo 1; ALT: alanina aminotransferasa; AST: aspartato aminotransferasa; DNA: ácido desoxirribonucleico; ELISA: ensayo inmunoabsorbente ligado a enzima; HBeAg: antígeno e de hepatitis B; HBsAg: antígeno de superficie de hepatitis B; VHB: virus hepatitis B; VHC: virus hepatitis C; Ig: inmunoglobulina; PCR: reacción en cadena de polimerasa; ARN: ácido ribonucleico.</div>
+        </div>
+        <div class="image-box-interpret">
+          <strong>Interpretación:</strong> Esta tabla es un recurso rápido para elegir los estudios diagnósticos según la sospecha etiológica. La columna de "pruebas y hallazgos" puede usarse como checklist clínico. Destacan la ceruloplasmina para Wilson (sensibilidad 95%), los AMA para colangitis biliar primaria, y la combinación AST/ALT+historia para enfermedad alcohólica.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ===== BILIRRUBINA ===== -->
+  <div class="section" id="bilirrubina">
+    <h2 class="section-title">Bilirrubina <span class="slide-number">DIAP 42–47</span></h2>
+    <div class="slide-content">
+      <div class="box box-teal">
+        <div class="box-title">🔬 Definición</div>
+        Pigmento amarillento de la bilis, resultado de la <strong>degradación de la hemoglobina</strong> de los eritrocitos.
+      </div>
+
+      <div class="values-grid">
+        <div class="value-card">
+          <div class="vc-name">Directa (conjugada)</div>
+          <div class="vc-val">0 – 0.3 mg/dL</div>
+        </div>
+        <div class="value-card">
+          <div class="vc-name">Indirecta (no conjugada)</div>
+          <div class="vc-val">0.1 – 1.5 mg/dL</div>
+        </div>
+        <div class="value-card">
+          <div class="vc-name">Total</div>
+          <div class="vc-val">0.1 – 1.1 mg/dL</div>
+        </div>
+      </div>
+
+      <div class="box box-red" style="margin-top:1rem;">
+        <div class="box-title">⭐⭐⭐ Interpretación clínica</div>
+        <ul class="styled">
+          <li><span class="red">Bilirrubina directa ↑</span> → alteración de la bilirrubina <strong>dentro del hígado</strong> (↓ excreción, fuga desde hepatocitos) → <strong>Enfermedad hepática o posthepática</strong></li>
+          <li><span class="red">Bilirrubina indirecta ↑</span> → sobreproducción (hemólisis esplénica), alt. de captación o conjugación → <strong>Bazo grande, anemia hemolítica</strong></li>
+          <li><span class="red">Bilirrubina &gt; cierto umbral</span> → tiñe piel, mucosas y ojos (<strong>ictericia</strong>)</li>
+        </ul>
+      </div>
+
+      <h3 style="font-family:'Playfair Display',serif; margin:1.2rem 0 0.6rem;">Metabolismo de la Bilirrubina <span class="star">⭐⭐⭐</span></h3>
+      <div class="flow" style="flex-direction:column; align-items:flex-start; gap:0.35rem;">
+        <div class="flow-box gold-box"><strong>80%</strong> destrucción diaria de glóbulos rojos + <strong>20%</strong> eritropoyesis inefectiva de médula ósea</div>
+        <div class="flow-arrow">↓</div>
+        <div class="flow-box"><strong>Bilirrubina Indirecta (BI)</strong>: insoluble en agua, circula en plasma unida a albúmina</div>
+        <div class="flow-arrow">↓ Difusión facilitada</div>
+        <div class="flow-box"><strong>Hepatocito:</strong> UDP-Glucuronil transferasa conjuga BI → <span class="teal">Bilirrubina Directa (BD)</span> soluble en agua</div>
+        <div class="flow-arrow">↓ Excreción biliar</div>
+        <div class="flow-box"><strong>Intestino:</strong> Bacterias transforman BD en <span class="gold">urobilinógeno</span> → eliminado por heces como <span class="gold">estercobilinógeno</span></div>
+        <div class="flow-arrow">↓ Circulación enterohepática</div>
+        <div class="flow-box red-box"><strong>90%</strong> reabsorbido → regresa al hígado (ciclo enterohepático) | <strong>10%</strong> excretado por orina</div>
+      </div>
+
+      <div class="image-box" style="margin-top:1.2rem;">
+        <div class="image-box-header">🖼 IMAGEN / TABLA DE LA DIAPOSITIVA — Síntesis y circulación enterohepática de la bilirrubina (Diap. 45–46)</div>
+        <div class="image-box-body">
+          <p style="font-size:0.9rem; margin-bottom:0.8rem;"><strong>Panel izquierdo:</strong> Síntesis química: Hemo → (Hemo oxigenasa, NADPH+O₂) → Biliverdina → (Biliverdina reductasa, NADH/NADPH) → <strong>Bilirrubina</strong></p>
+          <p style="font-size:0.9rem; margin-bottom:0.8rem;"><strong>Panel derecho:</strong> Producción diaria de bilirrubina 200–400 mg → Circulación sistémica de bilirrubina no conjugada → Hepatocito conjuga → Bilirrubina conjugada 260 mg/día → Intestino delgado → Urobilinógeno → Colon → Urobilinógeno urinario 0–4 mg/día + Urobilinógeno fecal 125–130 mg/día + Reciclaje enterohepático</p>
+          <div class="formula" style="margin-top:0.8rem;">
+            <span class="formula-label">Reacciones clave</span>
+            Hemo + O₂  ──[Hemo oxigenasa]──→  Biliverdina + CO + Fe²⁺
+            Biliverdina ─[Biliverdina reductasa]─→  Bilirrubina (BI)
+            BI + UDP-glucuronato ─[UDP-GT hepática]─→  Bilirrubina diglucurónido (BD)
+          </div>
+        </div>
+        <div class="image-box-interpret">
+          <strong>Interpretación:</strong> El ciclo enterohepático explica por qué el 90% de la BD se reabsorbe (eficiencia metabólica). Una alteración en cualquier paso — producción excesiva (hemólisis), captación deficiente (IC, fármacos), conjugación alterada (Gilbert, Crigler-Najjar, neonatos) o excreción impedida (colestasis, obstrucción) — se refleja en hiperbilirrubinemia. El tipo (directa vs indirecta) localiza el defecto.
+        </div>
+      </div>
+
+      <h3 style="font-family:'Playfair Display',serif; margin:1.2rem 0 0.6rem;">Hiperbilirrubinemia Aislada <span class="star">⭐⭐⭐</span></h3>
+      <div class="box box-yellow">
+        <div class="box-title">📌 Principio</div>
+        Determinar predominio → ¿conjugada o no conjugada?<br>
+        <span class="gold">Bilirrubina indirecta aislada generalmente es &lt;4 mg/dL en ausencia de enfermedad hepática subyacente.</span><br>
+        Por fármacos se resuelve a las <span class="teal">48 horas de su interrupción</span>.
+      </div>
+
+      <div class="image-box" style="margin-top:1rem;">
+        <div class="image-box-header">🖼 IMAGEN / TABLA DE LA DIAPOSITIVA — Clasificación de ictericia por tipo de pigmento biliar y mecanismo (Diap. 47)</div>
+        <div class="image-box-body">
+          <div class="fp-fn-row">
+            <div class="fp-box">
+              <strong>🟡 HIPERBILIRRUBINEMIA NO CONJUGADA</strong>
+              <ul class="styled" style="margin-top:0.5rem; font-size:0.85rem;">
+                <li><em>↑ producción:</em> hemólisis extravascular/intravascular, extravasación de sangre a tejidos, diseritropoyesis, Wilson</li>
+                <li><em>↓ captación hepática:</em> IC, shunts portosistémicos, síndrome de Gilbert, fármacos (rifampicina, probenecid, flavaspídico, bunamiodil)</li>
+                <li><em>↓ conjugación:</em> Crigler-Najjar tipos I y II, síndrome de Gilbert, neonatos, hipertiroidismo, etinilestradiol, hepatopatías crónicas avanzadas</li>
+              </ul>
+            </div>
+            <div class="fn-box">
+              <strong>🔵 HIPERBILIRRUBINEMIA CONJUGADA</strong>
+              <ul class="styled" style="margin-top:0.5rem; font-size:0.85rem;">
+                <li><em>Defecto de transporte canalicular:</em> Síndrome de Dubin-Johnson</li>
+                <li><em>Defecto de recaptación sinusoidal:</em> Síndrome de Rotor</li>
+                <li><em>Colestasis extrahepática:</em> Coledocolitiasis, tumores (colangiocarcinoma, cáncer pancreático), CEP, colangiopatía SIDA, pancreatitis, stricturas, infecciones parasitarias</li>
+                <li><em>Colestasis intrahepática:</em> Hepatitis viral, hepatitis alcohólica, esteatohepatitis no alcohólica, hepatitis crónica, colangitis biliar primaria, fármacos y toxinas, sepsis/hipoperfusión, enfermedades infiltrativas, NPT, colestasis postoperatoria, trasplante, crisis hepática drepanocítica, embarazo, hepatopatía terminal</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="image-box-interpret">
+          <strong>Interpretación:</strong> La distinción no conjugada/conjugada es el primer paso esencial. No conjugada apunta "antes" del hepatocito (hemólisis, defectos de captación/conjugación). Conjugada apunta "dentro o después" del hepatocito (defectos de excreción, colestasis intra o extrahepática). Esta clasificación guía qué estudios solicitar a continuación.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ===== FHA ===== -->
+  <div class="section" id="fha">
+    <h2 class="section-title">Falla Hepática Aguda (FHA) <span class="slide-number">DIAP 49–54</span></h2>
+    <div class="slide-content">
+      <div class="box box-red">
+        <div class="box-title">⭐⭐⭐ Definición Clínica</div>
+        <ul class="styled">
+          <li><span class="red">Encefalopatía hepática</span> → alteración mental <strong>(&lt;26 semanas)</strong></li>
+          <li>Ictericia</li>
+          <li>Dolor en cuadrante superior derecho</li>
+        </ul>
+      </div>
+
+      <h3 style="font-family:'Playfair Display',serif; margin:1.2rem 0 0.6rem;">Hallazgos de Laboratorio <span class="star">⭐⭐⭐</span></h3>
+      <ul class="styled">
+        <li><span class="red">TP prolongado, INR &gt; 1.5</span>; hemostasia por tromboelastografía normal</li>
+        <li>Transaminasas elevadas</li>
+        <li>Bilirrubina elevada</li>
+        <li><span class="red">Trombocitopenia (&lt;150,000/mm³)</span>, principalmente asociada a hipertensión portal</li>
+      </ul>
+
+      <div class="fp-fn-row">
+        <div class="fp-box">
+          <strong>🟢 Signos de MEJORÍA</strong>
+          <ul class="styled" style="margin-top:0.5rem; font-size:0.88rem;">
+            <li>↓ Transaminasas</li>
+            <li>↓ Bilirrubina</li>
+            <li>↓ PT/INR</li>
+          </ul>
+        </div>
+        <div class="fn-box">
+          <strong>🔴 Signos de COMPLICACIÓN</strong>
+          <ul class="styled" style="margin-top:0.5rem; font-size:0.88rem;">
+            <li>↓ Transaminasas (agotamiento)</li>
+            <li>↑ Bilirrubina</li>
+            <li>Prolongación de PT/INR</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="box box-yellow" style="margin-top:1rem;">
+        <div class="box-title">⚠ Paradoja diagnóstica importante</div>
+        <span class="red">La disminución de transaminasas en FHA puede ser signo de mejoría O de empeoramiento</span>. Debe interpretarse siempre junto con bilirrubina y PT/INR.
+      </div>
+
+      <h3 style="font-family:'Playfair Display',serif; margin:1.2rem 0 0.6rem;">Otros Hallazgos Laboratoriales en FHA</h3>
+      <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(180px, 1fr)); gap:0.5rem; margin-bottom:1rem;">
+        <div class="box box-red" style="padding:0.5rem 0.8rem; font-size:0.88rem;">Anemia hemolítica</div>
+        <div class="box box-red" style="padding:0.5rem 0.8rem; font-size:0.88rem;">↑ Creatinina y BUN</div>
+        <div class="box box-red" style="padding:0.5rem 0.8rem; font-size:0.88rem;">↑ Amilasa y lipasa</div>
+        <div class="box box-red" style="padding:0.5rem 0.8rem; font-size:0.88rem;">Hipoglicemia</div>
+        <div class="box box-yellow" style="padding:0.5rem 0.8rem; font-size:0.88rem;">Hipofosfatemia</div>
+        <div class="box box-yellow" style="padding:0.5rem 0.8rem; font-size:0.88rem;">Hipomagnesemia</div>
+        <div class="box box-yellow" style="padding:0.5rem 0.8rem; font-size:0.88rem;">Hipokalemia</div>
+        <div class="box box-yellow" style="padding:0.5rem 0.8rem; font-size:0.88rem;">Acidosis o alcalosis</div>
+        <div class="box box-red" style="padding:0.5rem 0.8rem; font-size:0.88rem;">↑ Amoniaco</div>
+        <div class="box box-red" style="padding:0.5rem 0.8rem; font-size:0.88rem;">↑ LDH</div>
+      </div>
+
+      <h3 style="font-family:'Playfair Display',serif; margin:1.2rem 0 0.6rem;">Hallazgos Específicos por Etiología <span class="star">⭐⭐⭐</span></h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Etiología</th><th>Hallazgo Específico</th></tr></thead>
+          <tbody>
+            <tr><td class="td-category">Acetaminofén</td><td><span class="red">Transaminasas &gt;3,500 U/L</span>, bilirrubina BAJA, INR elevado</td></tr>
+            <tr><td class="td-category">Isquemia hepática</td><td>Transaminasas 25–250× LNS, LDH elevada</td></tr>
+            <tr><td class="td-category">Hepatitis VHB</td><td>Transaminasas elevadas 1,000–2,000 U/L (ALT &gt; AST)</td></tr>
+            <tr><td class="td-category">Enfermedad de Wilson</td><td><span class="red">Anemia hemolítica Coombs negativa</span>, transaminasas &lt;2,000 U/L, AST/ALT &gt;2, <span class="red">Fa ~normal (&lt;40 U/L)</span>, Ratio Fa/Bilirrubina &lt;4, falla renal rápidamente progresiva, ácido úrico disminuido</td></tr>
+            <tr><td class="td-category">Síndrome HELLP</td><td>Transaminasas &lt;1,000, bilirrubina elevada, plaquetas disminuidas</td></tr>
+            <tr><td class="td-category">Herpes simplex</td><td>Transaminasas elevadas, leucopenia, bilirrubina baja</td></tr>
+            <tr><td class="td-category">Sd. Reye / valproato / tetraciclinas</td><td>Elevación leve de transaminasas y bilirrubinas</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 style="font-family:'Playfair Display',serif; margin:1.2rem 0 0.6rem;">Otras Pruebas según la Causa</h3>
+      <ul class="styled">
+        <li>Nivel de acetaminofén; toxicológico de sangre y orina</li>
+        <li>Serología para virus de hepatitis</li>
+        <li>Prueba de embarazo</li>
+        <li>Marcadores autoinmunes</li>
+        <li>Gases arteriales; amoniaco arterial</li>
+        <li>Grupo sanguíneo; serología para VIH</li>
+        <li>Amilasa y lipasa</li>
+        <li>Estudios de imagen (USG, CT, MRI, venograma)</li>
+        <li>Biopsia</li>
+      </ul>
+
+      <div class="image-box" style="margin-top:1.2rem;">
+        <div class="image-box-header">🖼 IMAGEN / TABLA DE LA DIAPOSITIVA — Mnemotecnia para causas de falla hepática aguda: Los ABCs (Diap. 53)</div>
+        <div class="image-box-body">
+          <div class="table-wrap">
+            <table class="mnemonic-table">
+              <tbody>
+                <tr><td>A</td><td>Acetaminofén, Hepatitis A, Hepatitis Autoinmune, <em>Amanita phalloides</em> (intoxicación por hongos), Adenovirus</td></tr>
+                <tr><td>B</td><td>Hepatitis B, Síndrome de Budd-Chiari</td></tr>
+                <tr><td>C</td><td>Criptogénica, Hepatitis C, CMV (citomegalovirus)</td></tr>
+                <tr><td>D</td><td>Hepatitis D, Drogas y toxinas</td></tr>
+                <tr><td>E</td><td>Hepatitis E, EBV (virus de Epstein-Barr)</td></tr>
+                <tr><td>F</td><td>Infiltración grasa: hígado graso agudo del embarazo, síndrome de Reye</td></tr>
+                <tr><td>G</td><td>Genético: Enfermedad de Wilson</td></tr>
+                <tr><td>H</td><td>Hipoperfusión (hepatitis isquémica, SOS, sepsis), síndrome HELLP, HSV, golpe de calor, hepatectomía, linfohistiocitosis hemofagocítica</td></tr>
+                <tr><td>I</td><td>Infiltración por tumor</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div style="font-size:0.78rem; margin-top:0.6rem; color:var(--ink-light);">CMV: citomegalovirus; EBV: virus Epstein-Barr; SOS: síndrome de obstrucción sinusoidal (enfermedad veno-oclusiva); HELLP: hemólisis, enzimas hepáticas elevadas, plaquetas bajas; HSV: virus herpes simplex.</div>
+        </div>
+        <div class="image-box-interpret">
+          <strong>Interpretación:</strong> Esta mnemotecnia "ABCDEFGHi" cubre las principales etiologías de falla hepática aguda de mayor a menor frecuencia general, aunque la frecuencia varía por región (acetaminofén más común en países anglosajones; hepatitis viral más común en países en desarrollo). Útil para el escrutinio sistemático.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ===== HEPATITIS VIRAL ===== -->
+  <div class="section" id="hepatitis-viral">
+    <h2 class="section-title">Hepatitis Inducida por Virus <span class="slide-number">DIAP 56–58</span></h2>
+    <div class="slide-content">
+
+      <div class="image-box">
+        <div class="image-box-header">🖼 IMAGEN / TABLA DE LA DIAPOSITIVA — Antígenos y anticuerpos tras infección por Virus de Hepatitis A (Diap. 56)</div>
+        <div class="image-box-body">
+          <p style="font-size:0.9rem; margin-bottom:0.8rem;">Gráfica de títulos relativos vs tiempo tras exposición a VHA:</p>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Fase</th><th>Duración</th><th>Marcadores</th></tr></thead>
+              <tbody>
+                <tr><td>Incubación</td><td>15–45 días</td><td>HAAg (antígeno VHA) detectable al final</td></tr>
+                <tr><td>Aguda temprana</td><td>0–14 días</td><td>HAAg empieza a caer; síntomas comienzan; AST/ALT se elevan (duran 1–2 meses)</td></tr>
+                <tr><td>Aguda</td><td>3–6 meses</td><td><span class="red">anti-HAV IgM</span> pico y declive; Total anti-HAV comienza a ascender</td></tr>
+                <tr><td>Recuperación</td><td>Años</td><td><span class="gold">Total anti-HAV (IgG)</span> persiste de por vida (inmunidad)</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="image-box-interpret">
+          <strong>Interpretación:</strong> El anti-HAV IgM es el marcador de infección aguda. El anti-HAV total (IgG) confirma infección previa o vacunación exitosa y persiste de por vida. La hepatitis A no evoluciona a crónica (sin portador crónico).
+        </div>
+      </div>
+
+      <div class="image-box" style="margin-top:1.2rem;">
+        <div class="image-box-header">🖼 IMAGEN / TABLA DE LA DIAPOSITIVA — Antígenos y anticuerpos tras infección por Virus de Hepatitis B (Diap. 57)</div>
+        <div class="image-box-body">
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Fase</th><th>Duración</th><th>Marcadores</th></tr></thead>
+              <tbody>
+                <tr><td>Incubación</td><td>4–12 semanas</td><td>—</td></tr>
+                <tr><td>Incubación tardía / Aguda temprana</td><td>1–2 semanas</td><td><span class="red">HBsAg</span> aparece (primer marcador)</td></tr>
+                <tr><td>Aguda temprana</td><td>2 semanas–3 meses</td><td><span class="red">HBsAg + HBeAg</span>; síntomas; AST/ALT se elevan (1–2 meses)</td></tr>
+                <tr><td>"Ventana" de seroconversión</td><td>Variable</td><td>HBeAg desaparece; <span class="teal">anti-HBe</span> aparece; <span class="teal">anti-HBc IgM</span></td></tr>
+                <tr><td>Convalecencia</td><td>3–6 meses</td><td><span class="teal">anti-HBc total</span> (sube y persiste); <span class="teal">anti-HBe</span></td></tr>
+                <tr><td>Recuperación temprana</td><td>Variable</td><td>HBsAg desaparece</td></tr>
+                <tr><td>Recuperación</td><td>Años</td><td><span class="gold">anti-HBs</span> (inmunidad); anti-HBc total permanece</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="box box-red" style="margin-top:0.8rem; font-size:0.88rem;">
+            <div class="box-title">⭐⭐⭐ Interpretación práctica de HBsAg</div>
+            HBsAg+ por &gt;6 meses = <span class="red">PORTADOR CRÓNICO</span>. El anti-HBc IgM indica infección aguda reciente. anti-HBs aislado = vacunación o curación. La "ventana" (HBsAg negativo + anti-HBs negativo) solo se detecta con anti-HBc IgM.
+          </div>
+        </div>
+        <div class="image-box-interpret">
+          <strong>Interpretación:</strong> El seguimiento serológico del VHB es complejo pero esencial. HBsAg es el primer marcador y el que persiste en infección crónica. HBeAg indica alta replicación viral. Los anticuerpos anti-HBc y anti-HBs permiten distinguir infección aguda, crónica, curación y vacunación.
+        </div>
+      </div>
+
+      <div class="image-box" style="margin-top:1.2rem;">
+        <div class="image-box-header">🖼 IMAGEN / TABLA DE LA DIAPOSITIVA — Interpretación de patrones de marcadores de VHC (Diap. 58)</div>
+        <div class="image-box-body">
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Interpretación</th><th>Anti-VHC</th><th>RIBA</th><th>ARN-VHC</th></tr></thead>
+              <tbody>
+                <tr><td>Infección aguda VHC</td><td>−</td><td>−</td><td><span class="red">+</span></td></tr>
+                <tr><td>Infección activa VHC</td><td>+</td><td>+</td><td>+</td></tr>
+                <tr><td>Posible eliminación de VHC</td><td>+</td><td>+</td><td>−</td></tr>
+                <tr><td>Falso positivo VHC</td><td>+</td><td>−</td><td>−</td></tr>
+                <tr><td>Requiere estudio adicional</td><td>+</td><td>Indeterminado*</td><td>−</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div style="font-size:0.78rem; margin-top:0.5rem; color:var(--ink-light);">*Resultado indeterminado: solo una banda positiva, o más de una banda con reactividad inespecífica. VHC: Hepatitis C; RIBA: inmunoensayo recombinante.</div>
+        </div>
+        <div class="image-box-interpret">
+          <strong>Interpretación:</strong> En la infección aguda precoz, el anti-VHC puede ser negativo pero el ARN-VHC ya es positivo. El RIBA es una prueba confirmatoria de mayor especificidad. La PCR de ARN-VHC es el gold standard para confirmar viremia activa. Un anti-VHC+ con ARN− indica curación espontánea o tratada.
+        </div>
+      </div>
+
+      <h3 style="font-family:'Playfair Display',serif; margin:1.2rem 0 0.6rem;">Condiciones hepatocelulares que producen ictericia</h3>
+      <div class="image-box">
+        <div class="image-box-header">🖼 IMAGEN / TABLA DE LA DIAPOSITIVA — Condiciones hepatocelulares que pueden producir ictericia (Diap. 30)</div>
+        <div class="image-box-body">
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Categoría</th><th>Causas</th></tr></thead>
+              <tbody>
+                <tr><td class="td-category">Hepatitis viral</td><td>Hepatitis A, B, C, D, E; Virus Epstein-Barr; Citomegalovirus</td></tr>
+                <tr><td class="td-category">Alcohol</td><td>Hepatitis alcohólica</td></tr>
+                <tr><td class="td-category">Fármacos</td><td>Predecibles dosis-dependientes (ej. acetaminofén); Impredecibles idiosincrásicos (muchos fármacos)</td></tr>
+                <tr><td class="td-category">Toxinas ambientales</td><td>Cloruro de vinilo; Té de Jamaica (alcaloides de pirrolizidina); Hongos silvestres (<em>Amanita phalloides</em> o <em>verna</em>)</td></tr>
+                <tr><td class="td-category">Hepatitis autoinmune</td><td>Enfermedad de Wilson</td></tr>
+                <tr><td class="td-category">Isquemia</td><td>Síndrome de Budd-Chiari, hepatitis isquémica</td></tr>
+                <tr><td class="td-category">Hepatopatía congestiva</td><td>Por insuficiencia cardíaca derecha</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="image-box-interpret">
+          <strong>Interpretación:</strong> Esta tabla enumera las causas hepatocelulares de ictericia (a diferencia de las causas obstructivas/colestásicas). El primer paso es distinguir hepatocelular de colestásica usando el Valor R, y dentro de hepatocelular, el ratio AST/ALT ayuda a separar alcohol, viral y otras causas.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ===== REFERIR ===== -->
+  <div class="section" id="referir">
+    <h2 class="section-title">¿Cuándo Referir? <span class="slide-number">DIAP 59</span></h2>
+    <div class="slide-content">
+      <div class="box box-red">
+        <div class="box-title">⭐⭐⭐ Criterios de Referencia</div>
+        <ul class="styled">
+          <li>Persistencia de <span class="red">transaminasas &gt;2× LNS</span> o <span class="red">Fa &gt;1.5× LNS</span> de manera inexplicable</li>
+          <li>Por debajo de estos valores → <span class="teal">manejo expectante</span> c/6 meses</li>
+          <li>Candidato a <strong>biopsia hepática</strong></li>
+        </ul>
+      </div>
+      <div class="box box-yellow" style="margin-top:1rem;">
+        <div class="box-title">📌 Principio General</div>
+        La referencia al gastroenterólogo/hepatólogo se justifica cuando las pruebas básicas no explican el cuadro, cuando se sospecha hepatopatía crónica grave, o cuando se requiere biopsia para estadificar la enfermedad.
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== FOOTER ===== -->
+  <div style="background: var(--formula-bg); color: #aaa; border-radius:8px; padding:1.2rem 1.5rem; margin-top:3rem; font-family:'JetBrains Mono',monospace; font-size:0.78rem; line-height:1.8;">
+    <div style="color:var(--formula-text); font-size:0.9rem; margin-bottom:0.5rem;">📚 Referencias</div>
+    UpToDate. Approach to the patient with abnormal liver biochemical and function tests<br>
+    Kwo PY, Cohen SM, Lim JK. ACG Clinical Guideline: Evaluation of Abnormal Liver Chemistries. Am J Gastroenterol 2017; 112:18.<br>
+    Bussler S, et al. New pediatric percentiles of liver enzyme serum levels. Hepatology 2018; 68:1319.<br>
+    Chalasani N, et al. The diagnosis and management of non-alcoholic fatty liver disease. Hepatology 2012; 55:2005.<br>
+    Cassidy WM, Reynolds TB. Serum lactic dehydrogenase in the differential diagnosis of acute hepatocellular injury. J Clin Gastroenterol 1994; 19:118.<br>
+    Moussavian SN, et al. Serum gamma-glutamyl transpeptidase and chronic alcoholism. Dig Sci 1985; 30:211.<br>
+    Goldberg DM. Structural, functional, and clinical aspects of gamma-glutamyltransferase. CRC Crit Rev Clin Lab Sci 1980; 12:1.<br>
+    Nannipieri M, et al. Liver enzymes, the metabolic syndrome, and incident diabetes. Diabetes Care 2005; 28:1757.<br>
+    Hill PG, Sammons HG. An assessment of 5'-nucleotidase as a liver-function test. Q J Med 1967; 36:457.<br>
+    Myers RP, et al. Cardiac hepatopathy. Hepatology 37:393.
+  </div>
+
+</div><!-- /container -->
+
+<script>
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+</script>
+</body>
+</html>
