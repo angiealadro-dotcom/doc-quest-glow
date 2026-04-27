@@ -29,7 +29,12 @@ const Index = () => {
           </div>
           <h1 className="mt-6 text-balance text-4xl font-black leading-tight md:text-6xl">
             Plataforma de Estudio
-            <span className="block bg-gradient-gold bg-clip-text text-transparent">Medicina</span>
+            <span
+              className="block bg-gradient-gold bg-clip-text text-transparent"
+              style={{ WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}
+            >
+              Medicina
+            </span>
           </h1>
           <p className="mx-auto mt-5 max-w-2xl text-base italic text-primary-foreground/80 md:text-lg">
             Nueve módulos de bioquímica clínica con tablas, fórmulas y algoritmos diagnósticos integrados.
