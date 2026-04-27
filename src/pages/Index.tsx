@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { topics } from "@/data/topics";
-import { GraduationCap, Sparkles, BookOpen } from "lucide-react";
+import { GraduationCap, BookOpen } from "lucide-react";
+import heroClassroom from "@/assets/hero-classroom.png";
 
 const accentMap = {
   gold: "from-[hsl(var(--gold))] to-[hsl(var(--gold-light))]",
@@ -13,47 +14,45 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       {/* HERO */}
-      <header className="bg-gradient-hero text-primary-foreground relative overflow-hidden">
+      <header className="relative overflow-hidden border-b border-border">
+        <img
+          src={heroClassroom}
+          alt="Ilustración de un aula con estudiantes atentos en sus pupitres"
+          className="absolute inset-0 h-full w-full object-cover"
+        />
         <div
-          className="absolute inset-0 opacity-20"
+          className="absolute inset-0"
           style={{
-            backgroundImage:
-              "repeating-linear-gradient(45deg, transparent, transparent 30px, rgba(255,255,255,0.04) 30px, rgba(255,255,255,0.04) 60px)",
+            background:
+              "linear-gradient(180deg, hsl(38 47% 96% / 0.35) 0%, hsl(38 47% 96% / 0.55) 55%, hsl(38 47% 96% / 0.95) 100%)",
           }}
           aria-hidden
         />
-        <div className="container relative mx-auto px-6 py-20 text-center">
-          <div className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/15 px-4 py-1.5 text-xs uppercase tracking-[0.2em] text-primary-foreground/90">
-            <Sparkles className="h-3.5 w-3.5" />
-            Notas clínicas premium
-          </div>
-          <h1 className="mt-6 text-balance text-4xl font-black leading-tight md:text-6xl">
-            Plataforma de Estudio
-            <span
-              className="block bg-gradient-gold bg-clip-text text-transparent"
-              style={{ WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}
-            >
-              Medicina
-            </span>
-          </h1>
-          <p className="mx-auto mt-5 max-w-2xl text-base italic text-primary-foreground/80 md:text-lg">
-            Nueve módulos de bioquímica clínica con tablas, fórmulas y algoritmos diagnósticos integrados.
-          </p>
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-            <Link
-              to="/evaluacion"
-              className="inline-flex items-center gap-2 rounded-full bg-gradient-gold px-6 py-3 font-semibold text-[hsl(var(--ink))] shadow-elegant transition-smooth hover:shadow-glow"
-            >
-              <GraduationCap className="h-4 w-4" />
-              Iniciar evaluación
-            </Link>
-            <a
-              href="#temas"
-              className="inline-flex items-center gap-2 rounded-full border border-primary-foreground/30 px-6 py-3 font-medium text-primary-foreground transition-smooth hover:bg-primary-foreground/10"
-            >
-              <BookOpen className="h-4 w-4" />
-              Explorar temas
-            </a>
+        <div className="container relative mx-auto px-6 py-24 md:py-32">
+          <div className="max-w-2xl">
+            <h1 className="text-balance text-4xl font-black leading-[1.05] text-[hsl(var(--ink))] drop-shadow-sm md:text-6xl">
+              Plataforma de Estudio
+              <span className="mt-2 block text-[hsl(var(--gold))]">Medicina</span>
+            </h1>
+            <p className="mt-5 max-w-xl text-base italic text-[hsl(var(--ink-light))] md:text-lg">
+              Nueve módulos de bioquímica clínica con tablas, fórmulas y algoritmos diagnósticos integrados.
+            </p>
+            <div className="mt-8 flex flex-wrap items-center gap-3">
+              <Link
+                to="/evaluacion"
+                className="inline-flex items-center gap-2 rounded-full bg-gradient-gold px-6 py-3 font-semibold text-[hsl(var(--ink))] shadow-elegant transition-smooth hover:shadow-glow"
+              >
+                <GraduationCap className="h-4 w-4" />
+                Iniciar evaluación
+              </Link>
+              <a
+                href="#temas"
+                className="inline-flex items-center gap-2 rounded-full border border-[hsl(var(--ink))]/25 bg-background/70 px-6 py-3 font-medium text-[hsl(var(--ink))] backdrop-blur transition-smooth hover:bg-background"
+              >
+                <BookOpen className="h-4 w-4" />
+                Explorar temas
+              </a>
+            </div>
           </div>
         </div>
       </header>
