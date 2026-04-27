@@ -1,0 +1,1465 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Infarto Agudo de Miocardio – Diagnóstico por Laboratorio</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #fdf6e3;
+    --cream-dark: #f5ead0;
+    --cream-border: #e8d5a3;
+    --red: #c0392b;
+    --red-light: #e74c3c;
+    --red-bg: #fdecea;
+    --teal: #0e7c7b;
+    --teal-light: #1abc9c;
+    --teal-bg: #e8f8f5;
+    --gold: #b8860b;
+    --gold-light: #f0c040;
+    --gold-bg: #fefce8;
+    --dark: #2c1a0e;
+    --dark-card: #1a0f06;
+    --gray: #7f8c8d;
+    --blue: #2980b9;
+    --blue-bg: #ebf5fb;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--cream);
+    color: var(--dark);
+    font-family: 'Lora', Georgia, serif;
+    font-size: 16px;
+    line-height: 1.8;
+  }
+
+  /* ── HEADER ── */
+  .site-header {
+    background: linear-gradient(135deg, #1a0f06 0%, #3d1a0a 50%, #1a0f06 100%);
+    color: #fdf6e3;
+    padding: 3rem 2rem 2.5rem;
+    text-align: center;
+    border-bottom: 4px solid var(--gold);
+    position: relative;
+    overflow: hidden;
+  }
+  .site-header::before {
+    content: '♥';
+    position: absolute;
+    font-size: 20rem;
+    opacity: 0.03;
+    top: -3rem;
+    right: -3rem;
+    color: #c0392b;
+    pointer-events: none;
+  }
+  .site-header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 5vw, 3rem);
+    font-weight: 900;
+    letter-spacing: 0.02em;
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
+  }
+  .site-header .subtitle {
+    font-family: 'Lora', serif;
+    font-style: italic;
+    color: var(--gold-light);
+    font-size: 1.1rem;
+  }
+
+  /* ── INDEX ── */
+  .index-box {
+    background: var(--cream-dark);
+    border: 2px solid var(--cream-border);
+    border-radius: 12px;
+    margin: 2rem auto;
+    max-width: 900px;
+    padding: 2rem 2.5rem;
+  }
+  .index-box h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    color: var(--dark);
+    border-bottom: 2px solid var(--gold);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.2rem;
+  }
+  .index-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 0.5rem;
+  }
+  .index-grid a {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--teal);
+    text-decoration: none;
+    font-size: 0.92rem;
+    padding: 0.3rem 0.6rem;
+    border-radius: 6px;
+    transition: background 0.2s;
+  }
+  .index-grid a:hover { background: var(--teal-bg); color: var(--teal); }
+  .index-grid a .num {
+    background: var(--dark);
+    color: var(--gold-light);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  /* ── MAIN CONTENT ── */
+  .content { max-width: 900px; margin: 0 auto; padding: 1rem 1.5rem 4rem; }
+
+  /* ── SECTION ── */
+  .section {
+    margin-bottom: 3.5rem;
+    scroll-margin-top: 1.5rem;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.9rem;
+    font-weight: 700;
+    color: var(--dark);
+    border-left: 5px solid var(--red);
+    padding-left: 1rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.3;
+  }
+  .section-title .sec-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    color: var(--gray);
+    display: block;
+    margin-bottom: 0.25rem;
+  }
+
+  /* ── PROSE ── */
+  p { margin-bottom: 1rem; }
+
+  /* ── HIGHLIGHT COLORS ── */
+  .hl-red { text-decoration: underline; text-decoration-color: var(--red); text-underline-offset: 3px; color: var(--red-light); font-weight: 600; }
+  .hl-teal { text-decoration: underline; text-decoration-color: var(--teal); text-underline-offset: 3px; color: var(--teal); font-weight: 600; }
+  .hl-gold { text-decoration: underline; text-decoration-color: var(--gold); text-underline-offset: 3px; color: var(--gold); font-weight: 600; }
+  .star { color: var(--gold); font-size: 0.9em; }
+
+  /* ── BULLET LIST ── */
+  .slide-list { list-style: none; padding: 0; margin-bottom: 1rem; }
+  .slide-list li {
+    padding: 0.35rem 0 0.35rem 1.5rem;
+    position: relative;
+    border-bottom: 1px solid var(--cream-border);
+  }
+  .slide-list li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--red);
+    font-weight: 700;
+  }
+  .slide-list li:last-child { border-bottom: none; }
+  .slide-list.sub { margin-left: 1.5rem; }
+  .slide-list.sub li::before { content: '⟶'; color: var(--teal); }
+
+  /* ── NOTE BOXES ── */
+  .note { border-radius: 10px; padding: 1rem 1.4rem; margin: 1.2rem 0; border-left: 5px solid; }
+  .note-yellow { background: #fffde7; border-color: var(--gold); }
+  .note-red { background: var(--red-bg); border-color: var(--red); }
+  .note-teal { background: var(--teal-bg); border-color: var(--teal); }
+  .note-blue { background: var(--blue-bg); border-color: var(--blue); }
+  .note-label {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.4rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  .note-yellow .note-label { color: var(--gold); }
+  .note-red .note-label { color: var(--red); }
+  .note-teal .note-label { color: var(--teal); }
+  .note-blue .note-label { color: var(--blue); }
+
+  /* ── IMAGE BOX ── */
+  .img-box {
+    border: 3px solid var(--red);
+    border-radius: 12px;
+    padding: 1.2rem 1.5rem;
+    margin: 1.5rem 0;
+    background: #fff8f8;
+  }
+  .img-box-header {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    color: var(--red);
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-bottom: 2px dashed var(--red-bg);
+    padding-bottom: 0.6rem;
+  }
+  .img-interpretation {
+    background: var(--cream-dark);
+    border-radius: 8px;
+    padding: 1rem 1.2rem;
+    font-style: italic;
+    font-size: 0.95rem;
+    margin-top: 0.8rem;
+  }
+  .img-interpretation strong { font-style: normal; color: var(--teal); }
+
+  /* ── TABLES ── */
+  .tbl-wrap { overflow-x: auto; margin: 1.2rem 0; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  }
+  th {
+    background: var(--dark);
+    color: var(--gold-light);
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    padding: 0.75rem 1rem;
+    text-align: left;
+    font-size: 0.85rem;
+    letter-spacing: 0.04em;
+  }
+  td {
+    padding: 0.6rem 1rem;
+    border-bottom: 1px solid var(--cream-border);
+    vertical-align: top;
+  }
+  tr:last-child td { border-bottom: none; }
+  tr:nth-child(even) td { background: var(--cream); }
+  tr:hover td { background: var(--teal-bg); transition: background 0.2s; }
+
+  /* ── FORMULA BOX ── */
+  .formula {
+    background: var(--dark-card);
+    color: #a8e6cf;
+    font-family: 'JetBrains Mono', monospace;
+    border-radius: 8px;
+    padding: 1rem 1.4rem;
+    margin: 1rem 0;
+    font-size: 0.95rem;
+    border-left: 4px solid var(--gold);
+    overflow-x: auto;
+  }
+
+  /* ── FLOW DIAGRAM ── */
+  .flow { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; margin: 1.2rem 0; }
+  .flow-box {
+    background: var(--dark);
+    color: #fdf6e3;
+    font-family: 'Playfair Display', serif;
+    font-size: 0.85rem;
+    padding: 0.6rem 1rem;
+    border-radius: 8px;
+    text-align: center;
+    min-width: 110px;
+    border: 2px solid var(--gold);
+  }
+  .flow-box.red { background: var(--red); border-color: var(--red-light); }
+  .flow-box.teal { background: var(--teal); border-color: var(--teal-light); }
+  .flow-box.gold { background: var(--gold); border-color: var(--gold-light); color: var(--dark); }
+  .flow-box small { display: block; font-family: 'Lora', serif; font-size: 0.72rem; font-style: italic; opacity: 0.85; margin-top: 0.2rem; }
+  .flow-arrow { font-size: 1.5rem; color: var(--gold); flex-shrink: 0; }
+
+  /* ── SEVERITY CARDS ── */
+  .severity-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 0.8rem; margin: 1.2rem 0; }
+  .sev-card { border-radius: 10px; padding: 0.8rem 1rem; text-align: center; font-family: 'Playfair Display', serif; font-size: 0.85rem; font-weight: 700; }
+  .sev-green { background: #d5f5e3; border: 2px solid #27ae60; color: #145a32; }
+  .sev-yellow { background: #fef9e7; border: 2px solid #f39c12; color: #7d6608; }
+  .sev-orange { background: #fdf2e9; border: 2px solid #e67e22; color: #7e5109; }
+  .sev-red { background: #fdedec; border: 2px solid var(--red); color: #7b241c; }
+  .sev-card .sev-val { font-family: 'JetBrains Mono', monospace; font-size: 1rem; display: block; margin-top: 0.3rem; }
+
+  /* ── FP/FN BOXES ── */
+  .fp-fn-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1.2rem 0; }
+  .fp-box, .fn-box { border-radius: 10px; padding: 1rem 1.2rem; }
+  .fp-box { background: var(--red-bg); border: 2px solid var(--red); }
+  .fn-box { background: var(--blue-bg); border: 2px solid var(--blue); }
+  .fp-box h4 { color: var(--red); font-family: 'Playfair Display', serif; margin-bottom: 0.5rem; }
+  .fn-box h4 { color: var(--blue); font-family: 'Playfair Display', serif; margin-bottom: 0.5rem; }
+  .fp-fn-grid ul { list-style: none; padding: 0; font-size: 0.9rem; }
+  .fp-fn-grid ul li { padding: 0.2rem 0; border-bottom: 1px solid rgba(0,0,0,0.07); }
+  .fp-fn-grid ul li:last-child { border-bottom: none; }
+
+  /* ── ALGO BOX ── */
+  .algo-branch {
+    background: #fff;
+    border: 2px solid var(--cream-border);
+    border-radius: 10px;
+    padding: 1rem 1.2rem;
+    margin: 0.6rem 0;
+  }
+  .algo-branch.green { border-color: #27ae60; background: #f0fff4; }
+  .algo-branch.yellow-a { border-color: #f39c12; background: #fffbf0; }
+  .algo-branch.red-a { border-color: var(--red); background: var(--red-bg); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 600px) {
+    .fp-fn-grid { grid-template-columns: 1fr; }
+    .flow { flex-direction: column; align-items: flex-start; }
+    .flow-arrow { transform: rotate(90deg); }
+    .site-header h1 { font-size: 1.5rem; }
+    .content { padding: 1rem; }
+  }
+
+  /* ── DIVIDER ── */
+  .divider { height: 3px; background: linear-gradient(90deg, var(--red), var(--gold), var(--teal)); border-radius: 2px; margin: 2.5rem 0; opacity: 0.4; }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <h1>Infarto Agudo de Miocardio<br>Diagnóstico por Laboratorio</h1>
+  <p class="subtitle">Patología Clínica — Notas de Estudio Completas</p>
+</header>
+
+<!-- ═══════════════════════════════ ÍNDICE ═══════════════════════════════ -->
+<nav class="index-box" aria-label="Índice de contenidos">
+  <h2>📋 Índice Clickeable</h2>
+  <div class="index-grid">
+    <a href="#s1"><span class="num">1</span> Introducción: Definición IAM</a>
+    <a href="#s2"><span class="num">2</span> Síndrome Coronario Agudo</a>
+    <a href="#s3"><span class="num">3</span> Epidemiología Global y México</a>
+    <a href="#s4"><span class="num">4</span> Definición Universal (2018)</a>
+    <a href="#s5"><span class="num">5</span> Tipos de Infarto Miocárdico</a>
+    <a href="#s6"><span class="num">6</span> Diagnóstico: Pilares</a>
+    <a href="#s7"><span class="num">7</span> Signos y Síntomas</a>
+    <a href="#s8"><span class="num">8</span> Diagnósticos Diferenciales</a>
+    <a href="#s9"><span class="num">9</span> Electrocardiograma (ECG)</a>
+    <a href="#s10"><span class="num">10</span> Biomarcadores Cardiacos</a>
+    <a href="#s11"><span class="num">11</span> Progresión Enzimática</a>
+    <a href="#s12"><span class="num">12</span> Resumen Biomarcadores</a>
+    <a href="#s13"><span class="num">13</span> CK-MB: Isoenzimas</a>
+    <a href="#s14"><span class="num">14</span> Troponina</a>
+    <a href="#s15"><span class="num">15</span> Algoritmo Troponina 0/1h</a>
+    <a href="#s16"><span class="num">16</span> Mioglobina</a>
+    <a href="#s17"><span class="num">17</span> BNP</a>
+    <a href="#s18"><span class="num">18</span> Guías AHA/ACC 2014</a>
+    <a href="#s19"><span class="num">19</span> Reperfusión</a>
+  </div>
+</nav>
+
+<main class="content">
+
+<!-- ═══ SECCIÓN 1 ═══ -->
+<section class="section" id="s1">
+  <h2 class="section-title"><span class="sec-num">DIAPOSITIVA 2</span>Introducción: Definición de IAM</h2>
+  <p>El <span class="hl-teal">infarto de miocardio</span> es un <strong>evento clínico (o patológico)</strong> en el contexto de <span class="hl-red">isquemia miocárdica</span>, en el que hay evidencia de <span class="hl-red">lesión miocárdica</span>.</p>
+
+  <div class="note note-teal">
+    <div class="note-label">🔵 Concepto Clave</div>
+    <strong>Dos componentes siempre presentes:</strong> (1) contexto de isquemia miocárdica + (2) evidencia de lesión (= elevación de biomarcadores).
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ SECCIÓN 2 ═══ -->
+<section class="section" id="s2">
+  <h2 class="section-title"><span class="sec-num">DIAPOSITIVA 3</span>Síndrome Coronario Agudo (SCA) <span class="star">⭐⭐⭐</span></h2>
+
+  <p>Aplica a pacientes en los que existe <strong>sospecha o confirmación de isquemia miocárdica</strong>. Incluye <strong>3 tipos:</strong></p>
+
+  <div class="flow">
+    <div class="flow-box red">STEMI<small>IAM con elevación ST</small></div>
+    <div class="flow-arrow">+</div>
+    <div class="flow-box teal">NSTEMI<small>IAM sin elevación ST</small></div>
+    <div class="flow-arrow">+</div>
+    <div class="flow-box gold">Angina Inestable (UA)<small>Sin aumento biomarcadores</small></div>
+  </div>
+
+  <div class="note note-yellow">
+    <div class="note-label">📝 Nota</div>
+    <ul class="slide-list">
+      <li><span class="hl-red">STEMI y NSTEMI:</span> Elevan o caen las Troponinas (cTn's) → evidencia de necrosis.</li>
+      <li><span class="hl-gold">Angina Inestable:</span> No aumentan los biomarcadores cardiacos → solo isquemia, sin necrosis.</li>
+    </ul>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ SECCIÓN 3 ═══ -->
+<section class="section" id="s3">
+  <h2 class="section-title"><span class="sec-num">DIAPOSITIVAS 4–7</span>Epidemiología Global y México</h2>
+
+  <ul class="slide-list">
+    <li>Cada año mueren más personas por <span class="hl-red">enfermedades cardiovasculares (ECV)</span> que por cualquier otra causa.</li>
+    <li>Más de tres cuartas partes de las muertes relacionadas con cardiopatías y accidentes cerebrovasculares ocurren en <span class="hl-teal">países de ingresos medianos y bajos</span>.</li>
+    <li>El riesgo de padecer ECV aumenta por una alimentación poco saludable (bajo consumo de frutas y verduras, alto consumo de sal, azúcares y grasas), que contribuye a la obesidad y sobrepeso.</li>
+    <li>Las personas que no hacen actividad física suficiente tienen entre un <span class="hl-red">20% y un 30% más de probabilidades de morir prematuramente</span> que aquellas que hacen actividad física suficiente.</li>
+    <li>La inactividad física es un factor de riesgo clave para las ECV, cáncer y diabetes.</li>
+    <li>Se estima que la exposición a productos derivados del tabaco es responsable del <span class="hl-red">10% de todas las muertes por ECV</span>.</li>
+  </ul>
+
+  <div class="img-box">
+    <div class="img-box-header">🖼 IMAGEN / TABLA DE LA DIAPOSITIVA — Datos OCDE México 2023</div>
+    <div class="img-interpretation">
+      <strong>Indicadores clave de México (OECD Health at a Glance 2023):</strong>
+      El reporte muestra que México tiene la <strong>mayor prevalencia de diabetes</strong> e ingresos hospitalarios entre países OCDE, y la <strong>mayor tasa de mortalidad a 30 días post-ataque cardíaco</strong>. Aunque tiene bajas tasas de tabaquismo (8.6% vs 16% OCDE) y consumo de alcohol, tiene una <strong>obesidad del 36%</strong> (vs 25.7% OCDE), y la proporción de costos médicos que los hogares pagan directamente es la segunda más alta en la OCDE.
+    </div>
+  </div>
+
+  <div class="img-box">
+    <div class="img-box-header">🖼 IMAGEN / TABLA DE LA DIAPOSITIVA — Principales causas de mortalidad OCDE 2021</div>
+    <div class="img-interpretation">
+      <strong>Diagrama de burbujas:</strong> De 12,818,369 muertes totales en países OCDE, las <strong>enfermedades del sistema circulatorio representan el 28%</strong> del total. Dentro de estas, las <strong>cardiopatías isquémicas (IAM) representan el 11%</strong> del total de muertes. Los cánceres suman el 21%, el COVID-19 el 7%. Esto confirma que el IAM es la principal causa de muerte cardiovascular.
+      <br><br>
+      <strong>Gráfico de barras por país:</strong> México tiene una tasa de 1,504 muertes por 100,000 habitantes (estandarizada por edad), muy por encima del promedio OCDE de 923. Japón tiene la tasa más baja (587). Esto coloca a México en posición crítica epidemiológicamente.
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ SECCIÓN 4 ═══ -->
+<section class="section" id="s4">
+  <h2 class="section-title"><span class="sec-num">DIAPOSITIVA 8</span>Cuarta Definición Universal de Infarto de Miocardio (2018) <span class="star">⭐⭐⭐</span></h2>
+
+  <div class="note note-teal">
+    <div class="note-label">🔵 Criterios para Lesión Miocárdica</div>
+    El término <span class="hl-teal">lesión miocárdica</span> debe usarse cuando hay evidencia de valores elevados de <span class="hl-red">troponina cardiaca (cTn) con al menos un valor por encima del percentil 99 del límite de referencia superior (URL)</span>. La lesión miocárdica se considera <strong>aguda</strong> si hay una elevación y/o caída de valores de cTn.
+  </div>
+
+  <div class="note note-red">
+    <div class="note-label">⚠️ Criterios para IAM Agudo (Tipos 1, 2 y 3)</div>
+    El término <span class="hl-red">infarto agudo de miocardio</span> debe usarse cuando hay lesión miocárdica aguda con evidencia clínica de isquemia miocárdica aguda Y detección de elevación/caída de cTn con al menos un valor por encima del percentil 99 de la URL, más al menos UNO de los siguientes:
+    <ul class="slide-list" style="margin-top:0.6rem;">
+      <li>Síntomas de isquemia miocárdica</li>
+      <li>Nuevos cambios isquémicos en ECG</li>
+      <li>Desarrollo de ondas Q patológicas</li>
+      <li>Evidencia por imagen de pérdida de miocardio viable o nueva anomalía de movimiento regional de la pared en patrón consistente con etiología isquémica</li>
+      <li>Identificación de trombo coronario por angiografía o autopsia (no para tipos 2 o 3)</li>
+    </ul>
+  </div>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr><th>Tipo</th><th>Mecanismo</th><th>Criterio adicional</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Tipo 1</strong></td><td>Atero-trombosis aguda en arteria que irriga miocardio infartado (demostración post-mortem)</td><td>Rotura/erosión de placa con trombo oclusivo o no oclusivo</td></tr>
+        <tr><td><strong>Tipo 2</strong></td><td>Desequilibrio entre oferta y demanda de O₂ miocárdico no relacionado con atero-trombosis aguda</td><td>Ateroesclerosis + desequilibrio O₂, vasoespasmo, disfunción microvascular, disección coronaria no ateroesclerótica</td></tr>
+        <tr><td><strong>Tipo 3</strong></td><td>Muerte cardiaca en pacientes con síntomas sugestivos de isquemia y presuntos nuevos cambios isquémicos en ECG antes de disponibilidad de cTn</td><td>cTn no disponible o aún no anormal</td></tr>
+        <tr><td><strong>Tipo 4a</strong></td><td>Relacionado con ICP (intervención coronaria percutánea)</td><td>Elevación cTn &gt;5× percentil 99 URL en pacientes con valores basales normales</td></tr>
+        <tr><td><strong>Tipo 4b</strong></td><td>Trombosis de stent</td><td>Cumple criterios Tipo 1</td></tr>
+        <tr><td><strong>Tipo 4c</strong></td><td>Reestenosis</td><td>Cumple criterios Tipo 1</td></tr>
+        <tr><td><strong>Tipo 5</strong></td><td>Relacionado con cirugía de bypass coronario (CABG)</td><td>Elevación cTn &gt;10× percentil 99 URL</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="note note-yellow">
+    <div class="note-label">📝 IAM Previo / Silente / No Reconocido</div>
+    Cualquiera de los siguientes:
+    <ul class="slide-list" style="margin-top:0.5rem;">
+      <li>Ondas Q anormales con o sin síntomas en ausencia de causas no isquémicas</li>
+      <li>Evidencia por imagen de pérdida de miocardio viable en patrón consistente con etiología isquémica</li>
+      <li>Hallazgos pato-anatómicos de un IAM previo</li>
+    </ul>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ SECCIÓN 5 ═══ -->
+<section class="section" id="s5">
+  <h2 class="section-title"><span class="sec-num">DIAPOSITIVA 9</span>Tipos de Infarto Miocárdico</h2>
+
+  <div class="img-box">
+    <div class="img-box-header">🖼 IMAGEN / TABLA DE LA DIAPOSITIVA — Mecanismos IAM Tipo 1 vs Tipo 2</div>
+    <div class="img-interpretation">
+      <strong>Infarto Tipo 1 (izquierda):</strong> El corazón muestra la región afectada. Los diagramas vasculares ilustran dos escenarios: (a) <strong>rotura/erosión de placa con trombo oclusivo</strong> que bloquea completamente el lumen, y (b) <strong>rotura/erosión de placa con trombo no oclusivo</strong> que obstruye parcialmente el flujo. Ambos resultan en isquemia por obstrucción mecánica.
+      <br><br>
+      <strong>Infarto Tipo 2 (derecha):</strong> Muestra cuatro mecanismos diferentes sin obstrucción por trombo: (a) ateroesclerosis + desequilibrio oferta/demanda O₂, (b) vasoespasmo o disfunción microvascular coronaria, (c) disección coronaria no ateroesclerótica, y (d) desequilibrio oferta/demanda O₂ solo. Todos resultan en isquemia por causas funcionales, no por trombo agudo.
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ SECCIÓN 6 ═══ -->
+<section class="section" id="s6">
+  <h2 class="section-title"><span class="sec-num">DIAPOSITIVA 10</span>Diagnóstico: Los 4 Pilares <span class="star">⭐⭐</span></h2>
+
+  <div class="flow">
+    <div class="flow-box red">Signos y Síntomas<small>Dolor retroesternal</small></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-box teal">EKG<small>Cambios eléctricos</small></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-box gold">Biomarcadores<small>CK-MB, Troponinas</small></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-box">Estudios de Imagen<small>Eco, angio, etc.</small></div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ SECCIÓN 7 ═══ -->
+<section class="section" id="s7">
+  <h2 class="section-title"><span class="sec-num">DIAPOSITIVA 11</span>Signos y Síntomas</h2>
+
+  <div class="img-box">
+    <div class="img-box-header">🖼 IMAGEN / TABLA DE LA DIAPOSITIVA — Síntomas en Mujeres vs Hombres</div>
+    <div class="img-interpretation">
+      El diagrama muestra dos siluetas (mujer a la izquierda, hombre a la derecha) con los 5 síntomas principales de ataque cardíaco marcados por números:
+      <br><br>
+      <strong>Síntoma 1 (naranja) — Dolor torácico o molestia:</strong> El más clásico. Localizado en el pecho, puede ser opresivo, quemante o como presión. Aparece en ambos sexos como síntoma #1.
+      <br><strong>Síntoma 2 (azul) — Náuseas, mareo o fatiga inusual:</strong> Más frecuente en mujeres. Puede ser el síntoma predominante sin dolor torácico.
+      <br><strong>Síntoma 3 (morado) — Dolor/molestia en mandíbula, cuello o espalda:</strong> Irradiación atípica, más frecuente en mujeres.
+      <br><strong>Síntoma 4 (verde oscuro) — Dolor/molestia en brazo u hombro:</strong> Irradiación clásica, frecuente en hombres (brazo izquierdo).
+      <br><strong>Síntoma 5 (gris) — Disnea (dificultad para respirar):</strong> Presente en ambos sexos, puede aparecer sin dolor torácico.
+      <br><br>
+      <em>Nota importante: Las mujeres frecuentemente presentan síntomas atípicos (2, 3) sin el dolor clásico, lo que retrasa el diagnóstico.</em>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ SECCIÓN 8 ═══ -->
+<section class="section" id="s8">
+  <h2 class="section-title"><span class="sec-num">DIAPOSITIVA 12</span>Diagnósticos Diferenciales del Dolor Torácico</h2>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Cardiovascular (no epicárdico)</th>
+          <th>Pulmonar</th>
+          <th>Psiquiátrico</th>
+          <th>Gastrointestinal</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Disección aórtica*<br>Aneurisma aórtico*<br>Miocarditis*<br>Pericarditis<br>Cardiomiopatía Takotsubo*</td>
+          <td>Pleuritis<br>Neumonía<br>Émbolo pulmonar*<br>Neumotórax a tensión*</td>
+          <td>Trastornos afectivos (depresión)<br>Trastornos de ansiedad<br>Hiperventilación<br>Trastorno de pánico<br>Ansiedad primaria<br>Trastornos somatomorfos</td>
+          <td>Biliar (colangitis, colecistitis, coledocolitiasis, cólico)<br>Esofágico (esofagitis, espasmo, reflujo, ruptura*)<br>Pancreatitis<br>Úlcera péptica</td>
+        </tr>
+        <tr>
+          <td colspan="4"><strong>Pared torácica:</strong> Enfermedad de disco cervical, costocondritis, fibrositis, herpes zóster (antes del sarpullido), dolor neuropático, fractura costal, artritis esternoclavicular</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="font-size:0.85rem; color:var(--gray);">* = emergencias que requieren diagnóstico diferencial urgente con IAM.</p>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ SECCIÓN 9 ═══ -->
+<section class="section" id="s9">
+  <h2 class="section-title"><span class="sec-num">DIAPOSITIVAS 13–15</span>Electrocardiograma (ECG) <span class="star">⭐⭐</span></h2>
+
+  <ul class="slide-list">
+    <li>Realizar en los <span class="hl-red">primeros 10 minutos</span> de la llegada del paciente.</li>
+    <li>El ECG inicial con frecuencia <span class="hl-red">no es diagnóstico</span> en pacientes a los que finalmente se les diagnostica un IAM agudo.</li>
+    <li>En pacientes con sospecha clínica de IAM agudo en quienes el ECG no es diagnóstico, se recomienda repetir el ECG a <span class="hl-gold">intervalos de 20 a 30 minutos</span> para cualquier paciente con dolor continuo en quien la sospecha de SCA sigue siendo alta.</li>
+  </ul>
+
+  <div class="img-box">
+    <div class="img-box-header">🖼 IMAGEN / TABLA DE LA DIAPOSITIVA — Evolución ECG del SCA</div>
+    <div class="img-interpretation">
+      <strong>Izquierda:</strong> Morfología normal de un complejo ECG con sus componentes: onda P (despolarización auricular), segmento PR, complejo QRS (despolarización ventricular), segmento ST, onda T (repolarización ventricular). Los intervalos PR y QT están marcados.
+      <br><br>
+      <strong>Derecha — Evolución cronológica:</strong> Conforme avanza la isquemia → lesión → necrosis, los cambios progresan en tres capas del tejido cardíaco:
+      <br>• <strong>Isquemia:</strong> Inversión de onda T (repolarización anormal) — reversible.
+      <br>• <strong>Lesión:</strong> Elevación del segmento ST (STEMI) o depresión (NSTEMI) — activa.
+      <br>• <strong>Necrosis:</strong> Ondas Q patológicas — daño irreversible permanente.
+    </div>
+  </div>
+
+  <h3 style="font-family:'Playfair Display',serif; margin: 1.2rem 0 0.8rem; color:var(--dark);">Manifestaciones ECG de Isquemia Miocárdica Aguda</h3>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr><th>Criterio</th><th>Elevación ST</th><th>Depresión ST / Cambios onda T</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Definición</td>
+          <td>Nueva elevación ST en punto J en ≥2 derivaciones contiguas: <span class="hl-gold">≥1 mm</span> en todas excepto V₂-V₃</td>
+          <td>Nueva depresión ST horizontal o descendente <span class="hl-gold">≥0.5 mm</span> en ≥2 derivaciones contiguas</td>
+        </tr>
+        <tr>
+          <td>V₂-V₃ hombres ≥40 años</td>
+          <td><span class="hl-red">≥2 mm</span></td>
+          <td rowspan="3">Y/O inversión de onda T &gt;1 mm en dos derivaciones contiguas con onda R prominente o relación R/S &gt;1</td>
+        </tr>
+        <tr>
+          <td>V₂-V₃ hombres &lt;40 años</td>
+          <td><span class="hl-red">≥2.5 mm</span></td>
+        </tr>
+        <tr>
+          <td>V₂-V₃ mujeres (cualquier edad)</td>
+          <td><span class="hl-red">≥1.5 mm</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 style="font-family:'Playfair Display',serif; margin: 1.2rem 0 0.8rem; color:var(--dark);">Cambios ECG asociados a IAM Previo</h3>
+  <ul class="slide-list">
+    <li>Cualquier onda Q en derivaciones V₂-V₃ &gt;0.02 s o complejo QS en derivaciones V₂-V₃</li>
+    <li>Onda Q ≥0.03 s y ≥1 mm de profundidad o complejo QS en derivaciones I, II, aVL, aVF o V₄-V₆ en cualquier 2 derivaciones de un grupo contiguo</li>
+    <li>Onda R &gt;0.04 s en V₁-V₂ y relación R/S &gt;1 con onda T concordante positiva en ausencia de defecto de conducción</li>
+  </ul>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ SECCIÓN 10 ═══ -->
+<section class="section" id="s10">
+  <h2 class="section-title"><span class="sec-num">DIAPOSITIVAS 16–21</span>Biomarcadores Cardiacos <span class="star">⭐⭐⭐</span></h2>
+
+  <h3 style="font-family:'Playfair Display',serif; margin-bottom:0.8rem;">Funciones del Laboratorio</h3>
+  <ul class="slide-list">
+    <li><span class="hl-teal">Clarificar el diagnóstico</span></li>
+    <li>Determinar el pronóstico</li>
+    <li>Monitorizar evolución</li>
+    <li>Cuantificar daño</li>
+    <li><span class="hl-red">Descartar IAM</span></li>
+  </ul>
+
+  <p>Las células cardiacas producen enzimas y otras sustancias como parte de su actividad. Dichas sustancias se liberan al torrente sanguíneo posterior a la <span class="hl-red">lisis celular</span> y son cuantificables por métodos de laboratorio. Los principales son <span class="hl-teal">CPK-MB y Troponinas</span>.</p>
+
+  <div class="img-box">
+    <div class="img-box-header">🖼 IMAGEN / TABLA DE LA DIAPOSITIVA — Liberación de Proteínas Miocíticas en IAM</div>
+    <div class="img-interpretation">
+      <strong>Secuencia fisiopatológica (izquierda → derecha):</strong>
+      <br>1. Inicio del IAM → 2. La membrana plasmática de los miocitos necróticos se vuelve permeable ("leaky") → 3. Las moléculas se escapan de la célula hacia la circulación → 4. Estas moléculas pueden usarse como biomarcadores diagnósticos.
+      <br><br>
+      <strong>Troponina libre en citoplasma:</strong> Se libera primero por difusión a través de la membrana dañada.
+      <br><strong>Complejo Troponina-Actina:</strong> Se libera después con la degradación de los filamentos.
+      <br><strong>Enzimas como CK-MB:</strong> Se liberan simultáneamente desde el citoplasma.
+      <br><br>
+      <strong>Gráfica de cinética temporal (horas post-inicio del dolor):</strong>
+      <br>• <span class="hl-red">Troponina I (morado):</span> Inicio ~4-8h, pico ~36h (múltiple de URL), persiste 10-14 días — la más durable.
+      <br>• <span class="hl-gold">CK-MB (naranja):</span> Inicio ~3-6h, pico ~24h, normalización ~48-72h — ventana más corta.
+      <br>• <span class="hl-teal">Mioglobina (verde):</span> Inicio ~1-3h (el más rápido), pico ~6-9h, normalización ~24-36h — poco específica.
+    </div>
+  </div>
+
+  <div class="img-box">
+    <div class="img-box-header">🖼 IMAGEN / TABLA DE LA DIAPOSITIVA — Comparación Cinética de Biomarcadores</div>
+    <div class="img-interpretation">
+      <strong>Gráfica de curvas:</strong> El eje Y muestra múltiplos del límite superior de referencia (URL), el eje X son horas post-inicio.
+      <br><br>
+      Línea de referencia punteada = percentil 99 / 10% CV (umbral diagnóstico).
+      <br>• <strong>Troponina IAM grande:</strong> Curva roja alta que alcanza ~50× URL a las ~24-36h, cae lentamente.
+      <br>• <strong>Troponina IAM pequeño:</strong> Curva roja baja que apenas supera el umbral.
+      <br>• <strong>Mioglobina y isoformas CK:</strong> Pico temprano (~0.5h) pero rápidamente vuelve a la línea base.
+      <br>• <strong>CK-MB:</strong> Pico moderado (~1h), normalización más rápida que troponinas.
+      <br><br>
+      <em>Clave clínica: La Troponina es el marcador de elección por su amplitud de elevación y duración. La mioglobina es útil para detección muy temprana pero no es específica.</em>
+    </div>
+  </div>
+
+  <div class="img-box">
+    <div class="img-box-header">🖼 IMAGEN / TABLA DE LA DIAPOSITIVA — Fisiopatología del SCA y Biomarcadores por Etapa</div>
+    <div class="img-interpretation">
+      <strong>Diagrama de flujo de la fisiopatología del SCA:</strong>
+      <div class="flow" style="margin-top:0.7rem; flex-direction:column; gap:0.3rem;">
+        <div class="flow-box">Rotura de Placa<small>Marcadores: inflamación, PCR</small></div>
+        <div class="flow-arrow" style="transform:rotate(90deg)">↓</div>
+        <div class="flow-box">Trombo Intracoronario<small>Factores de coagulación, fibrina soluble, P-selectina</small></div>
+        <div class="flow-arrow" style="transform:rotate(90deg)">↓</div>
+        <div class="flow-box">Reducción del Flujo Sanguíneo<small>Perfusión/imagen funcional; Sestamibi agudo; Ecocardiograma 2D</small></div>
+        <div class="flow-arrow" style="transform:rotate(90deg)">↓</div>
+        <div class="flow-box teal">Isquemia Miocárdica<small>Indicadores isquémicos tempranos (glucógeno fosforilasa BB); ECG: depresión ST</small></div>
+        <div class="flow-arrow" style="transform:rotate(90deg)">↓</div>
+        <div class="flow-box red">Necrosis Miocárdica<small>CK-MB, cTnT, cTnI; ECG: elevación ST</small></div>
+      </div>
+      Las columnas al lado muestran que la <strong>Angina Inestable</strong> puede presentarse desde rotura de placa hasta isquemia, mientras que el <strong>Infarto Miocárdico</strong> implica llegar hasta la necrosis.
+    </div>
+  </div>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr><th>Etapa Aterosclerosis</th><th>Biomarcador</th><th>Tipo de Ensayo</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td rowspan="5"><strong>Formación de placa</strong></td>
+          <td>Colesterol total</td><td>Colorimétrico / Fluorimétrico</td>
+        </tr>
+        <tr><td>LDL/HDL</td><td>Colorimétrico / Fluorimétrico</td></tr>
+        <tr><td>Tamaño partícula LDL</td><td>Ultracentrifugación analítica</td></tr>
+        <tr><td>Lp(a)</td><td>Electroforesis en gel / Inmunoensayo</td></tr>
+        <tr><td>Homocisteína</td><td>Cromatografía líquida</td></tr>
+        <tr>
+          <td rowspan="6"><strong>Inestabilidad / Rotura de placa</strong></td>
+          <td>Metaloproteinasa-9 de matriz</td><td>Inmunoensayo</td>
+        </tr>
+        <tr><td>Mieloperoxidasa</td><td>Inmunoensayo</td></tr>
+        <tr><td>RANTES</td><td>ELISA / Inmunoensayo</td></tr>
+        <tr><td>Proteína C reactiva / hsCRP</td><td>Inmunoensayo (alta sensibilidad)</td></tr>
+        <tr><td>ICAM/VCAM</td><td>ELISA</td></tr>
+        <tr><td>Albúmina modificada por isquemia</td><td>Ensayo colorimétrico</td></tr>
+        <tr>
+          <td rowspan="4"><strong>Necrosis miocárdica</strong></td>
+          <td><span class="hl-teal">Mioglobina</span></td><td>Inmunoensayo / Nefelométrico</td>
+        </tr>
+        <tr><td><span class="hl-red">Troponina T cardiaca</span></td><td>Ensayo enzimático / Radioinmunoensayo</td></tr>
+        <tr><td><span class="hl-red">Troponina I cardiaca</span></td><td>Ensayo enzimático / Radioinmunoensayo</td></tr>
+        <tr><td><span class="hl-teal">Creatina cinasa MB (CK-MB)</span></td><td>Inmunoensayo / Nefelométrico</td></tr>
+        <tr>
+          <td rowspan="2"><strong>Disfunción miocárdica</strong></td>
+          <td>BNP</td><td>Ensayo enzimático / Radioinmunoensayo</td>
+        </tr>
+        <tr><td>NT-pro-BNP</td><td>Ensayo enzimático / Radioinmunoensayo</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ SECCIÓN 11 ═══ -->
+<section class="section" id="s11">
+  <h2 class="section-title"><span class="sec-num">DIAPOSITIVA 22</span>Progresión Enzimática en Infarto de Miocardio <span class="star">⭐⭐⭐</span></h2>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Parámetro</th>
+          <th>CPK (CK Total)</th>
+          <th>SGOT (AST)</th>
+          <th>LDH</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Inicio elevación</strong></td>
+          <td><span class="hl-red">3–4 h</span></td>
+          <td>6–12 h</td>
+          <td>12–24 h</td>
+        </tr>
+        <tr>
+          <td><strong>Pico máximo</strong></td>
+          <td><span class="hl-red">24–36 h</span></td>
+          <td>24–48 h</td>
+          <td>48–96 h</td>
+        </tr>
+        <tr>
+          <td><strong>Nivel máximo</strong></td>
+          <td><span class="hl-gold">20×</span> el valor normal</td>
+          <td>4–10× el valor normal</td>
+          <td>2–4× el valor normal</td>
+        </tr>
+        <tr>
+          <td><strong>Normalización</strong></td>
+          <td>2–4 días</td>
+          <td>3–7 días</td>
+          <td><span class="hl-teal">10–14 días</span> (la más durable)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="note note-yellow">
+    <div class="note-label">📝 Nota Clínica</div>
+    La <strong>LDH</strong> permanece elevada más tiempo (10-14 días), lo que puede ser útil para diagnóstico tardío cuando el paciente llega días después del evento. Sin embargo, tiene baja especificidad. Actualmente el <strong>LDH no se recomienda</strong> de forma rutinaria según guías ACC/AHA.
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ SECCIÓN 12 ═══ -->
+<section class="section" id="s12">
+  <h2 class="section-title"><span class="sec-num">DIAPOSITIVA 23</span>Resumen de Biomarcadores Cardiacos (International Journal of Cardiology 2013)</h2>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr><th>Biomarcador</th><th>Desempeño diagnóstico</th><th>Desempeño pronóstico</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="hl-red">Troponina cardiaca</span> <span class="star">⭐⭐⭐</span></td>
+          <td>Altamente sensible y específica para necrosis miocárdica. <strong>Estándar bioquímico de oro actual para IAM</strong></td>
+          <td>Altamente predictiva de eventos cardiacos adversos incluyendo muerte, isquemia adicional y necesidad de revascularización. Tratamientos iniciados en respuesta a resultados de cTn mejoran desenlaces.</td>
+        </tr>
+        <tr>
+          <td>AST (SGOT)</td>
+          <td>Primer biomarcador bioquímico de IAM, pero carece de especificidad. <strong>Ya no se usa para este propósito.</strong></td>
+          <td>Sin datos</td>
+        </tr>
+        <tr>
+          <td><span class="hl-teal">CK / CK-MB</span> <span class="star">⭐⭐</span></td>
+          <td>Biomarcador de segunda línea para diagnóstico de IAM; no tan sensible o específico como cTn</td>
+          <td>No consistentemente predictivo de eventos futuros</td>
+        </tr>
+        <tr>
+          <td>LDH</td>
+          <td>Carece de especificidad. <strong>Ya no se usa para este propósito.</strong></td>
+          <td>Sin datos</td>
+        </tr>
+        <tr>
+          <td>Mioglobina</td>
+          <td>Marcador de IAM temprano tras inicio de síntomas; carece de especificidad</td>
+          <td>Predictivo de mortalidad. Sin datos de que el tratamiento guiado por mioglobina mejore desenlaces.</td>
+        </tr>
+        <tr>
+          <td>hFABP</td>
+          <td>Marcador de IAM temprano tras inicio de síntomas; carece de especificidad</td>
+          <td>Predictivo de mortalidad. Sin datos de beneficio guiado por hFABP.</td>
+        </tr>
+        <tr>
+          <td>Albúmina modificada por isquemia</td>
+          <td>Menos sensible que cTn y carece de especificidad</td>
+          <td>Sin datos convincentes</td>
+        </tr>
+        <tr>
+          <td>Marcadores inflamatorios (PCR, TNFα, IL6, moléculas de adhesión, mieloperoxidasa, PAPPA, metaloproteinasas, CD40L, PDGF, PGF)</td>
+          <td>No sensibles ni específicos para IAM</td>
+          <td>PCR y otros marcadores son predictivos de mortalidad e insuficiencia cardiaca, pero el tratamiento guiado por marcadores inflamatorios no influye en desenlaces</td>
+        </tr>
+        <tr>
+          <td><span class="hl-teal">BNP / NT-proBNP</span> <span class="star">⭐⭐</span></td>
+          <td>No sensibles ni específicos para IAM</td>
+          <td>Altamente predictivos de mortalidad e insuficiencia cardiaca. Pueden guiar necesidad de terapias médicas neurohormonal (IECA, etc.) pero no terapias invasivas.</td>
+        </tr>
+        <tr>
+          <td>Otros (ANP, adrenomedulina, hormonas RAA)</td>
+          <td>No sensibles ni específicos para IAM</td>
+          <td>Posiblemente predictivos de eventos adversos en análisis univariados. No pueden usarse para guiar tratamiento.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ SECCIÓN 13 ═══ -->
+<section class="section" id="s13">
+  <h2 class="section-title"><span class="sec-num">DIAPOSITIVAS 24–26</span>CK-MB: Isoenzimas y Aplicación Clínica <span class="star">⭐⭐</span></h2>
+
+  <h3 style="font-family:'Playfair Display',serif; margin-bottom:0.8rem;">Isoenzimas de la Creatina Cinasa (CK)</h3>
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr><th>Isoenzima</th><th>Componentes</th><th>Migración electroforética</th><th>Origen principal</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>CPK-1 (BB)</strong></td>
+          <td>2 subunidades B</td>
+          <td>Anódica rápida</td>
+          <td>Cerebro. <span class="hl-teal">No aparece en suero porque no cruza la barrera hematoencefálica.</span> Se eleva MM en meningitis y convulsiones.</td>
+        </tr>
+        <tr>
+          <td><strong>CPK-2 (MB)</strong> <span class="star">⭐⭐</span></td>
+          <td>1 subunidad M + 1 subunidad B</td>
+          <td>Intermedia</td>
+          <td>Músculo cardiaco (40% de la CK cardiaca). Forma iso-formas MB1 y MB2 separables por electroforesis de alto voltaje.</td>
+        </tr>
+        <tr>
+          <td><strong>CPK-3 (MM)</strong></td>
+          <td>2 subunidades M</td>
+          <td>Catódica lenta</td>
+          <td>Músculo esquelético y cardiaco (60% de la CK cardiaca)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="note note-teal">
+    <div class="note-label">🔵 Iso-formas MB1 y MB2 — Diagnóstico Rápido</div>
+    <p>La CPK-MB se puede separar por electroforesis de alto voltaje en <strong>MB1 y MB2</strong>. La iso-forma MB2 solo se encuentra en el corazón, con un valor de referencia de <span class="hl-gold">0.5–1.0 UI/L</span>.</p>
+    <div class="formula">Relación MB2/MB1 &gt; 1.5 = IAM ⭐⭐⭐</div>
+    <p>La CK cardiaca se compone de: <strong>40% CPK-MB + 60% CPK-MM</strong>.</p>
+  </div>
+
+  <h3 style="font-family:'Playfair Display',serif; margin: 1.2rem 0 0.8rem;">CK-MB: Cinética en IAM <span class="star">⭐⭐⭐</span></h3>
+  <ul class="slide-list">
+    <li>Una de las primeras utilizadas, actualmente parte de <span class="hl-teal">"paneles cardiacos"</span></li>
+    <li><strong>CK-MB útil para evaluación de STEMI</strong></li>
+    <li>Comienza su incremento entre las <span class="hl-red">3 a 12 horas</span> después del infarto agudo</li>
+    <li><span class="hl-red">Pico Máximo a las 24 hrs</span></li>
+    <li>Regresa a la normalidad en <span class="hl-gold">3 días</span></li>
+  </ul>
+
+  <h3 style="font-family:'Playfair Display',serif; margin: 1.2rem 0 0.8rem;">CK en Enfermedades Cardiacas — Sensibilidad</h3>
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr><th>Situación Clínica</th><th>% de CK Positiva</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><span class="hl-red">Infarto transmural</span></td><td>92%</td></tr>
+        <tr><td>Isquemia prolongada</td><td>58%</td></tr>
+        <tr><td>Isquemia sin alteración de ECG</td><td>27%</td></tr>
+        <tr><td>Angina típica</td><td>5%</td></tr>
+        <tr><td>Taquicardia</td><td>50%</td></tr>
+        <tr><td>Miocarditis</td><td>50%</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="fp-fn-grid">
+    <div class="fp-box">
+      <h4>⚠️ Otras causas que elevan CPK-MB (Falsos Positivos)</h4>
+      <ul>
+        <li>Distrofias musculares</li>
+        <li>Polimiositis</li>
+        <li>Mioglobinurias</li>
+      </ul>
+    </div>
+    <div class="fn-box">
+      <h4>💡 Limitaciones (Falsos Negativos)</h4>
+      <ul>
+        <li>Toma muy temprana (&lt;3h del inicio)</li>
+        <li>IAM pequeño / microinfarto</li>
+        <li>Toma muy tardía (&gt;3 días, ya normalizó)</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ SECCIÓN 14 ═══ -->
+<section class="section" id="s14">
+  <h2 class="section-title"><span class="sec-num">DIAPOSITIVAS 27–32</span>Troponina <span class="star">⭐⭐⭐</span></h2>
+
+  <h3 style="font-family:'Playfair Display',serif; margin-bottom:0.8rem;">Estructura del Complejo Troponina</h3>
+  <p>La troponina es un <span class="hl-teal">complejo de tres proteínas</span> que regulan la interacción de miosina y actina:</p>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr><th>Subunidad</th><th>Función</th><th>Diagnóstico</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="hl-teal">Troponina T (cTnT)</span></td>
+          <td>Une el complejo con la tropomiosina</td>
+          <td>= Troponina total. Valor normal: <span class="hl-gold">0–0.1 ng/ml</span>. Se eleva igual que CPK-MB y dura <strong>14 días</strong>. Tiene un segundo pico a los 4 días por miocitos necróticos.</td>
+        </tr>
+        <tr>
+          <td><span class="hl-teal">Troponina C (cTnC)</span></td>
+          <td>Une el calcio al inicio de la contracción</td>
+          <td>No se usa diagnósticamente (idéntica en músculo esquelético y cardiaco)</td>
+        </tr>
+        <tr>
+          <td><span class="hl-red">Troponina I (cTnI)</span> <span class="star">⭐⭐⭐</span></td>
+          <td>Inhibidor del bloqueo de contracción en ausencia de calcio</td>
+          <td>Solo se encuentra en músculo cardiaco en adulto y embrión. No se expresa en lesión de músculo esquelético. No se eleva en enfermedad muscular aguda, crónica o ejercicio. 13× más cTnI que CK-MB en el corazón. Puede aumentar en insuficiencia renal.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="img-box">
+    <div class="img-box-header">🖼 IMAGEN / TABLA DE LA DIAPOSITIVA — Niveles de Troponina y Magnitud del Daño</div>
+    <div class="img-interpretation">
+      <strong>Escala de gradiente de color (verde → rojo) con niveles de troponina:</strong>
+      <div class="severity-grid" style="margin-top:0.8rem;">
+        <div class="sev-card sev-green">Sano<span class="sev-val">0.001 µg/L</span></div>
+        <div class="sev-card sev-yellow">Angina estable / ICC crónica<span class="sev-val">0.01 µg/L</span></div>
+        <div class="sev-card sev-yellow">Micro-IAM / Miocarditis / Falla cardiaca aguda<span class="sev-val">0.1 µg/L</span></div>
+        <div class="sev-card sev-orange">IAM pequeño / Miocarditis / EP<span class="sev-val">1 µg/L</span></div>
+        <div class="sev-card sev-red">IAM mediano / Miocarditis severa<span class="sev-val">10 µg/L</span></div>
+        <div class="sev-card sev-red">IAM GRANDE<span class="sev-val">100 µg/L</span></div>
+      </div>
+      El diagnóstico se apoya en: Síntomas (dolor torácico + aumento biomarcadores), Detección de IAM (ECG + biomarcadores cardiacos), Tipo de ensayo (ELISA, quimioluminiscencia, fluoroinmunoensayo, eléctrico, SPR, colorimétrico, POC, ensayo basado en aptámero).
+    </div>
+  </div>
+
+  <div class="img-box">
+    <div class="img-box-header">🖼 IMAGEN / TABLA DE LA DIAPOSITIVA — Curvas de Troponina según Tipo de Daño</div>
+    <div class="img-interpretation">
+      <strong>Panel A — Infarto Agudo de Miocardio:</strong> La curva de troponina (µg/L) sube dramáticamente en el primer día, alcanza un pico muy por encima del percentil 99, y luego cae gradualmente durante 7-8 días. Patrón: elevación aguda + caída = IAM.
+      <br><br>
+      <strong>Panel B — Lesión Miocárdica Menor:</strong> La curva apenas supera el percentil 99 (línea punteada), con ascenso y descenso más suave. Patrón característico de microinfarto o injuria por otras causas.
+      <br><br>
+      <strong>Panel C — Miocarditis:</strong> Los puntos de troponina oscilan cerca del percentil 99 pero sin el patrón claro de elevación-caída. No hay curva en U bien definida. Patrón: elevación persistente sin delta claro.
+      <br><br>
+      <strong>Gráfica derecha — Multiples de URL:</strong> Compara la circulación de cTn tras necrosis mayor (curva roja alta) vs necrosis menor (curva naranja baja), con dos líneas de referencia: percentil 99 de sujetos sanos (línea sólida) y percentil 99 de pacientes con cardiopatía isquémica (línea punteada, más alta). El patrón de elevación + caída en el tiempo es el sello diagnóstico del IAM agudo.
+    </div>
+  </div>
+
+  <div class="img-box">
+    <div class="img-box-header">🖼 IMAGEN / TABLA DE LA DIAPOSITIVA — Tiempo de Toma de Muestra de Troponina</div>
+    <div class="img-interpretation">
+      <strong>Curva de cinética temprana de cTn tras IAM (tiempo en horas desde inicio de síntomas):</strong>
+      <br><br>
+      • <strong>Muestreo muy temprano:</strong> cTn baja, delta difícil de detectar → puede no confirmar IAM aún.
+      <br>• <strong>Muestreo temprano:</strong> cTn sube de menos del percentil 99 a más del percentil 99; el delta es detectable → <span class="hl-red">momento óptimo para diagnóstico</span>.
+      <br>• <strong>Muestreo tardío:</strong> cTn ya &gt; percentil 99, pero el delta puede no verse en un período corto → podría confundirse con injuria crónica.
+      <br>• <strong>Muestreo muy tardío:</strong> cTn &gt; percentil 99 con delta descendente → indica que el pico ya pasó.
+      <br><br>
+      La línea azul punteada representa la injuria miocárdica crónica (niveles persistentemente elevados pero sin el patrón dinámico del IAM agudo).
+    </div>
+  </div>
+
+  <h3 style="font-family:'Playfair Display',serif; margin: 1.2rem 0 0.8rem;">Troponina I (cTnI) — Ventajas <span class="star">⭐⭐⭐</span></h3>
+  <ul class="slide-list">
+    <li>Solo se encuentra en <span class="hl-teal">músculo cardiaco</span> en adulto y embrión</li>
+    <li>No se expresa en lesión de músculo esquelético</li>
+    <li>No se eleva en enfermedad muscular aguda, crónica o ejercicio</li>
+    <li><span class="hl-red">Sin embargo: puede aumentar en Insuficiencia Renal</span></li>
+    <li>Existe <span class="hl-red">13 veces más cTnI que CPK-MB</span> en el corazón</li>
+    <li>Es tan sensible como CPK-MB para daño miocárdico</li>
+  </ul>
+
+  <div class="note note-red">
+    <div class="note-label">⚠️ Dato Crítico — Troponina y Pronóstico</div>
+    Un incremento de Troponina sugiere <span class="hl-red">pronóstico desfavorable en Angina</span> incluso ante valores normales de CK Total y CK-MB. Se debe considerar que estos pacientes han sufrido un <strong>"microinfarto" (Daño Miocárdico Menor)</strong>.
+    <br><br>
+    <strong>Mayor uso se debe a su alto Valor Predictivo Negativo (VPN): 98.9%</strong> — un resultado negativo prácticamente descarta IAM.
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ SECCIÓN 15 ═══ -->
+<section class="section" id="s15">
+  <h2 class="section-title"><span class="sec-num">DIAPOSITIVAS 33–41</span>Algoritmo para Toma de Decisiones con Troponina (0/1 hrs) <span class="star">⭐⭐⭐</span></h2>
+
+  <div class="img-box">
+    <div class="img-box-header">🖼 IMAGEN / TABLA DE LA DIAPOSITIVA — Algoritmo ESC 0/1h para NSTEMI Sospechado</div>
+    <div class="img-interpretation">
+      <strong>Algoritmo para hs-cTnT (Roche):</strong>
+      <div class="flow" style="margin:0.8rem 0; flex-wrap:nowrap; overflow-x:auto;">
+        <div class="flow-box" style="min-width:120px;">NSTEMI Sospechado</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-box teal" style="min-width:130px;">&lt;5 ng/l<br><small>O bien &lt;12 ng/l + Δ0-1h &lt;3 ng/l</small></div>
+        <div class="flow-arrow">→</div>
+        <div class="algo-branch green" style="padding:0.4rem 0.8rem; border-radius:8px;">✅ RULE-OUT</div>
+      </div>
+      <div class="flow" style="margin:0.4rem 0; flex-wrap:nowrap; overflow-x:auto;">
+        <div class="flow-box" style="min-width:120px;">NSTEMI Sospechado</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-box gold" style="min-width:130px;">Otros valores intermedios</div>
+        <div class="flow-arrow">→</div>
+        <div class="algo-branch yellow-a" style="padding:0.4rem 0.8rem; border-radius:8px;">👁 OBSERVAR</div>
+      </div>
+      <div class="flow" style="margin:0.4rem 0; flex-wrap:nowrap; overflow-x:auto;">
+        <div class="flow-box" style="min-width:120px;">NSTEMI Sospechado</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-box red" style="min-width:130px;">≥52 ng/l<br><small>O bien Δ0-1h ≥5 ng/l</small></div>
+        <div class="flow-arrow">→</div>
+        <div class="algo-branch red-a" style="padding:0.4rem 0.8rem; border-radius:8px;">🚨 RULE-IN</div>
+      </div>
+
+      <br>
+      <strong>Algoritmo para hs-cTnI (Abbott):</strong>
+      <div class="flow" style="margin:0.8rem 0; flex-wrap:nowrap; overflow-x:auto;">
+        <div class="flow-box" style="min-width:120px;">NSTEMI Sospechado</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-box teal" style="min-width:130px;">&lt;2 ng/l<br><small>O bien &lt;5 ng/l + Δ0-1h &lt;2 ng/l</small></div>
+        <div class="flow-arrow">→</div>
+        <div class="algo-branch green" style="padding:0.4rem 0.8rem; border-radius:8px;">✅ RULE-OUT</div>
+      </div>
+      <div class="flow" style="margin:0.4rem 0; flex-wrap:nowrap; overflow-x:auto;">
+        <div class="flow-box" style="min-width:120px;">NSTEMI Sospechado</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-box red" style="min-width:130px;">≥52 ng/l<br><small>O bien Δ0-1h ≥6 ng/l</small></div>
+        <div class="flow-arrow">→</div>
+        <div class="algo-branch red-a" style="padding:0.4rem 0.8rem; border-radius:8px;">🚨 RULE-IN</div>
+      </div>
+
+      <em>Los puntos de corte son específicos para la Troponina I de Alta Sensibilidad (HsTnI) analizada por el sistema Architect de Abbott®. Fuente: ESC Guidelines 2015, European Heart Journal (2016) 37, 267–315.</em>
+    </div>
+  </div>
+
+  <div class="img-box">
+    <div class="img-box-header">🖼 IMAGEN / TABLA DE LA DIAPOSITIVA — Algoritmo Shah (Lancet 2016)</div>
+    <div class="img-interpretation">
+      <strong>Algoritmo con hs-cTnI basado en sexo y tiempos de medición:</strong>
+      <br><br>
+      Tras ECG y evaluación clínica con hs-cTnI inicial:
+      <br>• <strong>ECG no diagnóstico:</strong> Revisar hs-cTnI al momento de presentación.
+      <br>• <strong>ECG diagnóstico:</strong> Admitir y medir hs-cTnI a las 6h.
+      <br><br>
+      <strong>Valores de corte iniciales (diferenciados por sexo):</strong>
+      <br>• Rule-out: &lt;5 ng/L
+      <br>• Zona gris (observar): ≥5 ng/L y ≤16 ng/L (mujeres) / ≤34 ng/L (hombres)
+      <br>• Rule-in: &gt;16 ng/L (mujeres) / &gt;34 ng/L (hombres)
+      <br><br>
+      <strong>A las 3h: confirmación o descarte definitivo</strong> basado en delta de cambio ≥3 ng/L.
+      <br><strong>A las 6h: decisión final</strong> con mismos umbrales por sexo.
+      <br><br>
+      <em>Shah et al. Lancet 2016;387:2289-91.</em>
+    </div>
+  </div>
+
+  <div class="img-box">
+    <div class="img-box-header">🖼 IMAGEN / TABLA DE LA DIAPOSITIVA — Metaanálisis 0/1h: Sensibilidad y VPN (Heart 2020)</div>
+    <div class="img-interpretation">
+      <strong>Forest plot para sensibilidad y VPN (Valor Predictivo Negativo) del algoritmo ESC 0/1h:</strong>
+      <br><br>
+      <strong>Para hs-cTnT (Roche):</strong> Sensibilidad resumen = <span class="hl-teal">0.984 (IC95% 0.951-0.995)</span>; VPN resumen = <span class="hl-teal">0.996 (IC95% 0.990-0.999)</span>
+      <br><strong>Para hs-cTnI (Abbott):</strong> Sensibilidad resumen = <span class="hl-teal">0.981 (IC95% 0.946-0.993)</span>; VPN resumen = <span class="hl-teal">0.993 (IC95% 0.959-0.999)</span>
+      <br><strong>Para hs-cTnI (Siemens):</strong> Sensibilidad resumen = <span class="hl-teal">0.987 (IC95% 0.973-0.993)</span>; VPN resumen = <span class="hl-teal">0.996 (IC95% 0.992-0.998)</span>
+      <br><br>
+      <em>Conclusión: El algoritmo 0/1h tiene una sensibilidad &gt;98% y VPN cercano al 99.6%, lo que lo hace extremadamente confiable para DESCARTAR IAM rápidamente.</em>
+    </div>
+  </div>
+
+  <div class="img-box">
+    <div class="img-box-header">🖼 IMAGEN / TABLA DE LA DIAPOSITIVA — Forest Plot Especificidad y VPP (Heart 2020)</div>
+    <div class="img-interpretation">
+      <strong>Forest plot para especificidad y VPP (Valor Predictivo Positivo):</strong>
+      <br><br>
+      <strong>Para hs-cTnT (Roche):</strong> Especificidad resumen = 0.912 (IC95% 0.860-0.946); VPP resumen = <span class="hl-gold">0.513 (IC95% 0.308-0.713)</span>
+      <br><strong>Para hs-cTnI (Siemens):</strong> Especificidad resumen = 0.959 (IC95% 0.941-0.972); VPP resumen = 0.734 (IC95% 0.695-0.770)
+      <br><br>
+      <div class="note note-red" style="margin:0;">
+        <div class="note-label">⚠️ Advertencia</div>
+        El VPP es más variable y depende de la <strong>prevalencia</strong> en la población estudiada. A menor prevalencia de IAM tipo 1 (como en urgencias generales), menor será el VPP, lo que genera más falsos positivos.
+      </div>
+    </div>
+  </div>
+
+  <div class="img-box">
+    <div class="img-box-header">🖼 IMAGEN / TABLA DE LA DIAPOSITIVA — VPP vs Prevalencia (BMJ 2017)</div>
+    <div class="img-interpretation">
+      <strong>Gráfica de dispersión (BMJ 2017;359:j4788):</strong>
+      8,500 pacientes consecutivos (1,054 no seleccionados, resto seleccionados).
+      <br><br>
+      El eje X muestra la prevalencia de IAM tipo 1 (%), el eje Y muestra el Valor Predictivo Positivo (%). La curva azul (con IC punteado en rojo) muestra la relación directa: <strong>a mayor prevalencia, mayor VPP</strong>.
+      <br><br>
+      Puntos rojos = datos de este estudio; puntos azules = otros estudios.
+      <br>• Con prevalencia de ~2% (pacientes no seleccionados UK): VPP ~10-12%
+      <br>• Con prevalencia de ~14-18% (seleccionados UK): VPP ~60-75%
+      <br>• Con prevalencia de ~30-50%: VPP puede llegar a ~90%
+      <br><br>
+      <em>Implicación clínica: La prueba de Troponina positiva tiene muy diferente significado según el contexto clínico y la prevalencia del IAM en la población evaluada.</em>
+    </div>
+  </div>
+
+  <div class="img-box">
+    <div class="img-box-header">🖼 IMAGEN / TABLA DE LA DIAPOSITIVA — Tabla Especificidad/VPP por Subgrupos (BMJ 2017)</div>
+    <div class="img-interpretation">
+      <strong>Forest plot por subgrupos clínicos:</strong>
+      <br>Muestra cómo varía la especificidad y el VPP según: edad (&lt;60 vs ≥60), presencia de dolor torácico, cambios isquémicos en ECG, hipertensión, diabetes, enfermedad coronaria previa.
+      <br><br>
+      Hallazgos clave:
+      <br>• Pacientes &lt;60 años seleccionados (UK): prevalencia 8.6%, especificidad 96.7%
+      <br>• Pacientes ≥60 años: prevalencia 18.3%, especificidad 82.7%
+      <br>• Con cambios isquémicos en ECG: prevalencia 31%, especificidad 80.6%
+      <br>• Con diabetes: prevalencia 17.9%, especificidad 85.2%
+      <br><br>
+      <em>Conclusión: La edad avanzada, los cambios en ECG y las comorbilidades aumentan la pre-test probability y modifican el rendimiento diagnóstico.</em>
+    </div>
+  </div>
+
+  <div class="img-box">
+    <div class="img-box-header">🖼 IMAGEN / TABLA DE LA DIAPOSITIVA — Distribución de tipos de IAM en pacientes seleccionados vs no seleccionados (BMJ 2017)</div>
+    <div class="img-interpretation">
+      <strong>Pictograma de 100 pacientes por grupo:</strong>
+      Cada figura representa 1% de pacientes. En rojo = IAM tipo 1, en azul-verde (teal) = IAM tipo 2 / injuria miocárdica.
+      <br><br>
+      • <strong>Pacientes no seleccionados (UK):</strong> IAM tipo 1 ~3-4%; IAM tipo 2/injuria ~6-7%
+      <br>• <strong>Pacientes seleccionados (UK):</strong> IAM tipo 1 ~15%; IAM tipo 2/injuria ~12-15%
+      <br>• <strong>Pacientes seleccionados (US):</strong> IAM tipo 1 ~5%; IAM tipo 2/injuria ~12%
+      <br><br>
+      <em>Mensaje clave: El IAM tipo 2 e injuria miocárdica son más comunes de lo que se piensa, especialmente en poblaciones no seleccionadas de urgencias.</em>
+    </div>
+  </div>
+
+  <div class="note note-yellow">
+    <div class="note-label">📝 Notas sobre Limitaciones del Algoritmo 0/1h (Heart 2020)</div>
+    <ul class="slide-list">
+      <li>Alto riesgo de sesgo en estándar de referencia, flujo y tiempo</li>
+      <li>No claro en selección de pacientes</li>
+      <li>No se pudo analizar el desempeño en pacientes con <span class="hl-red">ERC</span>, edad avanzada y enfermedad coronaria previa</li>
+      <li>Heterogeneidad en tasa de falla en detección de IAM (no todos los estudios &lt;1%)</li>
+    </ul>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ SECCIÓN 16 ═══ -->
+<section class="section" id="s16">
+  <h2 class="section-title"><span class="sec-num">DIAPOSITIVA 42</span>Mioglobina <span class="star">⭐⭐</span></h2>
+
+  <div class="img-box">
+    <div class="img-box-header">🖼 IMAGEN / TABLA DE LA DIAPOSITIVA — Cinética de Biomarcadores y Tabla Comparativa</div>
+    <div class="img-interpretation">
+      <strong>Gráfica de curvas temporales:</strong> Eje X = Días desde inicio de IAM; Eje Y = Múltiplos del límite superior de referencia.
+      <br>• <strong>cTnT (azul):</strong> Curva más alta y prolongada, pico al día 1-2, sigue elevada hasta día 6-10.
+      <br>• <strong>cTnI (verde):</strong> Similar a cTnT pero cae más rápido.
+      <br>• <strong>CK-MB (rojo):</strong> Pico más temprano (~1-2 días), normaliza ~2-3 días.
+      <br>• <strong>LD1 (morado):</strong> Curva muy suave y prolongada.
+      <br>• <strong>Mioglobina (punteada negra):</strong> Pico muy temprano (horas 6-9), normaliza en 24-36h.
+      <br><br>
+      <strong>Tabla resumen:</strong>
+    </div>
+  </div>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr><th>Biomarcador</th><th>Inicio elevación</th><th>Pico</th><th>Retorno a basal</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="hl-teal">Mioglobina</span></td>
+          <td><span class="hl-red">1–3 h</span> (más temprano)</td>
+          <td>6–9 h</td>
+          <td>24–36 h</td>
+        </tr>
+        <tr>
+          <td>CK-MB</td>
+          <td>4–6 h</td>
+          <td>12–24 h</td>
+          <td>48–72 h</td>
+        </tr>
+        <tr>
+          <td>Troponina cardiaca (cTn)</td>
+          <td>4–8 h</td>
+          <td>12–48 h</td>
+          <td><span class="hl-gold">4–10 días</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 style="font-family:'Playfair Display',serif; margin: 1.2rem 0 0.8rem;">En Sospecha de IAM</h3>
+  <ul class="slide-list">
+    <li><span class="hl-teal">Valor predictivo positivo: 75%</span></li>
+    <li><span class="hl-red">Valor predictivo negativo: 98%</span> → útil para descartar</li>
+    <li><span class="hl-gold">Mejor parámetro para medir un Reinfarto de Miocardio</span> (por su rápida normalización, un nuevo pico indica nuevo evento)</li>
+  </ul>
+
+  <div class="fp-fn-grid">
+    <div class="fp-box">
+      <h4>⚠️ Otras causas de elevación (Falsos Positivos)</h4>
+      <ul>
+        <li>Rabdomiolisis</li>
+        <li>Trauma muscular</li>
+        <li>Choque grave</li>
+        <li>Intoxicación alcohólica</li>
+        <li>Insuficiencia renal</li>
+      </ul>
+    </div>
+    <div class="fn-box">
+      <h4>💡 Ventaja</h4>
+      <ul>
+        <li>Es el marcador que se eleva MÁS TEMPRANO (1-3h)</li>
+        <li>VPN del 98% muy útil para descarte temprano</li>
+        <li>Mejor para detectar reinfarto</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ SECCIÓN 17 ═══ -->
+<section class="section" id="s17">
+  <h2 class="section-title"><span class="sec-num">DIAPOSITIVA 43</span>BNP (Péptido Natriurético Cerebral) <span class="star">⭐⭐</span></h2>
+
+  <ul class="slide-list">
+    <li>Buen marcador para cambios en <span class="hl-teal">volumen/distensibilidad de tejido cardiaco y fisiología ventricular</span></li>
+    <li>Aumenta sus valores principalmente en <span class="hl-red">ICC, falla cardiaca y estrés</span></li>
+    <li>Variable por <span class="hl-gold">edad y sexo</span></li>
+    <li>En la IC crónica se relaciona directamente con la severidad</li>
+    <li>Se relaciona con remodelación anómala de tejido miocárdico post-infarto</li>
+  </ul>
+
+  <div class="img-box">
+    <div class="img-box-header">🖼 IMAGEN / TABLA DE LA DIAPOSITIVA — BNP: Mecanismo e Interpretación</div>
+    <div class="img-interpretation">
+      <strong>Diagrama del mecanismo del BNP:</strong>
+      El aumento de volumen y presión en el corazón activa la liberación de: ANP (aurícula), BNP (ventrículo) y CNP (endotelio vascular). El BNP actúa como respuesta compensadora:
+      <br>• Suprime el sistema renina-angiotensina y la endotelina
+      <br>• Reduce la resistencia vascular periférica (↓ presión arterial)
+      <br>• Aumenta la natriuresis
+      <br><br>
+      El BNP es igual a: Disfunción sistólica VI + Disfunción diastólica VI + Disfunción valvular + Disfunción del VD.
+      <br><br>
+      <strong>Interpretación clínica (siempre junto con información clínica):</strong>
+    </div>
+  </div>
+
+  <div class="severity-grid">
+    <div class="sev-card sev-green">Sin Insuficiencia Cardiaca (ICC)<span class="sev-val">&lt;100 pg/ml</span></div>
+    <div class="sev-card sev-yellow">Zona gris — Información adicional necesaria<span class="sev-val">100–400 pg/ml</span></div>
+    <div class="sev-card sev-red">Insuficiencia Cardiaca Congestiva (CHF)<span class="sev-val">&gt;400 pg/ml</span></div>
+  </div>
+
+  <div class="note note-yellow">
+    <div class="note-label">📝 Nota</div>
+    <p>Caveats para el umbral de 100 pg/ml: (a) GFR &lt;60 ml/min (ERC puede elevar BNP) y (b) Obesidad (puede disminuir los niveles de BNP). En la zona gris, considerar: si No ICC → buscar otras causas; si ICC → iniciar diuréticos, nitratos, IECA.</p>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ SECCIÓN 18 ═══ -->
+<section class="section" id="s18">
+  <h2 class="section-title"><span class="sec-num">DIAPOSITIVAS 44–45</span>Guías AHA/ACC 2014 — NSTEMI-ACS <span class="star">⭐⭐⭐</span></h2>
+
+  <h3 style="font-family:'Playfair Display',serif; margin-bottom:0.8rem;">Recomendaciones para Pronóstico: Estratificación Temprana de Riesgo</h3>
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr><th>Recomendación</th><th>COR</th><th>LOE</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Realizar determinación rápida de probabilidad de SCA, incluyendo ECG de 12 derivaciones en <span class="hl-red">10 min</span> del arribo en urgencias a pacientes con síntomas sugestivos de SCA</td>
+          <td>I</td><td>C</td>
+        </tr>
+        <tr>
+          <td>Realizar ECGs seriados a intervalos de <span class="hl-gold">15–30 min</span> durante la primera hora en pacientes sintomáticos con ECG inicial no diagnóstico</td>
+          <td>I</td><td>C</td>
+        </tr>
+        <tr>
+          <td><span class="hl-red">Medir troponina cardiaca (cTnI o cTnT)</span> en todos los pacientes con síntomas consistentes con SCA</td>
+          <td>I</td><td><strong>A</strong></td>
+        </tr>
+        <tr>
+          <td>Medir <span class="hl-red">troponina seriada I o T</span> al momento de presentación y 3–6 h después del inicio de síntomas en todos los pacientes con síntomas consistentes con SCA</td>
+          <td>I</td><td><strong>A</strong></td>
+        </tr>
+        <tr>
+          <td>Usar puntajes de riesgo para evaluar pronóstico en pacientes con NSTE-ACS</td>
+          <td>I</td><td>A</td>
+        </tr>
+        <tr>
+          <td>Los modelos de estratificación de riesgo pueden ser útiles en el manejo</td>
+          <td>IIa</td><td>B</td>
+        </tr>
+        <tr>
+          <td>Obtener derivaciones suplementarias V₇-V₉ en pacientes con ECG inicial no diagnóstico en riesgo intermedio/alto de SCA</td>
+          <td>IIa</td><td>B</td>
+        </tr>
+        <tr>
+          <td>El monitoreo continuo con ECG de 12 derivaciones puede ser una alternativa razonable con ECG inicial no diagnóstico en pacientes de riesgo intermedio/alto de SCA</td>
+          <td>IIb</td><td>B</td>
+        </tr>
+        <tr>
+          <td><span class="hl-teal">BNP o NT-pro-BNP puede considerarse</span> para evaluar riesgo en pacientes con SCA sospechado</td>
+          <td>IIb</td><td>B</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 style="font-family:'Playfair Display',serif; margin: 1.5rem 0 0.8rem;">Recomendaciones para Biomarcadores Cardiacos y Definición Universal de IAM</h3>
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr><th>Recomendación</th><th>COR</th><th>LOE</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>DIAGNÓSTICO:</strong> Medir troponina cardiaca específica (TnI o TnT) al momento de presentación y 3–6 h después del inicio de síntomas en todos los pacientes con SCA sospechado para identificar el patrón de valores</td>
+          <td>I</td><td>A</td>
+        </tr>
+        <tr>
+          <td>Obtener niveles adicionales de troponina más allá de las 6 h en pacientes con troponinas seriales iniciales normales con cambios en ECG y/o características clínicas de riesgo intermedio/alto</td>
+          <td>I</td><td>A</td>
+        </tr>
+        <tr>
+          <td>Considerar el tiempo de presentación desde el inicio de síntomas al evaluar los valores de troponina en inicio de síntomas ambiguos</td>
+          <td>I</td><td>A</td>
+        </tr>
+        <tr>
+          <td><span class="hl-red">Con ensayos de troponina contemporáneos, CK-MB y mioglobina NO son útiles para diagnóstico de SCA</span></td>
+          <td><strong>III: Sin Beneficio</strong></td><td>A</td>
+        </tr>
+        <tr>
+          <td><strong>PRONÓSTICO:</strong> Las elevaciones de troponina son útiles para pronóstico a corto y largo plazo</td>
+          <td>I</td><td>B</td>
+        </tr>
+        <tr>
+          <td>La re-medición de troponina en el día 3 o 4 en pacientes con IAM puede ser razonable como índice del tamaño del infarto y dinámica de la necrosis</td>
+          <td>IIb</td><td>B</td>
+        </tr>
+        <tr>
+          <td>BNP puede ser razonable para información pronóstica adicional</td>
+          <td>IIb</td><td>B</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="note note-red">
+    <div class="note-label">⚠️ Dato Crítico — Guías 2014</div>
+    Según la guía AHA/ACC 2014, con los ensayos de troponina modernos, <span class="hl-red">CK-MB y mioglobina ya NO están recomendados para el diagnóstico de SCA</span> (Clase III — Sin Beneficio, Nivel de Evidencia A). La Troponina de alta sensibilidad es el estándar actual.
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ SECCIÓN 19 ═══ -->
+<section class="section" id="s19">
+  <h2 class="section-title"><span class="sec-num">DIAPOSITIVA 46</span>Reperfusión</h2>
+  <ul class="slide-list">
+    <li>Ha aumentado la sobrevida en <span class="hl-red">10%</span></li>
+    <li>Un <span class="hl-teal">diagnóstico oportuno</span> incrementa la esperanza de vida del paciente</li>
+  </ul>
+
+  <div class="flow">
+    <div class="flow-box red">Dolor torácico ↑<small>Inicio síntomas</small></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-box teal">Diagnóstico oportuno<small>ECG + biomarcadores</small></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-box gold">Reperfusión<small>ICP / Trombolisis</small></div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-box">↑ Sobrevida<small>+10% supervivencia</small></div>
+  </div>
+
+  <div class="note note-teal">
+    <div class="note-label">🔵 Concepto Final Integrador</div>
+    El tiempo desde el inicio de síntomas hasta la reperfusión es crítico. El laboratorio de patología clínica juega un papel fundamental en:
+    <ul class="slide-list" style="margin-top:0.5rem;">
+      <li>Diagnóstico rápido (algoritmo 0/1h con troponina de alta sensibilidad)</li>
+      <li>Estratificación de riesgo (niveles de troponina, BNP)</li>
+      <li>Monitoreo post-reperfusión (curva enzimática)</li>
+      <li>Detección de reinfarto (mioglobina + troponina)</li>
+    </ul>
+  </div>
+</section>
+
+</main>
+
+<footer style="background: var(--dark); color: var(--cream-border); text-align:center; padding: 2rem 1rem; font-family:'Lora',serif; font-size:0.85rem; border-top: 3px solid var(--gold);">
+  <p><strong style="color:var(--gold-light);">Infarto Agudo de Miocardio — Diagnóstico por Laboratorio</strong></p>
+  <p style="margin-top:0.5rem; font-style:italic;">Patología Clínica · Notas de Estudio · Basado en: Fourth Universal Definition of MI (2018), ESC Guidelines 2015-2016, AHA/ACC 2014, Heart (2020), BMJ (2017), Lancet (2016), OECD Health at a Glance 2023</p>
+</footer>
+
+</body>
+</html>

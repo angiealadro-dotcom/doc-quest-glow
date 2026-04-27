@@ -1,0 +1,1620 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marcadores Tumorales – Notas de Estudio</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Lora:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #FAF6EF;
+    --cream-dark: #F0E9DC;
+    --ink: #2C2416;
+    --ink-light: #5A4E38;
+    --red: #C0392B;
+    --red-light: #FDECEA;
+    --teal: #1A7A6E;
+    --teal-light: #E3F4F1;
+    --gold: #C5860E;
+    --gold-light: #FEF8E7;
+    --gold-star: #D4AF37;
+    --blue: #1A5276;
+    --blue-light: #EBF5FB;
+    --border: #D4C4A8;
+    --shadow: 0 4px 24px rgba(44,36,22,0.10);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'Lora', Georgia, serif;
+    font-size: 16px;
+    line-height: 1.75;
+  }
+
+  /* ── HEADER ── */
+  .site-header {
+    background: linear-gradient(135deg, #1A1008 0%, #3D2B0E 50%, #1A1008 100%);
+    color: #FAF6EF;
+    padding: 3rem 2rem 2.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .site-header::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: repeating-linear-gradient(45deg, transparent, transparent 30px, rgba(197,134,14,0.06) 30px, rgba(197,134,14,0.06) 31px);
+  }
+  .site-header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 900;
+    color: var(--gold-star);
+    letter-spacing: 0.02em;
+    position: relative;
+  }
+  .site-header .subtitle {
+    font-family: 'Lora', serif;
+    font-style: italic;
+    color: #D4C4A8;
+    margin-top: 0.5rem;
+    font-size: 1rem;
+    position: relative;
+  }
+  .hospital-badge {
+    display: inline-block;
+    background: rgba(197,134,14,0.18);
+    border: 1px solid rgba(197,134,14,0.4);
+    border-radius: 4px;
+    padding: 0.3rem 1rem;
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    color: #EDD89A;
+    margin-top: 1rem;
+    position: relative;
+  }
+
+  /* ── INDEX ── */
+  .index-container {
+    max-width: 860px;
+    margin: 2.5rem auto;
+    padding: 0 1.5rem;
+  }
+  .index-box {
+    background: white;
+    border: 1.5px solid var(--border);
+    border-radius: 12px;
+    padding: 2rem 2.5rem;
+    box-shadow: var(--shadow);
+  }
+  .index-box h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    color: var(--ink);
+    border-bottom: 2px solid var(--gold);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.2rem;
+  }
+  .index-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 0.5rem 1.5rem;
+  }
+  .index-grid a {
+    color: var(--teal);
+    text-decoration: none;
+    font-size: 0.92rem;
+    padding: 0.2rem 0;
+    border-bottom: 1px dashed var(--border);
+    display: block;
+    transition: color 0.2s, padding-left 0.2s;
+  }
+  .index-grid a:hover { color: var(--red); padding-left: 6px; }
+
+  /* ── MAIN ── */
+  main { max-width: 860px; margin: 0 auto; padding: 0 1.5rem 4rem; }
+
+  /* ── SECTION ── */
+  .section {
+    margin-bottom: 3rem;
+    scroll-margin-top: 80px;
+  }
+  .section-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+  }
+  .slide-number {
+    background: var(--gold);
+    color: white;
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 0.85rem;
+    padding: 0.2rem 0.65rem;
+    border-radius: 4px;
+    white-space: nowrap;
+    margin-top: 0.35rem;
+  }
+  .section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.3rem, 3vw, 1.75rem);
+    color: var(--ink);
+    font-weight: 700;
+    line-height: 1.3;
+  }
+  .section-body {
+    background: white;
+    border-radius: 10px;
+    border: 1.5px solid var(--border);
+    padding: 1.75rem 2rem;
+    box-shadow: var(--shadow);
+  }
+  .section-body p { margin-bottom: 0.9rem; }
+  .section-body p:last-child { margin-bottom: 0; }
+  .section-body ul { padding-left: 1.4rem; margin-bottom: 0.9rem; }
+  .section-body li { margin-bottom: 0.45rem; }
+
+  /* ── HIGHLIGHTS ── */
+  .hl-red    { color: var(--red); font-weight: 600; text-decoration: underline; text-decoration-color: var(--red); }
+  .hl-teal   { color: var(--teal); font-weight: 600; text-decoration: underline; text-decoration-color: var(--teal); }
+  .hl-gold   { color: var(--gold); font-weight: 700; text-decoration: underline; text-decoration-color: var(--gold); }
+
+  /* ── STARS ── */
+  .star { color: var(--gold-star); }
+
+  /* ── IMAGE BOX ── */
+  .img-box {
+    border: 2px solid var(--red);
+    border-radius: 8px;
+    margin: 1.5rem 0;
+    overflow: hidden;
+  }
+  .img-box-header {
+    background: var(--red);
+    color: white;
+    padding: 0.55rem 1rem;
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .img-box-content {
+    padding: 1.25rem 1.5rem;
+    background: #FFF8F8;
+  }
+  .img-box-content p { font-size: 0.95rem; color: var(--ink-light); font-style: italic; }
+
+  /* ── NOTE BOXES ── */
+  .note { border-radius: 8px; padding: 1rem 1.25rem; margin: 1.1rem 0; font-size: 0.95rem; }
+  .note-yellow { background: #FFFBEB; border-left: 4px solid var(--gold); }
+  .note-red    { background: var(--red-light); border-left: 4px solid var(--red); }
+  .note-teal   { background: var(--teal-light); border-left: 4px solid var(--teal); }
+  .note strong { font-weight: 700; }
+
+  /* ── FORMULA BOX ── */
+  .formula {
+    background: #1A1008;
+    color: #F0E9DC;
+    font-family: 'JetBrains Mono', monospace;
+    padding: 1rem 1.4rem;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    margin: 1rem 0;
+    border-left: 3px solid var(--gold);
+  }
+
+  /* ── TABLES ── */
+  .table-wrap { overflow-x: auto; margin: 1.2rem 0; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.88rem;
+  }
+  thead tr { background: var(--ink); color: var(--cream); }
+  thead th { padding: 0.65rem 0.9rem; text-align: left; font-family: 'Playfair Display', serif; font-weight: 700; }
+  tbody tr:nth-child(even) { background: var(--cream-dark); }
+  tbody tr:hover { background: var(--gold-light); }
+  tbody td { padding: 0.55rem 0.9rem; border-bottom: 1px solid var(--border); }
+  .tbl-header-red thead tr { background: var(--red); }
+  .tbl-header-teal thead tr { background: var(--teal); }
+
+  /* ── SEVERITY CARDS ── */
+  .severity-row { display: flex; gap: 0.75rem; flex-wrap: wrap; margin: 1rem 0; }
+  .sev-card {
+    flex: 1; min-width: 120px; border-radius: 8px; padding: 0.75rem 1rem;
+    text-align: center; font-size: 0.88rem;
+  }
+  .sev-green  { background: #E8F5E9; border: 1.5px solid #4CAF50; color: #1B5E20; }
+  .sev-yellow { background: #FFFDE7; border: 1.5px solid #F9A825; color: #7B4800; }
+  .sev-orange { background: #FFF3E0; border: 1.5px solid #EF6C00; color: #7B2300; }
+  .sev-red    { background: var(--red-light); border: 1.5px solid var(--red); color: var(--red); }
+  .sev-card strong { display: block; font-size: 1.15rem; margin-top: 0.3rem; }
+
+  /* ── FP / FN BOX ── */
+  .fp-fn-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1.1rem 0; }
+  .fp-box { background: #FDECEA; border: 1.5px solid var(--red); border-radius: 8px; padding: 1rem 1.2rem; }
+  .fn-box { background: var(--blue-light); border: 1.5px solid var(--blue); border-radius: 8px; padding: 1rem 1.2rem; }
+  .fp-box h4 { color: var(--red); margin-bottom: 0.5rem; font-family: 'Playfair Display', serif; }
+  .fn-box h4 { color: var(--blue); margin-bottom: 0.5rem; font-family: 'Playfair Display', serif; }
+  .fp-fn-row ul { padding-left: 1.2rem; font-size: 0.88rem; }
+  .fp-fn-row li { margin-bottom: 0.3rem; }
+
+  /* ── FLOW DIAGRAM ── */
+  .flow { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; margin: 1.2rem 0; }
+  .flow-box {
+    background: white; border: 1.5px solid var(--teal); border-radius: 6px;
+    padding: 0.5rem 0.85rem; font-size: 0.88rem; color: var(--teal); font-weight: 600;
+    text-align: center;
+  }
+  .flow-box.red-box  { border-color: var(--red); color: var(--red); }
+  .flow-box.gold-box { border-color: var(--gold); color: var(--gold); }
+  .flow-box.dark-box { background: var(--ink); color: var(--cream); border-color: var(--ink); }
+  .flow-arrow { font-size: 1.3rem; color: var(--ink-light); flex-shrink: 0; }
+
+  /* ── VALUE BADGE ── */
+  .val-badge {
+    display: inline-block; background: var(--gold-light);
+    border: 1px solid var(--gold); border-radius: 4px;
+    padding: 0.15rem 0.6rem; font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem; color: var(--gold); font-weight: 700; margin: 0 2px;
+  }
+
+  /* ── DIVIDER ── */
+  .divider {
+    border: none; border-top: 2px dashed var(--border);
+    margin: 2.5rem 0;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 600px) {
+    .fp-fn-row { grid-template-columns: 1fr; }
+    .section-body { padding: 1.2rem 1rem; }
+    .index-box { padding: 1.2rem 1rem; }
+    .site-header { padding: 2rem 1rem 1.5rem; }
+  }
+
+  /* ── BACK TO TOP ── */
+  .back-top {
+    display: block; text-align: right; margin-top: 1rem;
+    font-size: 0.82rem; color: var(--teal); text-decoration: none;
+  }
+  .back-top:hover { color: var(--red); }
+</style>
+</head>
+<body>
+
+<!-- ══════════════ HEADER ══════════════ -->
+<header class="site-header">
+  <h1>Marcadores Tumorales</h1>
+  <p class="subtitle">Notas de estudio completas · Patología Clínica</p>
+  <div class="hospital-badge">Hospital Universitario "Dr. José Eleuterio González" · Departamento de Patología Clínica</div>
+</header>
+
+<!-- ══════════════ INDEX ══════════════ -->
+<div class="index-container">
+  <div class="index-box">
+    <h2>📋 Índice de Contenidos</h2>
+    <div class="index-grid">
+      <a href="#s1">01 · Introducción al Cáncer</a>
+      <a href="#s2">02 · Epidemiología Global (GLOBOCAN)</a>
+      <a href="#s3">03 · Incidencia por Sexo</a>
+      <a href="#s4">04 · Datos México (INEGI)</a>
+      <a href="#s5">05 · Tumores Malignos por Tipo y Sexo</a>
+      <a href="#s6">06 · Diagnóstico Temprano y Clasificación</a>
+      <a href="#s7">07 · Evolución de las Técnicas</a>
+      <a href="#s8">08 · Dificultad del Diagnóstico Oportuno</a>
+      <a href="#s9">09 · Retos del Diagnóstico</a>
+      <a href="#s10">10 · El Marcador Tumoral Ideal</a>
+      <a href="#s11">11 · Baja Especificidad de los MT</a>
+      <a href="#s12">12 · Utilidad de los MT</a>
+      <a href="#s13">13 · Usos Clínicos Comunes</a>
+      <a href="#s14">14 · APE (PSA)</a>
+      <a href="#s15">15 · Diferimiento del APE</a>
+      <a href="#s16">16 · ¿A quién tamizar con APE?</a>
+      <a href="#s17">17 · APE: Metástasis Ósea</a>
+      <a href="#s18">18 · Calcitonina</a>
+      <a href="#s19">19 · β-hCG</a>
+      <a href="#s20">20 · α-Fetoproteína (AFP)</a>
+      <a href="#s21">21 · Conjugación AFP + hCG</a>
+      <a href="#s22">22 · Fosfatasa Alcalina</a>
+      <a href="#s23">23 · ACE (CEA)</a>
+      <a href="#s24">24 · CA 15-3</a>
+      <a href="#s25">25 · CA 125</a>
+      <a href="#s26">26 · CA 19-9</a>
+      <a href="#s27">27 · Resumen de Marcadores</a>
+      <a href="#s28">28 · β2-Microglobulina</a>
+      <a href="#s29">29 · Marcadores Genéticos</a>
+      <a href="#s30">30 · Proto-Oncogenes de Susceptibilidad</a>
+      <a href="#s31">31 · Genes BRCA1/2</a>
+      <a href="#s32">32 · Herramientas de Alta Especificidad</a>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════ MAIN ══════════════ -->
+<main>
+
+<!-- ─── S1 ─── -->
+<section class="section" id="s1">
+  <div class="section-header">
+    <span class="slide-number">Diap. 02</span>
+    <h2>Introducción al Cáncer</h2>
+  </div>
+  <div class="section-body">
+    <p><span class="hl-teal">Definición:</span> Padecimientos caracterizados por un crecimiento de células anormales que puede invadir tejido circundante u otros órganos.</p>
+    <p><span class="hl-red">RETO:</span> <strong>DIAGNÓSTICO OPORTUNO.</strong> Cada tipo de cáncer requiere estrategias de prevención y abordaje de acuerdo con sus características.</p>
+
+    <div class="note note-red">
+      <strong>⭐⭐⭐ Estadísticas OMS 2024 — Datos Críticos:</strong>
+      <ul style="margin-top:0.5rem;">
+        <li>Se calcula que en <span class="hl-gold">2022</span> hubo <span class="hl-red">20 millones</span> de nuevos casos de cáncer y <span class="hl-red">9.7 millones</span> de muertes.</li>
+        <li>El número estimado de personas vivas a los 5 años siguientes a un diagnóstico: <span class="hl-gold">53.5 millones</span>.</li>
+        <li>Alrededor de <span class="hl-red">1 de cada 5 personas</span> desarrollará cáncer a lo largo de su vida.</li>
+        <li>Aproximadamente <span class="hl-red">1 de cada 9 hombres</span> y <span class="hl-red">1 de cada 12 mujeres</span> mueren a causa de la enfermedad.</li>
+      </ul>
+    </div>
+  </div>
+  <a href="#" class="back-top">↑ Volver al índice</a>
+</section>
+<hr class="divider">
+
+<!-- ─── S2 ─── -->
+<section class="section" id="s2">
+  <div class="section-header">
+    <span class="slide-number">Diap. 03</span>
+    <h2>Epidemiología Global – GLOBOCAN 2022 <span class="star">⭐⭐</span></h2>
+  </div>
+  <div class="section-body">
+    <div class="img-box">
+      <div class="img-box-header">🖼 IMAGEN / TABLA DE LA DIAPOSITIVA</div>
+      <div class="img-box-content">
+        <p><strong>Interpretación:</strong> Tabla GLOBOCAN 2022 con nuevos casos y muertes de 36 tipos de cáncer. Se presentan los rangos 17–33 (los más bajos en incidencia). Datos relevantes: Melanoma de piel ocupa el lugar #17 en incidencia (331,647 casos), Testis #27 (72,031 casos pero solo 9,056 muertes — alta supervivencia), Mesothelioma #32 (30,618 casos, 25,372 muertes — alta letalidad relativa). Total global: <span class="hl-red">19,964,811 casos</span> y <span class="hl-red">9,736,779 muertes</span>.</p>
+      </div>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Tipo de Cáncer</th><th>Rank Incidencia</th><th>Nuevos Casos</th><th>Rank Mortalidad</th><th>Muertes</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Melanoma de piel</td><td>17</td><td>331,647</td><td>22</td><td>58,645</td></tr>
+          <tr><td>Ovario</td><td>18</td><td>324,398</td><td>14</td><td>206,839</td></tr>
+          <tr><td>Cerebro / SNC</td><td>19</td><td>321,476</td><td>12</td><td>248,305</td></tr>
+          <tr><td>Laringe</td><td>20</td><td>188,960</td><td>18</td><td>103,216</td></tr>
+          <tr><td>Mieloma múltiple</td><td>21</td><td>187,774</td><td>17</td><td>121,252</td></tr>
+          <tr><td>Vesícula biliar</td><td>22</td><td>122,462</td><td>20</td><td>89,031</td></tr>
+          <tr><td>Nasofaringe</td><td>23</td><td>120,416</td><td>21</td><td>73,476</td></tr>
+          <tr><td>Orofaringe</td><td>24</td><td>106,316</td><td>23</td><td>52,268</td></tr>
+          <tr><td>Hipofaringe</td><td>25</td><td>86,276</td><td>25</td><td>40,917</td></tr>
+          <tr><td>Linfoma de Hodgkin</td><td>26</td><td>82,409</td><td>28</td><td>22,701</td></tr>
+          <tr><td>Testículo</td><td>27</td><td>72,031</td><td>32</td><td>9,056</td></tr>
+          <tr><td>Glándulas salivales</td><td>28</td><td>55,003</td><td>27</td><td>23,894</td></tr>
+          <tr><td>Vulva</td><td>29</td><td>47,342</td><td>29</td><td>18,579</td></tr>
+          <tr><td>Pene</td><td>30</td><td>37,699</td><td>31</td><td>13,729</td></tr>
+          <tr><td>Sarcoma de Kaposi</td><td>31</td><td>35,359</td><td>30</td><td>15,911</td></tr>
+          <tr><td>Mesotelioma</td><td>32</td><td>30,618</td><td>26</td><td>25,372</td></tr>
+          <tr><td>Vagina</td><td>33</td><td>18,800</td><td>33</td><td>8,238</td></tr>
+          <tr style="font-weight:700; background:#FFF8E7;"><td>TOTAL (todos los cánceres)</td><td>—</td><td>19,964,811</td><td>—</td><td>9,736,779</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <a href="#" class="back-top">↑ Volver al índice</a>
+</section>
+<hr class="divider">
+
+<!-- ─── S3 ─── -->
+<section class="section" id="s3">
+  <div class="section-header">
+    <span class="slide-number">Diap. 04</span>
+    <h2>Incidencia y Mortalidad por Sexo – GLOBOCAN 2022 <span class="star">⭐⭐⭐</span></h2>
+  </div>
+  <div class="section-body">
+    <div class="img-box">
+      <div class="img-box-header">🖼 IMAGEN / TABLA DE LA DIAPOSITIVA</div>
+      <div class="img-box-content">
+        <p><strong>Interpretación:</strong> Dos gráficas de pastel dobles (incidencia + mortalidad) separadas por sexo, fuente GLOBOCAN 2022.</p>
+        <p>→ <strong>HOMBRES (10.3 M casos / 5.4 M muertes):</strong> Pulmón lidera incidencia (15.3%) y mortalidad (22.7%). Le siguen Próstata (14.2% incidencia) e Hígado (9.6% mortalidad).</p>
+        <p>→ <strong>MUJERES (9.7 M casos / 4.3 M muertes):</strong> Mama domina incidencia (23.8%) y mortalidad (15.4%). Pulmón es 2° causa de muerte (13.6%). Cérvix uterino ocupa el 6° lugar en incidencia (6.8%) y mortalidad (8.1%).</p>
+      </div>
+    </div>
+
+    <div class="fp-fn-row">
+      <div style="background:#EBF5FB; border:1.5px solid #1A5276; border-radius:8px; padding:1rem 1.2rem;">
+        <h4 style="color:#1A5276; font-family:'Playfair Display',serif; margin-bottom:0.5rem;">🔵 HOMBRES — Top Causas</h4>
+        <ul style="padding-left:1.2rem; font-size:0.88rem;">
+          <li><strong>Pulmón</strong> — 15.3% incidencia / <span class="hl-red">22.7% mortalidad</span></li>
+          <li>Próstata — 14.2% incidencia / 7.3% mortalidad</li>
+          <li>Colon-recto — 10.4% incidencia / 9.2% mortalidad</li>
+          <li>Estómago — 6.1% / 7.9%</li>
+          <li><span class="hl-red">Hígado</span> — 5.8% / 9.6%</li>
+        </ul>
+      </div>
+      <div style="background:#FDECEA; border:1.5px solid #C0392B; border-radius:8px; padding:1rem 1.2rem;">
+        <h4 style="color:#C0392B; font-family:'Playfair Display',serif; margin-bottom:0.5rem;">🔴 MUJERES — Top Causas</h4>
+        <ul style="padding-left:1.2rem; font-size:0.88rem;">
+          <li><strong>Mama</strong> — <span class="hl-red">23.8% incidencia / 15.4% mortalidad</span></li>
+          <li>Pulmón — 9.4% / 13.6%</li>
+          <li>Colon-recto — 8.9% / 9.4%</li>
+          <li>Cérvix uterino — 6.8% / 8.1%</li>
+          <li>Tiroides — 6.4% incidencia</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <a href="#" class="back-top">↑ Volver al índice</a>
+</section>
+<hr class="divider">
+
+<!-- ─── S4 ─── -->
+<section class="section" id="s4">
+  <div class="section-header">
+    <span class="slide-number">Diap. 05</span>
+    <h2>Tasas de Defunción por Tumores Malignos – México <span class="star">⭐⭐</span></h2>
+  </div>
+  <div class="section-body">
+    <div class="img-box">
+      <div class="img-box-header">🖼 IMAGEN / TABLA DE LA DIAPOSITIVA</div>
+      <div class="img-box-content">
+        <p><strong>Interpretación de gráfica de línea (2012–2022):</strong> La tasa de defunciones por tumores malignos en México muestra una tendencia ascendente sostenida, pasando de <span class="hl-gold">62.04/100,000 hab</span> en 2012 al pico de <span class="hl-red">70.67/100,000 hab</span> en 2020, con ligero descenso a <span class="hl-gold">68.92</span> en 2022. El incremento acumulado es de ~11% en 10 años.</p>
+        <p><strong>Interpretación de tabla por grupos de edad (2022):</strong> La mortalidad aumenta exponencialmente con la edad. El grupo de 80+ años presenta la tasa más alta (777.09 total; 944.23 hombres; 643.50 mujeres). Fuente: INEGI EDR 2022 / CONAPO.</p>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="tbl-header-teal">
+        <thead>
+          <tr><th>Grupo de Edad</th><th>Total</th><th>Hombres</th><th>Mujeres</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Total</strong></td><td><strong>68.92</strong></td><td><strong>67.48</strong></td><td><strong>70.28</strong></td></tr>
+          <tr><td>0 a 9</td><td>3.80</td><td>4.14</td><td>3.45</td></tr>
+          <tr><td>10 a 19</td><td>5.64</td><td>6.70</td><td>4.55</td></tr>
+          <tr><td>20 a 29</td><td>8.76</td><td>10.65</td><td>6.86</td></tr>
+          <tr><td>30 a 39</td><td>18.62</td><td>15.36</td><td>21.70</td></tr>
+          <tr><td>40 a 49</td><td>49.09</td><td>37.12</td><td>59.33</td></tr>
+          <tr><td>50 a 59</td><td>112.26</td><td>95.57</td><td>127.24</td></tr>
+          <tr><td>60 a 69</td><td>244.99</td><td>245.94</td><td>244.04</td></tr>
+          <tr><td>70 a 79</td><td>474.78</td><td>545.54</td><td>414.52</td></tr>
+          <tr style="font-weight:700; background:#FDECEA;"><td>80 y más</td><td>777.09</td><td>944.23</td><td>643.50</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:0.8rem; color:var(--ink-light);">Tasas por cada 100,000 habitantes. Fuente: INEGI EDR 2022.</p>
+  </div>
+  <a href="#" class="back-top">↑ Volver al índice</a>
+</section>
+<hr class="divider">
+
+<!-- ─── S5 ─── -->
+<section class="section" id="s5">
+  <div class="section-header">
+    <span class="slide-number">Diap. 06</span>
+    <h2>Tasas de Defunción por Tipo de Tumor Maligno – México 2022</h2>
+  </div>
+  <div class="section-body">
+    <div class="img-box">
+      <div class="img-box-header">🖼 IMAGEN / TABLA DE LA DIAPOSITIVA</div>
+      <div class="img-box-content">
+        <p><strong>Interpretación:</strong> Tabla con tasas de defunción (x 100,000 hab.) separadas por sexo y rango etario (30-59 años vs 60+). Los valores más altos corresponden al grupo de 60+ años. El cáncer de próstata es el de mayor mortalidad en hombres mayores (99.27). En mujeres, mama lidera en ambos grupos de edad.</p>
+      </div>
+    </div>
+
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
+      <div>
+        <h4 style="font-family:'Playfair Display',serif; margin-bottom:0.7rem; color:var(--blue);">♂ HOMBRES — 30 a 59 años</h4>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Tumor</th><th>Tasa</th></tr></thead>
+            <tbody>
+              <tr><td>Colon, recto y ano</td><td>5.86</td></tr>
+              <tr><td>Estómago</td><td>4.59</td></tr>
+              <tr><td>Leucemia</td><td>3.19</td></tr>
+              <tr><td>Hígado / vías biliares intrahepáticas</td><td>2.94</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <h4 style="font-family:'Playfair Display',serif; margin:0.8rem 0 0.5rem; color:var(--red);">♂ HOMBRES — 60 años o más</h4>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Tumor</th><th>Tasa</th></tr></thead>
+            <tbody>
+              <tr style="font-weight:700;"><td><span class="hl-red">Próstata</span></td><td><span class="hl-red">99.27</span></td></tr>
+              <tr><td>Tráquea, bronquios y pulmón</td><td>42.34</td></tr>
+              <tr><td>Colon, recto y ano</td><td>39.54</td></tr>
+              <tr><td>Hígado / vías biliares intrahepáticas</td><td>37.75</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div>
+        <h4 style="font-family:'Playfair Display',serif; margin-bottom:0.7rem; color:var(--red);">♀ MUJERES — 30 a 59 años</h4>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Tumor</th><th>Tasa</th></tr></thead>
+            <tbody>
+              <tr style="font-weight:700;"><td><span class="hl-red">Mama</span></td><td><span class="hl-red">14.61</span></td></tr>
+              <tr><td>Cuello del útero</td><td>8.90</td></tr>
+              <tr><td>Ovario</td><td>5.46</td></tr>
+              <tr><td>Colon, recto y ano</td><td>4.05</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <h4 style="font-family:'Playfair Display',serif; margin:0.8rem 0 0.5rem; color:var(--red);">♀ MUJERES — 60 años o más</h4>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Tumor</th><th>Tasa</th></tr></thead>
+            <tbody>
+              <tr style="font-weight:700;"><td><span class="hl-red">Mama</span></td><td><span class="hl-red">49.09</span></td></tr>
+              <tr><td>Hígado / vías biliares intrahepáticas</td><td>33.45</td></tr>
+              <tr><td>Colon, recto y ano</td><td>30.69</td></tr>
+              <tr><td>Tráquea, bronquios y pulmón</td><td>25.06</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <p style="font-size:0.8rem; color:var(--ink-light); margin-top:0.7rem;">Fuente: INEGI EDR 2022 / CONAPO. Tasas por 100,000 habitantes.</p>
+  </div>
+  <a href="#" class="back-top">↑ Volver al índice</a>
+</section>
+<hr class="divider">
+
+<!-- ─── S6 ─── -->
+<section class="section" id="s6">
+  <div class="section-header">
+    <span class="slide-number">Diap. 07</span>
+    <h2>Importancia del Diagnóstico Temprano y Clasificación de MT <span class="star">⭐⭐⭐</span></h2>
+  </div>
+  <div class="section-body">
+    <p><strong>Objetivo:</strong> <span class="hl-teal">Disminuir la mortalidad y preservar la función.</span></p>
+    <div class="note note-teal">
+      <strong>Definición clave — Marcadores Tumorales:</strong> Algunos cánceres están asociados con la producción de partículas (por el tejido tumoral o por el sistema inmune ante la presencia de células tumorales) que pueden ser medidas en el <span class="hl-teal">suero/plasma</span> del paciente.
+    </div>
+
+    <div class="img-box">
+      <div class="img-box-header">🖼 IMAGEN / TABLA DE LA DIAPOSITIVA — Clasificación de MT</div>
+      <div class="img-box-content">
+        <p><strong>Interpretación:</strong> Tabla de clasificación (Mc Pherson, Henry's 2017) con 4 categorías principales:</p>
+        <ul style="margin-top:0.5rem;">
+          <li>→ <strong>Antígenos Oncofetales:</strong> AFP, CEA</li>
+          <li>→ <strong>Hormonas:</strong> Catecolaminas, Calcitonina, β-hCG</li>
+          <li>→ <strong>Glicoproteínas:</strong> CA125, CA15-3, CA19-9, CA72-4, PSA</li>
+          <li>→ <strong>Metabolitos:</strong> VMA, HIAA</li>
+          <li>→ <strong>Antígenos asociados a tumor:</strong> Virales (Polyoma, SV40), MHC (H-2k), Enzimas (PAP, NSE, PLAP), Productos oncogénicos (c-myc, c-erbB2)</li>
+          <li>→ <strong>Marcadores asociados a tumor:</strong> Proteínas (Inmunoglobulinas, β-2M), Enzimas (LDH, Fosfatasa alcalina, pteridinas)</li>
+          <li>→ <strong>Componentes ultraestructurales:</strong> Filamentos intermedios (Desmina, Vimentina)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Categoría</th><th>Subcategoría</th><th>Ejemplos</th></tr></thead>
+        <tbody>
+          <tr><td>Antígenos oncofetales</td><td>—</td><td>AFP, CEA</td></tr>
+          <tr><td>Hormonas</td><td>—</td><td>Catecolaminas, Calcitonina, β-hCG</td></tr>
+          <tr><td>Glicoproteínas</td><td>—</td><td>CA 125, CA 15-3, CA 19-9, CA 72-4, PSA</td></tr>
+          <tr><td>Metabolitos</td><td>—</td><td>VMA, HIAA</td></tr>
+          <tr><td rowspan="5">Antígenos asociados a tumor</td><td>Virales</td><td>Polyoma, SV40</td></tr>
+          <tr><td>Relacionados con MHC</td><td>H-2k antigen</td></tr>
+          <tr><td>Enzimas</td><td>PAP, NSE, PLAP</td></tr>
+          <tr><td>Productos oncogénicos</td><td>c-myc, c-erbB2</td></tr>
+          <tr><td>Productos citogenéticos</td><td>Cromosoma Philadelphia</td></tr>
+          <tr><td rowspan="4">Marcadores asociados a tumor</td><td>Proteínas</td><td>Inmunoglobulinas, β-2M</td></tr>
+          <tr><td>Enzimas</td><td>LDH, Fosfatasa alcalina, pteridinas</td></tr>
+          <tr><td>Proteínas de fase aguda</td><td>Proteína C-reactiva, ferritina</td></tr>
+          <tr><td>Marcadores inflamatorios</td><td>VSG, viscosidad</td></tr>
+          <tr><td>Componentes ultraestructurales</td><td>Filamentos intermedios</td><td>Desmina, vimentina</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <a href="#" class="back-top">↑ Volver al índice</a>
+</section>
+<hr class="divider">
+
+<!-- ─── S7 ─── -->
+<section class="section" id="s7">
+  <div class="section-header">
+    <span class="slide-number">Diap. 08</span>
+    <h2>Evolución de las Técnicas de Laboratorio <span class="star">⭐</span></h2>
+  </div>
+  <div class="section-body">
+    <div class="img-box">
+      <div class="img-box-header">🖼 IMAGEN / TABLA DE LA DIAPOSITIVA</div>
+      <div class="img-box-content">
+        <p><strong>Interpretación:</strong> Cronología de marcadores y técnicas en cuatro eras. Se muestra evolución de métodos inmunoquímicos simples hasta perfilado genético sofisticado. Fuente: TIETZ 6ª Ed. 2018.</p>
+      </div>
+    </div>
+
+    <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(180px,1fr)); gap:0.8rem; margin:1rem 0;">
+      <div style="background:#F5F0E8; border:1.5px solid var(--border); border-radius:8px; padding:1rem; text-align:center;">
+        <div style="font-family:'Playfair Display',serif; font-weight:700; color:var(--ink-light); margin-bottom:0.5rem;">Pre-1970s</div>
+        <div style="font-size:0.85rem;"><strong>Bence-Jones, hCG, LDH, CEA, PAP</strong></div>
+        <div style="font-size:0.78rem; color:var(--ink-light); margin-top:0.4rem;">Métodos inmunoquímicos o enzimáticos</div>
+      </div>
+      <div style="background:#EFF8F5; border:1.5px solid var(--teal); border-radius:8px; padding:1rem; text-align:center;">
+        <div style="font-family:'Playfair Display',serif; font-weight:700; color:var(--teal); margin-bottom:0.5rem;">1970s–1980s</div>
+        <div style="font-size:0.85rem;"><strong>PSA, CA125, ER/PR</strong></div>
+        <div style="font-size:0.78rem; color:var(--ink-light); margin-top:0.4rem;">RIAs/IMAs manuales · Inmunohistoquímica</div>
+      </div>
+      <div style="background:#FEF8E7; border:1.5px solid var(--gold); border-radius:8px; padding:1rem; text-align:center;">
+        <div style="font-family:'Playfair Display',serif; font-weight:700; color:var(--gold); margin-bottom:0.5rem;">1990s–1980s</div>
+        <div style="font-size:0.85rem;"><strong>CA15-3, CA19-9, Her2/neu</strong></div>
+        <div style="font-size:0.78rem; color:var(--ink-light); margin-top:0.4rem;">IMAs automatizados · Protocolos recomendados</div>
+      </div>
+      <div style="background:#FDECEA; border:1.5px solid var(--red); border-radius:8px; padding:1rem; text-align:center;">
+        <div style="font-family:'Playfair Display',serif; font-weight:700; color:var(--red); margin-bottom:0.5rem;">2010-presente</div>
+        <div style="font-size:0.85rem;"><strong>EGFR, BRAF, KRAS, KIT</strong></div>
+        <div style="font-size:0.78rem; color:var(--ink-light); margin-top:0.4rem;">Perfilado genético y análisis sofisticado de datos</div>
+      </div>
+    </div>
+
+    <p style="font-size:0.85rem; color:var(--ink-light); margin-top:0.5rem;">Métodos actuales: Serología (ELISA), Inmunohistoquímica, Radioinmunoanálisis, Citometría de flujo, Análisis citogenético (FISH), Secuenciación automatizada, Proteómica (SELDI).</p>
+  </div>
+  <a href="#" class="back-top">↑ Volver al índice</a>
+</section>
+<hr class="divider">
+
+<!-- ─── S8 ─── -->
+<section class="section" id="s8">
+  <div class="section-header">
+    <span class="slide-number">Diap. 09</span>
+    <h2>La Dificultad del Diagnóstico Oportuno <span class="star">⭐⭐⭐</span></h2>
+  </div>
+  <div class="section-body">
+    <div class="img-box">
+      <div class="img-box-header">🖼 IMAGEN / TABLA DE LA DIAPOSITIVA — Diagrama de flujo de progresión tumoral</div>
+      <div class="img-box-content">
+        <p><strong>Interpretación:</strong> El diagrama muestra el espectro de progresión tumoral de izquierda a derecha: Células Sanas → Células Anormales → Cáncer Pre-invasivo → Cáncer Invasivo → Diseminación → Muerte. La línea divisoria (inicio de síntomas) ocurre tarde en el proceso. El <em>Screening</em> actúa en fase pre-invasiva sobre población objetivo; el diagnóstico temprano solo aplica cuando ya hay síntomas (invasivo). Esto explica por qué la detección oportuna es tan difícil.</p>
+      </div>
+    </div>
+    <div class="flow">
+      <div class="flow-box">Células Sanas</div>
+      <span class="flow-arrow">⟶</span>
+      <div class="flow-box">Células Anormales</div>
+      <span class="flow-arrow">⟶</span>
+      <div class="flow-box gold-box">Cáncer Pre-invasivo</div>
+      <span class="flow-arrow">⟶</span>
+      <div class="flow-box red-box">Cáncer Invasivo</div>
+      <span class="flow-arrow">⟶</span>
+      <div class="flow-box red-box">Diseminación</div>
+      <span class="flow-arrow">⟶</span>
+      <div class="flow-box dark-box">Muerte</div>
+    </div>
+    <div class="note note-red">
+      <strong>⭐⭐ Puntos clave:</strong>
+      <ul style="margin-top:0.4rem;">
+        <li>Poca probabilidad de diagnóstico oportuno por <span class="hl-red">ausencia de síntomas</span> o desempeño insuficiente de los marcadores en etapas tempranas.</li>
+        <li>Continúa la búsqueda de la prueba que pueda ser útil en <span class="hl-teal">etapas tempranas</span>.</li>
+        <li>El <em>Screening</em> → servicio para una <strong>población objetivo</strong>.</li>
+        <li>Diagnóstico temprano → solo para <strong>personas con síntomas</strong>.</li>
+      </ul>
+    </div>
+  </div>
+  <a href="#" class="back-top">↑ Volver al índice</a>
+</section>
+<hr class="divider">
+
+<!-- ─── S9 ─── -->
+<section class="section" id="s9">
+  <div class="section-header">
+    <span class="slide-number">Diap. 10</span>
+    <h2>Retos para el Diagnóstico Oportuno <span class="star">⭐⭐</span></h2>
+  </div>
+  <div class="section-body">
+    <p><strong>Del individuo:</strong></p>
+    <ul>
+      <li>Poca participación en campañas preventivas o realización de tamizajes específicos.</li>
+      <li>Ausencia de síntomas en estadios iniciales.</li>
+    </ul>
+    <p style="margin-top:0.8rem;"><strong>De las metodologías de diagnóstico</strong> — pueden no tener la sensibilidad para detección temprana:</p>
+    <div class="note note-yellow">
+      <ul>
+        <li>Algunos métodos de imagen requieren <span class="hl-gold">1×10⁹ células</span> o un tumor de <span class="hl-gold">1–2 cm</span> para ser identificables.</li>
+        <li>Algunos marcadores tumorales pueden comenzar a aparecer en Suero/plasma cuando ya se encuentra en <span class="hl-red">etapas avanzadas</span>.</li>
+      </ul>
+    </div>
+    <p style="font-size:0.83rem; color:var(--ink-light); margin-top:0.5rem;">Fuente: Mc Pherson. Henry's Clinical Diagnosis and Management by Laboratory Methods. 23ª Ed. 2017.</p>
+  </div>
+  <a href="#" class="back-top">↑ Volver al índice</a>
+</section>
+<hr class="divider">
+
+<!-- ─── S10 ─── -->
+<section class="section" id="s10">
+  <div class="section-header">
+    <span class="slide-number">Diap. 11</span>
+    <h2>El Marcador Tumoral Ideal — No Existe <span class="star">⭐⭐⭐</span></h2>
+  </div>
+  <div class="section-body">
+    <div class="img-box">
+      <div class="img-box-header">🖼 IMAGEN / TABLA DE LA DIAPOSITIVA</div>
+      <div class="img-box-content">
+        <p><strong>Interpretación:</strong> Tabla con 7 características ideales de un marcador tumoral, ninguna de las cuales existe en un solo marcador real. Esto justifica el uso combinado de múltiples marcadores y métodos complementarios.</p>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="tbl-header-teal">
+        <thead><tr><th>Característica Ideal</th><th>Significado Clínico</th></tr></thead>
+        <tbody>
+          <tr><td><span class="hl-teal">Altamente específico</span></td><td>Detectable solo en un tipo de tumor</td></tr>
+          <tr><td><span class="hl-teal">Altamente sensible</span></td><td>No detectable en estados fisiológicos o enfermedad benigna</td></tr>
+          <tr><td>Largo tiempo de anticipación (<em>lead-time</em>)</td><td>Tiempo suficiente para alterar el curso natural de la enfermedad</td></tr>
+          <tr><td><span class="hl-gold">Niveles correlacionan con carga tumoral</span></td><td>Utilidad pronóstica y predictiva del marcador</td></tr>
+          <tr><td>Vida media corta</td><td>Monitoreo serial frecuente tras 5–6 vidas medias</td></tr>
+          <tr><td>Prueba simple y económica</td><td>Aplicabilidad como prueba de tamizaje</td></tr>
+          <tr><td>Muestras fácilmente obtenibles</td><td>Aceptabilidad por la población objetivo</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note note-red">
+      <strong>⭐⭐⭐ Conclusión crítica:</strong> <span class="hl-red">No existe el marcador tumoral ideal.</span> Ningún marcador actual cumple todos estos criterios simultáneamente.
+    </div>
+  </div>
+  <a href="#" class="back-top">↑ Volver al índice</a>
+</section>
+<hr class="divider">
+
+<!-- ─── S11 ─── -->
+<section class="section" id="s11">
+  <div class="section-header">
+    <span class="slide-number">Diap. 12</span>
+    <h2>Baja Especificidad de los Marcadores Tumorales <span class="star">⭐⭐</span></h2>
+  </div>
+  <div class="section-body">
+    <div class="note note-red">
+      <strong>⭐⭐ Concepto fundamental:</strong> <span class="hl-red">Poca especificidad — pueden resultar positivos en diferentes tipos de cáncer</span> y en condiciones benignas. Esto limita su uso diagnóstico aislado.
+    </div>
+
+    <div class="img-box">
+      <div class="img-box-header">🖼 IMAGEN / TABLA DE LA DIAPOSITIVA — Mapa corporal de marcadores</div>
+      <div class="img-box-content">
+        <p><strong>Interpretación:</strong> Figura corporal con líneas que conectan sitios anatómicos a sus marcadores y tiempos de respuesta:</p>
+        <ul style="margin-top:0.5rem; font-size:0.9rem;">
+          <li><strong>Esófago:</strong> CA19-9, CEA (suero, 4h), SCC (4 días)</li>
+          <li><strong>Bronquio/Pulmón:</strong> NSE* (10d), SCC* (4d), CEA (4h), Cyra 21-1 (7d), TPA (3d)</li>
+          <li><strong>Conducto biliar:</strong> CA19-9, CEA, CA72-4</li>
+          <li><strong>Páncreas:</strong> CA19-9, CEA</li>
+          <li><strong>Carcinoide:</strong> 5-HIAA (orina 24h acidificada, 4d)</li>
+          <li><strong>Vejiga/Corion:</strong> CEA, CA50, NMP22 (orina)</li>
+          <li><strong>Cérvix/Útero:</strong> SCC, CEA</li>
+          <li><strong>Próstata:</strong> Perfil PSA Total+Libre (4h), PCA3 (6d)</li>
+          <li><strong>Melanoma:</strong> S-100</li>
+          <li><strong>Tiroides:</strong> CEA, Tiroglobulina, Calcitonina</li>
+          <li><strong>Mama:</strong> BRCA1/2, CA15-3, CEA</li>
+          <li><strong>Hígado:</strong> AFP, CEA, Ferritina</li>
+          <li><strong>Gastrointestino:</strong> CEA, CA19-9, CA72-4</li>
+          <li><strong>Ovario:</strong> CA125, CA15-3, HE4, AFP</li>
+          <li><strong>Colon:</strong> CEA, CA19-9, CA50</li>
+          <li><strong>Testículo:</strong> AFP, Beta HCG (cuantitativa)</li>
+          <li><strong>Hueso:</strong> Fosfatasa Alcalina Ósea, Osteocalcina</li>
+        </ul>
+        <p style="margin-top:0.5rem;">*NSE = Enolasa Neuro-Específica; SCC = Carcinoma de Células Escamosas.</p>
+      </div>
+    </div>
+  </div>
+  <a href="#" class="back-top">↑ Volver al índice</a>
+</section>
+<hr class="divider">
+
+<!-- ─── S12 ─── -->
+<section class="section" id="s12">
+  <div class="section-header">
+    <span class="slide-number">Diap. 13</span>
+    <h2>Utilidad de los Marcadores Tumorales <span class="star">⭐⭐⭐</span></h2>
+  </div>
+  <div class="section-body">
+    <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:0.75rem; margin:1rem 0;">
+      <div style="background:white; border:1.5px solid #4CAF50; border-radius:8px; padding:1rem; text-align:center;">
+        <div style="font-size:2rem;">🔍</div>
+        <div style="font-family:'Playfair Display',serif; font-weight:700; color:#1B5E20; margin-top:0.3rem;">Tamizaje</div>
+        <div style="font-size:0.82rem; margin-top:0.3rem; color:var(--ink-light);">Detección en población asintomática de riesgo</div>
+      </div>
+      <div style="background:white; border:1.5px solid var(--blue); border-radius:8px; padding:1rem; text-align:center;">
+        <div style="font-size:2rem;">🩺</div>
+        <div style="font-family:'Playfair Display',serif; font-weight:700; color:var(--blue); margin-top:0.3rem;">Diagnóstico</div>
+        <div style="font-size:0.82rem; margin-top:0.3rem; color:var(--ink-light);">Apoyo en diagnóstico diferencial</div>
+      </div>
+      <div style="background:white; border:1.5px solid var(--teal); border-radius:8px; padding:1rem; text-align:center;">
+        <div style="font-size:2rem;">📊</div>
+        <div style="font-family:'Playfair Display',serif; font-weight:700; color:var(--teal); margin-top:0.3rem;">Pronóstico</div>
+        <div style="font-size:0.82rem; margin-top:0.3rem; color:var(--ink-light);">Correlación con supervivencia y agresividad</div>
+      </div>
+      <div style="background:white; border:1.5px solid var(--gold); border-radius:8px; padding:1rem; text-align:center;">
+        <div style="font-size:2rem;">📈</div>
+        <div style="font-family:'Playfair Display',serif; font-weight:700; color:var(--gold); margin-top:0.3rem;">Monitoreo</div>
+        <div style="font-size:0.82rem; margin-top:0.3rem; color:var(--ink-light);">Seguimiento durante el tratamiento</div>
+      </div>
+      <div style="background:white; border:1.5px solid var(--red); border-radius:8px; padding:1rem; text-align:center;">
+        <div style="font-size:2rem;">🔄</div>
+        <div style="font-family:'Playfair Display',serif; font-weight:700; color:var(--red); margin-top:0.3rem;">Recurrencia</div>
+        <div style="font-size:0.82rem; margin-top:0.3rem; color:var(--ink-light);">Detección antes de evidencia por imagen</div>
+      </div>
+      <div style="background:white; border:1.5px solid #8E24AA; border-radius:8px; padding:1rem; text-align:center;">
+        <div style="font-size:2rem;">💊</div>
+        <div style="font-family:'Playfair Display',serif; font-weight:700; color:#8E24AA; margin-top:0.3rem;">Respuesta al Tratamiento</div>
+        <div style="font-size:0.82rem; margin-top:0.3rem; color:var(--ink-light);">Evaluar eficacia terapéutica</div>
+      </div>
+    </div>
+    <div class="note note-yellow">
+      <strong>Abreviaturas de roles sugeridos:</strong> S = Tamizaje, D = Diagnóstico, P = Pronóstico, M = Monitoreo, R = Detección de recurrencia, RT = Terapia dirigida.
+    </div>
+  </div>
+  <a href="#" class="back-top">↑ Volver al índice</a>
+</section>
+<hr class="divider">
+
+<!-- ─── S13 ─── -->
+<section class="section" id="s13">
+  <div class="section-header">
+    <span class="slide-number">Diap. 14</span>
+    <h2>Usos Clínicos Comunes de los Marcadores Tumorales <span class="star">⭐⭐⭐</span></h2>
+  </div>
+  <div class="section-body">
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Malignidad</th><th>Marcador(es)</th><th>Método de Detección</th><th>Roles</th></tr></thead>
+        <tbody>
+          <tr><td>Carcinoma Adrenal</td><td>Esteroides, Catecolaminas</td><td>Serología</td><td>D</td></tr>
+          <tr><td rowspan="2"><strong>Mama</strong></td><td><span class="hl-teal">CA 15-3, CA 27.29</span></td><td>Serología / IHC Tejido</td><td>M, R</td></tr>
+          <tr><td>ER / PR / Her-2neu</td><td>IHC Tejido</td><td>RT</td></tr>
+          <tr><td>Carcinoide</td><td>5-HIAA</td><td>Serología / Orina</td><td>D</td></tr>
+          <tr><td>Colorrectal, Estómago, Páncreas</td><td><span class="hl-teal">CEA, CA 19-9</span></td><td>Serología / IHC Tejido</td><td>P, M</td></tr>
+          <tr><td>Coriocarcinoma</td><td><span class="hl-gold">β-hCG</span></td><td>Serología / IHC Tejido</td><td>D, P, M</td></tr>
+          <tr><td rowspan="2">Tumores de Células Germinales</td><td>AFP, β-hCG</td><td>Serología / IHC Tejido</td><td>D, P, M</td></tr>
+          <tr><td>LDH, PLAP (Seminoma)</td><td>Serología</td><td>P, M</td></tr>
+          <tr><td><strong>Hepatoma</strong></td><td><span class="hl-red">AFP</span></td><td>Serología / IHC Tejido</td><td><strong>S, D, P, M</strong></td></tr>
+          <tr><td rowspan="2">Linfomas</td><td>LDH</td><td>Serología</td><td>D, P</td></tr>
+          <tr><td>Alteraciones citogenéticas</td><td>Análisis genético</td><td>D</td></tr>
+          <tr><td>Melanoma</td><td>Tirosinasa</td><td>Serología</td><td>D</td></tr>
+          <tr><td>Mieloma</td><td><span class="hl-teal">Inmunoglobulinas</span></td><td>Serología</td><td>D, P</td></tr>
+          <tr><td><strong>Ovario</strong></td><td><span class="hl-red">CA 125</span></td><td>Serología / IHC Tejido</td><td>M, D, R</td></tr>
+          <tr><td><strong>Próstata</strong></td><td><span class="hl-red">PSA</span></td><td>Serología / IHC Tejido</td><td><strong>S, M, D, P</strong></td></tr>
+          <tr><td>Sarcomas</td><td>Alteraciones citogenéticas</td><td>Análisis genético</td><td>D</td></tr>
+          <tr><td rowspan="2">Tiroides</td><td>Tiroglobulina</td><td>Serología / IHC Tejido</td><td>S, M</td></tr>
+          <tr><td>Calcitonina (Ca medular)</td><td>Serología</td><td>S, M, P</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:0.8rem; color:var(--ink-light);">S=Tamizaje, D=Diagnóstico, P=Pronóstico, M=Monitoreo, R=Recurrencia, RT=Terapia dirigida.</p>
+  </div>
+  <a href="#" class="back-top">↑ Volver al índice</a>
+</section>
+<hr class="divider">
+
+<!-- ─── S14 ─── -->
+<section class="section" id="s14">
+  <div class="section-header">
+    <span class="slide-number">Diap. 16</span>
+    <h2>Antígeno Prostático Específico (APE / PSA) <span class="star">⭐⭐⭐</span></h2>
+  </div>
+  <div class="section-body">
+    <div class="note note-teal">
+      <strong>Definición:</strong> <span class="hl-teal">Glicoproteína</span> presente en tejido prostático normal y neoplásico.
+    </div>
+    <ul>
+      <li><strong>Uso:</strong> Tamizaje (común pero controvertido), extensión del cáncer y respuesta al tratamiento.</li>
+      <li><strong>Formas medibles en suero:</strong> libre, unido a proteínas y total.</li>
+      <li><span class="hl-gold">Relación APE libre/total</span> puede ayudar a distinguir entre las patologías benignas y malignidades prostáticas.</li>
+      <li>El examen rectal digital solo o combinado con APE generalmente <span class="hl-red">no es utilizado como prueba de tamizaje</span>.</li>
+      <li>Existen valores de referencia para hombres por debajo de los 40 años y después de esta edad.</li>
+    </ul>
+
+    <div class="severity-row">
+      <div class="sev-card sev-green">40–49 años<strong class="val-badge">0–2.5 ng/mL</strong></div>
+      <div class="sev-card sev-yellow">50–59 años<strong class="val-badge">0–3.5 ng/mL</strong></div>
+      <div class="sev-card sev-orange">60–69 años<strong class="val-badge">0–4.5 ng/mL</strong></div>
+      <div class="sev-card sev-red">70–79 años<strong class="val-badge">0–6.5 ng/mL</strong></div>
+    </div>
+
+    <div class="note note-red">
+      <strong>⭐⭐⭐ Umbral estándar:</strong> Un APE de <span class="hl-red">≥ 4.0 ng/mL</span> ha sido el estándar más ampliamente aceptado para equilibrar las compensaciones entre sensibilidad y especificidad.
+    </div>
+
+    <div class="fp-fn-row">
+      <div class="fp-box">
+        <h4>🔴 Falsos Positivos del APE</h4>
+        <ul>
+          <li>Prostatitis bacteriana</li>
+          <li>Retención urinaria aguda</li>
+          <li>Biopsia reciente de próstata / TURP</li>
+          <li>Eyaculación / ciclismo</li>
+          <li>Hiperplasia prostática benigna</li>
+          <li>Trauma prostático</li>
+        </ul>
+      </div>
+      <div class="fn-box">
+        <h4>🔵 Notas Clínicas</h4>
+        <ul>
+          <li>En la mayoría de los casos el Ca de próstata no es la causa de un APE elevado</li>
+          <li>El tamizaje detecta más casos confinados al órgano, pero no hay prueba de que salve vidas</li>
+          <li>El tratamiento localizado se asocia con impotencia e incontinencia</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <a href="#" class="back-top">↑ Volver al índice</a>
+</section>
+<hr class="divider">
+
+<!-- ─── S15 ─── -->
+<section class="section" id="s15">
+  <div class="section-header">
+    <span class="slide-number">Diap. 17</span>
+    <h2>Incremento Transitorio del APE — Diferimiento <span class="star">⭐⭐⭐</span></h2>
+  </div>
+  <div class="section-body">
+    <div class="note note-red">
+      <strong>⭐⭐⭐ Reglas de diferimiento — MEMORIZAR:</strong>
+    </div>
+    <div class="table-wrap">
+      <table class="tbl-header-red">
+        <thead><tr><th>Situación Clínica</th><th>Tiempo de Diferimiento</th></tr></thead>
+        <tbody>
+          <tr><td>Síntomas que sugieren <strong>prostatitis bacteriana</strong></td><td><span class="hl-red">6–8 semanas</span> después de que desaparezcan los síntomas</td></tr>
+          <tr><td><strong>Retención urinaria aguda</strong> o instrumentación uretral</td><td><span class="hl-red">Al menos 6 semanas</span></td></tr>
+          <tr><td><strong>Biopsia de próstata reciente</strong> o resección transuretral de la próstata (TURP)</td><td><span class="hl-red">Al menos 6 semanas</span></td></tr>
+          <tr><td><strong>Eyaculación o ciclismo</strong></td><td><span class="hl-gold">48 horas</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <a href="#" class="back-top">↑ Volver al índice</a>
+</section>
+<hr class="divider">
+
+<!-- ─── S16 ─── -->
+<section class="section" id="s16">
+  <div class="section-header">
+    <span class="slide-number">Diap. 18–19</span>
+    <h2>¿A Quién Tamizar con APE? — Algoritmo AUA <span class="star">⭐⭐⭐</span></h2>
+  </div>
+  <div class="section-body">
+    <div class="img-box">
+      <div class="img-box-header">🖼 IMAGEN / TABLA DE LA DIAPOSITIVA — Algoritmo de decisión AUA para tamizaje con PSA</div>
+      <div class="img-box-content">
+        <p><strong>Interpretación:</strong> Dos diagramas de flujo enlazados que guían la decisión de tamizar con PSA:</p>
+        <p><strong>Primer nivel:</strong> ¿El tamizaje será benéfico en la vida del paciente? → Sí: ¿Cuándo fue la última medición de PSA? → Si fue hace menos de 1 año → NO tamizar. Si fue hace ≥1 año o nunca → evaluar la edad del paciente.</p>
+        <p><strong>Segundo nivel por edad:</strong></p>
+        <ul style="margin-top:0.3rem;">
+          <li>&lt;40 años → No apropiado.</li>
+          <li>40–49 años → Solo si hay factores de riesgo (raza negra, BRCA1/2, familiar de primer grado afectado) y el paciente acepta.</li>
+          <li>50–69 años → Decisión compartida → Obtener PSA sérico.</li>
+          <li>≥70 años → No apropiado.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="flow" style="flex-direction:column; align-items:flex-start;">
+      <div style="display:flex; align-items:center; gap:0.5rem; flex-wrap:wrap;">
+        <div class="flow-box">¿Beneficio en vida del paciente?</div>
+        <span class="flow-arrow">→ NO</span>
+        <div class="flow-box red-box">No tamizar</div>
+      </div>
+      <span class="flow-arrow" style="margin-left:1rem;">↓ SÍ</span>
+      <div style="display:flex; align-items:center; gap:0.5rem; flex-wrap:wrap;">
+        <div class="flow-box">¿PSA reciente (&lt;1 año)?</div>
+        <span class="flow-arrow">→ SÍ</span>
+        <div class="flow-box red-box">No tamizar (muy reciente)</div>
+      </div>
+      <span class="flow-arrow" style="margin-left:1rem;">↓ ≥1 año o nunca</span>
+      <div style="display:flex; align-items:center; gap:0.5rem; flex-wrap:wrap;">
+        <div class="flow-box gold-box">Evaluar EDAD del paciente</div>
+      </div>
+    </div>
+
+    <div class="severity-row">
+      <div class="sev-card sev-red">&lt;40 años<strong>NO tamizar</strong></div>
+      <div class="sev-card sev-yellow">40–49 años<strong>Solo con factores de riesgo*</strong></div>
+      <div class="sev-card sev-green">50–69 años<strong>Decisión compartida → PSA</strong></div>
+      <div class="sev-card sev-red">≥70 años<strong>NO tamizar</strong></div>
+    </div>
+
+    <div class="note note-yellow">
+      <strong>*Factores de riesgo para tamizaje a los 40–49 años:</strong>
+      <ul style="margin-top:0.3rem;">
+        <li>Raza negra</li>
+        <li>Portador de mutación <span class="hl-red">BRCA1 o BRCA2</span></li>
+        <li>Familiar de <span class="hl-red">primer grado</span> con cáncer de próstata</li>
+      </ul>
+    </div>
+    <div class="note note-teal">
+      <strong>Periodicidad:</strong> <span class="hl-teal">Cada 2 años</span> de acuerdo con la AUA (American Urological Association).
+    </div>
+  </div>
+  <a href="#" class="back-top">↑ Volver al índice</a>
+</section>
+<hr class="divider">
+
+<!-- ─── S17 ─── -->
+<section class="section" id="s17">
+  <div class="section-header">
+    <span class="slide-number">Diap. 20</span>
+    <h2>APE y Metástasis Ósea <span class="star">⭐⭐</span></h2>
+  </div>
+  <div class="section-body">
+    <div class="note note-red">
+      <strong>⭐⭐ Dato clave:</strong> Menos del <span class="hl-red">2% de los pacientes</span> con niveles inferiores a <span class="val-badge">20 ng/mL</span> tienen cáncer prostático con metástasis a hueso.
+    </div>
+    <ul>
+      <li>El cáncer de próstata es común y potencialmente letal; sin embargo, más pacientes <em>mueren con</em> la enfermedad que <em>a causa de</em> ella.</li>
+      <li>El tamizaje detecta más casos de enfermedad confinada al órgano, pero <span class="hl-red">no hay prueba de que esta detección salve vidas</span>.</li>
+      <li>En la mayoría de los casos, el cáncer de próstata no es la causa de un nivel elevado de PSA.</li>
+      <li>El tratamiento localizado es eficaz pero se asocia con complicaciones que pueden incluir <span class="hl-red">impotencia e incontinencia</span>.</li>
+      <li>El tamizaje con PSA es probablemente beneficioso en un subgrupo de hombres; sin embargo, las características de este subgrupo no han sido definidas.</li>
+    </ul>
+    <p style="font-size:0.83rem; color:var(--ink-light); margin-top:0.5rem;">Fuente: Serum Tumor Markers. Am Fam Physician. 2003;68(6):1075-1082.</p>
+  </div>
+  <a href="#" class="back-top">↑ Volver al índice</a>
+</section>
+<hr class="divider">
+
+<!-- ─── S18 ─── -->
+<section class="section" id="s18">
+  <div class="section-header">
+    <span class="slide-number">Diap. 21</span>
+    <h2>Calcitonina <span class="star">⭐⭐</span></h2>
+  </div>
+  <div class="section-body">
+    <ul>
+      <li>Se eleva con el <span class="hl-teal">decremento del calcio</span>.</li>
+      <li>Su elevación post-estimulación con <span class="hl-teal">pentagastrina</span> se asocia a <span class="hl-red">Carcinoma Medular Tiroideo</span> y se correlaciona con el tamaño del tumor y actividad metastásica.</li>
+      <li>Es útil en la detección, <strong>monitoreo</strong> y evaluación de <strong>recurrencias</strong>.</li>
+    </ul>
+    <div class="note note-yellow">
+      <strong>Falsos positivos — también se eleva en:</strong> cánceres pulmonares, mamarios, renales, hepáticos, y en condiciones no malignas como hiperparatiroidismo, algunas enfermedades pulmonares, desórdenes mieloproliferativos y embarazo.
+    </div>
+
+    <div class="severity-row">
+      <div class="sev-card sev-green">Normal<strong>&lt;10 pg/mL</strong></div>
+      <div class="sev-card sev-yellow">Indeterminado<strong>11–99 pg/mL</strong></div>
+      <div class="sev-card sev-red">Positivo<strong>&gt;100 pg/mL</strong></div>
+    </div>
+  </div>
+  <a href="#" class="back-top">↑ Volver al índice</a>
+</section>
+<hr class="divider">
+
+<!-- ─── S19 ─── -->
+<section class="section" id="s19">
+  <div class="section-header">
+    <span class="slide-number">Diap. 22</span>
+    <h2>Gonadotropina Coriónica Humana (β-hCG) <span class="star">⭐⭐</span></h2>
+  </div>
+  <div class="section-body">
+    <ul>
+      <li><span class="hl-teal">Glicoproteína</span> que aparece en el embarazo, <span class="hl-teal">Neoplasia gestacional trofoblástica</span> (p. ej. Coriocarcinoma, Tumores trofoblásticos del sitio placentario) y algunos tumores testiculares.</li>
+      <li>Puede elevarse en la insuficiencia testicular primaria.</li>
+      <li><span class="hl-red">No atraviesa la barrera hematoencefálica.</span></li>
+      <li>Niveles elevados en <span class="hl-gold">LCR</span> pueden ser indicativos de <span class="hl-red">metástasis</span>.</li>
+    </ul>
+
+    <div class="formula">Valor de Referencia (β-hCG) → &lt; 5 UI/L</div>
+  </div>
+  <a href="#" class="back-top">↑ Volver al índice</a>
+</section>
+<hr class="divider">
+
+<!-- ─── S20 ─── -->
+<section class="section" id="s20">
+  <div class="section-header">
+    <span class="slide-number">Diap. 23</span>
+    <h2>α-Fetoproteína (AFP) <span class="star">⭐⭐⭐</span></h2>
+  </div>
+  <div class="section-body">
+    <ul>
+      <li>Marcador utilizado en padecimientos malignos <span class="hl-teal">hepáticos y testiculares</span>.</li>
+      <li>Se elevan en el embarazo y en <span class="hl-gold">enfermedades hepáticas crónicas no malignas</span>.</li>
+      <li>Niveles normales en adultos sanos: <span class="hl-gold">&lt;10–15 µg/L</span>.</li>
+      <li>Punto de corte: <span class="hl-gold">&gt;20 ng/mL</span> → iniciar investigación de Carcinoma Hepatocelular.</li>
+      <li>Niveles &gt;<span class="hl-red">400 ng/mL</span> son indicativos de malignidad (Sensibilidad 95%, excepto en el embarazo).</li>
+      <li>A mayores niveles → <span class="hl-red">peor pronóstico</span>.</li>
+      <li>Combinada con hCG → clasificación y estadificación de <span class="hl-teal">tumores de células germinales</span>.</li>
+    </ul>
+
+    <div class="formula">AFP Normal adultos: &lt;10–15 µg/L
+Punto de corte investigación CHC: &gt;20 ng/mL
+Indicativo de malignidad: &gt;400 ng/mL → Sens 95%</div>
+  </div>
+  <a href="#" class="back-top">↑ Volver al índice</a>
+</section>
+<hr class="divider">
+
+<!-- ─── S21 ─── -->
+<section class="section" id="s21">
+  <div class="section-header">
+    <span class="slide-number">Diap. 24</span>
+    <h2>Conjugación AFP + β-hCG en Tumores de Células Germinales <span class="star">⭐⭐⭐</span></h2>
+  </div>
+  <div class="section-body">
+    <div class="img-box">
+      <div class="img-box-header">🖼 IMAGEN / TABLA DE LA DIAPOSITIVA — Tabla AFP y β-hCG en tumores</div>
+      <div class="img-box-content">
+        <p><strong>Interpretación:</strong> La combinación AFP + β-hCG permite clasificar el tipo histológico de tumor germinal: Seminoma/Disgerminoma nunca eleva AFP (si lo hace → hay componente no-seminomatoso). Choriocarcinoma eleva exclusivamente β-hCG, sin AFP. Yolk sac tumor eleva solo AFP. Teratoma no eleva ninguno. Esta tabla es clave para estadificación y selección terapéutica.</p>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="tbl-header-teal">
+        <thead><tr><th>Tipo de Tumor</th><th>Elevación AFP</th><th>Elevación β-hCG</th></tr></thead>
+        <tbody>
+          <tr><td>Seminoma y Disgerminoma</td><td><span class="hl-red">Nunca*</span></td><td>Ocasional, mínima</td></tr>
+          <tr><td>Carcinoma de células embrionarias</td><td><span class="hl-green" style="color:#2E7D32; font-weight:600;">Sí</span></td><td><span class="hl-green" style="color:#2E7D32; font-weight:600;">Sí</span></td></tr>
+          <tr><td>Coriocarcinoma</td><td>No</td><td><span class="hl-green" style="color:#2E7D32; font-weight:600;">Sí</span></td></tr>
+          <tr><td>Tumores del saco vitelino (<em>Yolk sac</em>)</td><td><span class="hl-green" style="color:#2E7D32; font-weight:600;">Sí</span></td><td>No</td></tr>
+          <tr><td>Teratoma</td><td>No</td><td>No</td></tr>
+          <tr><td>Enfermedad trofoblástica gestacional†</td><td>No</td><td><span class="hl-green" style="color:#2E7D32; font-weight:600;">Sí</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note note-red">
+      <strong>*Nota crítica:</strong> Cualquier AFP detectable en seminoma indica la presencia de un componente no-seminomatoso → tratar como tumor germinal no-seminomatoso.<br>
+      <strong>†Nota:</strong> La enfermedad trofoblástica gestacional no es un tumor de células germinales; es una malignidad ginecológica rara relacionada con el embarazo.
+    </div>
+    <p style="font-size:0.83rem; color:var(--ink-light);">Fuente: Serum Tumor Markers. Am Fam Physician. 2003;68(6):1075-1082.</p>
+  </div>
+  <a href="#" class="back-top">↑ Volver al índice</a>
+</section>
+<hr class="divider">
+
+<!-- ─── S22 ─── -->
+<section class="section" id="s22">
+  <div class="section-header">
+    <span class="slide-number">Diap. 25</span>
+    <h2>Fosfatasa Alcalina <span class="star">⭐</span></h2>
+  </div>
+  <div class="section-body">
+    <ul>
+      <li>Se incrementa en <span class="hl-teal">tumoraciones hepáticas primarias o secundarias</span>.</li>
+      <li>Ayuda a evaluar <span class="hl-gold">actividad metastásica en hígado y hueso</span>.</li>
+      <li>Puede elevarse además en patologías malignas: <span class="hl-gold">ováricas, pulmonares, gastrointestinales</span> y <span class="hl-gold">enfermedad de Hodgkin</span>.</li>
+    </ul>
+    <div class="note note-yellow">
+      No es un marcador tumoral específico; su utilidad principal radica en la <strong>evaluación de metástasis hepáticas y óseas</strong>.
+    </div>
+  </div>
+  <a href="#" class="back-top">↑ Volver al índice</a>
+</section>
+<hr class="divider">
+
+<!-- ─── S23 ─── -->
+<section class="section" id="s23">
+  <div class="section-header">
+    <span class="slide-number">Diap. 26</span>
+    <h2>Antígeno Carcinoembrionario (ACE / CEA) <span class="star">⭐⭐⭐</span></h2>
+  </div>
+  <div class="section-body">
+    <div class="note note-teal">
+      <strong>Historia:</strong> Descrita por Gold y Freedman en 1965. Glicoproteína con 50–85% de carbohidratos, peso molecular de 200,000 kDa.
+    </div>
+    <ul>
+      <li>Puede elevarse ante <span class="hl-red">CA colorrectal</span> (se eleva 5–10 veces), gastrointestinal, pulmonar e incluso mamario.</li>
+      <li><strong>Principal utilidad:</strong> <span class="hl-teal">Pronóstico y respuesta al tratamiento.</span></li>
+      <li>ACE preoperatorio <span class="hl-gold">&gt;5 ng/mL</span> → <span class="hl-red">mal pronóstico.</span></li>
+      <li>Puede elevarse en fumadores y patologías como hepatopatías crónicas (cirrosis), pólipos rectales, colitis ulcerativa y patología mamaria benigna.</li>
+    </ul>
+    <div class="note note-red">
+      <strong>⭐⭐⭐ ADVERTENCIA:</strong> <span class="hl-red">NO DEBE UTILIZARSE COMO TAMIZAJE.</span> Algunos tumores no producen elevaciones. Su principal uso es <span class="hl-teal">estadificación y monitoreo</span> (p. ej. detección de recurrencias).
+    </div>
+
+    <div class="severity-row">
+      <div class="sev-card sev-green">No Fumadores<strong class="val-badge">0–2.5 ng/mL</strong></div>
+      <div class="sev-card sev-yellow">Fumadores<strong class="val-badge">0–5 ng/mL</strong></div>
+      <div class="sev-card sev-red">Mal pronóstico (preop)<strong class="val-badge">&gt;5 ng/mL</strong></div>
+    </div>
+  </div>
+  <a href="#" class="back-top">↑ Volver al índice</a>
+</section>
+<hr class="divider">
+
+<!-- ─── S24 ─── -->
+<section class="section" id="s24">
+  <div class="section-header">
+    <span class="slide-number">Diap. 27</span>
+    <h2>CA 15-3 <span class="star">⭐⭐</span></h2>
+  </div>
+  <div class="section-body">
+    <ul>
+      <li>Mayormente utilizado en <span class="hl-teal">Cáncer de Mama</span>.</li>
+      <li>También puede elevarse en: CA pancreático, pulmonar, ovárico, colorrectal, hepático y en patologías benignas de hígado y mamarias.</li>
+      <li><span class="hl-red">No es útil para diagnóstico</span>, requiere correlación clínica y por imagen/biopsia.</li>
+      <li>Tiene mayor utilidad en <span class="hl-teal">monitoreo de la terapia</span> y enfermedad avanzada.</li>
+    </ul>
+
+    <div class="formula">Valor de Referencia CA 15-3: &lt;30 UI/mL</div>
+
+    <div class="img-box">
+      <div class="img-box-header">🖼 IMAGEN / TABLA DE LA DIAPOSITIVA — Porcentaje de pacientes con Ca mamario con MT elevados</div>
+      <div class="img-box-content">
+        <p><strong>Interpretación:</strong> La tabla muestra que la sensibilidad de CA15-3 y CEA aumenta dramáticamente con el estadio. En etapa IV, el CA15-3 se eleva en el 75% de los casos y CA27-29 en el 81%. Esto refuerza que su utilidad es para monitoreo de enfermedad avanzada, no tamizaje precoz.</p>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="tbl-header-teal">
+        <thead><tr><th>Estadio</th><th>CEA (%)</th><th>CA 15-3 (%)</th><th>CA 27-29 (%)</th></tr></thead>
+        <tbody>
+          <tr><td>I</td><td>10</td><td>9</td><td>29</td></tr>
+          <tr><td>II</td><td>19</td><td>19</td><td>36</td></tr>
+          <tr><td>III</td><td>31</td><td>38</td><td>55</td></tr>
+          <tr style="font-weight:700; background:#FDECEA;"><td>IV</td><td><span class="hl-red">64</span></td><td><span class="hl-red">75</span></td><td><span class="hl-red">81</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <a href="#" class="back-top">↑ Volver al índice</a>
+</section>
+<hr class="divider">
+
+<!-- ─── S25 ─── -->
+<section class="section" id="s25">
+  <div class="section-header">
+    <span class="slide-number">Diap. 28</span>
+    <h2>CA 125 <span class="star">⭐⭐⭐</span></h2>
+  </div>
+  <div class="section-body">
+    <div class="note note-teal">
+      <strong>Descripción:</strong> Glicoproteína con PM 200–1,000 kDa, introducida en 1983 para cáncer ovárico.
+    </div>
+    <ul>
+      <li>Se relaciona con <span class="hl-teal">CA ovárico y endometrial</span>, pero no es específico.</li>
+      <li>Se eleva en: cánceres gastrointestinales, pulmonares, pancreáticos, mamarios, colorrectales y patologías hepáticas crónicas (cirrosis, hepatitis), agudas (hepatitis), endometriosis, primer trimestre del embarazo y en el <span class="hl-gold">período menstrual</span>.</li>
+      <li>Útil en seguimiento de enfermedad residual (elevaciones), así como diferenciación entre patologías malignas y benignas de ovarios.</li>
+      <li>Tiene una sensibilidad de <span class="hl-gold">75%</span> en detección de recurrencias.</li>
+      <li>Puede utilizarse como tamizaje en <span class="hl-teal">poblaciones de alto riesgo</span> (portadores de BRCA1/2).</li>
+    </ul>
+
+    <div class="formula">Valor de Referencia CA 125: &lt;35 UI/mL</div>
+
+    <div class="fp-fn-row">
+      <div class="fp-box">
+        <h4>🔴 Falsos Positivos CA 125</h4>
+        <ul>
+          <li>Menstruación</li>
+          <li>Embarazo (1er trimestre)</li>
+          <li>Fibromas uterinos</li>
+          <li>Quistes ováricos</li>
+          <li>Inflamación pélvica</li>
+          <li>Cirrosis</li>
+          <li>Ascitis / derrame pleural</li>
+          <li>Endometriosis</li>
+        </ul>
+      </div>
+      <div class="fn-box">
+        <h4>🔵 Usos Confirmados CA 125</h4>
+        <ul>
+          <li>Seguimiento de enfermedad residual post-cirugía</li>
+          <li>Diferenciación benigno vs maligno en masas ováricas</li>
+          <li>Monitoreo de tratamiento en Ca ovárico</li>
+          <li>Detección de recurrencias (75% sens.)</li>
+          <li>Tamizaje en portadoras BRCA1/2</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <a href="#" class="back-top">↑ Volver al índice</a>
+</section>
+<hr class="divider">
+
+<!-- ─── S26 ─── -->
+<section class="section" id="s26">
+  <div class="section-header">
+    <span class="slide-number">Diap. 29</span>
+    <h2>CA 19-9 <span class="star">⭐⭐</span></h2>
+  </div>
+  <div class="section-body">
+    <ul>
+      <li>Útil en <span class="hl-teal">CA colorrectal</span> (monitoreo) y <span class="hl-teal">CA pancreático</span> (estadificación, monitoreo).</li>
+      <li>En ambos casos puede asociarse a recurrencia incluso <span class="hl-red">antes de poderse demostrar por imagen</span>.</li>
+      <li>También puede elevarse en: CA hepatobiliar, gástrico, hepatocelular, mamario y padecimientos no malignos como pancreatitis y enfermedades gastrointestinales benignas.</li>
+    </ul>
+
+    <div class="severity-row">
+      <div class="sev-card sev-yellow">CA Gástrico<strong>21–42%</strong></div>
+      <div class="sev-card sev-orange">CA Colon<strong>20–40%</strong></div>
+      <div class="sev-card sev-red">CA Páncreas<strong>71–93%</strong></div>
+    </div>
+
+    <div class="formula">Valor de Referencia CA 19-9: &lt;37 U/mL</div>
+  </div>
+  <a href="#" class="back-top">↑ Volver al índice</a>
+</section>
+<hr class="divider">
+
+<!-- ─── S27 ─── -->
+<section class="section" id="s27">
+  <div class="section-header">
+    <span class="slide-number">Diap. 30</span>
+    <h2>Resumen: Condiciones con MT Elevados <span class="star">⭐⭐⭐</span></h2>
+  </div>
+  <div class="section-body">
+    <div class="img-box">
+      <div class="img-box-header">🖼 IMAGEN / TABLA DE LA DIAPOSITIVA — Tabla resumen de MT</div>
+      <div class="img-box-content">
+        <p><strong>Interpretación:</strong> Tabla consolidada de 7 marcadores con sus valores normales, tumor primario, malignidades adicionales y condiciones benignas que los elevan. Es la tabla más importante de la presentación para revisión rápida pre-examen.</p>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Marcador</th><th>Valor Normal</th><th>Tumor Primario</th><th>Malignidades Adicionales</th><th>Condiciones Benignas</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>CA 27.29</strong></td>
+            <td><span class="hl-gold">&lt;38 U/mL</span></td>
+            <td>Cáncer de mama</td>
+            <td>Colon, gástrico, hepático, pulmón, pancreático, ovárico, próstata</td>
+            <td>Mama, hígado y riñón (desórdenes), quistes ováricos</td>
+          </tr>
+          <tr>
+            <td><strong>CEA</strong></td>
+            <td><span class="hl-gold">&lt;2.5 ng/mL (no fumadores) / &lt;5 ng/mL (fumadores)</span></td>
+            <td>Cáncer colorrectal</td>
+            <td>Mama, pulmón, gástrico, pancreático, vesical, tiroides medular, cabeza y cuello, cervical, hepático, linfoma, melanoma</td>
+            <td>Cigarrillo, úlcera péptica, EII, pancreatitis, hipotiroidismo, cirrosis, obstrucción biliar</td>
+          </tr>
+          <tr>
+            <td><strong>CA 19-9</strong></td>
+            <td><span class="hl-gold">&lt;37 U/mL</span></td>
+            <td>Ca pancreático, Ca de vías biliares</td>
+            <td>Colon, esofágico, hepático</td>
+            <td>Pancreatitis, enfermedad biliar, cirrosis</td>
+          </tr>
+          <tr>
+            <td><strong>AFP</strong></td>
+            <td><span class="hl-gold">&lt;5.4 ng/mL</span></td>
+            <td>Carcinoma hepatocelular, tumores germinales no-seminomatosos</td>
+            <td>Gástrico, biliar, pancreático</td>
+            <td>Cirrosis, hepatitis viral, embarazo</td>
+          </tr>
+          <tr>
+            <td><strong>β-hCG</strong></td>
+            <td><span class="hl-gold">&lt;5 mIU/mL</span></td>
+            <td>Tumores germinales no-seminomatosos, enfermedad trofoblástica gestacional</td>
+            <td>Raramente, ca gastrointestinales</td>
+            <td>Hipogonadismo, uso de marihuana</td>
+          </tr>
+          <tr>
+            <td><strong>CA 125</strong></td>
+            <td><span class="hl-gold">&lt;35 U/mL</span></td>
+            <td>Cáncer de ovario</td>
+            <td>Endometrial, trompas de Falopio, mama, pulmón, esofágico, gástrico, hepático, pancreático</td>
+            <td>Menstruación, embarazo, fibromas, quistes ováricos, inflamación pélvica, cirrosis, ascitis, derrame pleural, endometriosis</td>
+          </tr>
+          <tr>
+            <td><strong>PSA</strong></td>
+            <td><span class="hl-gold">&lt;4 ng/mL (tamizaje) / indetectable post-prostatectomía</span></td>
+            <td>Cáncer de próstata</td>
+            <td>Ninguna</td>
+            <td>Prostatitis, HPB, trauma prostático, tras eyaculación</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <a href="#" class="back-top">↑ Volver al índice</a>
+</section>
+<hr class="divider">
+
+<!-- ─── S28 ─── -->
+<section class="section" id="s28">
+  <div class="section-header">
+    <span class="slide-number">Diap. 31</span>
+    <h2>Proteínas: β2-Microglobulina <span class="star">⭐</span></h2>
+  </div>
+  <div class="section-body">
+    <div class="note note-teal">
+      <strong>Proteínas más importantes como MT:</strong> β2-microglobulina, ferritina, tiroglobulina.
+    </div>
+    <p><strong>β2-microglobulina:</strong></p>
+    <ul>
+      <li>Se eleva en <span class="hl-teal">Linfoma de Hodgkin</span>, <span class="hl-teal">Mieloma múltiple</span>, y otras patologías como enfermedades inflamatorias crónicas y hepatitis viral.</li>
+      <li><span class="hl-red">No es realmente un marcador tumoral</span>; debe usarse en apoyo al diagnóstico y seguimiento.</li>
+    </ul>
+  </div>
+  <a href="#" class="back-top">↑ Volver al índice</a>
+</section>
+<hr class="divider">
+
+<!-- ─── S29 ─── -->
+<section class="section" id="s29">
+  <div class="section-header">
+    <span class="slide-number">Diap. 32</span>
+    <h2>Marcadores Genéticos <span class="star">⭐⭐⭐</span></h2>
+  </div>
+  <div class="section-body">
+    <p><strong>4 clases de genes relevantes en oncología:</strong></p>
+    <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:0.75rem; margin:1rem 0;">
+      <div style="background:white; border:1.5px solid var(--teal); border-radius:8px; padding:1rem;">
+        <div style="font-family:'Playfair Display',serif; font-weight:700; color:var(--teal); margin-bottom:0.4rem;">1. Proto-oncogenes</div>
+        <div style="font-size:0.88rem;">Responsables del crecimiento y diferenciación celular. Su mutación activa → oncogenes.</div>
+      </div>
+      <div style="background:white; border:1.5px solid var(--red); border-radius:8px; padding:1rem;">
+        <div style="font-family:'Playfair Display',serif; font-weight:700; color:var(--red); margin-bottom:0.4rem;">2. Supresores Tumorales</div>
+        <div style="font-size:0.88rem;">Relacionados con reconocimiento y reparación de daño al ADN. Su pérdida → carcinogénesis.</div>
+      </div>
+      <div style="background:white; border:1.5px solid var(--gold); border-radius:8px; padding:1rem;">
+        <div style="font-family:'Playfair Display',serif; font-weight:700; color:var(--gold); margin-bottom:0.4rem;">3. Genes de Apoptosis</div>
+        <div style="font-size:0.88rem;">Regulan la muerte celular programada. Su alteración permite supervivencia tumoral.</div>
+      </div>
+      <div style="background:white; border:1.5px solid var(--blue); border-radius:8px; padding:1rem;">
+        <div style="font-family:'Playfair Display',serif; font-weight:700; color:var(--blue); margin-bottom:0.4rem;">4. Genes de Reparación de ADN</div>
+        <div style="font-size:0.88rem;">Su alteración puede ocasionar pérdida de regulación y promoción de replicación anómala.</div>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="tbl-header-teal">
+        <thead><tr><th>Nivel</th><th>Clasificación</th><th>Ejemplos</th></tr></thead>
+        <tbody>
+          <tr><td rowspan="4">ADN</td><td>Epigenético</td><td>Hipermetilación de promotores (GSP1, DAP en Ca pulmón; p15, p16 en Ca hígado)</td></tr>
+          <tr><td>Mitocondrial endógeno</td><td>Mutaciones NADH deshidrogenasa 4 (ND4) en orina en Ca vesical</td></tr>
+          <tr><td>Oncogén</td><td>Mutación K-ras en Ca pancreático; micro-satélites en Ca cabeza y cuello</td></tr>
+          <tr><td>Exógeno viral</td><td>EBV en NPC, Linfoma Burkitt; HPV en Ca cervical</td></tr>
+          <tr><td rowspan="3">ARN</td><td>Endógeno celular</td><td>Marcadores tejido-específicos (PSA mRNA en Ca próstata; citoqueratina 20 mRNA en Ca mama)</td></tr>
+          <tr><td>Libre en células</td><td>ARNm circulante (tirosinasa mRNA en melanoma)</td></tr>
+          <tr><td>Exógeno viral</td><td>ARN viral (ARN codificado por EBV en NPC)</td></tr>
+          <tr><td rowspan="2">Proteínas Traslacionales</td><td>Nativa (marcadores convencionales)</td><td>PSA en Ca próstata, CEA en Ca colon</td></tr>
+          <tr><td>Glicano</td><td>Glicosilación aberrante (AFP mono-sialilada en HCC)</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <a href="#" class="back-top">↑ Volver al índice</a>
+</section>
+<hr class="divider">
+
+<!-- ─── S30 ─── -->
+<section class="section" id="s30">
+  <div class="section-header">
+    <span class="slide-number">Diap. 33</span>
+    <h2>Proto-Oncogenes de Susceptibilidad — Tiroides <span class="star">⭐⭐</span></h2>
+  </div>
+  <div class="section-body">
+    <ul>
+      <li>Aproximadamente el <span class="hl-gold">30% de los cánceres foliculares de tiroides</span> tienen mutaciones <span class="hl-teal">RAS</span>, siendo las mutaciones <strong>NRAS</strong> más comunes que HRAS y KRAS.</li>
+      <li>La sobreexpresión de los genes <span class="hl-teal">c-myc y c-fos</span> normales, así como las mutaciones de los protooncogenes <span class="hl-gold">HRAS, NRAS y KRAS</span>, se encuentran en:
+        <ul>
+          <li>Adenomas foliculares</li>
+          <li>Cánceres foliculares</li>
+          <li>Ocasionalmente cánceres papilares</li>
+        </ul>
+      </li>
+      <li>Estas anomalías pueden conferir un <span class="hl-gold">efecto promotor del crecimiento</span> que no es específico del tipo de tumor.</li>
+    </ul>
+  </div>
+  <a href="#" class="back-top">↑ Volver al índice</a>
+</section>
+<hr class="divider">
+
+<!-- ─── S31 ─── -->
+<section class="section" id="s31">
+  <div class="section-header">
+    <span class="slide-number">Diap. 34</span>
+    <h2>Genes de Susceptibilidad: BRCA1 / BRCA2 <span class="star">⭐⭐⭐</span></h2>
+  </div>
+  <div class="section-body">
+    <ul>
+      <li>Las mutaciones en <span class="hl-red">BRCA1/2</span> forman la mayoría de los cánceres de mama y de ovario hereditarios con una variante patogénica identificada.</li>
+      <li>Implicados en aproximadamente el <span class="hl-gold">15%</span> de las mujeres con cáncer de mama familiar y en una proporción similar de todos los cánceres de ovario incidentes.</li>
+      <li>Los riesgos <span class="hl-red">no se limitan a las mujeres</span> → también afectan a los hombres portadores.</li>
+      <li>Estudio internacional 2022: 3,184 portadores BRCA1 y 2,157 portadores BRCA2 — informó riesgos absolutos para <strong>22 tipos de cáncer</strong>.</li>
+    </ul>
+
+    <div class="img-box">
+      <div class="img-box-header">🖼 IMAGEN / TABLA DE LA DIAPOSITIVA — Riesgos estimados BRCA1/2</div>
+      <div class="img-box-content">
+        <p><strong>Interpretación:</strong> Tabla de riesgo de vida hasta los 70 años en portadores BRCA1/2 vs población general. Los canceres de próstata y mama (masculino) tienen riesgo markedly aumentado con BRCA2. El riesgo pancreático se duplica/quintuplica.</p>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="tbl-header-red">
+        <thead><tr><th>Tipo de Cáncer</th><th>Riesgo Vitalicio en Portadores (hasta 70 años)</th><th>Riesgo en Población General</th><th>Comentarios</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>Próstata</strong></td>
+            <td>BRCA1: ~15–20%<br>BRCA2: ~13–30%</td>
+            <td>6% blancos / 10% negros</td>
+            <td><span class="hl-red">Riesgo mayor con BRCA2</span>, sobre todo en hombres &lt;65 años</td>
+          </tr>
+          <tr>
+            <td><strong>Mama (masculino)</strong></td>
+            <td>BRCA1: 0.2–1%<br>BRCA2: 2–7%</td>
+            <td>0.1%</td>
+            <td>Riesgo antes de los 50 años muy bajo</td>
+          </tr>
+          <tr>
+            <td><strong>Páncreas</strong></td>
+            <td>BRCA1: 1–3%<br>BRCA2: 2–5%</td>
+            <td>0.6%</td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td>Colon</td>
+            <td>No bien definido</td>
+            <td>2%</td>
+            <td>Estudios no consistentes; si elevado, el riesgo es probable que sea pequeño</td>
+          </tr>
+          <tr>
+            <td>Melanoma</td>
+            <td>No bien definido</td>
+            <td>~2% blancos / 0.1% negros</td>
+            <td>Riesgo aumentado de melanoma ocular en portadores BRCA2</td>
+          </tr>
+          <tr>
+            <td>Otros</td>
+            <td>No bien definido</td>
+            <td>Variado</td>
+            <td>Incluye estómago, vesícula biliar, árbol biliar (BRCA2) y Ca uterino seroso (BRCA1 y BRCA2)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <a href="#" class="back-top">↑ Volver al índice</a>
+</section>
+<hr class="divider">
+
+<!-- ─── S32 ─── -->
+<section class="section" id="s32">
+  <div class="section-header">
+    <span class="slide-number">Diap. 35</span>
+    <h2>Herramientas más Específicas en Individuos de Riesgo <span class="star">⭐⭐</span></h2>
+  </div>
+  <div class="section-body">
+    <p><strong>Genes de susceptibilidad específica:</strong></p>
+    <ul>
+      <li><span class="hl-teal">Retinoblastoma</span> → genes P53 y P21</li>
+    </ul>
+    <p style="margin-top:0.7rem;"><strong>Traslocaciones cromosómicas:</strong></p>
+    <ul>
+      <li><span class="hl-gold">c-myc</span> en traslocaciones del cromosoma 8 al 14 → asociado a <span class="hl-red">Linfoma de Burkitt</span>.</li>
+    </ul>
+
+    <div class="note note-teal">
+      <strong>⭐⭐ Tecnologías en desarrollo (Biopsia Líquida):</strong>
+      <ul style="margin-top:0.4rem;">
+        <li>Pruebas <strong>proteómicas</strong></li>
+        <li><span class="hl-teal">ADN libre circulante (ctDNA)</span> — Biopsia líquida → <span class="hl-red">aprobada por FDA para CA pulmonar de células no pequeñas</span></li>
+        <li><span class="hl-gold">Células tumorales circulantes (CTCs)</span></li>
+        <li>Exosomas</li>
+        <li>Exoma</li>
+      </ul>
+      <p style="margin-top:0.5rem;">Ventajas de la biopsia líquida: análisis en tiempo real, viabilidad, avance en investigación terapéutica.</p>
+    </div>
+
+    <div class="flow">
+      <div class="flow-box teal">ctDNA</div>
+      <span class="flow-arrow">+</span>
+      <div class="flow-box gold-box">CTCs</div>
+      <span class="flow-arrow">+</span>
+      <div class="flow-box">Exosomas</div>
+      <span class="flow-arrow">⟶</span>
+      <div class="flow-box dark-box">Biopsia Líquida</div>
+      <span class="flow-arrow">⟶</span>
+      <div class="flow-box" style="border-color:#2E7D32; color:#2E7D32;">Análisis en Tiempo Real</div>
+    </div>
+  </div>
+  <a href="#" class="back-top">↑ Volver al índice</a>
+</section>
+
+<!-- ══════════════ FOOTER ══════════════ -->
+<footer style="text-align:center; padding:2rem 1rem; border-top:1.5px dashed var(--border); margin-top:2rem; color:var(--ink-light); font-size:0.82rem;">
+  <p>Notas de Estudio — Marcadores Tumorales</p>
+  <p>Hospital Universitario "Dr. José Eleuterio González" · Departamento de Patología Clínica</p>
+  <p style="margin-top:0.5rem;">Fuentes: Mc Pherson. Henry's Clinical Diagnosis and Management by Laboratory Methods. 23ª Ed. 2017 · TIETZ Textbook of Clinical Chemistry 6ª Ed. 2018 · GLOBOCAN 2022 · OMS 2024 · INEGI EDR 2022 · Am Fam Physician. 2003;68(6):1075-1082.</p>
+</footer>
+
+</main>
+</body>
+</html>

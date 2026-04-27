@@ -1,0 +1,1662 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notas de Estudio – Función Endócrina, Tiroides, Prolactinoma y Acromegalia</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Lora:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #FAF6F0;
+    --cream-dark: #F0EAE0;
+    --brown: #4A3728;
+    --brown-light: #7A5C46;
+    --red: #C0392B;
+    --red-light: #E74C3C;
+    --teal: #1A7A7A;
+    --teal-light: #2AADAD;
+    --gold: #B8860B;
+    --gold-light: #D4A017;
+    --yellow-note: #FFF9C4;
+    --red-note: #FFE4E1;
+    --teal-note: #E0F4F4;
+    --border-radius: 10px;
+    --shadow: 0 4px 18px rgba(74,55,40,0.13);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Lora', Georgia, serif;
+    background-color: var(--cream);
+    color: var(--brown);
+    line-height: 1.8;
+    font-size: 16px;
+  }
+
+  /* ── HEADER ── */
+  header {
+    background: linear-gradient(135deg, #3D2B1F 0%, #7A5C46 60%, #B8860B 100%);
+    color: #FAF6F0;
+    padding: 3rem 2rem 2.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: repeating-linear-gradient(45deg, transparent, transparent 30px, rgba(255,255,255,0.03) 30px, rgba(255,255,255,0.03) 60px);
+  }
+  header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.5rem, 4vw, 2.8rem);
+    font-weight: 900;
+    letter-spacing: 0.5px;
+    position: relative;
+    margin-bottom: 0.5rem;
+  }
+  header p {
+    font-style: italic;
+    opacity: 0.8;
+    font-size: 1rem;
+    position: relative;
+  }
+
+  /* ── LAYOUT ── */
+  .container { max-width: 980px; margin: 0 auto; padding: 2rem 1.2rem 4rem; }
+
+  /* ── INDEX ── */
+  .index-box {
+    background: white;
+    border: 2px solid var(--gold);
+    border-radius: var(--border-radius);
+    padding: 2rem 2rem 1.5rem;
+    margin-bottom: 3rem;
+    box-shadow: var(--shadow);
+  }
+  .index-box h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    color: var(--gold);
+    border-bottom: 2px solid var(--gold-light);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  .index-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 0.4rem; }
+  .index-grid a {
+    display: block;
+    color: var(--brown);
+    text-decoration: none;
+    padding: 0.35rem 0.7rem;
+    border-radius: 6px;
+    font-size: 0.92rem;
+    transition: background 0.2s, color 0.2s;
+  }
+  .index-grid a:hover { background: var(--cream-dark); color: var(--teal); }
+  .index-grid a::before { content: '▸ '; color: var(--gold); }
+
+  /* ── SECTIONS ── */
+  section {
+    margin-bottom: 3.5rem;
+    scroll-margin-top: 80px;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.3rem, 3vw, 1.9rem);
+    font-weight: 700;
+    color: var(--brown);
+    border-left: 6px solid var(--red);
+    padding-left: 1rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.3;
+  }
+  .subsection-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--teal);
+    margin: 1.8rem 0 0.8rem;
+    padding-bottom: 0.3rem;
+    border-bottom: 1px dashed var(--teal-light);
+  }
+
+  /* ── CONTENT CARD ── */
+  .card {
+    background: white;
+    border-radius: var(--border-radius);
+    padding: 1.6rem 2rem;
+    margin-bottom: 1.5rem;
+    box-shadow: var(--shadow);
+    border-left: 4px solid var(--cream-dark);
+  }
+
+  /* ── IMAGE BOX ── */
+  .img-box {
+    border: 3px solid var(--red);
+    border-radius: var(--border-radius);
+    background: #fff8f8;
+    padding: 1.2rem 1.5rem 1.4rem;
+    margin: 1.5rem 0;
+  }
+  .img-box-header {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--red);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  .img-box-content { font-size: 0.95rem; color: var(--brown-light); font-style: italic; }
+
+  /* ── NOTE BOXES ── */
+  .note { border-radius: 8px; padding: 1rem 1.3rem; margin: 1rem 0; font-size: 0.95rem; }
+  .note-yellow { background: var(--yellow-note); border-left: 4px solid var(--gold); }
+  .note-red { background: var(--red-note); border-left: 4px solid var(--red); }
+  .note-teal { background: var(--teal-note); border-left: 4px solid var(--teal); }
+  .note strong { font-weight: 600; }
+
+  /* ── HIGHLIGHTS ── */
+  .hl-red { border-bottom: 2px solid var(--red); color: var(--red-light); font-weight: 600; }
+  .hl-teal { border-bottom: 2px solid var(--teal); color: var(--teal); font-weight: 600; }
+  .hl-gold { border-bottom: 2px solid var(--gold); color: var(--gold); font-weight: 600; }
+
+  /* ── STARS ── */
+  .star1::after { content: ' ⭐'; }
+  .star2::after { content: ' ⭐⭐'; }
+  .star3::after { content: ' ⭐⭐⭐'; }
+
+  /* ── LISTS ── */
+  ul.styled, ol.styled { padding-left: 1.5rem; margin: 0.5rem 0; }
+  ul.styled li, ol.styled li { margin-bottom: 0.35rem; }
+  ul.styled li::marker { color: var(--gold); }
+
+  /* ── TABLES ── */
+  .tbl-wrap { overflow-x: auto; margin: 1rem 0; }
+  table.styled {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+  }
+  table.styled th {
+    background: var(--brown);
+    color: white;
+    font-family: 'Playfair Display', serif;
+    padding: 0.7rem 1rem;
+    text-align: left;
+  }
+  table.styled td {
+    border: 1px solid #ddd;
+    padding: 0.6rem 1rem;
+    vertical-align: top;
+  }
+  table.styled tr:nth-child(even) td { background: var(--cream-dark); }
+  table.styled tr:hover td { background: #e8f4f4; }
+  table.styled .cat-head td {
+    background: var(--teal);
+    color: white;
+    font-weight: 700;
+    font-family: 'Playfair Display', serif;
+  }
+  table.styled .subcat td { background: #d0efef; font-style: italic; padding-left: 1.5rem; }
+
+  /* ── FORMULA BOX ── */
+  .formula-box {
+    background: #1e1e2e;
+    color: #cdd6f4;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.92rem;
+    border-radius: 8px;
+    padding: 1rem 1.4rem;
+    margin: 1rem 0;
+    line-height: 2;
+    overflow-x: auto;
+  }
+  .formula-box .f-label { color: #a6e3a1; font-size: 0.8rem; }
+  .formula-box .f-val { color: #f9e2af; font-weight: 600; }
+  .formula-box .f-arrow { color: #89b4fa; }
+
+  /* ── FLOW DIAGRAM ── */
+  .flow-wrap { margin: 1.5rem 0; overflow-x: auto; }
+  .flow { display: flex; flex-wrap: wrap; align-items: center; gap: 0.4rem; }
+  .flow-box {
+    border: 2px solid var(--teal);
+    border-radius: 8px;
+    padding: 0.5rem 0.9rem;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--teal);
+    background: var(--teal-note);
+    text-align: center;
+    min-width: 120px;
+  }
+  .flow-box.red-box { border-color: var(--red); color: var(--red); background: var(--red-note); }
+  .flow-box.gold-box { border-color: var(--gold); color: var(--gold); background: var(--yellow-note); }
+  .flow-arrow { font-size: 1.3rem; color: var(--brown-light); flex-shrink: 0; }
+
+  /* ── SEVERITY CARDS ── */
+  .severity-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem; margin: 1rem 0; }
+  .sev-card { border-radius: 10px; padding: 0.9rem 1.1rem; }
+  .sev-card .sev-title { font-family: 'Playfair Display', serif; font-size: 0.95rem; font-weight: 700; margin-bottom: 0.4rem; }
+  .sev-card p { font-size: 0.88rem; }
+  .sev-green { background: #e8f5e9; border-left: 4px solid #4caf50; }
+  .sev-yellow { background: #fffde7; border-left: 4px solid #f9a825; }
+  .sev-orange { background: #fff3e0; border-left: 4px solid #ef6c00; }
+  .sev-red { background: #ffebee; border-left: 4px solid #c62828; }
+
+  /* ── FP/FN BOXES ── */
+  .fp-fn-wrap { display: flex; gap: 1rem; flex-wrap: wrap; margin: 1rem 0; }
+  .fp-box, .fn-box { flex: 1 1 220px; border-radius: 8px; padding: 1rem; font-size: 0.9rem; }
+  .fp-box { background: #ffebee; border: 2px solid #c62828; }
+  .fn-box { background: #e3f2fd; border: 2px solid #1565c0; }
+  .fp-box strong { color: #c62828; }
+  .fn-box strong { color: #1565c0; }
+
+  /* ── DIVIDER ── */
+  .divider { border: none; border-top: 2px dashed var(--cream-dark); margin: 2rem 0; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 600px) {
+    .card { padding: 1.2rem 1rem; }
+    .section-title { font-size: 1.2rem; }
+    .flow { flex-direction: column; align-items: flex-start; }
+    .severity-grid { grid-template-columns: 1fr 1fr; }
+  }
+
+  /* ── BACK TO TOP ── */
+  .back-top {
+    display: inline-block;
+    margin-top: 1rem;
+    font-size: 0.85rem;
+    color: var(--teal);
+    text-decoration: none;
+    border: 1px solid var(--teal);
+    border-radius: 20px;
+    padding: 0.25rem 0.8rem;
+    transition: background 0.2s;
+  }
+  .back-top:hover { background: var(--teal-note); }
+
+  /* ── HORMONE TABLE COLOR ── */
+  table.styled .stim td { background: #e8f5e9; }
+  table.styled .inhib td { background: #fff3e0; }
+  table.styled .section-header td { background: #3D2B1F; color: white; font-weight: 700; text-align: center; }
+</style>
+</head>
+<body>
+
+<header id="top">
+  <h1>Evaluación de la Función Endócrina<br>Enfermedad Tiroidea · Prolactinoma · Acromegalia</h1>
+  <p>Notas de Estudio Completas · Medicina Interna / Endocrinología</p>
+</header>
+
+<div class="container">
+
+<!-- ═══════════════════════════════ ÍNDICE ═══════════════════════════════ -->
+<div class="index-box">
+  <h2>📋 Índice Clickeable</h2>
+  <div class="index-grid">
+    <a href="#hipofisis">1. Hipófisis – Generalidades</a>
+    <a href="#hormonas-tabla">2. Hormonas Hipotalámicas y Hipofisiarias</a>
+    <a href="#gh-general">3. Hormona del Crecimiento (GH)</a>
+    <a href="#gh-secrecion">4. GH – Regulación de la Secreción</a>
+    <a href="#gh-eje">5. Eje de la GH (Diagrama)</a>
+    <a href="#gh-pulsatil">6. Secreción Pulsátil de GH</a>
+    <a href="#gh-efectos">7. Efectos Específicos de GH</a>
+    <a href="#gh-adulto">8. Funciones de GH en el Adulto</a>
+    <a href="#igf1">9. IGF-1 – Factor de Crecimiento Similar a la Insulina</a>
+    <a href="#igf1-mecanismo">10. Mecanismos de Acción de IGF-1</a>
+    <a href="#acromegalia-cuando">11. ¿Cuándo Estudiar GH/IGF-1?</a>
+    <a href="#acromegalia-epi">12. Epidemiología de Acromegalia</a>
+    <a href="#acromegalia-causas">13. Causas de Acromegalia</a>
+    <a href="#acromegalia-curso">14. Curso Clínico de Acromegalia</a>
+    <a href="#acromegalia-dx">15. Diagnóstico de Acromegalia</a>
+    <a href="#acromegalia-protocolo">16. Protocolo de Supresión de GH con Glucosa</a>
+    <a href="#igf1-valores">17. Valores de Referencia IGF-1 por Edad</a>
+    <a href="#acromegalia-otras">18. Otras Pruebas en Acromegalia</a>
+    <a href="#acromegalia-fuente">19. Determinar la Fuente de GH</a>
+    <a href="#prolactina">20. Prolactina – Generalidades</a>
+    <a href="#hiperprl-clinica">21. Manifestación Clínica de Hiperprolactinemia</a>
+    <a href="#hiperprl-causas">22. Causas de Hiperprolactinemia</a>
+    <a href="#hiperprl-prl-niveles">23. Niveles de Prolactina según la Causa</a>
+    <a href="#hiperprl-dx">24. Diagnóstico de Hiperprolactinemia</a>
+    <a href="#hiperprl-errores">25. Errores en el Diagnóstico (Efecto Gancho / Macroprolactina)</a>
+    <a href="#hiperprl-lab">26. Evaluación por Laboratorio</a>
+    <a href="#tiroides">27. Tiroides – Fisiología</a>
+    <a href="#tiroide-funcion">28. Funciones de las Hormonas Tiroideas</a>
+    <a href="#tiroides-eval">29. Evaluación de la Función Tiroidea</a>
+    <a href="#tsh">30. TSH – Valores y Técnica</a>
+    <a href="#t4t3total">31. T4 y T3 Total</a>
+    <a href="#t4t3libre">32. T4 y T3 Libre</a>
+    <a href="#utilidad">33. Utilidad Clínica – Tabla Diagnóstica</a>
+    <a href="#hipohiper">34. Hipotiroidismo vs Hipertiroidismo</a>
+    <a href="#recomendacion-amb">35. Recomendación Paciente Ambulatorio</a>
+    <a href="#recomendacion-hosp">36. Recomendación Paciente Hospitalizado</a>
+    <a href="#farmacos">37. Fármacos que Afectan la Función Tiroidea</a>
+    <a href="#hipotir-primario">38. Hipotiroidismo Primario – Monitoreo</a>
+    <a href="#hipotir-secundario">39. Hipotiroidismo Secundario</a>
+    <a href="#hipertir-monitor">40. Monitoreo del Tratamiento de Hipertiroidismo</a>
+    <a href="#ca-tiroides">41. Cáncer de Tiroides y Nódulos</a>
+    <a href="#eutiroideo">42. Eutiroideo Enfermo</a>
+    <a href="#principios">43. Principios Generales en UCI</a>
+    <a href="#t3-cambios">44. Cambios en T3 y T3 Reversa</a>
+    <a href="#hipotir-central">45. Hipotiroidismo Central Transitorio</a>
+    <a href="#evaluacion-uci">46. Evaluación en el Eutiroideo Enfermo</a>
+    <a href="#abordaje-tsh">47. Abordaje según TSH Elevada</a>
+    <a href="#anticuerpos">48. Anticuerpos Antitiroideos</a>
+    <a href="#anti-tg">49. Anticuerpos Anti-Tiroglobulina</a>
+    <a href="#anti-tpo">50. Anti-Peroxidasa Tiroidea (TPO)</a>
+    <a href="#trabs">51. Receptor de TSH (TRAbs)</a>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     SECCIÓN 1: HIPÓFISIS
+═══════════════════════════════════════════════════════════════════ -->
+<section id="hipofisis">
+  <h2 class="section-title">1. Hipófisis</h2>
+  <div class="card">
+    <div class="img-box">
+      <div class="img-box-header">🖼 IMAGEN / DIAGRAMA DE LA DIAPOSITIVA</div>
+      <div class="img-box-content">
+        <strong>Diagrama del eje hipotálamo-hipofisiario:</strong> Muestra las células neurosecretoras en el hipotálamo (núcleos paraventriculares y supraópticos) que secretan hormonas liberadoras e inhibitorias. A través del tallo hipofisiario y el sistema porta, estas hormonas alcanzan la hipófisis anterior (pars distalis), donde las células acidófilas y basófilas producen GH, ACTH, TSH, FSH, LH y Prolactina.
+        <br><br>
+        La <strong>hipófisis posterior (pars nervosa)</strong> libera directamente ADH (→ riñón, absorción de agua) y Oxitocina (→ útero, contracción; glándula mamaria, contracción mioepitelial).
+        <br><br>
+        Efectos periféricos representados: hueso/músculo/tejido adiposo (GH), corteza suprarrenal (ACTH), tiroides (TSH), testículo (FSH/LH → espermatogénesis, andrógenos) y ovario (FSH/LH → desarrollo folicular, ovulación, progesterona).
+      </div>
+    </div>
+  </div>
+  <a class="back-top" href="#top">↑ Volver al inicio</a>
+</section>
+
+<!-- SECCIÓN 2: TABLA HORMONAS -->
+<section id="hormonas-tabla">
+  <h2 class="section-title">2. Hormonas Hipotalámicas y Hormonas Hipofisiarias</h2>
+  <div class="card">
+    <div class="tbl-wrap">
+      <table class="styled">
+        <tr><th>Hormona Hipotalámica Estimulante</th><th>Hormona Hipofisiaria</th></tr>
+        <tr class="stim">
+          <td>Hormona liberadora de corticotropina (CRH) – 41 aminoácidos; liberada de neuronas paraventriculares, supraópticas y del sistema límbico</td>
+          <td>
+            Corticotropina (ACTH) – los corticotrofos basófilos representan el <span class="hl-gold">20%</span> de las células de la hipófisis anterior; producto del gen <em>POMC</em>.<br>
+            Hormona estimulante de melanocitos – producto alternativo del gen <em>POMC</em>.<br>
+            Endorfinas – también productos del gen <em>POMC</em>.
+          </td>
+        </tr>
+        <tr class="stim">
+          <td>Hormona liberadora de hormona del crecimiento (GHRH) – dos formas, 40 y 44 aminoácidos</td>
+          <td>Hormona del crecimiento (GH) – somatotrofos acidófilos representan el <span class="hl-gold star2">50%</span> de las células de la hipófisis anterior</td>
+        </tr>
+        <tr class="stim">
+          <td>Hormona liberadora de gonadotropinas (GnRH) – 10 aminoácidos; principalmente liberada de neuronas preópticas</td>
+          <td>Hormona luteinizante (LH) y Hormona folículo-estimulante (FSH) – gonadotrofos representan aproximadamente <span class="hl-gold">15%</span> de las células de hipófisis anterior</td>
+        </tr>
+        <tr class="stim">
+          <td>Hormona liberadora de tirotropina (TRH) – 3 aminoácidos; liberada del área hipotalámica anterior</td>
+          <td>Hormona estimulante de tiroides (TSH) – tirotrofos representan aproximadamente <span class="hl-gold">5%</span> de las células de la hipófisis anterior</td>
+        </tr>
+        <tr class="stim">
+          <td>Factores liberadores de prolactina – incluyen serotonina, acetilcolina, opiáceos y estrógenos</td>
+          <td>Prolactina – lactotrofos representan <span class="hl-gold">10 a 30%</span> de las células de la hipófisis anterior</td>
+        </tr>
+        <tr><th colspan="2" style="background:#6d4c41; text-align:center;">Hormonas Hipotalámicas Inhibitorias</th></tr>
+        <tr class="inhib">
+          <td>Somatostatina – 14 aminoácidos</td>
+          <td>Inhibe la liberación de hormona del crecimiento</td>
+        </tr>
+        <tr class="inhib">
+          <td>Factores inhibidores de prolactina – incluye dopamina</td>
+          <td>El control mayor de prolactina es inhibitorio</td>
+        </tr>
+      </table>
+    </div>
+    <div class="note note-red">
+      <strong>⚠ Clave:</strong> La dopamina es el principal inhibidor de prolactina. Cualquier bloqueo dopaminérgico (fármacos antipsicóticos, metoclopramida) puede elevar la prolactina.
+    </div>
+  </div>
+  <a class="back-top" href="#top">↑ Volver al inicio</a>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     SECCIÓN GH GENERAL
+═══════════════════════════════════════════════════════════════════ -->
+<section id="gh-general">
+  <h2 class="section-title">3. Hormona del Crecimiento (GH) – Generalidades</h2>
+  <div class="card">
+    <ul class="styled">
+      <li>Producida por las <span class="hl-teal">células somatotrofas</span> desde el inicio de la vida fetal</li>
+      <li>Estimulada por: <span class="hl-teal">GHRH</span> (Hormona liberadora de GH hipotalámica)</li>
+      <li>Inhibida por: <span class="hl-red">Somatostatina (SRIH)</span></li>
+      <li>Secreción en la pubertad: <span class="hl-gold star3">150 mcg/kg/día</span></li>
+      <li>Secreción a los 55 años: <span class="hl-gold star2">25 mcg/kg/día</span></li>
+      <li class="star1">Vida media: <span class="hl-gold">14 minutos</span></li>
+      <li>También se produce en <span class="hl-teal">colon y mamas</span></li>
+    </ul>
+    <div class="note note-yellow">
+      <strong>📚 Referencia:</strong> Melmed S. Pathogenesis and Diagnosis of Growth Hormone Deficiency in Adults. <em>N Engl J Med</em> 2019; 380:2551.
+    </div>
+  </div>
+  <a class="back-top" href="#top">↑ Volver al inicio</a>
+</section>
+
+<!-- GH SECRECIÓN -->
+<section id="gh-secrecion">
+  <h2 class="section-title">4. GH – Regulación de la Secreción</h2>
+  <div class="card">
+    <h3 class="subsection-title">Estimulantes de la secreción de GH</h3>
+    <ul class="styled">
+      <li><span class="hl-teal star2">GHRH</span> → estimulación y proliferación de somatotrofos</li>
+      <li><span class="hl-teal">Grelina</span> (estómago) → regulador de la secreción</li>
+      <li><span class="hl-teal">Desnutrición, ayuno</span>, alimentos altos en proteínas y aminoácidos</li>
+      <li><span class="hl-teal">Hipoglucemia inducida por insulina</span> → estimula</li>
+    </ul>
+    <h3 class="subsection-title">Inhibidores de la secreción de GH</h3>
+    <ul class="styled">
+      <li><span class="hl-red star3">IGF-1</span> → retroalimentación negativa</li>
+      <li><span class="hl-red">Hiperglucemia</span> → inhibe</li>
+    </ul>
+    <div class="note note-teal">
+      <strong>💡 Concepto clave:</strong> La <span class="hl-red">IGF-1</span> (factor de crecimiento similar a la insulina tipo 1) actúa como inhibidor por retroalimentación negativa sobre la hipófisis y el hipotálamo.
+    </div>
+    <div class="note note-yellow">
+      <strong>Importante (prueba de tolerancia):</strong> El uso de glucosa oral suprime la GH en personas sanas. En acromegalia, la GH NO se suprime → base del diagnóstico.
+    </div>
+  </div>
+  <a class="back-top" href="#top">↑ Volver al inicio</a>
+</section>
+
+<!-- GH EJE -->
+<section id="gh-eje">
+  <h2 class="section-title">5. Eje de la Hormona del Crecimiento</h2>
+  <div class="card">
+    <div class="img-box">
+      <div class="img-box-header">🖼 DIAGRAMA DEL EJE GH</div>
+      <div class="img-box-content">
+        <strong>Esquema completo del eje somatotropo.</strong> El diagrama muestra:
+        <br><br>
+        <strong>Causas de deficiencia de GH por categoría:</strong>
+        <ul style="margin-top:0.5rem; padding-left:1.5rem;">
+          <li><strong>Insulto SNC:</strong> Craniofaringioma, radiación, sarcoidosis, trauma craneal, cirugía</li>
+          <li><strong>Nutricionales:</strong> Obesidad</li>
+          <li><strong>Inmunológicos:</strong> Inmunoterapia, hipofisitis, anticuerpos antipituitarios, anti-POU1F1</li>
+          <li><strong>Daño vascular:</strong> Cirugía hipofisiaria, hemorragia subaracnoidea, aneurisma, ictus</li>
+          <li><strong>Masa compresiva:</strong> Adenoma, quiste, masa parasela, craniofaringioma, metástasis, granuloma, infección</li>
+          <li><strong>Enfermedad sistémica:</strong> Insuficiencia hepática crónica, caquexia, inflamación</li>
+          <li><strong>Hormonas:</strong> Somatostatina y glucocorticoides inhiben la GH</li>
+        </ul>
+        <br>
+        <strong>Señalización intracelular de GH:</strong> GH se une a su receptor (GHR dímero) en la membrana → activa JAK2 y Ras/Raf → cascadas STAT, SHC, IRS, CoAA, MEK → transcripción de genes diana en el núcleo → producción de <strong>IGF-1</strong>, factores de proliferación celular y regulación del metabolismo de la glucosa.
+        <br><br>
+        El hígado es el principal productor de IGF-1 sérica.
+      </div>
+    </div>
+  </div>
+  <a class="back-top" href="#top">↑ Volver al inicio</a>
+</section>
+
+<!-- GH PULSÁTIL -->
+<section id="gh-pulsatil">
+  <h2 class="section-title">6. Secreción Pulsátil de GH</h2>
+  <div class="card">
+    <ul class="styled">
+      <li>Pulsátil: <span class="hl-gold star2">~10 pulsos por día</span></li>
+      <li>Duración de cada pulso: <span class="hl-gold">~90 minutos</span></li>
+      <li>Indetectable en <span class="hl-red star2">50% de las muestras</span> (hasta 95% en obesos)</li>
+      <li>Función principal: <span class="hl-teal star3">Producción de IGF-1</span></li>
+    </ul>
+    <h3 class="subsection-title">Acciones de la GH</h3>
+    <ul class="styled">
+      <li>→ Función cardíaca</li>
+      <li>→ Homeostasis de glucosa</li>
+      <li>→ Mineralización ósea</li>
+      <li>→ Lipogénesis y lipólisis</li>
+      <li>→ Anabolismo del músculo esquelético</li>
+    </ul>
+    <div class="note note-red">
+      <strong>⚠ Advertencia clínica:</strong> La GH es indetectable en muchas muestras aleatorias, lo que dificulta su uso como prueba única de tamizaje. Por eso se prefiere la <span class="hl-red">IGF-1 sérica</span> como mejor prueba única.
+    </div>
+  </div>
+  <a class="back-top" href="#top">↑ Volver al inicio</a>
+</section>
+
+<!-- GH EFECTOS ESPECÍFICOS -->
+<section id="gh-efectos">
+  <h2 class="section-title">7. Efectos Específicos de la GH</h2>
+  <div class="card">
+    <ul class="styled">
+      <li><span class="hl-teal">Crecimiento lineal</span> en niños (placas epifisiarias)</li>
+      <li><span class="hl-teal">Lipólisis y oxidación de lípidos</span></li>
+      <li><span class="hl-teal">Síntesis de proteínas</span></li>
+      <li><span class="hl-red">Antagonista de la acción de la insulina</span> (resistencia a insulina)</li>
+      <li><span class="hl-teal">Retención de fosfato, agua y sodio</span></li>
+    </ul>
+  </div>
+  <a class="back-top" href="#top">↑ Volver al inicio</a>
+</section>
+
+<!-- GH ADULTO -->
+<section id="gh-adulto">
+  <h2 class="section-title">8. Funciones de GH en el Adulto (Deficiencia)</h2>
+  <div class="card">
+    <div class="img-box">
+      <div class="img-box-header">🖼 DIAGRAMA DE FUNCIONES GH EN EL ADULTO</div>
+      <div class="img-box-content">
+        Figura que muestra los efectos sistémicos de la <strong>deficiencia de GH en adultos</strong>, por órgano:
+      </div>
+    </div>
+    <div class="severity-grid">
+      <div class="sev-card sev-red"><div class="sev-title">🧠 Cerebro</div><p>↑ Aislamiento social · ↓ Calidad de vida, energía, autoestima</p></div>
+      <div class="sev-card sev-orange"><div class="sev-title">⚙ Hipotálamo–Hipófisis</div><p>Masa hipofisiaria · Fallo suprarrenal, tiroideo y gonadal secundario</p></div>
+      <div class="sev-card sev-red"><div class="sev-title">❤ Cardiovascular</div><p>↑ Lípidos e inflamadores · ↓ Fibrinólisis, VO₂ máx, capacidad de ejercicio</p></div>
+      <div class="sev-card sev-orange"><div class="sev-title">🍬 Metabolismo glucosa</div><p>Resistencia a insulina</p></div>
+      <div class="sev-card sev-yellow"><div class="sev-title">🫀 Tejido adiposo</div><p>↑ Masa grasa y obesidad troncal · ↓ Masa magra</p></div>
+      <div class="sev-card sev-orange"><div class="sev-title">🦴 Hueso</div><p>↑ Fragilidad esquelética y fracturas vertebrales · ↓ Densidad ósea</p></div>
+      <div class="sev-card sev-yellow"><div class="sev-title">💪 Músculo esquelético</div><p>↓ Masa muscular</p></div>
+    </div>
+  </div>
+  <a class="back-top" href="#top">↑ Volver al inicio</a>
+</section>
+
+<!-- IGF-1 -->
+<section id="igf1">
+  <h2 class="section-title">9. Factor de Crecimiento Similar a la Insulina – IGF-1</h2>
+  <div class="card">
+    <ul class="styled">
+      <li>Péptido pequeño; <span class="hl-gold star2">99% unido</span> a proteínas de alta afinidad (IGFBP)</li>
+      <li><span class="hl-teal">Síntesis:</span> Células mesenquimales; el hígado lo libera a la sangre</li>
+      <li>También actúa de forma <span class="hl-teal">autocrina/paracrina</span> en tejidos periféricos</li>
+      <li>Receptor de IGF-1: regulado por GH y T4 → 20,000 a 35,000 receptores por célula</li>
+      <li>IGFBP tiene mayor afinidad por IGF-1 e IGF-2</li>
+      <li><span class="hl-red star2">75% del IGF-1 plasmático</span> es regulado por el hígado</li>
+    </ul>
+    <div class="note note-teal">
+      <strong>💡 Concepto:</strong> La IGF-1 sérica refleja la producción integrada de GH durante el día. Es menos pulsátil que la GH misma y por eso es la <span class="hl-red">mejor prueba única</span> para evaluar el eje GH.
+    </div>
+  </div>
+  <a class="back-top" href="#top">↑ Volver al inicio</a>
+</section>
+
+<!-- IGF-1 MECANISMO -->
+<section id="igf1-mecanismo">
+  <h2 class="section-title">10. Mecanismos de Acción de IGF-1</h2>
+  <div class="card">
+    <h3 class="subsection-title">Administración de IGF-1 en humanos produce:</h3>
+    <ul class="styled">
+      <li>↓ Glucosa: <span class="hl-red">Hipoglucemia</span></li>
+      <li>↑ IGFBP-2</li>
+      <li>↑ 25% de la TFG (tasa de filtración glomerular)</li>
+      <li>Síntesis de proteínas e inhibición de la proteólisis</li>
+      <li>Reversión del catabolismo por glucocorticoides</li>
+      <li>Efecto <span class="hl-teal">anabólico sobre el hueso</span></li>
+      <li>Regulación del metabolismo de carbohidratos</li>
+      <li>Factor de crecimiento regulador del ciclo celular</li>
+    </ul>
+  </div>
+  <a class="back-top" href="#top">↑ Volver al inicio</a>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     ACROMEGALIA
+═══════════════════════════════════════════════════════════════════ -->
+<section id="acromegalia-cuando">
+  <h2 class="section-title">11. ¿Cuándo Estudiar GH/IGF-1? – Sospecha de Acromegalia</h2>
+  <div class="card">
+    <ul class="styled">
+      <li>Sospecha de <span class="hl-red star3">acromegalia</span></li>
+      <li>GH e IGF-1 <span class="hl-red">elevados</span></li>
+      <li>Crecimiento de piel, tejido conectivo, cartílago, hueso, vísceras y muchos tejidos epiteliales</li>
+      <li>Enfermedades cardiovasculares, apnea del sueño, trastornos metabólicos y <span class="hl-red">neoplasia de colon</span></li>
+    </ul>
+
+    <div class="img-box">
+      <div class="img-box-header">🖼 IMÁGENES CLÍNICAS DE ACROMEGALIA</div>
+      <div class="img-box-content">
+        Las imágenes muestran rasgos fenotípicos de pacientes con acromegalia: prominencia del arco superciliar, mandíbula prominente (prognatismo), engrosamiento de tejidos faciales, y macrododicatilia (dedos grandes y anchos) con piel gruesa.
+      </div>
+    </div>
+
+    <div class="formula-box">
+      <span class="f-label">Valores normales de GH en ayuno</span><br>
+      <span class="f-val">Niños:</span>  &lt; 13 ng/mL<br>
+      <span class="f-val">Adultos:</span> &lt; 10 ng/mL
+    </div>
+  </div>
+  <a class="back-top" href="#top">↑ Volver al inicio</a>
+</section>
+
+<!-- EPIDEMIOLOGÍA -->
+<section id="acromegalia-epi">
+  <h2 class="section-title">12. Epidemiología de Acromegalia</h2>
+  <div class="card">
+    <ul class="styled">
+      <li>Enfermedad <span class="hl-red">rara</span></li>
+      <li>Prevalencia en Europa: <span class="hl-gold">30–70 / millón</span></li>
+      <li>Estudios recientes sugieren hasta <span class="hl-gold star2">1,000 / millón</span> de individuos</li>
+      <li>En personas con DM tipo 2: hasta <span class="hl-gold">480 / millón</span></li>
+    </ul>
+  </div>
+  <a class="back-top" href="#top">↑ Volver al inicio</a>
+</section>
+
+<!-- CAUSAS -->
+<section id="acromegalia-causas">
+  <h2 class="section-title">13. Causas de Acromegalia</h2>
+  <div class="card">
+    <div class="tbl-wrap">
+      <table class="styled">
+        <tr><th colspan="1">Categoría</th><th>Subtipo / Causa</th></tr>
+        <tr class="cat-head"><td colspan="2">Exceso primario de GH</td></tr>
+        <tr><td rowspan="5">Adenomas hipofisiarios</td><td>Adenoma de células GH</td></tr>
+        <tr><td>Adenoma mixto de células GH y PRL</td></tr>
+        <tr><td>Adenoma de células mamosomatotrofas</td></tr>
+        <tr><td>Adenoma plurihormonal</td></tr>
+        <tr><td>Carcinoma de células GH</td></tr>
+        <tr class="subcat"><td colspan="2">Síndromes familiares</td></tr>
+        <tr><td></td><td>Neoplasia endocrina múltiple tipo 1 (adenoma de células GH)</td></tr>
+        <tr><td></td><td>Acromegalia familiar</td></tr>
+        <tr><td></td><td>Síndrome de McCune-Albright (raramente adenoma)</td></tr>
+        <tr><td></td><td>Síndrome de Carney</td></tr>
+        <tr class="cat-head"><td colspan="2">Exceso de GH (ectópico o iatrogénico)</td></tr>
+        <tr><td colspan="1">Causas</td><td>Tumor de islotes pancreáticos · Linfoma · Iatrogénico</td></tr>
+        <tr class="cat-head"><td colspan="2">Exceso de GHRH</td></tr>
+        <tr class="subcat"><td colspan="2">Ectópico central (&lt;1%)</td></tr>
+        <tr><td></td><td>Hamartoma hipotalámico, coristoma, ganglieoneuroma</td></tr>
+        <tr class="subcat"><td colspan="2">Ectópico periférico (1%)</td></tr>
+        <tr><td></td><td>Carcinoide bronquial, tumor de islotes pancreáticos, cáncer de pulmón de células pequeñas, adenoma suprarrenal, carcinoma medular de tiroides, feocromocitoma</td></tr>
+      </table>
+    </div>
+    <div class="note note-teal">
+      <strong>⭐⭐⭐ Clave:</strong> El <span class="hl-red">adenoma somatotropo</span> causa el <span class="hl-red">95% de los casos</span> de acromegalia.
+    </div>
+  </div>
+  <a class="back-top" href="#top">↑ Volver al inicio</a>
+</section>
+
+<!-- CURSO CLÍNICO -->
+<section id="acromegalia-curso">
+  <h2 class="section-title">14. Curso Clínico de Acromegalia</h2>
+  <div class="card">
+    <ul class="styled">
+      <li>Incidencia anual: <span class="hl-gold">6–8 personas / millón / año</span></li>
+      <li>Edad de diagnóstico: <span class="hl-gold star2">40–45 años</span></li>
+      <li>Inicio insidioso y de progresión lenta; puede diagnosticarse hasta <span class="hl-red star3">12 años después</span> del inicio</li>
+      <li><span class="hl-red star2">75%</span> son macroadenomas → síntomas compresivos</li>
+      <li>Anomalías cardiovasculares prominentes</li>
+      <li><span class="hl-red">Hiperinsulinismo</span> en el 10–15% de los casos</li>
+      <li>Mayor riesgo de cáncer de colon</li>
+    </ul>
+
+    <div class="img-box">
+      <div class="img-box-header">🖼 ARTROPATÍA ACROMEGÁLICA Y DETERMINANTES DE SUPERVIVENCIA</div>
+      <div class="img-box-content">
+        <strong>Radiografía de manos en artropatía acromegálica tardía:</strong> muestra penacho de las falanges terminales, ensanchamiento de los espacios articulares de las articulaciones metacarpofalángicas, cambios degenerativos en los pulgares y articulaciones.
+        <br><br>
+        <strong>Determinantes de supervivencia:</strong> Último nivel de GH conocido · Hipertensión · Enfermedad cardíaca · Diabetes mellitus · Duración de síntomas.
+        <br><br>
+        <strong>Causas de muerte en acromegalia:</strong> Cardiovascular 38–62% · Respiratoria 0–25% · Maligna 9–25%.
+      </div>
+    </div>
+  </div>
+  <a class="back-top" href="#top">↑ Volver al inicio</a>
+</section>
+
+<!-- DX ACROMEGALIA -->
+<section id="acromegalia-dx">
+  <h2 class="section-title">15. Evaluación Diagnóstica de Acromegalia</h2>
+  <div class="card">
+    <h3 class="subsection-title">Pruebas Bioquímicas</h3>
+    <ul class="styled">
+      <li><span class="hl-red star3">IGF-1 sérica</span> → <strong>Mejor prueba única</strong></li>
+      <li>Supresión de GH con <span class="hl-teal star2">carga oral de 75 g de glucosa anhidra</span></li>
+    </ul>
+
+    <div class="flow-wrap">
+      <div class="flow">
+        <div class="flow-box">75g glucosa oral</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-box">GH a los 30, 60, 90 y 120 min</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-box gold-box">Normal: GH &lt;1 ng/mL a las 2h</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-box red-box">Positivo: GH &gt;2 ng/mL (S 85%)</div>
+      </div>
+    </div>
+
+    <ul class="styled">
+      <li><span class="hl-teal">Imagenología:</span> Adenoma somatotropo causa el 95% de los casos</li>
+    </ul>
+
+    <div class="note note-red">
+      <strong>⚠ Falsos positivos del OGTT:</strong> Pacientes con enfermedad hepática, uremia o adicción a heroína pueden no suprimir la GH (resultado positivo falso).
+    </div>
+  </div>
+  <a class="back-top" href="#top">↑ Volver al inicio</a>
+</section>
+
+<!-- PROTOCOLO GLUCOSA -->
+<section id="acromegalia-protocolo">
+  <h2 class="section-title">16. Protocolo de Supresión de GH con Glucosa (BOX 53-1)</h2>
+  <div class="card">
+    <div class="img-box">
+      <div class="img-box-header">🖼 PROTOCOLO – BOX 53-1</div>
+      <div class="img-box-content">
+        <strong>Fundamento:</strong> Los sujetos normales muestran supresión de las concentraciones séricas de GH tras la administración oral de glucosa. Los sujetos con acromegalia no suprimen adecuadamente la GH.
+        <br><br>
+        <strong>Procedimiento:</strong> La prueba se realiza tras ayuno nocturno con el paciente en reposo. Se extrae muestra basal para GH y glucosa. Se administran 75 g de glucosa oral. Se miden glucosa y GH sérica en muestras a los 30, 60, 90 y 120 minutos.
+        <br><br>
+        <strong>Interpretación:</strong> En individuos normales, la GH sérica cae a menos de 1–2 µg/L (por debajo del límite inferior del ensayo). Los pacientes con acromegalia no muestran esta supresión y, a veces, muestran un aumento paradójico. Pacientes con hepatopatía, uremia o adicción a heroína pueden tener falsos positivos.
+      </div>
+    </div>
+    <div class="formula-box">
+      <span class="f-label">Interpretación del OGTT para GH</span><br>
+      <span class="f-arrow">Normal →</span> GH &lt; 1–2 µg/L a las 2 horas<br>
+      <span class="f-arrow">Acromegalia →</span> GH no suprime; a veces ↑ paradójica<br>
+      <span class="f-val">Sensibilidad: ~85%</span>
+    </div>
+  </div>
+  <a class="back-top" href="#top">↑ Volver al inicio</a>
+</section>
+
+<!-- IGF-1 VALORES -->
+<section id="igf1-valores">
+  <h2 class="section-title">17. Valores de Referencia de IGF-1 por Edad</h2>
+  <div class="card">
+    <div class="tbl-wrap">
+      <table class="styled">
+        <tr><th>Edad (años)</th><th>IGF-1 (ng/mL = µg/L)</th></tr>
+        <tr><td>16</td><td><span class="hl-gold">226 – 903</span></td></tr>
+        <tr><td>17</td><td>193 – 731</td></tr>
+        <tr><td>18</td><td>63 – 584</td></tr>
+        <tr><td>19</td><td>141 – 483</td></tr>
+        <tr><td>20</td><td>127 – 424</td></tr>
+        <tr><td>21 – 25</td><td>116 – 358</td></tr>
+        <tr><td>26 – 30</td><td>117 – 329</td></tr>
+        <tr><td>31 – 35</td><td>115 – 307</td></tr>
+        <tr><td>36 – 40</td><td>119 – 204</td></tr>
+        <tr><td>41 – 45</td><td>101 – 267</td></tr>
+        <tr><td>46 – 50</td><td>94 – 252</td></tr>
+        <tr><td>51 – 55</td><td>87 – 238</td></tr>
+        <tr><td>56 – 60</td><td>81 – 225</td></tr>
+        <tr><td>61 – 65</td><td>75 – 212</td></tr>
+        <tr><td>66 – 70</td><td>69 – 200</td></tr>
+        <tr><td>71 – 75</td><td>64 – 188</td></tr>
+        <tr><td>76 – 80</td><td>59 – 177</td></tr>
+        <tr><td>81 – 85</td><td>55 – 166</td></tr>
+      </table>
+    </div>
+    <div class="note note-teal">
+      <strong>💡 Concepto:</strong> Los valores de IGF-1 <span class="hl-red">disminuyen con la edad</span>. Deben compararse con el rango para el grupo etario del paciente.
+    </div>
+
+    <div class="img-box">
+      <div class="img-box-header">🖼 ALGORITMO DIAGNÓSTICO DE ACROMEGALIA (IGF-1)</div>
+      <div class="img-box-content">
+        El algoritmo inicia midiendo <strong>IGF-1</strong>:
+        <br><br>
+        <strong>① Normal →</strong> Descarta acromegalia activa.<br>
+        <strong>② Equívoco →</strong> Realizar OGTT con medición de GH.<br>
+        &nbsp;&nbsp;↓ GH suprimida → Descarta acromegalia.<br>
+        &nbsp;&nbsp;↓ Supresión inadecuada → IRM hipofisiaria.<br>
+        <strong>③ Elevado →</strong> Acromegalia confirmada si hay manifestaciones clínicas típicas → IRM hipofisiaria.<br>
+        &nbsp;&nbsp;↓ IRM Normal → TC tórax/abdomen + medición de GHRH → Acromegalia extrapituitaria.<br>
+        &nbsp;&nbsp;↓ IRM con masa o silla turca vacía → Adenoma hipofisiario secretor de GH.
+      </div>
+    </div>
+
+    <div class="flow-wrap">
+      <div class="flow">
+        <div class="flow-box">IGF-1 sérica</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-box gold-box">Equívoca: OGTT</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-box">GH no suprimida</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-box red-box">IRM hipofisiaria</div>
+      </div>
+    </div>
+  </div>
+  <a class="back-top" href="#top">↑ Volver al inicio</a>
+</section>
+
+<!-- OTRAS PRUEBAS -->
+<section id="acromegalia-otras">
+  <h2 class="section-title">18. Otras Pruebas en Acromegalia</h2>
+  <div class="card">
+    <ul class="styled">
+      <li>Si se sospecha acromegalia pero IGF-1 y OGTT son normales:</li>
+      <li><span class="hl-teal">TRH 500 mcg IV</span> → eleva GH 50% en pacientes con acromegalia; valores máximos a los 20–30 minutos. <em>(No disponible en EU)</em></li>
+      <li><span class="hl-teal">L-DOPA 500 mg VO</span> → reduce GH 50% en la mitad de los pacientes con acromegalia</li>
+      <li>Concentración sérica de <span class="hl-teal">IGFBP-3</span>: elevada en acromegalia</li>
+    </ul>
+  </div>
+  <a class="back-top" href="#top">↑ Volver al inicio</a>
+</section>
+
+<!-- FUENTE DE GH -->
+<section id="acromegalia-fuente">
+  <h2 class="section-title">19. Determinar la Fuente de GH</h2>
+  <div class="card">
+    <ul class="styled">
+      <li>Una vez confirmada la secreción excesiva de GH, se debe localizar la fuente</li>
+      <li><span class="hl-teal">IRM:</span> identifica el tumor hipofisiario en el <span class="hl-gold star2">69%</span> de los casos. No distingue entre tumores funcionales y no funcionales → requiere confirmación bioquímica</li>
+      <li><span class="hl-red star3">75%</span> son adenomas somatotropos</li>
+    </ul>
+  </div>
+  <a class="back-top" href="#top">↑ Volver al inicio</a>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     PROLACTINA
+═══════════════════════════════════════════════════════════════════ -->
+<section id="prolactina">
+  <h2 class="section-title">20. Prolactina – Generalidades</h2>
+  <div class="card">
+    <ul class="styled">
+      <li>Polipéptido producido en la <span class="hl-teal">hipófisis anterior</span></li>
+      <li>Función principal: <span class="hl-teal">mantenimiento de la lactancia</span></li>
+      <li><span class="hl-red star3">Dopamina → reduce sus niveles</span> (principal mecanismo inhibidor)</li>
+      <li>Secreción <span class="hl-teal">circadiana</span>: más alta durante el sueño, nadir a las 10 am</li>
+      <li>Flujo pulsátil sin variación durante el día</li>
+      <li>Vida media sérica: <span class="hl-gold">26–47 minutos</span></li>
+      <li>Muestreo seriado con intervalos de <span class="hl-gold">20–30 minutos</span></li>
+    </ul>
+    <div class="note note-yellow">
+      <strong>📚 Referencia:</strong> Sassin JF, Frantz AG, Weitzman ED, et al. Human prolactin: 24-hour pattern with increased release during sleep. <em>Science</em> 177:120–127, 1972.
+    </div>
+  </div>
+  <a class="back-top" href="#top">↑ Volver al inicio</a>
+</section>
+
+<!-- HIPERPRL CLÍNICA -->
+<section id="hiperprl-clinica">
+  <h2 class="section-title">21. Manifestación Clínica de Hiperprolactinemia</h2>
+  <div class="card">
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; flex-wrap: wrap;">
+      <div>
+        <h3 class="subsection-title">En Mujeres</h3>
+        <ul class="styled">
+          <li>Premenopáusicas → hipogonadismo → infertilidad, oligomenorrea o amenorrea, galactorrea</li>
+          <li>Disfunción del ciclo menstrual</li>
+          <li>Reducción de la densidad ósea</li>
+          <li>Galactorrea</li>
+          <li>Infertilidad</li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="subsection-title">En Hombres</h3>
+        <ul class="styled">
+          <li>Hipogonadismo hipogonadotrópico</li>
+          <li>Disfunción eréctil</li>
+          <li>Infertilidad</li>
+          <li>Galactorrea</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="tbl-wrap" style="margin-top:1.2rem;">
+      <h3 class="subsection-title">Correlación Nivel de Prolactina → Efecto Clínico (Mujeres)</h3>
+      <table class="styled">
+        <tr><th>Nivel de Prolactina</th><th>Efecto</th></tr>
+        <tr><td><span class="hl-gold">&gt;15–20 ng/mL</span></td><td>Anormal en mujeres en edad reproductiva</td></tr>
+        <tr><td><span class="hl-yellow">20–50 ng/mL</span></td><td>Secreción insuficiente de progesterona</td></tr>
+        <tr><td><span class="hl-red">50–100 ng/mL</span></td><td>Amenorrea u oligomenorrea</td></tr>
+        <tr><td><span class="hl-red star3">&gt;100 ng/mL</span></td><td>Hipogonadismo manifiesto</td></tr>
+      </table>
+    </div>
+  </div>
+  <a class="back-top" href="#top">↑ Volver al inicio</a>
+</section>
+
+<!-- CAUSAS HIPERPRL -->
+<section id="hiperprl-causas">
+  <h2 class="section-title">22. Causas de Hiperprolactinemia</h2>
+  <div class="card">
+    <div class="img-box">
+      <div class="img-box-header">🖼 BOX 24-3 – CAUSAS DE HIPERPROLACTINEMIA</div>
+      <div class="img-box-content">
+        <strong>Fisiológicas:</strong> Sueño, estrés, postprandial, dolor, coito, embarazo, estimulación del pezón, lactancia.<br><br>
+        <strong>Trastornos sistémicos:</strong> Lesiones de pared torácica o médula espinal, hipotiroidismo primario o secundario, insuficiencia suprarrenal, insuficiencia renal crónica, cirrosis.<br><br>
+        <strong>Medicamentos:</strong> Fármacos psiquiátricos (fenotiazinas, haloperidol, tioxantinas, buspirona, olanzapina, risperidona, domperidona, inhibidores de MAO, fluoxetina, amitriptilina), metoclopramida, antihipertensivos (labetalol, α-metildopa, reserpina, verapamilo), antihistamínicos H₂ (cimetidina, ranitidina), estrógenos, anticonceptivos, opiáceos.<br><br>
+        <strong>Tumorales:</strong> TRH, prolactinoma secretor de prolactina, acromegalia (compresión del tallo hipofisiario), macroadenoma.<br><br>
+        <strong>Macroprolactinemia</strong> (prolactina nativa + IgG).<br><br>
+        <strong>Otras:</strong> Presión sobre o sección del tallo hipofisiario interrumpiendo la transmisión de dopamina a los D₂ receptores en lactotrofos; cirugía, sección traumática, granulomas, metástasis, meningioma, irradiación, histiocitosis X; secreción ectópica de prolactina por tumores no hipofisiarios; idiopático; enfermedad de ovarios poliquísticos; crisis epilépticas.
+      </div>
+    </div>
+
+    <div class="tbl-wrap">
+      <h3 class="subsection-title">Frecuencia Relativa de Tumores Hipofisiarios</h3>
+      <table class="styled">
+        <tr><th>Tipo de Tumor</th><th>Frecuencia</th></tr>
+        <tr><td>Lactotropo (PRL)</td><td><span class="hl-gold star3">30%</span></td></tr>
+        <tr><td>Somatotropo (GH)</td><td>15%</td></tr>
+        <tr><td>GH/PRL combinado</td><td>8%</td></tr>
+        <tr><td>Corticotropo (ACTH)</td><td>15%</td></tr>
+        <tr><td>Tirotropo (TRH)</td><td>1%</td></tr>
+        <tr><td>Plurihormonal</td><td>4%</td></tr>
+        <tr><td>No funcionante</td><td><span class="hl-gold">27%</span></td></tr>
+      </table>
+    </div>
+  </div>
+  <a class="back-top" href="#top">↑ Volver al inicio</a>
+</section>
+
+<!-- NIVELES DE PRL -->
+<section id="hiperprl-prl-niveles">
+  <h2 class="section-title">23. Concentraciones de Prolactina según la Causa</h2>
+  <div class="card">
+    <div class="img-box">
+      <div class="img-box-header">🖼 GRÁFICA DE BARRAS – PROLACTINA SÉRICA POR ETIOLOGÍA</div>
+      <div class="img-box-content">
+        La gráfica de barras en escala logarítmica muestra los rangos de concentración de prolactina según la causa:
+        <ul style="margin-top:0.5rem; padding-left:1.5rem;">
+          <li><strong>Macroadenoma de lactotrofos:</strong> rango muy amplio, desde ~200 hasta &gt;10,000 ng/mL (la barra más alta)</li>
+          <li><strong>Microadenoma de lactotrofos:</strong> 30–200 ng/mL</li>
+          <li><strong>Otra enfermedad hipofisiaria e hipotalámica:</strong> 30–200 ng/mL</li>
+          <li><strong>Embarazo:</strong> 50–700 ng/mL</li>
+          <li><strong>Estrés:</strong> 20–40 ng/mL (la barra más baja)</li>
+          <li><strong>Fármacos:</strong> 20–200 ng/mL</li>
+        </ul>
+        <br>
+        <strong>Conclusión:</strong> La concentración sérica de prolactina es mucho más alta en la mayoría de los pacientes con macroadenoma de lactotrofos que en pacientes con cualquier otra causa. Las concentraciones entre otras causas se superponen entre sí.
+      </div>
+    </div>
+  </div>
+  <a class="back-top" href="#top">↑ Volver al inicio</a>
+</section>
+
+<!-- DX HIPERPRL -->
+<section id="hiperprl-dx">
+  <h2 class="section-title">24. Diagnóstico de Hiperprolactinemia</h2>
+  <div class="card">
+    <ul class="styled">
+      <li>Medición de la <span class="hl-red star3">concentración sérica de prolactina</span></li>
+    </ul>
+    <div class="formula-box">
+      <span class="f-label">Valores normales de Prolactina</span><br>
+      <span class="f-val">Mujeres en edad reproductiva:</span> Normal &lt; 20 ng/mL; anormal &gt; 20 ng/mL<br>
+      <span class="f-val">Hombres y postmenopáusicas:</span> anormal &gt; 30 ng/mL
+    </div>
+    <h3 class="subsection-title">Factores que Elevan la Prolactina (Considerar antes de tomar muestra)</h3>
+    <ul class="styled">
+      <li>Sueño</li>
+      <li>Ejercicio extenuante</li>
+      <li>Estrés emocional o físico</li>
+      <li>Estimulación de los senos</li>
+      <li>Comida rica en proteínas</li>
+    </ul>
+    <div class="note note-red">
+      <strong>⚠ Advertencia:</strong> Siempre verificar que la muestra se tomó en condiciones basales (fuera del sueño, en reposo, sin estimulación mamaria reciente) para evitar falsos positivos.
+    </div>
+  </div>
+  <a class="back-top" href="#top">↑ Volver al inicio</a>
+</section>
+
+<!-- ERRORES DX -->
+<section id="hiperprl-errores">
+  <h2 class="section-title">25. Errores en el Diagnóstico – Efecto de Gancho y Macroprolactina</h2>
+  <div class="card">
+    <div class="fp-fn-wrap">
+      <div class="fp-box">
+        <strong>⚠ EFECTO DE GANCHO (Hook Effect)</strong><br><br>
+        En macroadenomas con PRL muy alta (valores 20–200 ng/mL aparentes), el RIA y la quimioluminiscencia se saturan → resultado falsamente bajo.<br><br>
+        <strong>Corrección:</strong> Diluir la muestra 1:100 antes del ensayo.
+      </div>
+      <div class="fn-box">
+        <strong>🔵 MACROPROLACTINA</strong><br><br>
+        Prolactina nativa + IgG (150–170 kDa). Sin relevancia clínica pero causa diagnóstico erróneo de hiperprolactinemia.<br><br>
+        <strong>Corrección:</strong> Precipitación con PEG (polietilenglicol) → precipita la macroprolactina; se evalúa el sobrenadante por separado.
+      </div>
+    </div>
+    <div class="note note-yellow">
+      <strong>📚 Referencia:</strong> Melmed S, Casanueva FF, Hoffman AR, et al. Diagnosis and treatment of hyperprolactinemia: an Endocrine Society clinical practice guideline. <em>J Clin Endocrinol Metab</em> 2011; 96:273.
+    </div>
+  </div>
+  <a class="back-top" href="#top">↑ Volver al inicio</a>
+</section>
+
+<!-- EVALUACIÓN LAB PRL -->
+<section id="hiperprl-lab">
+  <h2 class="section-title">26. Evaluación por Laboratorio – Prolactina</h2>
+  <div class="card">
+    <div class="severity-grid">
+      <div class="sev-card sev-green">
+        <div class="sev-title">Normal</div>
+        <p>5 – 20 ng/mL</p>
+      </div>
+      <div class="sev-card sev-yellow">
+        <div class="sev-title">Leve ↑ (difícil dx)</div>
+        <p>20 – 100 ng/mL → Seguimiento estrecho + imagen</p>
+      </div>
+      <div class="sev-card sev-orange">
+        <div class="sev-title">Moderada ↑</div>
+        <p>&gt;250 ng/mL → Consistente con prolactinoma</p>
+      </div>
+      <div class="sev-card sev-red">
+        <div class="sev-title">Diagnóstico ⭐⭐⭐</div>
+        <p>&gt;500 ng/mL → Diagnóstico de macroprolactinoma</p>
+      </div>
+    </div>
+    <div class="note note-teal">
+      <strong>💡 Regla práctica:</strong> No suele ser necesario realizar pruebas funcionales adicionales. Los niveles &gt;500 ng/mL son <span class="hl-red">diagnósticos de macroprolactinoma</span>.
+    </div>
+  </div>
+  <a class="back-top" href="#top">↑ Volver al inicio</a>
+</section>
+
+<hr class="divider">
+
+<!-- ═══════════════════════════════════════════════════════════════
+     TIROIDES
+═══════════════════════════════════════════════════════════════════ -->
+<section id="tiroides">
+  <h2 class="section-title">27. Tiroides – Fisiología</h2>
+  <div class="card">
+    <div class="img-box">
+      <div class="img-box-header">🖼 REGULACIÓN DE LA PRODUCCIÓN DE HORMONAS TIROIDEAS Y SU TRANSPORTE</div>
+      <div class="img-box-content">
+        <strong>Eje de regulación (izquierda):</strong> El hipotálamo secreta TRH (+) → hipófisis anterior libera TSH (+) → tiroides produce T4 y T3. T4 se convierte en T3 en el hígado. T3/T4 ejercen retroalimentación negativa sobre hipotálamo e hipófisis. T4 y T3 conjugadas se excretan por intestino.
+        <br><br>
+        <strong>Transporte y metabolismo (derecha):</strong>
+        <ul style="padding-left:1.3rem; margin-top:0.4rem;">
+          <li>El folículo tiroideo libera T4 y T3 → en suero se unen a TBG (globulina fijadora de tiroxina), TTR (transtiretina) y Albúmina.</li>
+          <li>En tejidos, T4 → T3 (desyodación).</li>
+          <li>T3 actúa directamente; T4 también actúa pero es convertida en tejidos.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="img-box">
+      <div class="img-box-header">🖼 BIOSÍNTESIS DE HORMONAS TIROIDEAS</div>
+      <div class="img-box-content">
+        El diagrama muestra los pasos intracelulares en la célula folicular tiroidea:
+        <ol style="padding-left:1.3rem; margin-top:0.4rem;">
+          <li>Yoduro (I⁻) entra a la célula vía <strong>simportador Na⁺/I⁻</strong></li>
+          <li>I⁻ se transporta al coloide vía <strong>Pendrin</strong></li>
+          <li>I⁻ se oxida a I⁰ (oxidación) por TPO</li>
+          <li>I⁰ yoda residuos de tirosina en Tiroglobulina (Tg) → <strong>Yodación</strong></li>
+          <li>Conjugación de MIT y DIT → T3 y T4 unidas a Tg</li>
+          <li>Endocitosis del coloide</li>
+          <li>Proteólisis de Tg → libera T4</li>
+          <li>Liberación de T3 y T4 a la sangre</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+  <a class="back-top" href="#top">↑ Volver al inicio</a>
+</section>
+
+<!-- FUNCIÓN HORMONAS TIROIDEAS -->
+<section id="tiroide-funcion">
+  <h2 class="section-title">28. Funciones de las Hormonas Tiroideas</h2>
+  <div class="card">
+    <ul class="styled">
+      <li>Desarrollo óseo</li>
+      <li>Efecto sobre la <span class="hl-teal">frecuencia cardíaca</span></li>
+      <li>Regulación de la <span class="hl-teal">tasa metabólica</span></li>
+      <li>Oxidación de los ácidos grasos</li>
+      <li>Estimulación adrenérgica sobre la grasa subcutánea</li>
+      <li>Regulación de la captación de glucosa</li>
+      <li>Metabolismo oxidativo mitocondrial</li>
+    </ul>
+    <div class="note note-yellow">
+      <strong>📚 Referencia:</strong> Brent GA. Mechanisms of thyroid hormone action. <em>J Clin Invest</em> 2012; 122:3035.
+    </div>
+  </div>
+  <a class="back-top" href="#top">↑ Volver al inicio</a>
+</section>
+
+<!-- EVALUACIÓN TIROIDEA -->
+<section id="tiroides-eval">
+  <h2 class="section-title">29. Evaluación de la Función Tiroidea</h2>
+  <div class="card">
+    <ul class="styled">
+      <li><span class="hl-red star3">TSH</span> → Quimioluminiscencia 3ª generación (mejor prueba)</li>
+      <li>T4 y T3 total séricas → Quimioluminiscencia de unión por competencia</li>
+      <li>T4 y T3 libre séricas → Quimioluminiscencia de unión por competencia</li>
+    </ul>
+    <div class="note note-red">
+      <strong>⚠ Interferencia por BIOTINA:</strong> La biotina interfiere con los ensayos de quimioluminiscencia. El paciente debe suspender la biotina <span class="hl-red">al menos 2 días antes</span> (o más si la dosis es &gt;10 mg/día).
+      <br>Efectos de la biotina:
+      <ul style="padding-left:1.2rem; margin-top:0.4rem;">
+        <li>TSH falsamente <span class="hl-red">elevada ↑</span></li>
+        <li>T4 libre, T3 total y libre, TBII falsamente <span class="hl-red">bajas ↓</span></li>
+      </ul>
+    </div>
+    <div class="note note-yellow">
+      <strong>📚 Referencia:</strong> Spencer CA, LoPresti JS, Patel A, et al. Applications of a new chemiluminometric thyrotropin assay to subnormal measurement. <em>J Clin Endocrinol Metab</em> 1990; 70:453.
+    </div>
+  </div>
+  <a class="back-top" href="#top">↑ Volver al inicio</a>
+</section>
+
+<!-- TSH -->
+<section id="tsh">
+  <h2 class="section-title">30. TSH – Técnica y Valores de Referencia</h2>
+  <div class="card">
+    <ul class="styled">
+      <li><span class="hl-teal">Quimioluminiscencia 3ª generación:</span> detecta hasta <span class="hl-gold">0.01 mU/L</span></li>
+      <li><span class="hl-teal">Quimioluminiscencia 2ª generación:</span> detecta hasta <span class="hl-gold">0.1 mU/L</span></li>
+    </ul>
+    <div class="formula-box">
+      <span class="f-label">Valores de referencia de TSH (NANHES III, percentil 97.5)</span><br>
+      <span class="f-val">Rango general:</span>  0.3 – 4.5 ~ 5.0 mU/L<br>
+      <span class="f-val">Adultos 20–29 años:</span> hasta 3.59 mU/L<br>
+      <span class="f-val">Mayores de 80 años:</span> hasta 7.49 mU/L<br>
+      <span class="f-arrow">→ Los valores aumentan con la edad</span>
+    </div>
+    <div class="note note-teal">
+      <strong>⭐⭐⭐ Concepto fundamental:</strong> La <span class="hl-red">TSH sérica es el mejor evaluador de la función tiroidea</span> en la mayoría de los contextos clínicos.
+    </div>
+  </div>
+  <a class="back-top" href="#top">↑ Volver al inicio</a>
+</section>
+
+<!-- T4 T3 TOTAL -->
+<section id="t4t3total">
+  <h2 class="section-title">31. T4 y T3 Total</h2>
+  <div class="card">
+    <ul class="styled">
+      <li>Almacenamiento: <span class="hl-gold">99.97%</span> unidas a TBG, TBPA y Albúmina</li>
+    </ul>
+    <div class="formula-box">
+      <span class="f-label">Valores de referencia</span><br>
+      <span class="f-val">T4 total (unida + libre):</span>  4.6 – 11.2 µg/dL<br>
+      <span class="f-val">T3 total (unida + libre):</span>  75 – 195 ng/dL
+    </div>
+  </div>
+  <a class="back-top" href="#top">↑ Volver al inicio</a>
+</section>
+
+<!-- T4 T3 LIBRE -->
+<section id="t4t3libre">
+  <h2 class="section-title">32. T4 y T3 Libre Sérica</h2>
+  <div class="card">
+    <ul class="styled">
+      <li>T4 libre: <span class="hl-gold">0.03% del total</span> → fracción disponible para las células</li>
+      <li>Las anormalidades en las proteínas de unión de T4 → <span class="hl-red">resultados inexactos de T4 libre</span></li>
+      <li>T3 libre: más variable que la T3 total en los ensayos → las guías de la <span class="hl-teal">AAT</span> prefieren utilizar la <span class="hl-teal">T3 total</span></li>
+    </ul>
+    <div class="note note-teal">
+      <strong>💡 Concepto:</strong> Solo la hormona libre es biológicamente activa. Sin embargo, las condiciones que alteran las proteínas de transporte (embarazo, hepatopatía, medicamentos) pueden hacer que la T4 libre sea engañosa.
+    </div>
+  </div>
+  <a class="back-top" href="#top">↑ Volver al inicio</a>
+</section>
+
+<!-- UTILIDAD CLÍNICA -->
+<section id="utilidad">
+  <h2 class="section-title">33. Utilidad Clínica – Tabla Diagnóstica Integral</h2>
+  <div class="card">
+    <div class="tbl-wrap">
+      <table class="styled">
+        <tr><th>TSH sérica</th><th>T4 libre sérica</th><th>T3 sérica</th><th>Diagnóstico</th></tr>
+        <tr class="cat-head"><td colspan="4">Función hipotálamo-hipofisaria NORMAL</td></tr>
+        <tr><td>Normal</td><td>Normal</td><td>Normal</td><td>Eutiroideo</td></tr>
+        <tr><td>Normal</td><td>Normal o alta</td><td>Normal o alta</td><td>Hipetiroxinemia eutiroidea</td></tr>
+        <tr><td>Normal</td><td>Normal o baja</td><td>Normal o baja</td><td>Hipotiroxinemia eutiroidea</td></tr>
+        <tr><td>Normal</td><td>Baja</td><td>Normal o alta</td><td>Eutiroidea: terapia con T3</td></tr>
+        <tr><td>Normal</td><td>Baja-normal o baja</td><td>Normal o alta</td><td>Eutiroidea: terapia con extracto tiroideo</td></tr>
+        <tr><td><span class="hl-red">Alta</span></td><td><span class="hl-red">Baja</span></td><td>Normal o baja</td><td><span class="hl-red">Hipotiroidismo primario</span></td></tr>
+        <tr><td><span class="hl-red">Alta</span></td><td>Normal</td><td>Normal</td><td>Hipotiroidismo subclínico</td></tr>
+        <tr><td><span class="hl-teal">Baja</span></td><td>Alta o normal</td><td><span class="hl-teal">Alta</span></td><td><span class="hl-teal">Hipertiroidismo</span></td></tr>
+        <tr><td>Baja</td><td>Normal</td><td>Normal</td><td>Hipertiroidismo subclínico</td></tr>
+        <tr class="cat-head"><td colspan="4">Función hipotálamo-hipofisaria ANORMAL</td></tr>
+        <tr><td>Normal o alta</td><td>Alta</td><td>Alta</td><td>Hipertiroidismo mediado por TSH</td></tr>
+        <tr><td>Normal o baja*</td><td>Baja o baja-normal</td><td>Baja o normal</td><td>Hipotiroidismo central</td></tr>
+      </table>
+    </div>
+    <div class="note note-teal">
+      <strong>⭐⭐⭐ Frase clave:</strong> "TSH sérica: el mejor evaluador de la función tiroidea."
+    </div>
+  </div>
+  <a class="back-top" href="#top">↑ Volver al inicio</a>
+</section>
+
+<!-- HIPOHIPER -->
+<section id="hipohiper">
+  <h2 class="section-title">34. Hipotiroidismo vs Hipertiroidismo – Cuadro Clínico</h2>
+  <div class="card">
+    <div class="img-box">
+      <div class="img-box-header">🖼 IMAGEN EDUCATIVA – HIPOTIROIDISMO VS HIPERTIROIDISMO</div>
+      <div class="img-box-content">
+        Ilustración que compara los síntomas de ambas condiciones:
+        <br>
+        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:1rem; margin-top:0.8rem;">
+          <div>
+            <strong>HIPOTIROIDISMO:</strong>
+            <ul style="padding-left:1rem; margin-top:0.3rem; font-size:0.92rem;">
+              <li>Letargia / Fatiga</li>
+              <li>Debilidad / Dolores / Parestesias</li>
+              <li>Intolerancia al frío</li>
+              <li>Aumento de peso</li>
+              <li>Piel seca / Pérdida de vello</li>
+              <li>Bradicardia</li>
+              <li>Edema</li>
+              <li>Olvidos</li>
+              <li>Cardiomegalia / IC</li>
+              <li>Posible bocio</li>
+              <li>Constipación</li>
+              <li>Alteraciones menstruales</li>
+            </ul>
+          </div>
+          <div>
+            <strong>HIPERTIROIDISMO:</strong>
+            <ul style="padding-left:1rem; margin-top:0.3rem; font-size:0.92rem;">
+              <li>Cambios de humor</li>
+              <li>Nerviosismo / Temblores</li>
+              <li>Intolerancia al calor</li>
+              <li>Pérdida de peso</li>
+              <li>Piel y cabello suaves</li>
+              <li>Taquicardia / FA</li>
+              <li>Diarrea</li>
+              <li>Exoftalmos</li>
+              <li>Diaforesis</li>
+              <li>Hipertensión</li>
+              <li>Bocio / Tiroides agrandada</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <a class="back-top" href="#top">↑ Volver al inicio</a>
+</section>
+
+<!-- RECOMENDACIÓN AMBULATORIO -->
+<section id="recomendacion-amb">
+  <h2 class="section-title">35. Recomendación – Paciente Ambulatorio con Sospecha de Disfunción Tiroidea</h2>
+  <div class="card">
+    <div class="flow-wrap">
+      <div class="flow">
+        <div class="flow-box">TSH sérica</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-box gold-box">Normal</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-box">No más pruebas</div>
+      </div>
+      <div class="flow" style="margin-top:0.8rem;">
+        <div class="flow-box">TSH</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-box red-box">ELEVADA</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-box">T4 libre (grado de hipotiroidismo)</div>
+      </div>
+      <div class="flow" style="margin-top:0.8rem;">
+        <div class="flow-box">TSH</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-box teal-box" style="border-color:var(--teal);">DISMINUIDA</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-box">T4 libre + T3 total (grado de hipertiroidismo)</div>
+      </div>
+    </div>
+
+    <h3 class="subsection-title">Situaciones Especiales</h3>
+    <ul class="styled">
+      <li><span class="hl-red">Enfermedad hipofisiaria o hipotalámica:</span> Solicitar TSH + T4 libre (la TSH puede ser inapropiadamente normal o baja)</li>
+      <li><span class="hl-teal">TSH normal + síntomas de hiper o hipotiroidismo:</span> Solicitar T4 libre</li>
+    </ul>
+    <div class="note note-yellow">
+      <strong>📚 Referencia:</strong> Baloch Z, Carayon P, et al. Laboratory support for the diagnosis and monitoring of thyroid disease. <em>Thyroid</em> 2003; 13:3.
+    </div>
+  </div>
+  <a class="back-top" href="#top">↑ Volver al inicio</a>
+</section>
+
+<!-- RECOMENDACIÓN HOSPITALIZADO -->
+<section id="recomendacion-hosp">
+  <h2 class="section-title">36. Recomendación – Paciente Hospitalizado</h2>
+  <div class="card">
+    <p>Evaluar la función tiroidea <span class="hl-red star2">solo ante la alta sospecha</span> de enfermedad tiroidea. Situaciones que justifican la evaluación:</p>
+    <ul class="styled">
+      <li>Disminución de las concentraciones de proteínas de unión</li>
+      <li>Alta concentración de ácidos grasos que desplazan las hormonas tiroideas de las proteínas de unión</li>
+      <li>Hipotiroidismo central adquirido</li>
+      <li>Uso de fármacos que afectan la función tiroidea</li>
+    </ul>
+    <div class="note note-red">
+      <strong>⚠ Advertencia:</strong> Los pacientes gravemente enfermos (UCI) presentan alteraciones en las pruebas tiroideas incluso sin enfermedad tiroidea (síndrome del eutiroideo enfermo). Interpretar con cautela.
+    </div>
+  </div>
+  <a class="back-top" href="#top">↑ Volver al inicio</a>
+</section>
+
+<!-- FÁRMACOS -->
+<section id="farmacos">
+  <h2 class="section-title">37. Fármacos que Afectan la Función Tiroidea</h2>
+  <div class="card">
+    <div class="tbl-wrap">
+      <table class="styled">
+        <tr><th>Mecanismo</th><th>Fármaco(s)</th></tr>
+        <tr class="cat-head"><td colspan="2">Causantes de HIPOTIROIDISMO</td></tr>
+        <tr><td>Inhibición de síntesis o liberación de H. tiroideas</td><td>Litio, talidomida, amiodarona, guaifenesina, agentes radiográficos</td></tr>
+        <tr><td>Disminución de la absorción de T4</td><td>Sucralfato, Omeprazol, Lansoprazol</td></tr>
+        <tr><td>Desregulación inmune</td><td>Interferón alfa</td></tr>
+        <tr><td>Supresión de TSH</td><td>Dopamina</td></tr>
+        <tr class="cat-head"><td colspan="2">Causantes de HIPERTIROIDISMO</td></tr>
+        <tr><td>Estimulación de síntesis o liberación de H. tiroideas</td><td><span class="hl-red">Yodo, amiodarona</span></td></tr>
+        <tr><td>Desregulación inmune</td><td>Interferón alfa</td></tr>
+        <tr class="cat-head"><td colspan="2">Anormalidad en pruebas SIN disfunción real</td></tr>
+        <tr><td>↓ TBG</td><td>Andrógenos, danazol, glucocorticoides, L-asparaginasa</td></tr>
+        <tr><td>↑ TBG</td><td>Estrógenos, tamoxifeno, raloxifeno, metadona, heroína</td></tr>
+        <tr><td>↓ T4 unida a TBG</td><td>Salicilatos, furosemida, heparina, AINES</td></tr>
+        <tr><td>↑ T4 unida a TBG</td><td>Fenitoína, carbamazepina, rifampicina, fenobarbital</td></tr>
+        <tr><td>Supresión de TSH</td><td>Dobutamina, glucocorticoides</td></tr>
+        <tr><td>Alteración conversión T4 → T3</td><td><span class="hl-red">Amiodarona</span>, glucocorticoides, agentes de contraste orales, propranolol</td></tr>
+      </table>
+    </div>
+    <div class="note note-red">
+      <strong>⭐⭐⭐ Amiodarona:</strong> Puede causar <span class="hl-red">tanto hipotiroidismo como hipertiroidismo</span>, y además altera la conversión T4→T3. Monitorear función tiroidea regularmente en pacientes con amiodarona.
+    </div>
+  </div>
+  <a class="back-top" href="#top">↑ Volver al inicio</a>
+</section>
+
+<!-- HIPOTIROIDISMO PRIMARIO MONITOREO -->
+<section id="hipotir-primario">
+  <h2 class="section-title">38. Hipotiroidismo Primario – Monitoreo</h2>
+  <div class="card">
+    <ul class="styled">
+      <li>Evaluación principal con <span class="hl-red star3">TSH</span></li>
+      <li>Hasta <span class="hl-red">40% por encima</span> de la dosis óptima puede conseguir un resultado subnormal de TSH con T4 libre dentro de los rangos normales</li>
+      <li>La T4 libre es útil en casos de TSH alta o baja</li>
+    </ul>
+    <div class="note note-teal">
+      <strong>💡 Concepto:</strong> En el hipotiroidismo primario, el objetivo del tratamiento con levotiroxina es normalizar la TSH. Una T4 libre en rango normal con TSH baja indica sobredosis.
+    </div>
+  </div>
+  <a class="back-top" href="#top">↑ Volver al inicio</a>
+</section>
+
+<!-- HIPOTIROIDISMO SECUNDARIO -->
+<section id="hipotir-secundario">
+  <h2 class="section-title">39. Hipotiroidismo Secundario (Central)</h2>
+  <div class="card">
+    <ul class="styled">
+      <li>Monitorear con <span class="hl-red star2">T4 libre</span> (no TSH, ya que la TSH puede ser inapropiadamente normal o baja)</li>
+      <li>Ajuste de dosis de tiroides hasta conseguir:</li>
+    </ul>
+    <div class="formula-box">
+      <span class="f-label">Objetivo terapéutico en hipotiroidismo central</span><br>
+      <span class="f-val">T4 libre:</span> en el <span class="f-val">50% superior</span> del rango normal<br>
+      <span class="f-arrow">Rango normal T4 libre:</span> 0.7 – 1.8 ng/dL<br>
+      <span class="f-arrow">Objetivo:</span> T4 libre ~1.2 – 1.8 ng/dL
+    </div>
+  </div>
+  <a class="back-top" href="#top">↑ Volver al inicio</a>
+</section>
+
+<!-- MONITOREO HIPERTIROIDISMO -->
+<section id="hipertir-monitor">
+  <h2 class="section-title">40. Monitoreo del Tratamiento del Hipertiroidismo</h2>
+  <div class="card">
+    <ul class="styled">
+      <li>Modalidades de tratamiento: antitiroideos, radio yodo o cirugía</li>
+      <li>Evaluación periódica de <span class="hl-teal">T4 libre y T3 total</span></li>
+      <li>Generalmente la T4 libre normaliza, pero <span class="hl-red">T3 total puede persistir elevada</span></li>
+      <li>En paciente estable: solo TSH</li>
+    </ul>
+  </div>
+  <a class="back-top" href="#top">↑ Volver al inicio</a>
+</section>
+
+<!-- CA TIROIDES -->
+<section id="ca-tiroides">
+  <h2 class="section-title">41. Cáncer de Tiroides y Nódulos Tiroideos</h2>
+  <div class="card">
+    <h3 class="subsection-title">Cáncer de Tiroides</h3>
+    <ul class="styled">
+      <li>Ingesta de levotiroxina para <span class="hl-red star2">suprimir la TSH</span></li>
+      <li>Objetivo: prevención de cáncer tiroideo recurrente (la TSH estimula el crecimiento tumoral)</li>
+    </ul>
+    <h3 class="subsection-title">Nódulos Tiroideos y Bocio</h3>
+    <ul class="styled">
+      <li>Supresión de TSH con levotiroxina</li>
+      <li>Objetivo: evitar el crecimiento del bocio</li>
+    </ul>
+  </div>
+  <a class="back-top" href="#top">↑ Volver al inicio</a>
+</section>
+
+<!-- EUTIROIDEO ENFERMO -->
+<section id="eutiroideo">
+  <h2 class="section-title">42. Síndrome del Eutiroideo Enfermo</h2>
+  <div class="card">
+    <ul class="styled">
+      <li>La evaluación de la función tiroidea es complicada en pacientes de la UCI sin enfermedad tiroidea</li>
+      <li>Pueden presentar: <span class="hl-red">T3 y T4 bajas, incluso TSH baja</span></li>
+      <li>Evidencia de hipotiroidismo central transitorio</li>
+      <li><span class="hl-teal star2">T3 baja y T3 reversa elevada</span> → mecanismo adaptativo que <span class="hl-teal">previene el catabolismo tisular excesivo</span> durante la enfermedad grave</li>
+    </ul>
+    <div class="note note-teal">
+      <strong>💡 Mecanismo:</strong> En la enfermedad grave, hay inhibición de las desyodasas → menos conversión de T4 a T3 activa → más conversión a T3 reversa (rT3, biológicamente inactiva). Esto es una respuesta adaptativa, no hipotiroidismo.
+    </div>
+    <div class="note note-yellow">
+      <strong>📚 Referencia:</strong> Chopra IJ. Clinical review 86: Euthyroid sick syndrome: is it a misnomer? <em>J Clin Endocrinol Metab</em> 1997; 82:329.
+    </div>
+  </div>
+  <a class="back-top" href="#top">↑ Volver al inicio</a>
+</section>
+
+<!-- PRINCIPIOS GENERALES UCI -->
+<section id="principios">
+  <h2 class="section-title">43. Principios Generales en Paciente Crítico (UCI)</h2>
+  <div class="card">
+    <ul class="styled">
+      <li><span class="hl-red star2">No evaluar</span> función tiroidea en gravemente enfermos, salvo sospecha de disfunción tiroidea</li>
+      <li>Utilizar ensayos con límite de detección de <span class="hl-gold">0.01 mU/L</span></li>
+      <li>En sospecha de disfunción tiroidea en paciente crítico: la TSH sola es inadecuada → <span class="hl-red">requiere T4 y T3</span></li>
+    </ul>
+  </div>
+  <a class="back-top" href="#top">↑ Volver al inicio</a>
+</section>
+
+<!-- T3 CAMBIOS -->
+<section id="t3-cambios">
+  <h2 class="section-title">44. Cambios en T3 y T3 Reversa en el Eutiroideo Enfermo</h2>
+  <div class="card">
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.2rem; flex-wrap:wrap;">
+      <div>
+        <h3 class="subsection-title">Causas de T3 BAJA</h3>
+        <ul class="styled">
+          <li>Altas concentraciones de <span class="hl-red">cortisol sérico endógeno</span></li>
+          <li>Tratamiento con <span class="hl-red">glucocorticoides exógenos</span></li>
+          <li>Inhibidores circulantes de la actividad desyodasa</li>
+          <li>Citocinas</li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="subsection-title">Causas de T3 REVERSA ↑</h3>
+        <ul class="styled">
+          <li><span class="hl-red">Hipoxia o isquemia</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <a class="back-top" href="#top">↑ Volver al inicio</a>
+</section>
+
+<!-- HIPOTIROIDISMO CENTRAL TRANSITORIO -->
+<section id="hipotir-central">
+  <h2 class="section-title">45. Hipotiroidismo Central Transitorio Adquirido</h2>
+  <div class="card">
+    <ul class="styled">
+      <li>Disminución de T4 sérica</li>
+      <li>Incremento de la TSH por encima de los valores de referencia antes de la normalización de T4</li>
+      <li>Incremento nocturno de TSH con buena respuesta a TRH</li>
+    </ul>
+    <div class="img-box">
+      <div class="img-box-header">🖼 GRÁFICA – PRUEBAS TIROIDEAS EN ENFERMEDAD NO TIROIDEA</div>
+      <div class="img-box-content">
+        El diagrama muestra la evolución de las hormonas tiroideas según la gravedad de la enfermedad (eje X: Enfermo → Más enfermo → Muy enfermo):
+        <ul style="padding-left:1.3rem; margin-top:0.5rem;">
+          <li><strong>rT3 (T3 reversa)</strong> (línea roja punteada): aumenta progresivamente conforme empeora la enfermedad, superando el rango normal desde etapas tempranas y permaneciendo elevada.</li>
+          <li><strong>T4 libre</strong> (línea azul): inicialmente puede estar normal o ligeramente elevada, luego desciende progresivamente hasta niveles muy bajos en los más enfermos.</li>
+          <li><strong>TSH</strong> (línea punteada negra): puede ascender transitoriamente al inicio, luego disminuye conforme se agrava la enfermedad.</li>
+          <li><strong>T3</strong> (línea sólida negra): cae desde el inicio, siendo el marcador más precoz de la enfermedad no tiroidea.</li>
+        </ul>
+        <br>
+        <strong>Conclusión:</strong> En la enfermedad grave, T3 cae primero, luego T4, luego TSH. La rT3 sube. Este patrón es adaptativo y no debe tratarse como hipotiroidismo.
+      </div>
+    </div>
+  </div>
+  <a class="back-top" href="#top">↑ Volver al inicio</a>
+</section>
+
+<!-- EVALUACIÓN UCI -->
+<section id="evaluacion-uci">
+  <h2 class="section-title">46. Evaluación del Eutiroideo Enfermo</h2>
+  <div class="card">
+    <ul class="styled">
+      <li>Objetivo: diferenciar enfermedad tiroidea de trastorno tiroideo subyacente primario</li>
+      <li>Medir: <span class="hl-red star2">TSH, T4 libre y total, T3 total</span></li>
+      <li>TSH → generalmente subnormal (<span class="hl-gold">0.05 mU/L a 0.3 mU/L</span>)</li>
+      <li><span class="hl-red star2">75%</span> de los pacientes con TSH &lt;0.01 mU/L → tirotoxicosis real</li>
+      <li>T4 libre: normal o baja</li>
+      <li>Reevaluación después de recuperación de la enfermedad aguda</li>
+    </ul>
+    <div class="note note-teal">
+      <strong>💡 rT3 (T3 reversa):</strong> Útil para distinguir enfermedad no tiroidea de hipotiroidismo central; sin embargo puede estar normal o elevada en hipotiroidismo leve → utilidad limitada.
+    </div>
+    <h3 class="subsection-title">Hipertiroidismo en paciente enfermo</h3>
+    <ul class="styled">
+      <li>TSH &lt;0.05 mU/L con T4 libre normal o alta → medir T3 total (y en ocasiones T4 total)</li>
+      <li>Distinguir entre hipertiroidismo real y enfermedad no tiroidea</li>
+    </ul>
+  </div>
+  <a class="back-top" href="#top">↑ Volver al inicio</a>
+</section>
+
+<!-- ABORDAJE TSH ELEVADA -->
+<section id="abordaje-tsh">
+  <h2 class="section-title">47. Abordaje según TSH Elevada en Paciente Hospitalizado</h2>
+  <div class="card">
+    <div class="flow-wrap">
+      <div class="flow">
+        <div class="flow-box red-box">TSH elevada</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-box gold-box">TSH entre LSN y &lt;10 mU/L</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-box">Repetir TSH en 1–2 semanas</div>
+      </div>
+      <div class="flow" style="margin-top:0.8rem;">
+        <div class="flow-box red-box">TSH ≥20 mU/L</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-box">Evaluar T4 libre</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-box red-box">T4 libre baja → Terapia de reemplazo</div>
+      </div>
+      <div class="flow" style="margin-top:0.8rem;">
+        <div class="flow-box red-box">TSH ≥20 mU/L</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-box">T4 libre normal</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-box">Repetir TSH y T4 libre en 1–2 semanas</div>
+      </div>
+    </div>
+  </div>
+  <a class="back-top" href="#top">↑ Volver al inicio</a>
+</section>
+
+<hr class="divider">
+
+<!-- ═══════════════════════════════════════════════════════════════
+     ANTICUERPOS
+═══════════════════════════════════════════════════════════════════ -->
+<section id="anticuerpos">
+  <h2 class="section-title">48. Anticuerpos Antitiroideos – Generalidades</h2>
+  <div class="card">
+    <div class="flow-wrap">
+      <div class="flow">
+        <div class="flow-box">Tiroglobulina (Ag. Coloide)</div>
+        <span class="flow-arrow">+</span>
+        <div class="flow-box">Peroxidasa tiroidea (TPO)</div>
+        <span class="flow-arrow">+</span>
+        <div class="flow-box">Receptor de TSH (TRAbs)</div>
+      </div>
+    </div>
+    <div class="note note-teal">
+      <strong>💡 Concepto:</strong> Los tres anticuerpos son marcadores de enfermedades tiroideas autoinmunes, principalmente enfermedad de Graves y tiroiditis de Hashimoto.
+    </div>
+    <div class="note note-yellow">
+      <strong>📚 Referencia:</strong> Lytton SD, Kahaly GJ. Bioassays for TSH-receptor autoantibodies: an update. <em>Autoimmun Rev</em> 2010; 10:116.
+    </div>
+  </div>
+  <a class="back-top" href="#top">↑ Volver al inicio</a>
+</section>
+
+<!-- ANTI TG -->
+<section id="anti-tg">
+  <h2 class="section-title">49. Anticuerpos Anti-Tiroglobulina (TG)</h2>
+  <div class="card">
+    <ul class="styled">
+      <li>Presentes en <span class="hl-teal">tiroiditis de Hashimoto</span> y <span class="hl-teal">enfermedad de Graves</span></li>
+      <li><span class="hl-red">No necesarios</span> para diagnosticar enfermedad tiroidea autoinmune de rutina</li>
+      <li><span class="hl-red star2">Interfieren con la medición de tiroglobulina</span> → el monitoreo de tiroglobulina es útil en cáncer tiroideo diferenciado (enfermedad residual, recurrente o metastásica)</li>
+    </ul>
+    <div class="note note-red">
+      <strong>⚠ Importante:</strong> Si hay anticuerpos anti-Tg presentes, la medición de tiroglobulina sérica puede ser falsamente baja. Esto puede dar falsa seguridad en el seguimiento del cáncer tiroideo. Siempre medir anti-Tg junto con tiroglobulina en el seguimiento de cáncer tiroideo.
+    </div>
+  </div>
+  <a class="back-top" href="#top">↑ Volver al inicio</a>
+</section>
+
+<!-- ANTI TPO -->
+<section id="anti-tpo">
+  <h2 class="section-title">50. Peroxidasa Tiroidea (TPO) – "Antígeno Microsomal"</h2>
+  <div class="card">
+    <ul class="styled">
+      <li>La TPO iodiniza residuos de tirosina de la tiroglobulina → forma <span class="hl-teal">Monoyodotirosina (MIT)</span> y <span class="hl-teal">Diyodotirosina (DIT)</span></li>
+      <li>En <span class="hl-red star2">tiroiditis de Hashimoto</span> → anticuerpos anti-TPO elevados</li>
+    </ul>
+    <div class="note note-teal">
+      <strong>💡 Concepto:</strong> Los anticuerpos anti-TPO son el marcador más sensible de la autoinmunidad tiroidea. Su presencia en un paciente eutiroideo con TSH en el límite superior indica mayor riesgo de desarrollar hipotiroidismo.
+    </div>
+  </div>
+  <a class="back-top" href="#top">↑ Volver al inicio</a>
+</section>
+
+<!-- TRABs -->
+<section id="trabs">
+  <h2 class="section-title">51. Receptor de TSH – TRAbs</h2>
+  <div class="card">
+    <div class="tbl-wrap">
+      <table class="styled">
+        <tr><th>Tipo de TRAb</th><th>Efecto</th><th>Enfermedad</th></tr>
+        <tr><td><span class="hl-teal star3">Estimulantes (TSI)</span><br>3ª generación: S 97%, E 99%</td><td>Estimulan la tiroides → hipertiroidismo</td><td><span class="hl-red">Enfermedad de Graves</span></td></tr>
+        <tr><td>Bloqueadores (solo disponibles en Europa)</td><td>Bloquean el receptor de TSH → hipotiroidismo</td><td>Hipotiroidismo autoinmune</td></tr>
+        <tr><td>Neutrales (TBII – Inmunoglobulinas inhibidoras por unión al receptor de TSH)</td><td>Se unen al receptor sin estimular ni bloquear</td><td>Variable</td></tr>
+      </table>
+    </div>
+
+    <h3 class="subsection-title">Utilidad Clínica de los TRAbs</h3>
+    <ul class="styled">
+      <li>En hipertiroidismo cuando no se puede realizar <span class="hl-teal">prueba de captación de radio yodo</span></li>
+      <li>Evaluación de <span class="hl-teal star2">remisión a los 12–18 meses</span> del uso de fármacos antitiroideos en la enfermedad de Graves</li>
+    </ul>
+
+    <div class="note note-red">
+      <strong>⭐⭐⭐ Clave diagnóstica:</strong> TRAbs estimulantes (TSI) positivos en paciente con hipertiroidismo = <span class="hl-red">diagnóstico de enfermedad de Graves</span> con alta precisión (S 97%, E 99% en ensayos de 3ª generación).
+    </div>
+    <div class="note note-teal">
+      <strong>💡 Concepto mixto:</strong> Algunos adenomas pituitarios secretan tanto GH como PRL (adenoma mixto). En estos casos puede haber acromegalia + hiperprolactinemia simultáneas.
+    </div>
+  </div>
+  <a class="back-top" href="#top">↑ Volver al inicio</a>
+</section>
+
+<hr class="divider">
+
+<div style="text-align:center; color:var(--brown-light); font-style:italic; font-size:0.9rem; margin-top:2rem;">
+  Notas elaboradas a partir de la presentación de Medicina: <em>Evaluación de la Función Endócrina, Enfermedad Tiroidea, Prolactinoma y Acromegalia</em>.<br>
+  Fuentes principales: Melmed S. <em>N Engl J Med</em> 2019; Baloch Z. <em>Thyroid</em> 2003; Melmed S. <em>J Clin Endocrinol Metab</em> 2011; Lytton SD. <em>Autoimmun Rev</em> 2010.
+</div>
+
+</div><!-- /container -->
+</body>
+</html>

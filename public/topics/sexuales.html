@@ -1,0 +1,1242 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hormonas Sexuales: Embarazo, Amenorrea e Infertilidad</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #fdf6ec;
+    --cream-dark: #f5e9d6;
+    --cream-border: #e8d5b7;
+    --text-main: #2c1f0e;
+    --text-secondary: #5a4030;
+    --gold: #c8941a;
+    --gold-light: #f5d87a;
+    --gold-bg: #fffae0;
+    --red: #c0392b;
+    --red-light: #fdecea;
+    --teal: #1a7a6e;
+    --teal-light: #e0f5f2;
+    --blue: #1a4a7a;
+    --blue-light: #e0eaf5;
+    --dark-card: #1e1208;
+    --orange: #d4611a;
+    --green: #2e7d32;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background-color: var(--cream);
+    color: var(--text-main);
+    font-family: 'Lora', Georgia, serif;
+    font-size: 15px;
+    line-height: 1.8;
+  }
+
+  /* ─── HERO HEADER ─── */
+  .hero {
+    background: linear-gradient(135deg, #2c1f0e 0%, #5a3010 50%, #8b4513 100%);
+    color: #fdf6ec;
+    padding: 3rem 2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c8941a' fill-opacity='0.08'%3E%3Ccircle cx='30' cy='30' r='20'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    opacity: 0.5;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    font-weight: 900;
+    letter-spacing: 1px;
+    position: relative;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+  }
+  .hero p {
+    font-family: 'Lora', serif;
+    font-style: italic;
+    color: var(--gold-light);
+    margin-top: 0.5rem;
+    font-size: 1rem;
+    position: relative;
+  }
+  .hero-badge {
+    display: inline-block;
+    background: rgba(200,148,26,0.25);
+    border: 1px solid var(--gold-light);
+    color: var(--gold-light);
+    padding: 0.3rem 1.2rem;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    position: relative;
+  }
+
+  /* ─── LAYOUT ─── */
+  .container { max-width: 960px; margin: 0 auto; padding: 2rem 1.5rem; }
+
+  /* ─── TABLE OF CONTENTS ─── */
+  .toc {
+    background: var(--cream-dark);
+    border: 2px solid var(--cream-border);
+    border-radius: 12px;
+    padding: 1.5rem 2rem;
+    margin-bottom: 2.5rem;
+  }
+  .toc h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    color: var(--red);
+    margin-bottom: 1rem;
+    border-bottom: 2px solid var(--gold);
+    padding-bottom: 0.5rem;
+  }
+  .toc-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 0.4rem 1.5rem; }
+  .toc a {
+    color: var(--teal);
+    text-decoration: none;
+    font-size: 0.88rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.25rem 0.4rem;
+    border-radius: 4px;
+    transition: background 0.15s;
+  }
+  .toc a:hover { background: var(--teal-light); }
+  .toc-num { color: var(--gold); font-weight: 700; font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; }
+
+  /* ─── SECTION TITLES ─── */
+  .section { margin-bottom: 3rem; }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--text-main);
+    border-left: 5px solid var(--gold);
+    padding-left: 1rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.3;
+  }
+  .slide-subtitle {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--red);
+    margin: 1.5rem 0 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-style: italic;
+  }
+
+  /* ─── CONTENT CARD ─── */
+  .card {
+    background: white;
+    border: 1px solid var(--cream-border);
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-bottom: 1.2rem;
+    box-shadow: 0 2px 8px rgba(44,31,14,0.06);
+  }
+
+  /* ─── HIGHLIGHT STYLES ─── */
+  .hl-red { text-decoration: underline; text-decoration-color: var(--red); text-decoration-thickness: 2px; color: var(--red); font-weight: 600; }
+  .hl-teal { text-decoration: underline; text-decoration-color: var(--teal); text-decoration-thickness: 2px; color: var(--teal); font-weight: 600; }
+  .hl-gold { text-decoration: underline; text-decoration-color: var(--gold); text-decoration-thickness: 2px; color: #8b6000; font-weight: 600; }
+
+  /* ─── STAR IMPORTANCE ─── */
+  .stars { color: var(--gold); margin-left: 0.3rem; font-size: 0.85em; }
+
+  /* ─── BULLET LISTS ─── */
+  ul.study-list { padding-left: 1.4rem; margin: 0.5rem 0; }
+  ul.study-list li { margin-bottom: 0.4rem; }
+  ul.study-list li::marker { color: var(--gold); font-size: 1.1em; }
+
+  /* ─── NOTE BOXES ─── */
+  .note { border-radius: 8px; padding: 1rem 1.2rem; margin: 1rem 0; border-left: 4px solid; }
+  .note-yellow { background: var(--gold-bg); border-color: var(--gold); }
+  .note-red { background: var(--red-light); border-color: var(--red); }
+  .note-teal { background: var(--teal-light); border-color: var(--teal); }
+  .note-label { font-weight: 700; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.4rem; display: block; }
+  .note-yellow .note-label { color: #8b6000; }
+  .note-red .note-label { color: var(--red); }
+  .note-teal .note-label { color: var(--teal); }
+
+  /* ─── FORMULA BOX ─── */
+  .formula {
+    background: var(--dark-card);
+    color: #f5d87a;
+    font-family: 'JetBrains Mono', monospace;
+    padding: 0.9rem 1.3rem;
+    border-radius: 8px;
+    margin: 0.8rem 0;
+    font-size: 0.92rem;
+    line-height: 1.6;
+    border: 1px solid #5a3010;
+  }
+
+  /* ─── IMAGE BOX ─── */
+  .img-box {
+    border: 3px solid var(--red);
+    border-radius: 10px;
+    padding: 1.2rem;
+    margin: 1.2rem 0;
+    background: #fff8f8;
+  }
+  .img-box-header {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    color: var(--red);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .img-interpretation {
+    background: #fff3e0;
+    border-left: 3px solid var(--orange);
+    padding: 0.8rem 1rem;
+    border-radius: 0 6px 6px 0;
+    margin-top: 0.8rem;
+    font-style: italic;
+    font-size: 0.9rem;
+    color: #5a3010;
+  }
+
+  /* ─── FLOW DIAGRAM ─── */
+  .flow { display: flex; flex-wrap: wrap; align-items: center; gap: 0.4rem; margin: 0.8rem 0; }
+  .flow-box {
+    background: var(--teal-light);
+    border: 1px solid var(--teal);
+    border-radius: 6px;
+    padding: 0.35rem 0.75rem;
+    font-size: 0.85rem;
+    color: var(--teal);
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .flow-box.red { background: var(--red-light); border-color: var(--red); color: var(--red); }
+  .flow-box.gold { background: var(--gold-bg); border-color: var(--gold); color: #8b6000; }
+  .flow-arrow { font-size: 1.2rem; color: var(--text-secondary); font-weight: 700; }
+
+  /* ─── HTML TABLES ─── */
+  .study-table { width: 100%; border-collapse: collapse; margin: 0.8rem 0; font-size: 0.88rem; }
+  .study-table th {
+    background: #2c1f0e;
+    color: #f5d87a;
+    padding: 0.6rem 0.8rem;
+    text-align: left;
+    font-family: 'Playfair Display', serif;
+  }
+  .study-table td { padding: 0.5rem 0.8rem; border-bottom: 1px solid var(--cream-border); }
+  .study-table tr:nth-child(even) td { background: var(--cream-dark); }
+  .study-table tr:hover td { background: var(--teal-light); }
+
+  /* ─── FP / FN TWO-COLUMN BOX ─── */
+  .fp-fn-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1rem 0; }
+  .fp-box, .fn-box {
+    border-radius: 8px;
+    padding: 1rem;
+  }
+  .fp-box { background: var(--red-light); border: 2px solid var(--red); }
+  .fn-box { background: var(--blue-light); border: 2px solid var(--blue); }
+  .fp-box h4 { color: var(--red); font-family: 'Playfair Display', serif; margin-bottom: 0.5rem; }
+  .fn-box h4 { color: var(--blue); font-family: 'Playfair Display', serif; margin-bottom: 0.5rem; }
+  .fp-box li::marker { color: var(--red); }
+  .fn-box li::marker { color: var(--blue); }
+
+  /* ─── SEVERITY CARDS ─── */
+  .severity-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 0.8rem; margin: 1rem 0; }
+  .sev-card { border-radius: 8px; padding: 0.8rem; text-align: center; font-size: 0.85rem; border: 2px solid; }
+  .sev-green { background: #e8f5e9; border-color: var(--green); color: var(--green); }
+  .sev-yellow { background: #fffde7; border-color: #f9a825; color: #7a6000; }
+  .sev-orange { background: #fff3e0; border-color: var(--orange); color: var(--orange); }
+  .sev-red { background: var(--red-light); border-color: var(--red); color: var(--red); }
+  .sev-card .val { font-size: 1.1rem; font-weight: 700; font-family: 'JetBrains Mono', monospace; }
+
+  /* ─── ALGORITHM BOX ─── */
+  .algo {
+    background: linear-gradient(135deg, #f9f4ec, #fdf6ec);
+    border: 2px solid var(--cream-border);
+    border-radius: 10px;
+    padding: 1.2rem;
+    margin: 1rem 0;
+    font-size: 0.88rem;
+  }
+  .algo-step { display: flex; gap: 0.8rem; margin-bottom: 0.6rem; align-items: flex-start; }
+  .algo-num {
+    background: var(--red);
+    color: white;
+    border-radius: 50%;
+    width: 24px; height: 24px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.75rem; font-weight: 700; flex-shrink: 0;
+    margin-top: 0.15rem;
+  }
+
+  /* ─── DIVIDER ─── */
+  .divider { height: 2px; background: linear-gradient(90deg, var(--gold), transparent); margin: 2rem 0; border: none; }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 600px) {
+    .fp-fn-grid { grid-template-columns: 1fr; }
+    .toc-grid { grid-template-columns: 1fr; }
+    .severity-grid { grid-template-columns: repeat(2, 1fr); }
+    .hero h1 { font-size: 1.5rem; }
+    .container { padding: 1rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══════════════════ HERO ══════════════════ -->
+<div class="hero">
+  <div class="hero-badge">Patología Clínica · UANL</div>
+  <h1>Hormonas Sexuales:<br>Embarazo, Amenorrea e Infertilidad</h1>
+  <p>Facultad de Medicina — Hospital Universitario "Dr. José E. González"</p>
+</div>
+
+<div class="container">
+
+<!-- ══════════════════ ÍNDICE ══════════════════ -->
+<nav class="toc">
+  <h2>📋 Índice de Contenido</h2>
+  <div class="toc-grid">
+    <a href="#bio-repro"><span class="toc-num">01</span> Biología Reproductiva</a>
+    <a href="#gonadotropinas"><span class="toc-num">02</span> Gonadotropinas</a>
+    <a href="#estradiol"><span class="toc-num">03</span> Estradiol</a>
+    <a href="#progesterona"><span class="toc-num">04</span> Progesterona</a>
+    <a href="#embarazo"><span class="toc-num">05</span> Embarazo: Diagnóstico</a>
+    <a href="#hcg"><span class="toc-num">06</span> hCG</a>
+    <a href="#prenatal"><span class="toc-num">07</span> Pruebas Prenatales</a>
+    <a href="#amenorrea-sec"><span class="toc-num">08</span> Amenorrea Secundaria</a>
+    <a href="#amenorrea-prim"><span class="toc-num">09</span> Amenorrea Primaria</a>
+    <a href="#infertilidad"><span class="toc-num">10</span> Infertilidad</a>
+    <a href="#causas-inf"><span class="toc-num">11</span> Causas de Infertilidad</a>
+    <a href="#abordaje-f"><span class="toc-num">12</span> Abordaje Femenino</a>
+    <a href="#reserva-ovarica"><span class="toc-num">13</span> Reserva Ovárica &amp; AMH</a>
+    <a href="#imagen"><span class="toc-num">14</span> Imagen en Infertilidad</a>
+    <a href="#masculina"><span class="toc-num">15</span> Infertilidad Masculina</a>
+  </div>
+</nav>
+
+<!-- ══════════════════ 1. BIOLOGÍA REPRODUCTIVA ══════════════════ -->
+<section class="section" id="bio-repro">
+  <h2 class="section-title">01 · Biología Reproductiva</h2>
+
+  <div class="card">
+    <h3 class="slide-subtitle">Ovario</h3>
+    <ul class="study-list">
+      <li>Produce: <span class="hl-teal">óvulos</span>, <span class="hl-teal">estrógenos</span> y <span class="hl-teal">progesterona</span></li>
+      <li>Aproximadamente <span class="hl-gold">400,000 folículos primordiales</span> <span class="stars">⭐⭐</span></li>
+      <li>Solo <span class="hl-red">300–400</span> alcanzan la madurez en toda la vida reproductiva</li>
+    </ul>
+    <p style="margin-top:0.8rem;">Capas del folículo:</p>
+    <div class="flow" style="margin-top:0.5rem;">
+      <div class="flow-box">1) Teca Externa</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-box">2) Teca Interna</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-box">3) Células de la Granulosa</div>
+    </div>
+    <div class="flow" style="margin-top:0.5rem;">
+      <div class="flow-box red">Ruptura folicular</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-box gold">Cuerpo hemorrágico</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-box">Cuerpo lúteo</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3 class="slide-subtitle">Endometrio — Fases</h3>
+    <ul class="study-list">
+      <li><strong>Fase folicular</strong> → mediada por <span class="hl-teal">Estrógenos</span></li>
+      <li><strong>Fase lútea</strong> → mediada por <span class="hl-teal">Progesterona</span></li>
+      <li>Menstruación: <span class="hl-gold">Día 1</span> del ciclo</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3 class="slide-subtitle">Regulación Hormonal del Ciclo</h3>
+    <ul class="study-list">
+      <li>Estradiol ↑ → <span class="hl-red">↓ FSH</span> (retroalimentación negativa)</li>
+      <li>Pico de estradiol al <strong>final de fase folicular</strong>: → <span class="hl-gold">↑ GnRH, ↑ FSH, ↑↑ LH → Ovulación</span> <span class="stars">⭐⭐⭐</span></li>
+      <li>Inhibina A / Inhibina B → inhiben FSH</li>
+    </ul>
+    <div class="note note-teal">
+      <span class="note-label">🔵 Concepto clave</span>
+      El pico de LH es el disparador directo de la ovulación, y ocurre en respuesta al pico de estradiol al final de la fase folicular — es un ejemplo de retroalimentación <em>positiva</em> transitoria.
+    </div>
+  </div>
+
+  <div class="img-box">
+    <div class="img-box-header">🖼 IMAGEN / TABLA DE LA DIAPOSITIVA — Eje Hipotálamo–Hipófisis–Ovario y Endometrio</div>
+    <p style="font-size:0.88rem; color:#555;">Diapositivas 3 y 4: Diagrama del eje reproductivo completo + gráfica del ciclo menstrual de 28 días.</p>
+    <div class="img-interpretation">
+      <strong>Interpretación detallada (Diap. 3 — Eje Hormonal):</strong> El hipotálamo libera GnRH (+) hacia la hipófisis anterior, que secreta FSH y LH. FSH estimula los folículos ováricos (+), los cuales producen Estradiol (+). El Estradiol ejerce retroalimentación negativa (–) sobre hipotálamo e hipófisis para regular FSH. El pico de estradiol revierte esta retroalimentación y genera el pico de LH (ovulación). Tras la ovulación, el cuerpo lúteo secreta Progesterona (+), que actúa sobre el endometrio uterino y otros tejidos blanco (+).
+      <br><br>
+      <strong>Interpretación detallada (Diap. 4 — Gráfica del Ciclo):</strong> La gráfica muestra los 28 días del ciclo menstrual en 4 paneles: (1) Gonadotropinas pituitarias: FSH se eleva ligeramente al inicio → baja con estradiol; LH sube bruscamente al día ~14 (SURGE = pico ovulatorio). (2) Esteroides ováricos: Estradiol pico al día ~12-13 (previo a ovulación); Progesterona pico al día ~21 (fase lútea). (3) Ciclo ovárico: Reclutamiento (día 1-4) → Selección (día 5-7) → Dominancia (día 8-12) → Ovulación (día 14) → Cuerpo lúteo (día 15-25) → Regresión (día 26-28). (4) Endometrio: Menstruación (día 1-4) → Proliferación (día 5-14) → Secreción (día 15-28).
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ══════════════════ 2. GONADOTROPINAS ══════════════════ -->
+<section class="section" id="gonadotropinas">
+  <h2 class="section-title">02 · Gonadotropinas</h2>
+
+  <div class="card">
+    <h3 class="slide-subtitle">Estructura Molecular</h3>
+    <ul class="study-list">
+      <li>Son <span class="hl-teal">heterodímeros Alfa/Beta glicoproteína</span></li>
+      <li>Subunidad Alfa: <span class="hl-gold">116 aminoácidos</span></li>
+      <li>Subunidad Beta: FSH = <span class="hl-gold">111 aa</span> · LH = <span class="hl-gold">121 aa</span></li>
+    </ul>
+    <p style="margin-top:0.8rem;"><strong>Clasificación clínica:</strong></p>
+    <div class="flow">
+      <div class="flow-box red">Hipogonadismo hipergonadotrófico</div>
+      <div class="flow-arrow">↔</div>
+      <div class="flow-box">Hipogonadismo hipogonadotrófico</div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-box gold">Respuesta GnRH</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3 class="slide-subtitle">Metodología Analítica</h3>
+    <ul class="study-list">
+      <li><span class="hl-teal">Inmunoensayos de doble anticuerpo</span>:
+        <ol style="padding-left:1.4rem; margin-top:0.3rem;">
+          <li>Anticuerpo de captura en superficie o pocillo</li>
+          <li>Enzima, radioisótopos o moléculas quimioluminiscentes</li>
+        </ol>
+      </li>
+    </ul>
+    <p style="margin-top:0.8rem;"><strong>Ensayos modernos — especificaciones:</strong></p>
+    <div class="severity-grid" style="grid-template-columns: repeat(3, 1fr);">
+      <div class="sev-card sev-green"><div class="val">&lt;0.008%</div>Interferencia de hCG</div>
+      <div class="sev-card sev-green"><div class="val">&lt;10%</div>CV (coeficiente de variación)</div>
+      <div class="sev-card sev-green"><div class="val">&lt;0.2 IU/L</div>Sensibilidad</div>
+    </div>
+    <div class="note note-yellow">
+      <span class="note-label">⚠ Nota</span>
+      Existen importantes <span class="hl-red">variaciones entre ensayos</span> — los resultados no son necesariamente intercambiables entre plataformas.
+    </div>
+  </div>
+
+  <div class="card">
+    <h3 class="slide-subtitle">Consideraciones Preanalíticas</h3>
+    <ul class="study-list">
+      <li>Se prefiere <span class="hl-gold">suero</span></li>
+      <li>Evitar muestras hemolizadas, lipémicas, ictéricas</li>
+      <li>Hormonas estables a temperatura ambiente por <strong>8 días</strong>, 2 semanas a 4°C</li>
+      <li>Orina se recomienda a <span class="hl-teal">–20°C</span></li>
+    </ul>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ══════════════════ 3. ESTRADIOL ══════════════════ -->
+<section class="section" id="estradiol">
+  <h2 class="section-title">03 · Estradiol</h2>
+
+  <div class="card">
+    <h3 class="slide-subtitle">Métodos de Medición</h3>
+    <ul class="study-list">
+      <li><span class="hl-teal">Inmunoensayos directos</span> (sin extracción) son los más usados</li>
+      <li>Antígeno utilizado: Estradiol-6-(O-carboximetil) conjugado a albúmina bovina</li>
+      <li>Reactividad con otros Esteroides 18-C mínima</li>
+      <li class="hl-red">En general no recomendados en hombres, climaterio y niños</li>
+      <li>Precaución con sujetos con ACO o TSH</li>
+      <li>Reactividad cruzada ~10% con <strong>estrona</strong></li>
+      <li><strong>Método más preciso:</strong> <span class="hl-gold">GC-MS con dilución isotópica</span> <span class="stars">⭐⭐</span></li>
+    </ul>
+  </div>
+
+  <div class="img-box">
+    <div class="img-box-header">🖼 IMAGEN / TABLA DE LA DIAPOSITIVA — Intervalos de Referencia para Estradiol (E₂)</div>
+    <table class="study-table">
+      <thead>
+        <tr><th>Población</th><th>pg/mL</th><th>pmol/L</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Hombres</strong></td><td class="hl-gold">≤29</td><td>≤106</td></tr>
+        <tr><td colspan="3" style="background:#f5e9d6; font-weight:700; color:#2c1f0e;">Mujeres</td></tr>
+        <tr><td>Folicular</td><td class="hl-gold">39–375</td><td>143–1377</td></tr>
+        <tr><td>Pico de ciclo medio</td><td class="hl-gold">94–762</td><td>345–2797</td></tr>
+        <tr><td>Fase lútea</td><td class="hl-gold">48–440</td><td>176–1615</td></tr>
+        <tr><td>Posmenopáusica</td><td class="hl-gold">≤10</td><td>≤37</td></tr>
+        <tr><td colspan="3" style="background:#f5e9d6; font-weight:700; color:#2c1f0e;">Niños</td></tr>
+        <tr><td>Prepuberal 1–9 a, masculino</td><td>≤4</td><td>≤15</td></tr>
+        <tr><td>Prepuberal 1–9 a, femenino</td><td>≤16</td><td>≤59</td></tr>
+        <tr><td>10–11 a, masculino</td><td>≤12</td><td>≤44</td></tr>
+        <tr><td>10–11 a, femenino</td><td>≤65</td><td>≤239</td></tr>
+        <tr><td>12–14 a, masculino</td><td>≤24</td><td>≤88</td></tr>
+        <tr><td>12–14 a, femenino</td><td>≤142</td><td>≤521</td></tr>
+        <tr><td>15–17 a, masculino</td><td>≤31</td><td>≤114</td></tr>
+        <tr><td>15–17 a, femenino</td><td>≤283</td><td>≤1040</td></tr>
+      </tbody>
+    </table>
+    <div class="img-interpretation">
+      Método de referencia: LC/MS/MS. Fuente: Fisher DA, Quest Diagnostics manual 4ª ed., 2007 / Burtis Tietz 2012. Nota: los valores más altos en mujeres corresponden al pico del ciclo medio (ovulatorio).
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ══════════════════ 4. PROGESTERONA ══════════════════ -->
+<section class="section" id="progesterona">
+  <h2 class="section-title">04 · Progesterona</h2>
+
+  <div class="card">
+    <ul class="study-list">
+      <li>Método recomendado de rutina: <span class="hl-teal">inmunoensayos con medición directa</span> (sin extracción)</li>
+      <li>Variedad de antígenos utilizados</li>
+      <li>Reactividad cruzada más importante con <span class="hl-red">5α-pregnanediol 6–11%</span></li>
+      <li>Inmunoensayos no adecuados para niveles bajos (hombres, climaterio, niños)</li>
+      <li>Método de referencia: <span class="hl-gold">GC-MS</span> <span class="stars">⭐⭐</span></li>
+    </ul>
+  </div>
+
+  <div class="img-box">
+    <div class="img-box-header">🖼 IMAGEN / TABLA DE LA DIAPOSITIVA — Intervalos de Referencia para Progesterona en Suero</div>
+    <table class="study-table">
+      <thead>
+        <tr><th>Población</th><th>ng/mL</th><th>nmol/L</th></tr>
+      </thead>
+      <tbody>
+        <tr><td colspan="3" style="background:#f5e9d6; font-weight:700;">Hombres</td></tr>
+        <tr><td>18–29 a</td><td class="hl-gold">≤0.3</td><td>≤1.0</td></tr>
+        <tr><td>30–39 a</td><td class="hl-gold">≤0.2</td><td>≤0.6</td></tr>
+        <tr><td>40–49 a</td><td class="hl-gold">≤0.2</td><td>≤0.6</td></tr>
+        <tr><td>50–59 a</td><td class="hl-gold">≤0.2</td><td>≤0.6</td></tr>
+        <tr><td colspan="3" style="background:#f5e9d6; font-weight:700;">Mujeres</td></tr>
+        <tr><td>Fase folicular</td><td class="hl-gold">≤2.7</td><td>≤8.6</td></tr>
+        <tr><td><strong>Fase lútea</strong></td><td class="hl-red" style="font-weight:700;">≤31.4</td><td>≤100</td></tr>
+        <tr><td>Posmenopáusica</td><td class="hl-gold">≤0.2</td><td>≤0.6</td></tr>
+        <tr><td colspan="3" style="background:#f5e9d6; font-weight:700;">Niños</td></tr>
+        <tr><td>5–9 a, masculino</td><td>≤0.7</td><td>≤2.2</td></tr>
+        <tr><td>5–9 a, femenino</td><td>≤0.6</td><td>≤1.9</td></tr>
+        <tr><td>10–13 a, masculino</td><td>≤1.2</td><td>≤3.8</td></tr>
+        <tr><td>10–13 a, femenino</td><td>≤10.2</td><td>≤32.4</td></tr>
+        <tr><td>14–17 a, masculino</td><td>≤0.8</td><td>≤2.5</td></tr>
+        <tr><td>14–17 a, femenino</td><td>≤11.9</td><td>≤38</td></tr>
+      </tbody>
+    </table>
+    <div class="img-interpretation">
+      Método LC/MS/MS. El valor en fase lútea (&gt;3 ng/mL) es indicativo de ovulación — dato clave en evaluación de infertilidad.
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ══════════════════ 5. EMBARAZO ══════════════════ -->
+<section class="section" id="embarazo">
+  <h2 class="section-title">05 · Embarazo: Diagnóstico</h2>
+
+  <div class="card">
+    <div class="note note-red">
+      <span class="note-label">🔴 Crítico</span>
+      El embarazo es la <span class="hl-red">principal causa de amenorrea secundaria</span> y debe descartarse siempre primero. <span class="stars">⭐⭐⭐</span>
+    </div>
+    <ul class="study-list" style="margin-top:0.8rem;">
+      <li>Ocurre en relaciones sexuales sin método anticonceptivo (ninguno es 100% efectivo)</li>
+      <li>Es posible un <span class="hl-teal">sangrado/manchado durante la implantación</span> que se confunde con el periodo menstrual (~9% de casos)</li>
+    </ul>
+    <p style="margin-top:0.8rem;"><strong>Signos y síntomas:</strong></p>
+    <ul class="study-list">
+      <li>Amenorrea</li>
+      <li>Náusea, vómito</li>
+      <li>Aumento y sensibilidad de mamas</li>
+      <li>Fatiga</li>
+      <li>Cólico uterino leve sin sangrado</li>
+      <li>Constipación</li>
+    </ul>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ══════════════════ 6. hCG ══════════════════ -->
+<section class="section" id="hcg">
+  <h2 class="section-title">06 · Hormona Gonadotrópica Coriónica Humana (hCG)</h2>
+
+  <div class="card">
+    <h3 class="slide-subtitle">Dinámica y Metodología</h3>
+    <ul class="study-list">
+      <li>Inmunoensayos actuales utilizan <span class="hl-teal">anticuerpos monoclonales para la fracción β-hCG</span> o (menos común) dímero α, β</li>
+      <li>Primeras 8 semanas: <span class="hl-gold">crecimiento geométrico</span> <span class="stars">⭐⭐⭐</span></li>
+    </ul>
+    <div class="formula">Duplicación hCG ≈ 2^n · donde n ≈ 48 horas en embarazo normal</div>
+    <ul class="study-list">
+      <li>Pico: <span class="hl-red">semanas 8–10 de gestación</span> <span class="stars">⭐⭐</span></li>
+      <li>Descenso del <strong>90%</strong> al final del segundo trimestre</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3 class="slide-subtitle">Tipos de Pruebas</h3>
+    <table class="study-table">
+      <thead>
+        <tr><th>Tipo</th><th>Sensibilidad funcional</th><th>Detección</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Cuantitativa</strong></td>
+          <td class="hl-gold">1–2 mIU/mL</td>
+          <td>1 día después de implantación (hCG &gt;5 mIU/mL)</td>
+        </tr>
+        <tr>
+          <td><strong>Cualitativa sérica</strong></td>
+          <td class="hl-gold">~10 mIU/mL</td>
+          <td>3–5 días después de implantación</td>
+        </tr>
+        <tr>
+          <td><strong>Cualitativa en orina</strong></td>
+          <td class="hl-gold">~25 mIU/mL</td>
+          <td>50% casos el día del 1er periodo perdido; ~100% una semana después</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="note note-teal">
+      <span class="note-label">🔵 Concepto clave</span>
+      En la mayoría de situaciones, una <span class="hl-teal">prueba cualitativa sérica</span> será suficiente para el diagnóstico ante sospecha de embarazo por retraso menstrual. La <strong>cuantitativa</strong> es útil en sospecha de embarazo ectópico o seguimiento de enfermedades trofoblásticas gestacionales. <span class="stars">⭐⭐⭐</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3 class="slide-subtitle">Falsos Positivos y Falsos Negativos</h3>
+    <div class="fp-fn-grid">
+      <div class="fp-box">
+        <h4>🔴 Falsos Positivos</h4>
+        <ul class="study-list">
+          <li>Aborto temprano (con hCG positiva)</li>
+          <li>Administración exógena de hCG</li>
+          <li>Producción tumoral de hCG (células germinales, ETG)</li>
+          <li>Interferencias: anticuerpos anti-animal, anticuerpos anti-hCG, uso de biotina (algunas plataformas)</li>
+        </ul>
+      </div>
+      <div class="fn-box">
+        <h4>🔵 Falsos Negativos</h4>
+        <ul class="study-list">
+          <li>Prueba muy temprana en el embarazo (dependiendo de la prueba)</li>
+          <li>Problemas analíticos (raros con metodologías actuales)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3 class="slide-subtitle">Ultrasonido Transvaginal (Gold Standard)</h3>
+    <div class="severity-grid">
+      <div class="sev-card sev-yellow"><div class="val">4.5–5 SDG</div>Saco gestacional o colección de líquido intrauterino</div>
+      <div class="sev-card sev-orange"><div class="val">5–6 SDG</div>Saco vitelino</div>
+      <div class="sev-card sev-red"><div class="val">5.5–6 SDG</div>Polo fetal con actividad cardiaca (≈8 SDG transabdominal)</div>
+    </div>
+    <div class="note note-red">
+      <span class="note-label">⭐ Gold Standard</span>
+      <span class="hl-red">Documentación de la actividad cardiaca fetal</span> <span class="stars">⭐⭐⭐</span>
+    </div>
+  </div>
+
+  <div class="img-box">
+    <div class="img-box-header">🖼 IMAGEN / TABLA DE LA DIAPOSITIVA — Curva de hCG a lo largo del embarazo</div>
+    <div class="img-interpretation">
+      La gráfica muestra los niveles de hCG (IU/L en escala logarítmica) vs. semanas de gestación (0–40 semanas). Se grafican 3 percentiles: 2%, 50% y 97%. Hallazgos clave: (1) Ascenso rápido desde la semana 4 hasta el pico en semanas 8–10, alcanzando hasta ~500,000–1,000,000 IU/L en percentil 97. (2) Descenso pronunciado del 90% hacia la semana 20 (fin del segundo trimestre). (3) Plateau bajo durante el tercer trimestre. La variabilidad inter-individual es muy amplia, lo que explica la necesidad de interpretar la tendencia (duplicación) más que el valor aislado.
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ══════════════════ 7. PRUEBAS PRENATALES ══════════════════ -->
+<section class="section" id="prenatal">
+  <h2 class="section-title">07 · Pruebas Prenatales por Trimestre</h2>
+
+  <div class="img-box">
+    <div class="img-box-header">🖼 IMAGEN / TABLA DE LA DIAPOSITIVA — Pruebas Prenatales por Visita y Trimestre</div>
+    <table class="study-table">
+      <thead>
+        <tr><th>Prueba de Laboratorio</th><th>1ª Visita</th><th>1er Trimestre</th><th>2do Trimestre</th><th>3er Trimestre</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Hematocrito o hemoglobina</td><td>✓</td><td></td><td>✓</td><td></td></tr>
+        <tr><td>Grupo sanguíneo y Rh</td><td>✓</td><td></td><td></td><td></td></tr>
+        <tr><td>Escrutinio de anticuerpos</td><td>✓</td><td></td><td>✓*</td><td></td></tr>
+        <tr><td>Papanicolaou</td><td>✓</td><td></td><td></td><td></td></tr>
+        <tr><td>Escrutinio aneuploidía fetal</td><td></td><td>✓</td><td>✓</td><td></td></tr>
+        <tr><td>Escrutinio defecto tubo neural</td><td></td><td>✓</td><td>✓</td><td></td></tr>
+        <tr><td>Escrutinio fibrosis quística</td><td>✓</td><td></td><td></td><td></td></tr>
+        <tr><td>Urocultivo</td><td>✓</td><td></td><td></td><td></td></tr>
+        <tr><td>Serología rubéola</td><td>✓</td><td></td><td></td><td></td></tr>
+        <tr><td>Serología sífilis</td><td>✓†</td><td></td><td></td><td></td></tr>
+        <tr><td>Serología VIH</td><td>✓†</td><td></td><td></td><td></td></tr>
+        <tr><td>Serología Hepatitis B</td><td>✓†</td><td></td><td></td><td></td></tr>
+        <tr><td>Escrutinio gonococo</td><td>✓</td><td></td><td></td><td>✓</td></tr>
+        <tr><td>Escrutinio Chlamydia</td><td>✓</td><td></td><td></td><td>✓</td></tr>
+        <tr><td>Escrutinio Streptococcus grupo B</td><td></td><td></td><td></td><td>✓</td></tr>
+      </tbody>
+    </table>
+    <div class="img-interpretation">
+      * Se realiza si está indicado. † Repetir cada trimestre en pacientes de alto riesgo. La tabla refleja el estándar de atención prenatal ordenado cronológicamente por trimestre, facilitando la planificación del seguimiento laboratorial durante el embarazo.
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ══════════════════ 8. AMENORREA SECUNDARIA ══════════════════ -->
+<section class="section" id="amenorrea-sec">
+  <h2 class="section-title">08 · Evaluación: Amenorrea Secundaria</h2>
+
+  <div class="card">
+    <div class="note note-teal">
+      <span class="note-label">📖 Definición</span>
+      Ausencia de menstruación <span class="hl-red">&gt;3 meses</span> en mujeres previamente regulares, o <span class="hl-red">&gt;6 meses</span> en mujeres irregulares. <span class="stars">⭐⭐⭐</span><br>
+      Oligomenorrea: &lt;9 ciclos/año o ciclos &gt;35 días → mismo protocolo de evaluación.
+    </div>
+  </div>
+
+  <div class="card">
+    <h3 class="slide-subtitle">Causas por Frecuencia</h3>
+    <div class="severity-grid">
+      <div class="sev-card sev-orange"><div class="val">40%</div><strong>Ovárica</strong><br>30% PCOS · 10% FOP</div>
+      <div class="sev-card sev-red"><div class="val">35%</div><strong>Hipotalámica</strong><br>Mayoría amenorrea hipotalámica funcional</div>
+      <div class="sev-card sev-yellow"><div class="val">17%</div><strong>Hipófisis</strong><br>13% hiperprolactinemia · 1.5% silla vacía · 1.5% Sheehan · 1% Cushing</div>
+      <div class="sev-card sev-green"><div class="val">7%</div><strong>Útero</strong><br>Adherencias uterinas</div>
+      <div class="sev-card sev-green"><div class="val">1%</div><strong>Otras</strong><br>HAC, tumores ováricos/adrenales, hipotiroidismo</div>
+    </div>
+  </div>
+
+  <div class="img-box">
+    <div class="img-box-header">🖼 IMAGEN / TABLA DE LA DIAPOSITIVA — Algoritmo de Evaluación Amenorrea Secundaria (Diap. 21–26)</div>
+    <div class="algo">
+      <div class="algo-step">
+        <div class="algo-num">1</div>
+        <div><strong>Serum hCG</strong> → Si positiva: embarazo. Si negativa → continuar</div>
+      </div>
+      <div class="algo-step">
+        <div class="algo-num">2</div>
+        <div>¿Signos/síntomas sugestivos? Historia: cambio de peso, trastorno alimentario, ejercicio excesivo, galactorrea, bochornos, acné, hirsutismo, enfermedad sistémica, instrumentación uterina. Exploración: IMC bajo u obesidad, hiperandrogenismo, galactorrea.</div>
+      </div>
+      <div class="algo-step">
+        <div class="algo-num">3</div>
+        <div><strong>Laboratorios iniciales:</strong> <span class="hl-teal">FSH, E2, TSH, PRL</span>. Añadir Testosterona sérica total si hay evidencia de hiperandrogenismo.</div>
+      </div>
+      <div class="algo-step">
+        <div class="algo-num">4</div>
+        <div><strong>Prolactina elevada →</strong> Repetir PRL.
+          <ul class="study-list" style="margin-top:0.3rem;">
+            <li>PRL puede elevarse transitoriamente; repetir antes de MRI, especialmente si &lt;50 ng/mL</li>
+            <li>Si segunda toma elevada, O bien inicialmente &gt;50 ng/mL → <span class="hl-red">MRI pituitaria</span></li>
+            <li>Excepción: hiperprolactinemia secundaria a hipotiroidismo o medicamentos</li>
+          </ul>
+        </div>
+      </div>
+      <div class="algo-step">
+        <div class="algo-num">5</div>
+        <div><strong>PRL normal → ¿TSH anormal?</strong>
+          <ul class="study-list" style="margin-top:0.3rem;">
+            <li>Tanto hiper como hipotiroidismo pueden causar oligo-amenorrea</li>
+            <li>Solo se requiere TSH para escrutinio inicial</li>
+            <li>Si TSH anormal → evaluación y tratamiento de enfermedad tiroidea</li>
+          </ul>
+        </div>
+      </div>
+      <div class="algo-step">
+        <div class="algo-num">6</div>
+        <div><strong>TSH normal → ¿FSH elevada?</strong>
+          <ul class="study-list" style="margin-top:0.3rem;">
+            <li>FSH alta + E2 baja = <span class="hl-red">Insuficiencia Ovárica Primaria (FOP)</span> <span class="stars">⭐⭐⭐</span></li>
+            <li>Síntomas típicos: bochornos, sequedad vaginal</li>
+            <li>Sin antecedente precipitante obvio → descartar Turner</li>
+          </ul>
+        </div>
+      </div>
+      <div class="algo-step">
+        <div class="algo-num">7</div>
+        <div><strong>FSH normal o baja (sin instrumentación uterina):</strong>
+          <ul class="study-list" style="margin-top:0.3rem;">
+            <li>Más probable: trastorno hipotálamo-hipófisis o <span class="hl-teal">PCOS</span></li>
+            <li>E2 ↓ indica <span class="hl-red">hipogonadismo hipogonadotrófico</span></li>
+            <li>Causas: amenorrea hipotalámica funcional, enfermedad sistémica (celiaca, DM1), otros trastornos hipotalámicos/hipofisiarios → MRI pituitaria</li>
+          </ul>
+        </div>
+      </div>
+      <div class="algo-step">
+        <div class="algo-num">8</div>
+        <div><strong>E2 normal → ¿Evidencia de hiperandrogenismo?</strong>
+          <ul class="study-list" style="margin-top:0.3rem;">
+            <li>Alta concentración de andrógenos → <span class="hl-teal">PCOS es el diagnóstico más probable</span></li>
+            <li>Evaluar tumor secretor si <span class="hl-red">Testosterona &gt;150–200 ng/dL</span> o <span class="hl-red">DHEAS &gt;700 μg/dL</span> <span class="stars">⭐⭐</span></li>
+            <li>Virilización de instalación rápida o exceso de glucocorticoide → buscar tumor</li>
+          </ul>
+        </div>
+      </div>
+      <div class="algo-step">
+        <div class="algo-num">9</div>
+        <div><strong>Labs normales + antecedente instrumentación uterina:</strong>
+          <ol style="padding-left:1.4rem; margin-top:0.3rem;">
+            <li>Prueba de retiro de progestina</li>
+            <li>Si no hay sangrado → prueba de retiro estrógeno/progestina</li>
+            <li>Si no hay sangrado → histeroscopía para diagnóstico presuntivo de adherencias intrauterinas</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ══════════════════ 9. AMENORREA PRIMARIA ══════════════════ -->
+<section class="section" id="amenorrea-prim">
+  <h2 class="section-title">09 · Amenorrea Primaria</h2>
+
+  <div class="img-box">
+    <div class="img-box-header">🖼 IMAGEN / TABLA DE LA DIAPOSITIVA — Algoritmo Amenorrea Primaria</div>
+    <div class="algo">
+      <div class="algo-step">
+        <div class="algo-num">1</div>
+        <div>Historia clínica y exploración física → Prueba de embarazo; LH, FSH, TSH, PRL séricos; ultrasonografía pélvica u otras pruebas si indicadas</div>
+      </div>
+      <div class="algo-step">
+        <div class="algo-num">2</div>
+        <div>Si TSH anormal → evaluar y tratar enfermedad tiroidea. Si PRL anormal → MRI pituitaria para descartar adenoma; revisar medicamentos</div>
+      </div>
+      <div class="algo-step">
+        <div class="algo-num">3</div>
+        <div><strong>¿Hay útero?</strong>
+          <ul class="study-list" style="margin-top:0.3rem;">
+            <li><strong>Sí, útero presente:</strong>
+              <ul class="study-list">
+                <li>FSH y LH <em>bajas</em> → Amenorrea hipotalámica funcional (si déficit energético), retraso constitucional pubertad, o raramente deficiencia primaria de GnRH</li>
+                <li>FSH y LH <em>normales</em> → Considerar obstrucción del tracto de salida; también otras causas con gonadotropinas normales</li>
+                <li>FSH y LH <em>elevadas</em> → <span class="hl-red">Insuficiencia ovárica primaria</span> → solicitar cariotipo (síndrome de Turner / cromatina Y)</li>
+              </ul>
+            </li>
+            <li><strong>No hay útero:</strong> Cariotipo + testosterona libre y total
+              <ul class="study-list">
+                <li>46,XX con testosterona en rango femenino → <span class="hl-teal">Agenesia Mülleriana</span></li>
+                <li>46,XY con testosterona en rango masculino → <span class="hl-teal">Síndrome de insensibilidad a andrógenos</span> o deficiencia de 5α-reductasa</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="img-interpretation">
+      Algoritmo basado en Am Fam Physician 2019 Jul 1;100(1):39-48. El hallazgo de útero ausente es un punto de bifurcación crucial que redirige la evaluación hacia estudios cromosómicos y de andrógenos.
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ══════════════════ 10. INFERTILIDAD ══════════════════ -->
+<section class="section" id="infertilidad">
+  <h2 class="section-title">10 · Infertilidad — Definición y Epidemiología</h2>
+
+  <div class="card">
+    <div class="note note-teal">
+      <span class="note-label">📖 Definición</span>
+      <span class="hl-red">Incapacidad de una pareja de concebir después de 12 meses</span>, con coito regular sin anticoncepción, en mujeres &lt;35 años. <span class="stars">⭐⭐⭐</span>
+      <br><br>
+      <strong>Fecundabilidad:</strong> probabilidad de lograr embarazo en un ciclo menstrual.
+    </div>
+    <div class="note note-yellow" style="margin-top:0.8rem;">
+      <span class="note-label">📊 Datos epidemiológicos</span>
+      <ul class="study-list">
+        <li>Guttmacher (1946–1956, n=5,574 mujeres): <strong>85%</strong> concibieron a los 12 meses. Fecundabilidad: 0.25 a los 3 meses y 0.15 a los 9 meses</li>
+        <li>Slama (n=867 mujeres población general): 54% a 6 meses · 76% a 12 meses · 89% a 24 meses</li>
+        <li>EUA (2006–2010, n=12,279 mujeres 15–44 a) — Prevalencia infertilidad primaria:
+          <ul class="study-list">
+            <li>15–34 años: <span class="hl-gold">7.3–9.1%</span></li>
+            <li>35–39 años: <span class="hl-orange" style="color:var(--orange); font-weight:600;">25%</span></li>
+            <li>40–44 años: <span class="hl-red">30%</span></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ══════════════════ 11. CAUSAS ══════════════════ -->
+<section class="section" id="causas-inf">
+  <h2 class="section-title">11 · Causas de Infertilidad</h2>
+
+  <div class="img-box">
+    <div class="img-box-header">🖼 IMAGEN / TABLA DE LA DIAPOSITIVA — Distribución de Causas (Pie Chart)</div>
+    <div class="img-interpretation">
+      El pie chart muestra 3 categorías principales: Factor Femenino 37%, Factor Combinado 35%, Factor Masculino 8%. El 20% restante corresponde a causas inexplicadas u otras. Dentro del Factor Femenino (81% se debe a): alteraciones ováricas 25%, endometriosis 15%, adherencias pélvicas 12%, obstrucción tubárica 11%, otras alteraciones tubáricas 11%, hiperprolactinemia 7%.
+    </div>
+  </div>
+
+  <div class="card">
+    <h3 class="slide-subtitle">Factor Femenino — Desglose</h3>
+    <table class="study-table">
+      <thead><tr><th>Causa</th><th>%</th></tr></thead>
+      <tbody>
+        <tr><td>Alteraciones ováricas (oligo/anovulación)</td><td class="hl-red">25%</td></tr>
+        <tr><td>Endometriosis</td><td>15%</td></tr>
+        <tr><td>Adherencias pélvicas</td><td>12%</td></tr>
+        <tr><td>Obstrucción tubárica</td><td>11%</td></tr>
+        <tr><td>Otras alteraciones tubáricas</td><td>11%</td></tr>
+        <tr><td>Hiperprolactinemia</td><td>7%</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <h3 class="slide-subtitle">Causas Ováricas Detalladas</h3>
+    <ul class="study-list">
+      <li>Oligoovulación/anovulación</li>
+      <li>Envejecimiento de ovocito — se acelera en la 4ª década</li>
+      <li>Factores asociados: tabaquismo, radiación, quimioterapia, enfermedades autoinmunes</li>
+      <li>Quistes ováricos: no claro el papel de quistes pequeños (&lt;3–6 cm)</li>
+    </ul>
+    <p style="margin-top:0.8rem;"><strong>Clasificación OMS de Anovulación:</strong></p>
+    <div class="severity-grid" style="grid-template-columns: repeat(2, 1fr);">
+      <div class="sev-card sev-yellow"><div class="val">I</div>Hipogonadotrófica hipogonadal</div>
+      <div class="sev-card sev-green"><div class="val">II</div>Normogonadotrópica normoestrogénica</div>
+      <div class="sev-card sev-orange"><div class="val">III</div>Hipergonadotrópica hipoestrogénica</div>
+      <div class="sev-card sev-red"><div class="val">IV</div>Hiperprolactinemia</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3 class="slide-subtitle">Otras Causas Femeninas</h3>
+    <ul class="study-list">
+      <li><strong>Tubarias y pélvicas:</strong> EPI como principal causa; adherencias</li>
+      <li><strong>Uterinas:</strong> Leiomiomatosis, malformaciones, adherencias, defecto de fase lútea</li>
+      <li><strong>Endometriosis</strong></li>
+      <li><strong>Cervicales</strong></li>
+      <li><strong>Genéticas:</strong> 45X (Turner), 47XXY (Klinefelter)</li>
+      <li><strong>Inexplicada:</strong> <span class="hl-gold">15%</span></li>
+    </ul>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ══════════════════ 12. ABORDAJE FEMENINO ══════════════════ -->
+<section class="section" id="abordaje-f">
+  <h2 class="section-title">12 · Abordaje Femenino — Historia y Exploración</h2>
+
+  <div class="card">
+    <h3 class="slide-subtitle">Historia Clínica</h3>
+    <ul class="study-list">
+      <li>Duración de infertilidad y protocolos previos</li>
+      <li>Historia menstrual: menacimia y molimina</li>
+      <li>Antecedentes médicos, quirúrgicos y ginecológicos: ETS, EPI, tiroides, galactorrea, hirsutismo, dolor pélvico, dismenorrea o dispareunia</li>
+      <li>Antecedentes obstétricos: gravidez y paridad</li>
+      <li>Historia sexual: disfunción sexual, frecuencia coital</li>
+      <li>Historia familiar: infertilidad, defectos congénitos, retraso mental</li>
+      <li>APNP: ocupación, ejercicio, estrés, dieta, toxicomanías</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3 class="slide-subtitle">Exploración Física</h3>
+    <ul class="study-list">
+      <li>IMC</li>
+      <li>Habitus exterior</li>
+      <li>Cuello: glándula tiroides; galactorrea, hirsutismo, acné, virilización, calvicie androgénica</li>
+      <li>Sensibilidad o masas en anexos o posterior en saco de Douglas (EPI o endometriosis)</li>
+      <li>Anormalidades en vagina y cérvix, así como descarga</li>
+      <li>Palpación bimanual de útero</li>
+    </ul>
+  </div>
+
+  <div class="img-box">
+    <div class="img-box-header">🖼 IMAGEN / TABLA DE LA DIAPOSITIVA — Algoritmo Abordaje Infertilidad Femenina</div>
+    <div class="algo">
+      <div class="algo-step">
+        <div class="algo-num">→</div>
+        <div><strong>Historia y exploración normal:</strong>
+          <ul class="study-list">
+            <li><strong>Ciclos regulares</strong> → Escrutinio reserva ovárica, análisis de semen del compañero, evaluación de permeabilidad tubárica → Referir especialista</li>
+            <li><strong>Ciclos irregulares</strong> → TSH, PRL, Testosterona → Si anormal: evaluación adicional; Si normal: inducción de ovulación (considerar síndrome de ovario resistente y PCOS)</li>
+            <li><strong>Amenorrea</strong> → Prueba de retiro de progestina → Si normal: inducción de ovulación; Si anormal: evaluación adicional (FSH, E2) → considerar anomalías tracto de salida, hipogonadismo hipotalámico, insuficiencia ovárica primaria</li>
+          </ul>
+        </div>
+      </div>
+      <div class="algo-step">
+        <div class="algo-num">→</div>
+        <div><strong>Historia y exploración anormal</strong> → evaluación y tratamiento según sea indicado</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3 class="slide-subtitle">Evaluación de Función Ovulatoria</h3>
+    <div class="note note-yellow">
+      <span class="note-label">📌 Nota</span>
+      Actualmente no existe prueba que confirme la liberación ovular directamente.
+    </div>
+    <ul class="study-list" style="margin-top:0.8rem;">
+      <li>Mujeres con ciclos regulares de 28–31 días con síntomas de molimina antes de la menstruación, <strong>muy probablemente son ovulatorias</strong></li>
+      <li>En mujeres que no cumplen estas características, la evaluación de ovulación debe realizarse</li>
+    </ul>
+    <p style="margin-top:0.8rem;"><strong>Medición de Progesterona:</strong></p>
+    <ul class="study-list">
+      <li>Indicio de formación del cuerpo lúteo</li>
+      <li>Pico en los días 21–23 del ciclo ovárico</li>
+      <li><span class="hl-gold">&gt;3 ng/mL indica que se ha ovulado</span> <span class="stars">⭐⭐⭐</span></li>
+    </ul>
+    <p style="margin-top:0.8rem;"><strong>LH urinaria (tests caseros):</strong></p>
+    <ul class="study-list">
+      <li>Aparece en orina 24–36 horas antes de la ovulación</li>
+      <li>VPP: <span class="hl-gold">70–92%</span> de ovulación en 48 horas</li>
+    </ul>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ══════════════════ 13. RESERVA OVÁRICA Y AMH ══════════════════ -->
+<section class="section" id="reserva-ovarica">
+  <h2 class="section-title">13 · Reserva Ovárica &amp; AMH</h2>
+
+  <div class="card">
+    <h3 class="slide-subtitle">FSH Basal y CCCT</h3>
+    <ul class="study-list">
+      <li>Disminución de reserva → pobre calidad y cantidad de ovocito, mal potencial reproductivo</li>
+      <li><span class="hl-red">Sin prueba ideal actualmente</span></li>
+      <li><strong>FSH basal:</strong> medida al <span class="hl-gold">tercer día del ciclo</span></li>
+      <li><strong>E2 día 3:</strong> sin datos suficientes sobre valor predictivo; valores de corte independiente a FSH: <span class="hl-gold">&gt;80 pg/mL</span></li>
+      <li><strong>CCCT (Clomiphene Citrate Challenge Test):</strong> citrato de clomifeno oral días 5–9; medición de FSH días 3 y 10, E2 día 3</li>
+    </ul>
+    <div class="note note-yellow">
+      <span class="note-label">⚠ Importante</span>
+      Premisa del CCCT: incapacidad de retroalimentación negativa. Un test normal no tiene valor predictivo para fertilidad.
+    </div>
+  </div>
+
+  <div class="card">
+    <h3 class="slide-subtitle">Valores de Corte FSH</h3>
+    <div class="severity-grid">
+      <div class="sev-card sev-green"><div class="val">&lt;10 mUI/mL</div>Reserva adecuada</div>
+      <div class="sev-card sev-yellow"><div class="val">10–15 mUI/mL</div>Limítrofe</div>
+      <div class="sev-card sev-red"><div class="val">&gt;15–25 mUI/mL</div>Predictivo de falla en tratamiento con ovocitos endógenos</div>
+    </div>
+    <p style="margin-top:0.8rem;">CCCT: FSH &gt;15 mUI/mL en días 3 o 10 → <span class="hl-red">baja reserva ovárica</span> <span class="stars">⭐⭐</span></p>
+  </div>
+
+  <div class="card">
+    <h3 class="slide-subtitle">Hormona Antimülleriana (AMH) ⭐⭐⭐</h3>
+    <ul class="study-list">
+      <li>Miembro de la familia TGF-β</li>
+      <li>Expresada en folículos <span class="hl-teal">preantrales y antrales tempranos (&lt;8 mm)</span></li>
+      <li>Refleja el tamaño del pool folicular primordial</li>
+      <li>Puede ser el <span class="hl-gold">marcador más temprano</span> de reserva ovárica</li>
+      <li>Descenso gradual con la edad → <span class="hl-red">indetectable en la menopausia</span></li>
+      <li>Correlación con el número de ovocitos obtenidos tras estimulación</li>
+      <li>Ventaja vs FSH: puede medirse <span class="hl-teal">cualquier día del ciclo</span></li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3 class="slide-subtitle">Valores Clínicos de AMH</h3>
+    <div class="severity-grid">
+      <div class="sev-card sev-red"><div class="val">&lt;0.5 ng/mL</div>Reserva reducida · &lt;3 folículos en IVF · Considerar óvulos donados o preservación</div>
+      <div class="sev-card sev-orange"><div class="val">&lt;1.0 ng/mL</div>Respuesta limitada a estimulación</div>
+      <div class="sev-card sev-yellow"><div class="val">1.0–3.5 ng/mL</div>Buena respuesta a estimulación</div>
+      <div class="sev-card sev-green"><div class="val">&gt;3.5 ng/mL</div>Respuesta vigorosa (precaución: riesgo de OHSS · sugiere PCO)</div>
+    </div>
+  </div>
+
+  <div class="img-box">
+    <div class="img-box-header">🖼 IMAGEN / TABLA DE LA DIAPOSITIVA — Comparación FSH vs AMH como marcadores de reserva ovárica</div>
+    <table class="study-table">
+      <thead><tr><th>Característica</th><th>FSH</th><th>AMH</th></tr></thead>
+      <tbody>
+        <tr><td>Sitio de secreción</td><td>Hipófisis anterior</td><td class="hl-teal">Granulosa de folículos preantrales y antrales pequeños</td></tr>
+        <tr><td>Cambio temporal indicando envejecimiento ovárico</td><td>Tardío</td><td class="hl-gold">Más temprano</td></tr>
+        <tr><td>Requerimiento de timing</td><td class="hl-red">Solo día 2–4 del ciclo</td><td class="hl-green" style="color:var(--green);">Cualquier día del ciclo</td></tr>
+        <tr><td>Necesidad de ensayo concomitante</td><td>E₂</td><td>Ninguno</td></tr>
+        <tr><td>Variabilidad ciclo a ciclo</td><td>Alta</td><td>Baja</td></tr>
+        <tr><td>Sensibilidad para baja respuesta</td><td>Moderada</td><td>Moderada</td></tr>
+        <tr><td>Sensibilidad para alta respuesta (riesgo OHSS)</td><td>Ninguna</td><td class="hl-red">Alta</td></tr>
+        <tr><td>Especificidad para baja respuesta</td><td>Alta</td><td>Alta</td></tr>
+        <tr><td>Especificidad para alta respuesta</td><td>Ninguna</td><td>Alta</td></tr>
+        <tr><td>Valores específicos por edad</td><td>Limitado</td><td>Extensa información</td></tr>
+        <tr><td>Metodología</td><td>Automatizado (1h)</td><td class="hl-gold">Automatizado, Inmunoensayos</td></tr>
+      </tbody>
+    </table>
+    <div class="img-interpretation">
+      AMH es superior en varios aspectos: puede medirse cualquier día del ciclo, detecta antes el envejecimiento ovárico, identifica riesgo de OHSS, y no requiere ensayo concomitante. FSH sigue siendo útil por su alto especificidad en baja respuesta y disponibilidad amplia.
+    </div>
+  </div>
+
+  <div class="card">
+    <h3 class="slide-subtitle">Tests de Utilidad Limitada</h3>
+    <div class="note note-red">
+      <span class="note-label">🚫 ASRM no recomienda de rutina:</span>
+      <ul class="study-list">
+        <li><strong>Test postcoital</strong>: pobre desempeño diagnóstico</li>
+        <li><strong>Biopsia endometrial</strong>: no recomendada salvo fuerte sospecha de patología endometrial</li>
+        <li><strong>Temperatura basal</strong></li>
+        <li><strong>Ensayo de penetración espermática</strong>: sin datos sobre capacidad predictiva de fertilización</li>
+        <li><strong>Anticuerpos</strong>: antifosfolípido, ANA, antiespermáticos, antitiroideos — sin recomendación rutinaria</li>
+        <li><strong>Cariotipo</strong>: solo en menopausia &lt;40 años, pérdidas recurrentes e infertilidad inexplicada</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ══════════════════ 14. IMAGEN ══════════════════ -->
+<section class="section" id="imagen">
+  <h2 class="section-title">14 · Imagen en Infertilidad</h2>
+
+  <div class="card">
+    <h3 class="slide-subtitle">Permeabilidad Tubárica</h3>
+    <ul class="study-list">
+      <li><span class="hl-gold">HSG (Histerosalpingografía)</span> — primera línea</li>
+      <li>USG con contraste (histerosalpingo-contraste)</li>
+    </ul>
+    <h3 class="slide-subtitle" style="margin-top:1rem;">Cavidad Uterina</h3>
+    <ul class="study-list">
+      <li>Sonohisterografía con solución salina</li>
+      <li>HSG</li>
+    </ul>
+    <h3 class="slide-subtitle" style="margin-top:1rem;">Laparoscopía</h3>
+    <div class="note note-yellow">
+      <span class="note-label">📌 Uso Controversial</span>
+      <ul class="study-list" style="margin-top:0.4rem;">
+        <li>Indicada en pacientes con sospecha de endometriosis, adherencias pélvicas o enfermedad tubaria</li>
+        <li>Sin datos suficientes para recomendarla previo a IVF en pacientes sin sospecha</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ══════════════════ 15. INFERTILIDAD MASCULINA ══════════════════ -->
+<section class="section" id="masculina">
+  <h2 class="section-title">15 · Infertilidad Masculina</h2>
+
+  <div class="card">
+    <h3 class="slide-subtitle">Causas</h3>
+    <div class="severity-grid">
+      <div class="sev-card sev-red"><div class="val">65–80%</div><strong>Defectos primarios en espermatogénesis</strong><br>Congénitos: XXY, criptorquidia · Adquiridos: varicocele, orquitis (paramixovirus, gonorrea, clamidia), sustancias, temperatura</div>
+      <div class="sev-card sev-orange"><div class="val">10–20%</div><strong>Idiopática</strong><br>Semen normal, causa no identificada</div>
+      <div class="sev-card sev-yellow"><div class="val">5%</div><strong>Defectos de transporte</strong><br>Epidídimo, vasos deferentes, próstata, ductos eyaculatorios</div>
+      <div class="sev-card sev-green"><div class="val">2–5%</div><strong>Trastornos endócrinos</strong><br>Hipogonadismo hipogonadotrófico (tumores hipotalámicos, adenohipofisiarios, prolactinoma)</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3 class="slide-subtitle">Estudio del Semen — Consideraciones Preanalíticas</h3>
+    <ul class="study-list">
+      <li><span class="hl-gold">2–5 días de abstinencia</span></li>
+      <li>Vaciar vejiga previo a obtención</li>
+      <li>Análisis <span class="hl-red">&lt;1 hora de obtención</span></li>
+      <li><span class="hl-teal">Alta variabilidad</span> — se puede repetir 1–2 semanas después</li>
+      <li>Criterios de la <strong>OMS 2010</strong> para proceso y reporte <span class="stars">⭐⭐</span></li>
+    </ul>
+  </div>
+
+  <div class="img-box">
+    <div class="img-box-header">🖼 IMAGEN / TABLA DE LA DIAPOSITIVA — Valores Normales del Líquido Seminal (OMS 2010)</div>
+    <table class="study-table">
+      <thead><tr><th>Parámetro</th><th>Valor Normal</th></tr></thead>
+      <tbody>
+        <tr><td>Volumen del eyaculado</td><td class="hl-gold">&gt;1.5 mL (1.4–1.7)*</td></tr>
+        <tr><td>Densidad espermática</td><td class="hl-gold">&gt;15 millones/mL (12–16)*</td></tr>
+        <tr><td>Conteo total de espermatozoides</td><td class="hl-gold">&gt;39 millones/eyaculado (33–46)*</td></tr>
+        <tr><td>Motilidad</td><td class="hl-gold">&gt;32% motilidad progresiva (31–34); &gt;40% total (38–42)*</td></tr>
+        <tr><td>Morfología</td><td class="hl-gold">&gt;4.0% normal (3–4)*</td></tr>
+        <tr><td>pH</td><td>7.2–8.0*</td></tr>
+        <tr><td>Color</td><td>Gris-blanco-amarillo</td></tr>
+        <tr><td>Licuefacción</td><td>Dentro de 40 minutos</td></tr>
+        <tr><td>Fructosa</td><td>&gt;1200 μg/mL</td></tr>
+        <tr><td>Fosfatasa ácida</td><td>100–300 μg/mL</td></tr>
+        <tr><td>Ácido cítrico</td><td>&gt;3 mg/mL</td></tr>
+        <tr><td>Inositol</td><td>&gt;1 mg/mL</td></tr>
+        <tr><td>Zinc</td><td>&gt;75 μg/mL</td></tr>
+        <tr><td>Magnesio</td><td>&gt;70 μg/mL</td></tr>
+        <tr><td>Prostaglandinas (PGE₁ + PGE₂)</td><td>30–200 μg/mL</td></tr>
+        <tr><td>Glicerilfosforilcolina</td><td>&gt;650 μg/mL</td></tr>
+        <tr><td>Carnitina</td><td>&gt;250 μg/mL</td></tr>
+        <tr><td>Glucosidasa</td><td>&gt;20 mU por eyaculado</td></tr>
+      </tbody>
+    </table>
+    <div class="img-interpretation">
+      *Valores de la OMS (Cooper TG et al., Hum Reprod Update 2010;3:231). Los parámetros más clínicamente relevantes para fertilidad son: volumen, densidad, motilidad progresiva y morfología.
+    </div>
+  </div>
+
+  <div class="img-box">
+    <div class="img-box-header">🖼 IMAGEN / TABLA DE LA DIAPOSITIVA — Algoritmo Evaluación Infertilidad Masculina</div>
+    <div class="algo">
+      <div class="algo-step">
+        <div class="algo-num">1</div>
+        <div>Historia y exploración física → Normal o Anormal</div>
+      </div>
+      <div class="algo-step">
+        <div class="algo-num">2</div>
+        <div>Si anormal → evaluación y tratamiento adicional según hallazgo<br>
+        Si normal → <strong>Análisis de semen</strong></div>
+      </div>
+      <div class="algo-step">
+        <div class="algo-num">3</div>
+        <div>Análisis de semen normal → <span class="hl-green" style="color:var(--green);">No más pruebas necesarias</span><br>
+        Análisis de semen anormal → <span class="hl-red">Repetir en 6 semanas</span><br>
+        Si segunda muestra normal → no más pruebas<br>
+        Si segunda muestra anormal → continuar</div>
+      </div>
+      <div class="algo-step">
+        <div class="algo-num">4</div>
+        <div>Semen persistentemente anormal → <strong>LH, FSH, Testosterona (T)</strong> ± PRL, FSH</div>
+      </div>
+      <div class="algo-step">
+        <div class="algo-num">5</div>
+        <div>Interpretación de perfil hormonal:
+          <table class="study-table" style="margin-top:0.5rem;">
+            <thead><tr><th>Patrón</th><th>Diagnóstico</th></tr></thead>
+            <tbody>
+              <tr><td>↓LH · ↓FSH · ↓T</td><td class="hl-teal">Falla hipotálamo-hipofisiaria</td></tr>
+              <tr><td>↑LH · ↑FSH · ↓T</td><td class="hl-red">Falla gonadal</td></tr>
+              <tr><td>LH normal · ↑FSH · T normal</td><td>Falla del compartimento germinal</td></tr>
+              <tr><td>↑LH · FSH normal · T normal o ↑</td><td>Resistencia androgénica</td></tr>
+              <tr><td>LH normal · FSH normal · T normal</td><td>Idiopática</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ FOOTER ══════════════════ -->
+<div style="background: linear-gradient(135deg, #2c1f0e, #5a3010); color: #f5d87a; text-align:center; padding: 2rem; border-radius: 10px; margin-top: 3rem; font-size: 0.85rem; font-family: 'Lora', serif;">
+  <p style="font-family:'Playfair Display',serif; font-size:1.1rem; margin-bottom:0.5rem;">Referencias Bibliográficas</p>
+  <p style="opacity:0.85;">Barrett KE (2012). Ganong's Review of Medical Physiology. McGraw Hill. · Burtis CA (2012). Tietz Textbook of Clinical Chemistry. Elsevier Saunders. · Rifai N (2018). Tietz Textbook of Clinical Chemistry. Elsevier Saunders. · McPherson RA (2017). Henry's Clinical Diagnosis. Elsevier. · Fertil Steril 2006;86:S148 · Am Fam Physician 2019;100(1):39-48 · Fertil Steril 2014;101:633 · Fertil Steril 2015;103(6):e44-50 · Fertil Steril 2013;99(7):1825-30 · UpToDate: Secondary Amenorrhea · UpToDate: Early Pregnancy Diagnosis</p>
+</div>
+
+</div><!-- /container -->
+</body>
+</html>

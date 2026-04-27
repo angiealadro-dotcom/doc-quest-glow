@@ -1,0 +1,1725 @@
+html
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pruebas de Función Renal – Notas de Estudio</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lora:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #fdf6ec;
+    --warm: #f5ead6;
+    --accent: #c0392b;
+    --gold: #d4a017;
+    --teal: #1a6b6b;
+    --navy: #1b2a4a;
+    --rust: #a0522d;
+    --ink: #2c2c2c;
+    --border: #d9c9a8;
+    --shadow: rgba(160,120,60,0.13);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'Lora', Georgia, serif;
+    font-size: 15px;
+    line-height: 1.8;
+    padding: 0 0 60px 0;
+  }
+  /* HEADER */
+  .main-header {
+    background: linear-gradient(135deg, var(--navy) 0%, #2c4a7a 60%, var(--teal) 100%);
+    color: #fff;
+    text-align: center;
+    padding: 48px 24px 36px;
+    position: relative;
+    overflow: hidden;
+  }
+  .main-header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Ccircle cx='30' cy='30' r='15'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    pointer-events: none;
+  }
+  .main-header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.4em;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+  }
+  .main-header .subtitle {
+    font-size: 1em;
+    opacity: 0.85;
+    font-style: italic;
+  }
+  /* INDEX */
+  .index-box {
+    background: var(--warm);
+    border: 1.5px solid var(--border);
+    border-radius: 12px;
+    margin: 28px auto;
+    max-width: 860px;
+    padding: 22px 28px;
+  }
+  .index-box h2 { color: var(--navy); font-family:'Playfair Display',serif; font-size:1.15em; margin-bottom:10px; }
+  .index-box ul { columns: 2; gap: 24px; list-style: none; }
+  .index-box li { padding: 2px 0; }
+  .index-box a { color: var(--teal); text-decoration: none; font-size:0.92em; }
+  .index-box a:hover { text-decoration: underline; }
+
+  /* MAIN WRAPPER */
+  .wrapper { max-width: 860px; margin: 0 auto; padding: 0 20px; }
+
+  /* SECTION */
+  .section {
+    background: #fff;
+    border: 1.5px solid var(--border);
+    border-radius: 14px;
+    margin: 22px 0;
+    padding: 26px 30px;
+    box-shadow: 0 3px 12px var(--shadow);
+    position: relative;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.35em;
+    color: var(--navy);
+    border-bottom: 2px solid var(--gold);
+    padding-bottom: 7px;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-title .icon { font-size: 1.2em; }
+
+  /* TEXT ELEMENTS */
+  .sub { font-weight: 600; color: var(--teal); margin: 14px 0 4px; font-size: 1.02em; }
+  p { margin-bottom: 9px; }
+  ul.bullets { padding-left: 22px; margin-bottom: 10px; }
+  ul.bullets li { margin-bottom: 5px; }
+
+  /* STAR */
+  .star { color: var(--gold); font-size: 1.1em; margin-right: 2px; }
+
+  /* UNDERLINE important */
+  .imp { 
+    text-decoration: underline; 
+    text-decoration-color: var(--accent); 
+    text-decoration-thickness: 2px; 
+    font-weight: 600; 
+    color: var(--accent);
+  }
+  .imp2 {
+    text-decoration: underline wavy;
+    text-decoration-color: var(--teal);
+    font-weight: 600;
+    color: var(--teal);
+  }
+  .imp3 {
+    background: linear-gradient(90deg,#fffbe6,#fff8d0);
+    border-bottom: 2px solid var(--gold);
+    padding: 0 3px;
+    font-weight: 600;
+  }
+
+  /* VECTORS / ARROWS */
+  .arrow { color: var(--accent); font-weight: bold; font-size: 1.05em; margin: 0 3px; }
+  .arrow-teal { color: var(--teal); font-weight: bold; font-size: 1.05em; margin: 0 3px; }
+  .arrow-gold { color: var(--gold); font-weight: bold; font-size: 1.05em; margin: 0 3px; }
+  .flow { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin: 10px 0; font-size: 0.97em; }
+  .flow-item { background: var(--warm); border: 1px solid var(--border); border-radius: 8px; padding: 4px 10px; font-size: 0.92em; }
+  .flow-arrow { color: var(--accent); font-size: 1.3em; font-weight: bold; }
+
+  /* RED BOX for images/tables */
+  .red-box {
+    border: 2.5px solid var(--accent);
+    border-radius: 10px;
+    background: #fff5f5;
+    padding: 16px 18px;
+    margin: 16px 0;
+    position: relative;
+  }
+  .red-box::before {
+    content: '🖼 IMAGEN / TABLA DE LA DIAPOSITIVA';
+    display: block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72em;
+    font-weight: 600;
+    color: var(--accent);
+    letter-spacing: 0.5px;
+    margin-bottom: 10px;
+    border-bottom: 1px dashed var(--accent);
+    padding-bottom: 6px;
+  }
+
+  /* ALERT / NOTE boxes */
+  .note {
+    background: #fffbe6;
+    border-left: 4px solid var(--gold);
+    border-radius: 6px;
+    padding: 10px 14px;
+    margin: 12px 0;
+    font-size: 0.95em;
+  }
+  .note-red {
+    background: #fff0f0;
+    border-left: 4px solid var(--accent);
+    border-radius: 6px;
+    padding: 10px 14px;
+    margin: 12px 0;
+    font-size: 0.95em;
+  }
+  .note-teal {
+    background: #f0fafa;
+    border-left: 4px solid var(--teal);
+    border-radius: 6px;
+    padding: 10px 14px;
+    margin: 12px 0;
+    font-size: 0.95em;
+  }
+
+  /* TABLE */
+  table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 0.93em; }
+  th { background: var(--navy); color: #fff; padding: 8px 10px; text-align: left; font-weight: 600; }
+  td { padding: 7px 10px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  tr:nth-child(even) td { background: var(--warm); }
+  td strong { color: var(--navy); }
+
+  /* FORMULA BOX */
+  .formula {
+    font-family: 'JetBrains Mono', monospace;
+    background: var(--navy);
+    color: #a8e6cf;
+    border-radius: 8px;
+    padding: 12px 18px;
+    font-size: 0.93em;
+    margin: 12px 0;
+    overflow-x: auto;
+  }
+
+  /* STAGING BOX */
+  .stage-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(210px,1fr)); gap: 10px; margin: 12px 0; }
+  .stage-item { border-radius: 9px; padding: 12px 14px; font-size: 0.91em; border: 1.5px solid; }
+  .stage-green  { background:#e8f8e8; border-color:#27ae60; }
+  .stage-yellow { background:#fffde7; border-color:#f1c40f; }
+  .stage-orange { background:#fff3e0; border-color:#e67e22; }
+  .stage-red    { background:#fdecea; border-color:#c0392b; }
+  .stage-item .num { font-weight:700; font-size:1.1em; }
+
+  /* BADGE */
+  .badge { display:inline-block; background:var(--teal); color:#fff; border-radius:20px; padding:2px 10px; font-size:0.8em; font-weight:600; margin:0 4px; vertical-align:middle; }
+  .badge-red { background:var(--accent); }
+  .badge-gold { background:var(--gold); color:var(--ink); }
+
+  /* DIVIDER */
+  .divider { border:none; border-top: 1.5px dashed var(--border); margin: 18px 0; }
+
+  /* TAG */
+  .tag { display:inline-block; background:var(--warm); border:1px solid var(--border); border-radius:5px; padding:1px 7px; font-size:0.82em; margin:0 2px; }
+
+  /* FP/FN table */
+  .fp-fn { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin:10px 0; }
+  .fp-fn-box { border-radius:8px; padding:12px; font-size:0.9em; }
+  .fp-box { background:#fff0f0; border:1.5px solid #e74c3c; }
+  .fn-box { background:#f0f7ff; border:1.5px solid #2980b9; }
+  .fp-fn-title { font-weight:700; margin-bottom:6px; }
+
+  @media(max-width:600px){
+    .fp-fn { grid-template-columns:1fr; }
+    .index-box ul { columns:1; }
+  }
+</style>
+</head>
+<body>
+
+<div class="main-header">
+  <h1>🫘 Pruebas de Función Renal</h1>
+  <div class="subtitle">Dra. Dayra Nelly Huerta López &nbsp;·&nbsp; Notas de estudio completas con imágenes interpretadas</div>
+</div>
+
+<div class="wrapper">
+
+<!-- INDEX -->
+<div class="index-box">
+  <h2>📋 Índice</h2>
+  <ul>
+    <li><a href="#er">1. Enfermedad Renal</a></li>
+    <li><a href="#intro">2. Introducción al urinalisis</a></li>
+    <li><a href="#orina">3. Producción de orina</a></li>
+    <li><a href="#filtra">4. Qué se filtra</a></li>
+    <li><a href="#reabsorbe">5. Qué se reabsorbe</a></li>
+    <li><a href="#urinalis">6. Urinalisis: 4 etapas</a></li>
+    <li><a href="#especimen">7. Evaluación del espécimen</a></li>
+    <li><a href="#macro">8. Examen macroscópico</a></li>
+    <li><a href="#color">9. Color anormal</a></li>
+    <li><a href="#caracter">10. Carácter / turbidez</a></li>
+    <li><a href="#olor">11. Olor</a></li>
+    <li><a href="#volumen">12. Volumen</a></li>
+    <li><a href="#tira">13. Tira reactiva</a></li>
+    <li><a href="#ge">14. Gravedad específica y osmolalidad</a></li>
+    <li><a href="#ph">15. pH urinario</a></li>
+    <li><a href="#proteinas">16–18. Proteínas y proteinuria</a></li>
+    <li><a href="#glucosa">19. Glucosa</a></li>
+    <li><a href="#cetonas">20. Cetonas</a></li>
+    <li><a href="#hemo">21–23. Hemoglobina / Heme</a></li>
+    <li><a href="#bili">24–26. Bilirrubina y urobilinógeno</a></li>
+    <li><a href="#nitritos">27. Nitritos y esterasa</a></li>
+    <li><a href="#sedimento">28. Sedimento</a></li>
+    <li><a href="#celulas">29. Células</a></li>
+    <li><a href="#cilindros">30–31. Cilindros / moldes</a></li>
+    <li><a href="#cristales">32. Cristales</a></li>
+    <li><a href="#lipidos">33. Lípidos</a></li>
+    <li><a href="#tfg">34–36. TFG y marcadores</a></li>
+    <li><a href="#ira">37–39. IRA / KDIGO</a></li>
+    <li><a href="#bun">40. BUN / FeNa</a></li>
+    <li><a href="#erc">41–42. ERC y estadificación</a></li>
+    <li><a href="#resumen">43. Resumen algoritmo</a></li>
+  </ul>
+</div>
+
+<!-- ======= 1. ENFERMEDAD RENAL ======= -->
+<div class="section" id="er">
+  <div class="section-title"><span class="icon">🔵</span> 1. Enfermedad Renal (ER)</div>
+
+  <p><span class="star">⭐</span> El paciente con ER puede presentarse de múltiples formas:</p>
+  <ul class="bullets">
+    <li><span class="arrow">→</span> <strong>Atribuibles al riñón:</strong> hematuria macroscópica, dolor en flanco</li>
+    <li><span class="arrow">→</span> <strong>Síntomas extrarrenales:</strong> edema, HAS, signos de uremia</li>
+    <li><span class="arrow">→</span> <strong>Asintomáticos:</strong> creatinina sérica elevada o análisis urinario anormal</li>
+  </ul>
+
+  <div class="sub">Una vez descubierta la ER, se debe evaluar:</div>
+  <div class="flow">
+    <div class="flow-item">Grado de deterioro de la función renal</div>
+    <div class="flow-arrow">⟶</div>
+    <div class="flow-item">Daño renal y velocidad de progresión</div>
+    <div class="flow-arrow">⟶</div>
+    <div class="flow-item">Trastorno subyacente</div>
+  </div>
+
+  <div class="note"><span class="star">⭐⭐</span> Para el diagnóstico la herramienta más importante es la estimación de la <span class="imp">TFG (Tasa de Filtrado Glomerular)</span>, además de la albuminuria/proteinuria, sedimento urinario, imagenología y biopsia si es necesario.</div>
+</div>
+
+<!-- ======= 2. INTRODUCCIÓN ======= -->
+<div class="section" id="intro">
+  <div class="section-title"><span class="icon">🔬</span> 2. Introducción al urinalisis</div>
+  <ul class="bullets">
+    <li><span class="arrow-teal">→</span> Permite identificar problemas <span class="imp2">intrínsecos del sistema urinario</span> (fisiológicos y estructurales) y otros no sospechados</li>
+    <li><span class="arrow-teal">→</span> Permite monitorear progresión o regresión de lesiones con mínimo distrés al paciente</li>
+    <li><span class="arrow-teal">→</span> Algunas enfermedades sistémicas, endócrinas o metabólicas pueden detectarse por cantidades anormales de metabolitos en orina</li>
+  </ul>
+  <div class="note-teal"><span class="star">⭐</span> El análisis urinario se integra de: <span class="imp2">tira reactiva</span> + <span class="imp2">análisis del sedimento bajo microscopio</span></div>
+</div>
+
+<!-- ======= 3. PRODUCCIÓN DE ORINA ======= -->
+<div class="section" id="orina">
+  <div class="section-title"><span class="icon">💧</span> 3. ¿Cómo se produce la orina?</div>
+
+  <div class="red-box">
+    <strong>Diagrama: Filtración en el nefron</strong><br><br>
+    <div class="flow">
+      <div class="flow-item">Sangre entra por arteriola <em>aferente</em></div>
+      <div class="flow-arrow">⟶</div>
+      <div class="flow-item">① Filtración al espacio de Bowman</div>
+      <div class="flow-arrow">⟶</div>
+      <div class="flow-item">② Reabsorción en túbulo proximal<br><small>(glucosa, aa, Na⁺, agua)</small></div>
+      <div class="flow-arrow">⟶</div>
+      <div class="flow-item">③ Secreción tubular<br><small>(K⁺, H⁺, fármacos)</small></div>
+      <div class="flow-arrow">⟶</div>
+      <div class="flow-item">④ Reabsorción de agua por ADH<br>(túbulo colector)</div>
+      <div class="flow-arrow">⟶</div>
+      <div class="flow-item">Orina final: toxinas, urea, creatinina</div>
+    </div>
+  </div>
+
+  <ul class="bullets">
+    <li><span class="star">⭐</span> En el adulto, <span class="imp">~1200 ml de sangre</span> perfunden los riñones cada minuto (<span class="imp">~25% del gasto cardíaco</span>)</li>
+    <li><span class="star">⭐</span> De <span class="imp">180 L de filtrado glomerular en 24 h</span> <span class="arrow">→</span> se reduce a <span class="imp">0.6–2 L de orina/día</span> según el estado de hidratación</li>
+  </ul>
+</div>
+
+<!-- ======= 4. QUÉ SE FILTRA ======= -->
+<div class="section" id="filtra">
+  <div class="section-title"><span class="icon">🧪</span> 4. ¿Qué se filtra?</div>
+  <ul class="bullets">
+    <li>El ultrafiltrado tiene la <span class="imp2">misma composición que el plasma</span></li>
+    <li>Normalmente es <span class="imp2">libre de proteínas</span>, excepto <span class="imp">~10 mg/dL de proteínas de bajo peso molecular</span></li>
+    <li>Se filtra: <span class="tag">agua</span> <span class="tag">glucosa</span> <span class="tag">electrolitos</span> <span class="tag">aminoácidos</span> <span class="tag">urea</span> <span class="tag">ácido úrico</span> <span class="tag">creatinina</span> <span class="tag">amoniaco</span></li>
+  </ul>
+
+  <div class="sub">TFG como indicador de función renal:</div>
+  <ul class="bullets">
+    <li>Es proporcional al <span class="imp">tamaño corporal</span>, varía con edad y sexo</li>
+    <li>Puede calcularse por <span class="imp2">pruebas de aclaramiento</span> (orina 24 h + sangre) o por <span class="imp2">eTFG estimada</span></li>
+  </ul>
+</div>
+
+<!-- ======= 5. QUÉ SE REABSORBE ======= -->
+<div class="section" id="reabsorbe">
+  <div class="section-title"><span class="icon">🔄</span> 5. ¿Qué se reabsorbe? Sustancias umbral</div>
+
+  <div class="red-box">
+    <strong>Diagrama: Reabsorción en túbulo renal</strong><br><br>
+    <div class="flow">
+      <div class="flow-item">Glomérulo: filtración<br><small>(quedan células y proteínas en sangre)</small></div>
+      <div class="flow-arrow">⟶</div>
+      <div class="flow-item">Túbulo proximal<br><small>Glucosa, aa, Na⁺, agua</small> <span class="arrow-teal">↓ reabsorción</span></div>
+      <div class="flow-arrow">⟶</div>
+      <div class="flow-item">Túbulo distal<br><small>Na⁺ por aldosterona, HCO₃⁻</small></div>
+      <div class="flow-arrow">⟶</div>
+      <div class="flow-item">Túbulo colector<br><small>Agua por ADH</small></div>
+      <div class="flow-arrow">⟶</div>
+      <div class="flow-item">Vénula peritubular<br><small>→ sangre con sustancias reabsorbidas</small></div>
+    </div>
+    <br>
+    <em>Referencia: Tabla 4-2 de la diapositiva — Comparación del ultrafiltrado inicial vs composición final de orina por soluto/día</em>
+  </div>
+
+  <div class="sub">⭐ Sustancias umbral</div>
+  <div class="note-red"><strong>Definición:</strong> se reabsorben casi por completo cuando su concentración plasmática es normal. Cuando se <span class="imp">exceden</span>, ya no pueden reabsorberse totalmente <span class="arrow">→</span> aparecen en orina.</div>
+  <ul class="bullets">
+    <li><span class="star">⭐⭐</span> <span class="imp">Glucosa:</span> umbral alto. Aparece en orina cuando glucosa plasmática <span class="imp">&gt; 160–180 mg/dL</span></li>
+    <li><span class="arrow-teal">→</span> Otros: cloruro de sodio, aminoácidos, potasio, creatina, ácido ascórbico</li>
+  </ul>
+</div>
+
+<!-- ======= 6. URINALISIS ======= -->
+<div class="section" id="urinalis">
+  <div class="section-title"><span class="icon">🧬</span> 6. Urinalisis: 4 Etapas</div>
+  <div class="stage-grid">
+    <div class="stage-item stage-green"><span class="num">① Evaluación del espécimen</span><br>Calidad y aceptabilidad de la muestra</div>
+    <div class="stage-item stage-yellow"><span class="num">② Examen macroscópico/físico</span><br>Color, turbidez, olor, volumen</div>
+    <div class="stage-item stage-orange"><span class="num">③ Tamizaje químico</span><br>Tira reactiva: GE, pH, proteínas, etc.</div>
+    <div class="stage-item stage-red"><span class="num">④ Examinación del sedimento</span><br>Células, cilindros, cristales, microorganismos</div>
+  </div>
+</div>
+
+<!-- ======= 7. EVALUACIÓN DEL ESPÉCIMEN ======= -->
+<div class="section" id="especimen">
+  <div class="section-title"><span class="icon">🏷</span> 7. Evaluación del Espécimen</div>
+  <ul class="bullets">
+    <li><span class="arrow">→</span> Verificar: etiquetado, muestra adecuada, signos visibles de contaminación, deterioro por transporte</li>
+  </ul>
+  <div class="sub">Muestra ideal:</div>
+  <ul class="bullets">
+    <li><span class="star">⭐</span> <span class="imp">Primera orina de la mañana</span> (es la más concentrada)</li>
+    <li>Si hay varios estudios <span class="arrow-teal">→</span> primero los microbiológicos</li>
+    <li>Para mediciones cuantitativas <span class="arrow-teal">→</span> muestra cronometrada <span class="imp2">12–24 horas</span></li>
+  </ul>
+</div>
+
+<!-- ======= 8. EXAMEN MACROSCÓPICO ======= -->
+<div class="section" id="macro">
+  <div class="section-title"><span class="icon">👁</span> 8. Examen Macroscópico</div>
+  <ul class="bullets">
+    <li><span class="imp2">Color amarillo:</span> por pigmento <span class="imp">urocrómo</span> (excretado proporcional a la tasa metabólica) <span class="arrow">→</span> incrementa con fiebre, tirotoxicosis e inanición</li>
+    <li>Normalmente puede ser pálida o amarilla oscura según estado de hidratación</li>
+    <li><span class="imp2">Normalmente es clara</span></li>
+    <li>Olor leve y aromático de origen indeterminado</li>
+    <li><span class="star">⭐</span> Volumen normal en adultos: <span class="imp">600–2000 ml/día</span></li>
+    <li>No más de <span class="imp">400 ml/noche</span></li>
+  </ul>
+</div>
+
+<!-- ======= 9. COLOR ANORMAL ======= -->
+<div class="section" id="color">
+  <div class="section-title"><span class="icon">🎨</span> 9. Color Anormal</div>
+  <div class="red-box">
+    <strong>Tabla: Colores anormales y causas comunes</strong>
+    <table>
+      <thead><tr><th>Color</th><th>Causas comunes</th></tr></thead>
+      <tbody>
+        <tr><td><strong>🔴 Rojo</strong></td><td><span class="star">⭐</span> El más común. Contaminación menstrual, <span class="imp">hematuria</span>, hemoglobinuria, mioglobinuria, porfiria, betabel</td></tr>
+        <tr><td><strong>🟡 Amarillo-marrón / Verde-marrón</strong></td><td><span class="imp">Bilirrubina.</span> Al agitarse <span class="arrow">→</span> espuma amarilla = bilirrubina; espuma blanca = orina concentrada</td></tr>
+        <tr><td><strong>🟠 Rojo-anaranjado / Marrón-anaranjado</strong></td><td>Urobilina. Al agitarse <span class="arrow">→</span> espuma blanca</td></tr>
+        <tr><td><strong>⬛ Marrón oscuro / Negro</strong></td><td>Orina ácida + Hb <span class="arrow">→</span> <span class="imp">Metahemoglobina</span>; L-Dopa; Melanina</td></tr>
+        <tr><td><strong>🔵 Azul / Verde / Azul-verdoso</strong></td><td>Colorantes alimentarios; Indometacina, Propofol, Sildenafil; <span class="imp">Pseudomonas</span></td></tr>
+        <tr><td><strong>🟣 Púrpura</strong></td><td>¿Catéter vesical? <span class="arrow">→</span> <span class="imp">ITU</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ======= 10. CARÁCTER ======= -->
+<div class="section" id="caracter">
+  <div class="section-title"><span class="icon">🌊</span> 10. Carácter / Turbidez</div>
+  <div class="red-box">
+    <strong>Tabla: Caracteres anormales de la orina</strong>
+    <table>
+      <thead><tr><th>Carácter</th><th>Causas comunes</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>Turbia</strong></td>
+          <td>
+            Cristales, leucocitos, crecimiento bacteriano, eritrocitos, células epiteliales, espermatozoides, líquido prostático<br>
+            <em>Otros:</em> moco urogenital, coágulos, flujo menstrual, pus, materia fecal (fístula), polvos, antisépticos
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Quiluria (linfa)</strong> <span class="badge">RARA</span></td>
+          <td>Transparente hasta lechosa. Causa más común: <span class="imp">Filariasis (Wuchereria bancrofti)</span>. Pseudoquiluria por cremas vaginales base parafina</td>
+        </tr>
+        <tr>
+          <td><strong>Lipiduria</strong></td>
+          <td><span class="star">⭐</span> <span class="imp">Síndrome nefrótico</span> (triglicéridos y colesterol) es la causa más común. También: fracturas de huesos largos/pélvicos, contaminante (parafina)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ======= 11. OLOR ======= -->
+<div class="section" id="olor">
+  <div class="section-title"><span class="icon">👃</span> 11. Olor Anormal</div>
+  <div class="red-box">
+    <strong>Tabla: Olores anormales y su significado clínico</strong>
+    <table>
+      <thead><tr><th>Olor</th><th>Causa / Diagnóstico asociado</th></tr></thead>
+      <tbody>
+        <tr><td>Huevos podridos</td><td><span class="imp">Cistinuria</span></td></tr>
+        <tr><td>Dulce afrutado</td><td><span class="imp">Cetoacidosis</span></td></tr>
+        <tr><td>Pies sudorosos</td><td>Acidemia isovalérica</td></tr>
+        <tr><td>Jarabe de arce</td><td><span class="imp">Enfermedad de la orina con jarabe de arce</span></td></tr>
+        <tr><td>Ratón / Moho</td><td><span class="imp">Fenilcetonuria</span></td></tr>
+        <tr><td>Rancio</td><td>Tirosinemia</td></tr>
+        <tr><td><strong>Sin olor</strong></td><td><span class="star">⭐</span> <span class="imp">Necrosis tubular aguda &gt; IRA prerrenal</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ======= 12. VOLUMEN ======= -->
+<div class="section" id="volumen">
+  <div class="section-title"><span class="icon">📏</span> 12. Volumen Urinario</div>
+  <div class="red-box">
+    <strong>Tabla: Alteraciones del volumen urinario</strong>
+    <table>
+      <thead><tr><th>Alteración</th><th>Causas comunes</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>
+            <strong>&gt; 2000 ml/día</strong><br>
+            <span class="imp">Poliuria</span><br>
+            <small>Nicturia: &gt;500 ml/noche con GE &lt;1.018<br>Presente en 85% de ancianos &gt;80 años</small>
+          </td>
+          <td>
+            Polidipsia, diuréticos (cafeína, alcohol, tiazidas), soluciones IV, alto consumo de sal/proteínas<br>
+            <span class="star">⭐</span> <span class="imp">Diabetes insípida:</span> hasta <span class="imp">15 litros/día</span><br>
+            Anomalía tubular renal con pérdida de sodio o mecanismo contracorriente<br>
+            <span class="imp">Diabetes mellitus</span> por diuresis osmótica
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <strong>&lt; 500 ml/día</strong><br>
+            <span class="imp">Oliguria</span><br>
+            <small>Anuria: supresión casi completa de la producción</small>
+          </td>
+          <td>
+            Privación de líquidos<br>
+            <span class="arrow">→</span> <strong>Prerrenal:</strong> hemorragia, diarrea, vómito, sudoración, quemaduras, ICC, sepsis, anafilaxis, oclusión a. renal<br>
+            <span class="arrow">→</span> <strong>Postrenal:</strong> cálculos, hiperplasia/Ca próstata, coágulos, estenosis, válvulas<br>
+            <span class="arrow">→</span> <strong>Parenquimatosa:</strong> trastornos vasculares, glomerulonefritis, NTA
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ======= 13. TIRA REACTIVA ======= -->
+<div class="section" id="tira">
+  <div class="section-title"><span class="icon">🧲</span> 13. Tira Reactiva</div>
+  <p>Proporciona evaluación <span class="imp2">semicuantitativa rápida</span> mediante almohadillas colorimétricas.</p>
+
+  <div class="red-box">
+    <strong>Imagen: Tira reactiva con sus parámetros (de izquierda a derecha)</strong><br><br>
+    <div class="flow">
+      <div class="flow-item">Leucocitos</div>
+      <div class="flow-arrow">|</div>
+      <div class="flow-item">Nitritos</div>
+      <div class="flow-arrow">|</div>
+      <div class="flow-item">Urobilinógeno</div>
+      <div class="flow-arrow">|</div>
+      <div class="flow-item">Proteínas</div>
+      <div class="flow-arrow">|</div>
+      <div class="flow-item">pH</div>
+      <div class="flow-arrow">|</div>
+      <div class="flow-item">Sangre/Hemo</div>
+      <div class="flow-arrow">|</div>
+      <div class="flow-item">GE</div>
+      <div class="flow-arrow">|</div>
+      <div class="flow-item">Cetonas</div>
+      <div class="flow-arrow">|</div>
+      <div class="flow-item">Bilirrubina</div>
+      <div class="flow-arrow">|</div>
+      <div class="flow-item">Glucosa</div>
+    </div>
+  </div>
+
+  <div class="sub">Parámetros básicos medidos:</div>
+  <ul class="bullets">
+    <li><span class="badge">Útil para ER</span> Gravedad específica, pH, Hemo, Esterasa leucocitaria, Nitrito, Albúmina, Glucosa</li>
+    <li><span class="badge badge-red">NO útil para ER</span> Bilirrubina, Urobilinógeno, Cetonas</li>
+  </ul>
+</div>
+
+<!-- ======= 14. GE Y OSMOLALIDAD ======= -->
+<div class="section" id="ge">
+  <div class="section-title"><span class="icon">⚖️</span> 14. Gravedad Específica (GE) y Osmolalidad</div>
+
+  <div class="red-box">
+    <strong>Imagen: Escala de colores de gravedad específica en tira reactiva</strong><br>
+    Valores: <span class="imp">1.000 → 1.005 → 1.010 → 1.015 → 1.020 → 1.025 → 1.030</span><br>
+    (progresión de verde oscuro a amarillo dorado = más concentrada)
+  </div>
+
+  <div class="sub"><span class="star">⭐</span> GE — Gravedad Específica</div>
+  <ul class="bullets">
+    <li>Evalúa la capacidad de <span class="imp">concentrar o diluir la orina</span></li>
+    <li>Refleja la densidad del espécimen. Se compone de: urea (20%), NaCl (25%), sulfato y fosfato</li>
+    <li><span class="imp">Normal:</span> <span class="imp">1.016–1.022</span> en orina de 24 h; <span class="imp">1.003–1.035</span> en orina aleatoria</li>
+    <li><span class="arrow-teal">→</span> <span class="imp2">Hipostenuria:</span> pérdida de la capacidad concentradora</li>
+    <li><span class="arrow-teal">→</span> <span class="imp2">Isostenuria:</span> poca/ninguna variabilidad entre muestras (~1.010) = incapacidad de concentrar o diluir</li>
+  </ul>
+
+  <div class="note-red"><span class="star">⭐</span> Precaución: la tira reactiva para GE <span class="imp">NO se ve afectada</span> por altas cantidades de glucosa, proteínas o contraste radiográfico</div>
+
+  <div class="sub">Osmolalidad</div>
+  <ul class="bullets">
+    <li>Indica el número de partículas de soluto por unidad de solución</li>
+    <li><span class="imp">Normal: 500–850 mOsm/kg de agua</span></li>
+  </ul>
+</div>
+
+<!-- ======= 15. pH ======= -->
+<div class="section" id="ph">
+  <div class="section-title"><span class="icon">🧪</span> 15. pH Urinario</div>
+
+  <div class="red-box">
+    <strong>Imagen: Escala de pH en tira reactiva</strong><br>
+    Valores: <span class="imp">5.0 → 6.0 → 6.5 → 7.0 → 7.5 → 8.0 → 8.5</span><br>
+    (lectura a los 60 segundos)
+  </div>
+
+  <ul class="bullets">
+    <li>A nivel renal: <span class="imp">recuperar y generar bicarbonato</span> + <span class="imp">secretar iones de amonio</span></li>
+    <li>El glomérulo excreta ácidos orgánicos no volátiles como sales (Na, K, Ca, amonio) por túbulos proximales</li>
+    <li><span class="star">⭐</span> pH normal: <span class="imp">4.6–8</span>; equivale a 50–100 mEq de H⁺ ~ pH 6.0</li>
+    <li>Si se retrasa el análisis <span class="arrow">→</span> la orina se <span class="imp">alcaliniza</span> por pérdida de CO₂ y crecimiento bacteriano (amoniaco por urea)</li>
+    <li><span class="note-red" style="display:inline;padding:2px 6px;">Precaución:</span> exceso de humedad puede hacer que el tampón de proteínas corra sobre el pH <span class="arrow">→</span> vira naranja (falso)</li>
+  </ul>
+
+  <div class="red-box">
+    <strong>Tabla: Causas de orina ácida vs alcalina</strong>
+    <table>
+      <thead><tr><th>Orina Ácida</th><th>Orina Alcalina</th></tr></thead>
+      <tbody>
+        <tr><td>Dieta alta en carne y algunas frutas</td><td>Dieta alta en verduras y frutas cítricas</td></tr>
+        <tr><td>Acidosis respiratoria leve (sueño)</td><td>Marea alcalina</td></tr>
+        <tr><td>Acidificación terapéutica (cálculos alcalinos)</td><td>Acidificación terapéutica (cálculos ácidos)</td></tr>
+        <tr><td>Acidosis metabólica o respiratoria</td><td><span class="imp">Acidosis tubular renal</span></td></tr>
+        <tr><td>Alcalosis hipokalemica</td><td>Alcalosis metabólica y respiratoria</td></tr>
+        <tr><td>Síndrome metabólico</td><td></td></tr>
+        <tr><td><span class="imp">ERC</span></td><td></td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ======= 16-18. PROTEÍNAS ======= -->
+<div class="section" id="proteinas">
+  <div class="section-title"><span class="icon">🔬</span> 16–18. Proteínas, Proteinuria y Albuminuria</div>
+
+  <p><span class="star">⭐</span> Excreción normal: hasta <span class="imp">150 mg/día</span> o <span class="imp">2–10 mg/dL</span> según volumen</p>
+
+  <div class="sub">Proteínas normales en orina:</div>
+  <ul class="bullets">
+    <li>Albúmina (69,000 Da) — solo en muy bajas cantidades</li>
+    <li>Unión de retinol, β2-microglobulina, cadenas ligeras de Ig, lisozima</li>
+    <li><span class="imp2">Glicoproteína Tamm-Horsfall</span> &gt; 1/3 de las proteínas totales en orina</li>
+    <li>IgA secretoria, enzimas, células epiteliales tubulares, leucocitos</li>
+  </ul>
+
+  <div class="note-red"><span class="star">⭐⭐</span> Niveles anormales de proteínas en orina = <span class="imp">importante marcador de enfermedad renal</span> (la tasa de reabsorción máxima tubular de proteínas es muy baja)</div>
+
+  <div class="red-box">
+    <strong>Imagen: Escala de proteínas en tira reactiva</strong><br>
+    NEG <span class="arrow-gold">→</span> Trace <span class="arrow-gold">→</span> 30 mg/dL (1+) <span class="arrow-gold">→</span> 100 mg/dL (2+) <span class="arrow-gold">→</span> 300 mg/dL (3+) <span class="arrow-gold">→</span> ≥ 2000 mg/dL (4+)
+  </div>
+
+  <div class="sub">Métodos de detección:</div>
+  <ul class="bullets">
+    <li><span class="imp2">Tira reactiva:</span> solo detecta <span class="imp">albúmina</span>, NO detecta inmunoglobulinas de cadenas ligeras</li>
+    <li><span class="imp2">Precipitado (Ác. Sulfosalicílico):</span> detecta <span class="imp">todas las proteínas</span></li>
+    <li><span class="star">⭐</span> Un resultado positivo debe confirmarse con un segundo método en muestras repetidas</li>
+  </ul>
+
+  <hr class="divider">
+  <div class="sub">Tipos de Proteinuria</div>
+  <div class="red-box">
+    <strong>Tabla: Clasificación de proteinuria funcional</strong>
+    <table>
+      <thead><tr><th>Tipo</th><th>Características</th><th>Pronóstico</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>Funcional</strong><br>(&lt;0.5 g/día)</td>
+          <td>Ejercicio extenuante, ICC, exposición al frío, fiebre</td>
+          <td><span class="badge" style="background:#27ae60">Buen pronóstico</span> Se resuelve en 2–3 días</td>
+        </tr>
+        <tr>
+          <td><strong>Transitoria</strong></td>
+          <td>Antecedentes normales, exploración física normal, función renal normal. Revisión c/6 meses, investigar HAS. Embarazo.</td>
+          <td>Buen pronóstico</td>
+        </tr>
+        <tr>
+          <td><strong>Postural</strong></td>
+          <td>3–5% adultos jóvenes. Solo en el día (no noche). Puede volverse persistente <span class="arrow">→</span> biopsia muestra lesión glomerular u obstrucción a. renal</td>
+          <td>Rara vez &gt;1 g/día, sin evidencia de ER</td>
+        </tr>
+        <tr>
+          <td><strong>Adulto mayor &gt;60 años</strong></td>
+          <td><span class="star">⭐</span> 3–4 veces más incidencia de glomerulonefritis. 25% tiene enfermedad de cambios mínimos.</td>
+          <td>Persistente &gt;1–2 g/día = <span class="imp">mal pronóstico</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="note"><span class="star">⭐⭐</span> "Un resultado persistentemente positivo en tira reactiva debe continuar con <span class="imp">cuantificación de albuminuria</span> mediante relación proteínas/creatinina en orina aleatoria o proteínas en orina de 24 h."</div>
+
+  <hr class="divider">
+  <div class="sub">Albuminuria y Proteinuria — Valores de referencia</div>
+  <div class="red-box">
+    <strong>Tabla: Clasificación de albuminuria y proteinuria</strong>
+    <table>
+      <thead><tr><th>Parámetro</th><th>Categoría</th><th>Valor</th><th>Causas asociadas</th></tr></thead>
+      <tbody>
+        <tr><td rowspan="3"><strong>Relación Alb/Cr</strong><br>Anormal &gt;30 mg alb/g Cr</td><td>Normal</td><td>&lt;30 mg/24h</td><td></td></tr>
+        <tr><td><span class="imp2">Microalbuminuria</span></td><td>30–300 mg/24h</td><td>Pielonefritis crónica, enf. tubulares, proteinuria transitoria/postural</td></tr>
+        <tr><td><span class="imp">Macroalbuminuria</span></td><td>&gt;300 mg/24h</td><td>La mayoría de enfermedades renales, proteinuria de Bence-Jones, Sd. nefrótico</td></tr>
+        <tr><td rowspan="4"><strong>Relación Prot/Cr</strong><br>Normal &lt;0.2 g/g Cr<br><small>(&lt;0.5 en &lt;2 años)</small></td><td>Leve</td><td>&lt;1 g/24h</td><td>Pielonefritis crónica, enf. tubulares</td></tr>
+        <tr><td>Moderada</td><td>1–4 g/24h</td><td>La mayoría enfermedades renales</td></tr>
+        <tr><td><span class="imp">Pesada</span></td><td>&gt;4 g/24h</td><td><span class="imp">Síndrome nefrótico</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ======= 19. GLUCOSA ======= -->
+<div class="section" id="glucosa">
+  <div class="section-title"><span class="icon">🍬</span> 19. Glucosa</div>
+
+  <div class="red-box">
+    <strong>Imagen: Escala de glucosa en tira reactiva</strong><br>
+    NEG <span class="arrow-gold">→</span> Trace (100 mg/dL) <span class="arrow-gold">→</span> 1+ (250 mg/dL) <span class="arrow-gold">→</span> 2+ (500 mg/dL) <span class="arrow-gold">→</span> 3+ (1000 mg/dL) <span class="arrow-gold">→</span> 4+ (≥2000 mg/dL)
+  </div>
+
+  <p><span class="imp2">Glucosuria</span> = presencia de cantidades detectables de glucosa en orina</p>
+  <div class="sub">Causas (cuando se sobrepasa la capacidad de reabsorción):</div>
+  <ul class="bullets">
+    <li><span class="star">⭐⭐</span> Glucosa plasmática <span class="imp">&gt;160–180 mg/dL</span></li>
+    <li>Embarazo (aun con niveles por debajo del umbral)</li>
+    <li>Disfunción tubular</li>
+    <li>Incremento de otros azúcares: Fructosa, Galactosa, Lactosa, Pentosa, Sacarosas <span class="arrow-teal">→</span> enteritis aguda, deficiencia enzimática congénita, embarazo, lactancia</li>
+  </ul>
+  <div class="note-teal">Tira reactiva: solo reacciona con glucosa (glucosa oxidasa + peroxidasa). Solo cambia el cromógeno</div>
+
+  <div class="red-box">
+    <strong>Tabla: Cromógenos de glucosa en tira reactiva</strong>
+    <table>
+      <thead><tr><th>Cromógeno</th><th>Característica</th></tr></thead>
+      <tbody>
+        <tr><td>Clinistix — o-toluidine</td><td>Color cambia de rosa a morado. Detecta 100 mg/dL. Sensible a ácido ascórbico</td></tr>
+        <tr><td>Multistix — ioduro de potasio</td><td>Color cambia de azul a café a los 30 seg</td></tr>
+        <tr><td>Chemstrip — aminopropil-carbazol</td><td>Color cambia de amarillo a marrón anaranjado a los 60 seg</td></tr>
+      </tbody>
+    </table>
+    <br>
+    <div class="fp-fn">
+      <div class="fp-fn-box fp-box">
+        <div class="fp-fn-title">⚠️ Falsos Positivos</div>
+        <ul class="bullets">
+          <li>Limpieza del contenedor con agentes oxidantes</li>
+          <li>GE baja</li>
+        </ul>
+      </div>
+      <div class="fp-fn-box fn-box">
+        <div class="fp-fn-title">⚠️ Falsos Negativos</div>
+        <ul class="bullets">
+          <li>Conservador fluoruro de sodio</li>
+          <li>GE alta</li>
+          <li><span class="imp">Ácido ascórbico</span></li>
+          <li>Enzimas glucolíticas de células/bacterias a temperatura ambiente</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ======= 20. CETONAS ======= -->
+<div class="section" id="cetonas">
+  <div class="section-title"><span class="icon">🔥</span> 20. Cetonas</div>
+
+  <div class="red-box">
+    <strong>Imagen: Escala de cetonas en tira reactiva</strong><br>
+    NEG (mg/dL) <span class="arrow-gold">→</span> Trace 5 <span class="arrow-gold">→</span> Small 15 <span class="arrow-gold">→</span> Moderate 40 <span class="arrow-gold">→</span> Large 80 <span class="arrow-gold">→</span> Large 160
+  </div>
+
+  <div class="flow">
+    <div class="flow-item">Defecto metab. carbohidratos o dieta baja en CHO</div>
+    <div class="flow-arrow">⟶</div>
+    <div class="flow-item">↑ Ácidos grasos libres</div>
+    <div class="flow-arrow">⟶</div>
+    <div class="flow-item">Cuerpos cetónicos en sangre</div>
+    <div class="flow-arrow">⟶</div>
+    <div class="flow-item">Cetonuria</div>
+  </div>
+
+  <div class="sub">Composición de cuerpos cetónicos:</div>
+  <ul class="bullets">
+    <li><span class="star">⭐</span> Ácido acetoacético: <span class="imp">20%</span></li>
+    <li>Acetona: <span class="imp">2%</span></li>
+    <li><span class="star">⭐⭐</span> 3-hidroxibutirato: <span class="imp">78%</span> (el más abundante)</li>
+  </ul>
+  <ul class="bullets">
+    <li>Normal: hasta <span class="imp">2 mg/dL de ácido acético</span></li>
+    <li>Tira reactiva sin álcali: reacciona <span class="imp">solo con ácido acetoacético</span></li>
+  </ul>
+
+  <div class="red-box">
+    <strong>Diagrama: Relaciones entre cuerpos cetónicos</strong><br><br>
+    <div class="flow">
+      <div class="flow-item">Ácido acetoacético</div>
+      <div class="flow-arrow">–CO₂ →</div>
+      <div class="flow-item">Acetona</div>
+    </div>
+    <div class="flow" style="margin-top:6px;">
+      <div class="flow-item">Ácido acetoacético</div>
+      <div class="flow-arrow">+2H ⇌</div>
+      <div class="flow-item">3-Hidroxibutirato</div>
+    </div>
+  </div>
+</div>
+
+<!-- ======= 21-23. HEMOGLOBINA / HEME ======= -->
+<div class="section" id="hemo">
+  <div class="section-title"><span class="icon">🩸</span> 21–23. Hemoglobina / Heme</div>
+
+  <p>Tira reactiva detecta: liberación de O₂ por actividad tipo peroxidasa ante la presencia de <span class="tag">heme en Hb libre</span> <span class="tag">eritrocitos lisados</span> <span class="tag">mioglobina</span></p>
+
+  <div class="note-red"><span class="star">⭐</span> La orina debe analizarse <span class="imp">bien mezclada</span> ya que eritrocitos intactos pueden pasarse por alto en el sobrenadante</div>
+  <p>Límite de detección: <span class="imp">0.05–0.3 mg/dL</span>. Nota: 0.3 mg Hb/dL = 10 eritrocitos. 1 eritrocito contiene 30 pg Hb/célula</p>
+
+  <div class="red-box">
+    <strong>Imagen: Escala de sangre/hemo en tira reactiva</strong><br>
+    Negativo <span class="arrow-gold">→</span> No hemolizado trace <span class="arrow-gold">→</span> No hemolizado moderado<br>
+    Hemolizado: Trace <span class="arrow-gold">→</span> Small (1+) <span class="arrow-gold">→</span> Moderate (2+) <span class="arrow-gold">→</span> Large (3+)
+  </div>
+
+  <div class="red-box">
+    <strong>Tabla: Heme positivo vs negativo</strong>
+    <table>
+      <thead><tr><th>Estado Heme</th><th>Causa</th><th>Descripción</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><span class="badge" style="background:#27ae60">HEME +</span></td>
+          <td><span class="imp">Hemoglobinuria</span></td>
+          <td>Hemólisis intravascular. Una vez saturada la haptoglobina, la Hb libre (32,000 Da) se filtra por el glomérulo</td>
+        </tr>
+        <tr>
+          <td><span class="badge" style="background:#27ae60">HEME +</span></td>
+          <td><span class="imp">Hematuria</span></td>
+          <td>Los eritrocitos se lisan en la orina y/o en la tira <span class="arrow">→</span> detección de Hb</td>
+        </tr>
+        <tr>
+          <td><span class="badge" style="background:#27ae60">HEME +</span></td>
+          <td><span class="imp">Mioglobinuria</span></td>
+          <td>Aparece con rabdomiólisis. Mioglobina (17,000 Da) se filtra MÁS rápido que la Hb</td>
+        </tr>
+        <tr>
+          <td><span class="badge badge-red">HEME –</span></td>
+          <td>Hb inestable</td>
+          <td>Causa orina color marrón (Dipirrol o bilifuscina). No reacciona con la prueba para heme</td>
+        </tr>
+        <tr>
+          <td><span class="badge badge-red">HEME –</span></td>
+          <td>Hemosideruria</td>
+          <td>Aparece 2–3 días después del evento hemolítico agudo. Frecuentemente negativo en heme</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="sub"><span class="star">⭐⭐</span> Algoritmo diagnóstico: ¿Hemoglobinuria, Hematuria o Mioglobinuria?</div>
+  <div class="flow">
+    <div class="flow-item">Heme + en tira reactiva</div>
+    <div class="flow-arrow">⟶</div>
+    <div class="flow-item">Centrifugar muestra</div>
+    <div class="flow-arrow">⟶</div>
+    <div class="flow-item">¿Eritrocitos en sedimento?</div>
+  </div>
+  <div style="margin:10px 0 10px 20px;">
+    <strong>Sí:</strong> <span class="arrow-teal">→</span> <span class="imp">HEMATURIA</span>
+  </div>
+  <div class="flow">
+    <div class="flow-item"><strong>No</strong> <span class="arrow">→</span> ¿Tenemos suero del paciente?</div>
+    <div class="flow-arrow">⟶</div>
+    <div class="flow-item">Suero rosa = Hemoglobinemia <span class="arrow">→</span> <span class="imp">HEMOGLOBINURIA</span></div>
+  </div>
+  <div style="margin:6px 0 10px 20px;">
+    <span class="flow-item">Suero claro = Mioglobinemia <span class="arrow">→</span> <span class="imp">MIOGLOBINURIA</span></span>
+  </div>
+
+  <div class="red-box">
+    <strong>Tabla: Falsos positivos y negativos para Heme</strong>
+    <div class="fp-fn">
+      <div class="fp-fn-box fp-box">
+        <div class="fp-fn-title">⚠️ Falsos Positivos</div>
+        Hipoclorito<br>Iodopovidona<br>Peroxidasa microbiana (ITU)
+      </div>
+      <div class="fp-fn-box fn-box">
+        <div class="fp-fn-title">⚠️ Falsos Negativos</div>
+        GE aumentada (no se lisan eritrocitos)<br>Altos niveles de proteínas<br><span class="imp">Ácido ascórbico</span><br>Formalina (conservador)<br>Captopril<br>Nitritos (retrasan la reacción)
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ======= 24-26. BILIRRUBINA Y UROBILINÓGENO ======= -->
+<div class="section" id="bili">
+  <div class="section-title"><span class="icon">🟡</span> 24–26. Bilirrubina y Urobilinógeno</div>
+
+  <div class="sub">Bilirrubina</div>
+  <div class="red-box">
+    <strong>Imagen: Escala de bilirrubina en tira reactiva</strong><br>
+    NEG <span class="arrow-gold">→</span> Small 1+ <span class="arrow-gold">→</span> Moderate 2+ <span class="arrow-gold">→</span> Large 3+<br>
+    (lectura a los 30 segundos)
+  </div>
+
+  <div class="flow">
+    <div class="flow-item">Hemoglobina</div>
+    <div class="flow-arrow">⟶ catabolismo en SRE (bazo, hígado, MO)</div>
+    <div class="flow-item">Bilirrubina no conjugada (indirecta)<br><small>Unida a albumina, insoluble, NO se filtra</small></div>
+    <div class="flow-arrow">⟶ hígado</div>
+    <div class="flow-item">Bilirrubina conjugada (directa)<br><small>Soluble en agua, SÍ se filtra → se detecta en orina</small></div>
+  </div>
+
+  <ul class="bullets">
+    <li>Normal en orina: hasta <span class="imp">0.02 mg/dL</span></li>
+    <li>Tira reactiva: acoplamiento con sal Diazo en medio ácido. Detecta ~ <span class="imp">0.5–0.8 mg/dL</span></li>
+  </ul>
+
+  <div class="red-box">
+    <strong>Tabla: Causas de bilirrubina conjugada en orina</strong>
+    <table>
+      <thead><tr><th>Mecanismo</th><th>Causas</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>Obstrucción de vía biliar</strong></td>
+          <td>Inflamación portal, fibrosis, hepatitis, cálculos biliares, Ca de cabeza de páncreas</td>
+        </tr>
+        <tr>
+          <td><strong>Enfermedad hepatocelular</strong></td>
+          <td>Viral (VhA, VhB, VhC), toxinas (amatoxina), fármacos (acetaminofén), esteatosis alcohólica/no alcohólica, cáncer, cirrosis, sarcoidosis, genéticas (Dubin-Johnson, Rotor)</td>
+        </tr>
+        <tr>
+          <td><strong>Post-fototerapia</strong></td>
+          <td>Bilirrubina no conjugada</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="fp-fn">
+      <div class="fp-fn-box fp-box"><div class="fp-fn-title">⚠️ Falsos +</div>Rifampicina</div>
+      <div class="fp-fn-box fn-box"><div class="fp-fn-title">⚠️ Falsos –</div>Análisis retrasado<br>Ácido ascórbico y nitritos<br>Fenazopiridina</div>
+    </div>
+    <div class="note" style="margin-top:10px;">"El urobilinógeno en orina <strong>no afecta</strong> el resultado de bilirrubina"</div>
+  </div>
+
+  <hr class="divider">
+  <div class="sub">Urobilinógeno</div>
+  <div class="red-box">
+    <strong>Imagen: Escala de urobilinógeno en tira reactiva</strong><br>
+    Normal: 0.2 mg/dL y 1 mg/dL <span class="arrow-gold">→</span> Anormal: 2 mg/dL, 4 mg/dL, 8 mg/dL
+  </div>
+
+  <ul class="bullets">
+    <li>Casi todo se excreta en heces; solo un poco en orina</li>
+    <li>Excreción normal: <span class="imp">0.5–2.5 mg o unidades/24 h</span></li>
+    <li>Tira reactiva: reacción del <span class="imp2">aldehído de Ehrlich</span></li>
+    <li>No específico: también detecta porfobilinógeno, p-aminosalicílico, sulfonamidas, procaína, ácido 5-hidroxiindolacético, indol y metildopa</li>
+    <li>Límite inferior de detección: <span class="imp">0.4 mg/dL</span></li>
+  </ul>
+
+  <div class="red-box">
+    <strong>Tabla: Patrones clínicos urinarios de bilirrubina + urobilinógeno</strong>
+    <table>
+      <thead><tr><th>Patrón</th><th>Urobilinógeno</th><th>Bilirrubina</th></tr></thead>
+      <tbody>
+        <tr><td>Colangitis (obstrucción parcial)</td><td>↑ Aumentado</td><td>↑ Aumentada</td></tr>
+        <tr><td>Colangitis (obstrucción completa)</td><td><span class="imp">Ausente</span></td><td>↑ Aumentada</td></tr>
+        <tr><td>Hemólisis intravascular</td><td>Variable</td><td>↑ Aumentada</td></tr>
+        <tr><td>Hemólisis extravascular</td><td>↑ Aumentado</td><td><span class="imp">Ausente</span></td></tr>
+      </tbody>
+    </table>
+    <div class="fp-fn">
+      <div class="fp-fn-box fp-box"><div class="fp-fn-title">⚠️ Falsos +</div>Fenazopiridina</div>
+      <div class="fp-fn-box fn-box"><div class="fp-fn-title">⚠️ Falsos –</div>Orina ácida</div>
+    </div>
+  </div>
+</div>
+
+<!-- ======= 27. NITRITOS Y ESTERASA ======= -->
+<div class="section" id="nitritos">
+  <div class="section-title"><span class="icon">🧫</span> 27. Nitritos y Esterasa Leucocitaria</div>
+
+  <div class="red-box">
+    <strong>Tabla: Rendimiento diagnóstico en ITU confirmada por cultivo</strong>
+    <table>
+      <thead><tr><th>Prueba</th><th>Sensibilidad</th><th>Especificidad</th><th>VPP</th><th>VPN</th></tr></thead>
+      <tbody>
+        <tr><td>Esterasa leucocitaria anormal</td><td>72–97%</td><td>41–86%</td><td>43–56</td><td>82–91</td></tr>
+        <tr><td><span class="star">⭐</span> Nitritos anormales</td><td>19–48%</td><td><span class="imp">92–100%</span></td><td>50–83</td><td>70–88</td></tr>
+        <tr><td>Esterasa o nitritos anormales</td><td>46–100%</td><td>42–98%</td><td>52–68</td><td>78–98</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+    <div>
+      <div class="sub">Nitritos</div>
+      <div class="red-box">
+        Imagen: tira reactiva con escala: NEGATIVO → POSITIVO → POSITIVO
+      </div>
+      <ul class="bullets">
+        <li>Enzima nitrato reductasa de <span class="imp">enterobacterias</span> convierte nitratos en nitritos</li>
+        <li>Límite de detección: <span class="imp">0.05 mg/dL</span></li>
+        <li>Resultado positivo <span class="arrow">→</span> bacteriuria subyacente</li>
+        <li><span class="star">⭐</span> IDSA 2005: recomienda como tamizaje de bacteriuria asintomática en <span class="imp">mujeres embarazadas</span></li>
+      </ul>
+      <div class="fp-fn">
+        <div class="fp-fn-box fp-box"><div class="fp-fn-title">⚠️ Falsos +</div>Mala recolección/almacenamiento<br>Fenazopiridina</div>
+        <div class="fp-fn-box fn-box"><div class="fp-fn-title">⚠️ Falsos –</div>Ácido ascórbico<br>Urobilinógeno<br>pH &lt;6.0<br>Dieta deficiente de nitratos<br><span class="imp">Enterococos</span> (poca enzima)</div>
+      </div>
+    </div>
+    <div>
+      <div class="sub">Esterasa Leucocitaria</div>
+      <div class="red-box">
+        Imagen: escala NEG → Trace → Small → Moderate → Large (2 minutos)
+      </div>
+      <ul class="bullets">
+        <li>Liberada por <span class="imp">neutrófilos y macrófagos lisados</span></li>
+        <li>Marcador de presencia de glóbulos blancos</li>
+        <li><span class="imp2">Falsos negativos:</span> orinas concentradas, proteinuria y glucosuria</li>
+        <li><span class="star">⭐</span> Alto VPN en diagnóstico de <span class="imp">uretritis en hombres</span></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ======= 28. SEDIMENTO ======= -->
+<div class="section" id="sedimento">
+  <div class="section-title"><span class="icon">🔭</span> 28. Sedimento Urinario</div>
+  <ul class="bullets">
+    <li>Complementan hallazgos clínicos, pruebas de laboratorio y tira reactiva</li>
+    <li>Centrifugar <span class="imp">10–15 ml</span> de orina a <span class="imp">&gt;1500 rpm</span></li>
+  </ul>
+  <div class="sub">Tipos de microscopía:</div>
+  <ul class="bullets">
+    <li><span class="tag">Microscopía clara</span> Rutina, en general suficiente</li>
+    <li><span class="tag">Luz tenue</span> Rutina</li>
+    <li><span class="tag">Luz polarizada</span> Para visualizar elementos cargados de lípidos (solo bajo contexto clínico)</li>
+    <li><span class="tag">Contraste de fases</span> Si disponible, afina definición de estructuras</li>
+  </ul>
+  <div class="sub">Hallazgos en el sedimento:</div>
+  <div class="flow">
+    <div class="flow-item">🔴 Células</div>
+    <div class="flow-arrow">|</div>
+    <div class="flow-item">🟤 Cilindros</div>
+    <div class="flow-arrow">|</div>
+    <div class="flow-item">💎 Cristales</div>
+    <div class="flow-arrow">|</div>
+    <div class="flow-item">🦠 Microorganismos</div>
+    <div class="flow-arrow">|</div>
+    <div class="flow-item">🫧 Lípidos*</div>
+  </div>
+</div>
+
+<!-- ======= 29. CÉLULAS ======= -->
+<div class="section" id="celulas">
+  <div class="section-title"><span class="icon">🔴</span> 29. Células en el Sedimento</div>
+
+  <div class="red-box">
+    <strong>Tabla: Tipos de células en sedimento urinario e interpretación</strong>
+    <table>
+      <thead>
+        <tr>
+          <th>Tipo</th>
+          <th>Normal</th>
+          <th>Patológico</th>
+          <th>Causas / Significado</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td rowspan="2"><strong>Eritrocitos</strong><br><em>(imagen: eritrocitos en campo)</em></td>
+          <td>0–2 por campo de alto poder (CAP)</td>
+          <td><span class="imp">&gt;2 = Hematuria</span></td>
+          <td><strong>Transitoria:</strong> ejercicio, coito, menstruación, malignidad (&gt;50 años), ITU</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td><strong>Persistente:</strong> <span class="imp">cálculo renal, neoplasia maligna, enfermedad glomerular, enfermedad renal terminal</span></td>
+        </tr>
+        <tr>
+          <td rowspan="2"><strong>Leucocitos</strong><br><em>(imagen: leucocitos en orina)</em></td>
+          <td>0–5 por CAP</td>
+          <td><span class="imp">&gt;5 = Piuria</span></td>
+          <td><strong>Neutrófilos:</strong> ITU, nefritis intersticial, Tb renal, nefrolitiasis</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td><strong>Eosinófilos</strong> (tinción de Wright o Hansel): nefritis intersticial aguda (solo 34% de casos → no establece ni excluye Dx)</td>
+        </tr>
+        <tr>
+          <td rowspan="3"><strong>Células epiteliales</strong><br><em>(imágenes de las 3 variedades)</em></td>
+          <td colspan="3">Eliminadas de cualquier sitio del tracto genitourinario</td>
+        </tr>
+        <tr>
+          <td colspan="2"><strong>Tubulares</strong></td>
+          <td><span class="imp">NTA</span>, fármacos, metales pesados, rechazo a trasplante, isquemia</td>
+        </tr>
+        <tr>
+          <td colspan="2"><strong>De transición</strong> (pelvis renal → uretra proximal)</td>
+          <td>Generalmente normal; carcinoma</td>
+        </tr>
+        <tr>
+          <td colspan="2"><strong>Escamosas</strong> (uretra distal / genitales externos)</td>
+          <td colspan="2"><span class="imp">Contaminación por secreciones genitales</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="sub"><span class="star">⭐⭐</span> ¿Glomerular o No glomerular?</div>
+  <div class="red-box">
+    <strong>Imagen: Eritrocitos dismórficos (acantocitos) en microscopía</strong>
+    <table>
+      <thead><tr><th>Tipo de eritrocito</th><th>Significado</th><th>Sensibilidad / Especificidad</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>Isomórficos</strong> (forma igual a los circulantes)</td>
+          <td>Presentes en cualquier causa de hematuria</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td><strong>Dismórficos</strong> (acantocitos principalmente)</td>
+          <td><span class="imp">Diagnóstico de glomerulonefritis</span></td>
+          <td>Sensibilidad <span class="imp">52%</span> / Especificidad <span class="imp">98%</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ======= 30-31. CILINDROS ======= -->
+<div class="section" id="cilindros">
+  <div class="section-title"><span class="icon">🔷</span> 30–31. Cilindros / Moldes</div>
+
+  <div class="note-teal">Los moldes son estructuras cilíndricas formadas en la luz tubular. Favorecidas por: <span class="imp">estasis urinaria + pH bajo + mayor concentración urinaria</span>. Asumen la forma del túbulo en que se forman. Todos tienen una matriz de <span class="imp2">mucoproteína de Tamm-Horsfall</span></div>
+
+  <div class="red-box">
+    <strong>Tabla + Imágenes: Tipos de cilindros y sus causas</strong>
+    <table>
+      <thead><tr><th>Tipo</th><th>Imagen / Apariencia</th><th>Causas principales</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>Eritrocitarios</strong></td>
+          <td>Masa cilíndrica con eritrocitos inmersos (rojiza)</td>
+          <td><span class="star">⭐</span> <span class="imp">Glomerulonefritis proliferativa</span>, vasculitis, nefritis intersticial aguda (baja sensibilidad)</td>
+        </tr>
+        <tr>
+          <td><strong>Leucocitarios</strong></td>
+          <td>Cilindro con cúmulo de células blancas</td>
+          <td>Inflamación intersticial o glomerular. Nefritis intersticial (3% de casos)</td>
+        </tr>
+        <tr>
+          <td><strong>Epiteliales tubulares</strong></td>
+          <td>Cilindro con células epiteliales</td>
+          <td><span class="imp">NTA</span>, nefritis intersticial aguda, glomerulonefritis proliferativa</td>
+        </tr>
+        <tr>
+          <td><strong>Granulares</strong></td>
+          <td>Superficie granular fina (marrón)</td>
+          <td><span class="imp">NTA</span>, lesión isquémica o tóxica</td>
+        </tr>
+        <tr>
+          <td><strong>Hialinos</strong></td>
+          <td>Translúcidos, cilíndricos</td>
+          <td>Orina concentrada, diuréticos, inespecíficos</td>
+        </tr>
+        <tr>
+          <td><strong>De cera</strong></td>
+          <td>Opacos, borde bien definido, apariencia cerosa</td>
+          <td>Última etapa de degeneración de los granulares. <span class="imp">ERC</span></td>
+        </tr>
+        <tr>
+          <td><strong>Anchos / amplios</strong></td>
+          <td>Grandes, anchos, con múltiples células dentro</td>
+          <td><span class="star">⭐⭐</span> <span class="imp">ERC avanzada</span></td>
+        </tr>
+      </tbody>
+    </table>
+    <br>
+    <div class="flow">
+      <div class="flow-item">Granulares</div>
+      <div class="flow-arrow">⟶ degeneración</div>
+      <div class="flow-item">De cera</div>
+      <div class="flow-arrow">⟶ túbulo más grande</div>
+      <div class="flow-item">Anchos/amplios</div>
+      <div class="flow-arrow">= ERC avanzada</div>
+    </div>
+  </div>
+</div>
+
+<!-- ======= 32. CRISTALES ======= -->
+<div class="section" id="cristales">
+  <div class="section-title"><span class="icon">💎</span> 32. Cristales</div>
+
+  <p>La presencia depende de: <span class="imp">grado de concentración</span>, <span class="imp">pH de la orina</span> y <span class="imp">presencia de inhibidores de cristalización</span></p>
+
+  <div class="red-box">
+    <strong>Tabla + Imágenes: Tipos de cristales</strong>
+    <table>
+      <thead><tr><th>pH</th><th>Cristal</th><th>Apariencia</th><th>Rutina</th><th>Asociaciones patológicas</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><span class="badge">Independiente del pH</span></td>
+          <td><span class="imp">Oxalato de calcio</span></td>
+          <td>Monohidrato: ovoide o haltera<br>Dihidrato: forma de sobre</td>
+          <td>Sí</td>
+          <td><span class="star">⭐</span> <span class="imp">Nefrolitiasis</span>, ingestión de etilenglicol, absorción excesiva de oxalato</td>
+        </tr>
+        <tr>
+          <td><span class="badge badge-gold">Orina alcalina</span></td>
+          <td>Fosfato de calcio</td>
+          <td>Prismas largos, a veces en rosetas o estrellas</td>
+          <td>Sí</td>
+          <td>Nefrolitiasis con defectos de acidificación urinaria</td>
+        </tr>
+        <tr>
+          <td><span class="badge badge-gold">Orina alcalina</span></td>
+          <td>Fosfato de magnesio amónico ("triple fosfato")</td>
+          <td>Forma de <span class="imp">"tapa de ataúd"</span></td>
+          <td>No</td>
+          <td><span class="star">⭐</span> Infección con organismos <span class="imp">ureasa-positivos</span></td>
+        </tr>
+        <tr>
+          <td><span class="badge badge-red">Orina ácida</span></td>
+          <td><span class="imp">Ácido úrico</span></td>
+          <td>Romboide, oval</td>
+          <td>Sí</td>
+          <td><span class="star">⭐</span> Nefrolitiasis, síndrome de lisis tumoral</td>
+        </tr>
+        <tr>
+          <td><span class="badge badge-red">Orina ácida</span></td>
+          <td><span class="imp">Cistina</span></td>
+          <td>Hexagonal</td>
+          <td>No</td>
+          <td><span class="imp">Cistinuria</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ======= 33. LÍPIDOS ======= -->
+<div class="section" id="lipidos">
+  <div class="section-title"><span class="icon">🫧</span> 33. Lípidos en Sedimento</div>
+
+  <p><span class="star">⭐</span> Comúnmente asociados a <span class="imp">Síndrome nefrótico</span></p>
+  <p>El paso inicial: filtración del <span class="imp">colesterol unido a lipoproteínas (HDL)</span> <span class="arrow-teal">→</span> absorbido por células del túbulo proximal</p>
+
+  <div class="red-box">
+    <strong>Imágenes: Lípidos en sedimento urinario</strong>
+    <br><br>
+    <strong>Imagen 1 (microscopía óptica):</strong> Cuerpos grasos ovalados y cilindros grasos — cilindro con múltiples vacuolas lipídicas teñidas visibles dentro del molde tubular
+    <br><br>
+    <strong>Imagen 2 (luz polarizada):</strong> Cruz de Malta — patrón en forma de cruz de 4 pétalos brillantes (maltese cross) visible bajo luz polarizada, patognomónico de lípidos en orina. Los lípidos birrefringentes forman el patrón cruzado característico.
+    <br><br>
+    <div class="flow">
+      <div class="flow-item">Colesterol en HDL filtrado por glomérulo</div>
+      <div class="flow-arrow">⟶</div>
+      <div class="flow-item">Absorbido por células tubulares proximales</div>
+      <div class="flow-arrow">⟶</div>
+      <div class="flow-item">Cuerpos grasos ovalados</div>
+      <div class="flow-arrow">⟶</div>
+      <div class="flow-item">Cilindros grasos</div>
+      <div class="flow-arrow">⟶</div>
+      <div class="flow-item">Cruz de Malta (luz polarizada)</div>
+    </div>
+  </div>
+
+  <div class="sub">Microorganismos</div>
+  <div class="red-box">
+    <strong>Imagen: Levaduras y bacterias bajo microscopía</strong><br>
+    La imagen muestra un campo microscópico con dos tipos de organismos señalados con flechas:
+    <ul class="bullets" style="margin-top:8px;">
+      <li><span class="arrow">→ Bacterias (flecha amarilla):</span> estructuras pequeñas redondas/alargadas distribuidas en el campo</li>
+      <li><span class="arrow-teal">→ Levaduras (flecha blanca):</span> cadenas de hifas/pseudohifas con formas redondeadas en cadena (típico de Candida sp.)</li>
+    </ul>
+    <div class="note" style="margin-top:10px;">
+      La bacteriuria es frecuente pero su relevancia depende de los síntomas.<br>
+      Las levaduras en orina también son frecuentes (Candida sp. especialmente en pacientes con DM, inmunosuprimidos, catéter).
+    </div>
+  </div>
+</div>
+
+<!-- ======= 34-36. TFG Y MARCADORES ======= -->
+<div class="section" id="tfg">
+  <div class="section-title"><span class="icon">📊</span> 34–36. TFG — Tasa de Filtrado Glomerular</div>
+
+  <div class="sub"><span class="star">⭐⭐</span> Concepto</div>
+  <ul class="bullets">
+    <li>Igual a la suma de las tasas de filtración en todas las nefronas funcionantes</li>
+    <li>Normal: <span class="imp">90–120 ml/min/1.73 m²</span></li>
+    <li>Tiene implicaciones pronósticas en ERC y sirve para su clasificación</li>
+  </ul>
+  <div class="note-red">Una TFG estable <strong>no</strong> implica enfermedad estable. Un aumento de TFG puede indicar mejoría o ser contraproducente.</div>
+
+  <hr class="divider">
+  <div class="sub">Creatinina sérica — marcador endógeno principal</div>
+  <div class="red-box">
+    <strong>Imagen: Distribución de creatinina sérica en hombres y mujeres (EE.UU.)</strong><br>
+    Gráfica de dos curvas (Females = rojo/punteado; Males = azul continuo):
+    <ul class="bullets" style="margin-top:8px;">
+      <li>Pico de mujeres: ~0.9–1.0 mg/dL</li>
+      <li>Pico de hombres: ~1.1–1.2 mg/dL</li>
+      <li>La distribución masculina es más a la derecha debido a mayor masa muscular</li>
+    </ul>
+    <strong>Eje X:</strong> Creatinina sérica en mg/dL (0.7 a &gt;2.0)<br>
+    <strong>Eje Y:</strong> Porcentaje de la población (%)<br>
+    Valores medios difieren por <span class="imp">diferencias en masa muscular</span>
+  </div>
+
+  <ul class="bullets">
+    <li>Derivada del metabolismo de creatina en músculo esquelético y de carne cocida</li>
+    <li>Se libera a la circulación a ritmo <span class="imp">relativamente constante</span></li>
+    <li>Se filtra libremente, NO se reabsorbe ni se metaboliza en el riñón</li>
+    <li>10–40% de la creatinina urinaria se deriva de <span class="imp">secreción tubular</span> (cationes orgánicos, túbulo proximal)</li>
+    <li><span class="star">⭐</span> Si TFG + secreción + dieta + masa muscular son constantes <span class="arrow">→</span> creatinina sérica permanece constante</li>
+  </ul>
+
+  <div class="red-box">
+    <strong>Gráfica: Creatinina sérica vs TFG</strong><br>
+    Ejes: Eje X = TFG en mL/min (0–120) / Eje Y = SCr en mg/dL (0–8)<br>
+    La curva muestra una relación <span class="imp">hiperbólica inversa</span>:
+    <ul class="bullets" style="margin-top:8px;">
+      <li>TFG 90–120 ml/min <span class="arrow">→</span> creatinina ~1 mg/dL (zona normal)</li>
+      <li>TFG 30–60 ml/min <span class="arrow">→</span> creatinina 2–4 mg/dL (sube progresivamente)</li>
+      <li>TFG &lt;30 ml/min <span class="arrow">→</span> creatinina 4–8 mg/dL (sube exponencialmente)</li>
+    </ul>
+    <div class="note" style="margin-top:8px;"><span class="star">⭐⭐</span> Importante: la creatinina puede <strong>duplicarse</strong> con solo una pérdida del <strong>50% de la TFG</strong> — la función renal puede deteriorarse mucho antes de que la creatinina suba significativamente</div>
+  </div>
+
+  <div class="red-box">
+    <strong>Tabla: Factores que afectan los niveles de creatinina</strong><br>
+    (Independientes de la TFG)
+    <table>
+      <thead><tr><th>Factor</th><th>Efecto</th></tr></thead>
+      <tbody>
+        <tr><td>Masa muscular alta o baja</td><td>Altera producción basal</td></tr>
+        <tr><td>Ingesta de creatina/creatinina (carne cocida)</td><td>Aumenta niveles</td></tr>
+        <tr><td>Niños, cirrosis, ICC crónica</td><td>Niveles más bajos</td></tr>
+        <tr><td>Amputaciones, enfermedades neuromusculares</td><td>Disminuyen niveles</td></tr>
+        <tr><td>Dieta alta en proteínas</td><td>Aumenta niveles</td></tr>
+        <tr><td>Dieta vegetariana</td><td>Disminuye niveles</td></tr>
+        <tr><td>Interferencias analíticas</td><td>Resultados erróneos</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <hr class="divider">
+  <div class="sub">Cistatina C</div>
+  <ul class="bullets">
+    <li>Proteína de bajo peso molecular, inhibidor de cisteína proteasa</li>
+    <li>Se filtra en el glomérulo, NO se reabsorbe</li>
+    <li>Problema: <span class="imp">se metaboliza en los túbulos</span> <span class="arrow">→</span> no puede usarse para medir aclaramiento directamente</li>
+    <li>Niveles altos por: sexo masculino, mayor altura/peso, masa corporal magra, masa grasa, DM, inflamación, hiper/hipotiroidismo, glucocorticoides</li>
+  </ul>
+
+  <div class="red-box">
+    <strong>Gráfica: Niveles de Cistatina C sérica por edad, sexo y etnia</strong><br>
+    <strong>Gráfica A</strong> (por sexo): Eje X = edad (10–100 años); Eje Y = Cis C sérica (mg/L)<br>
+    <ul class="bullets" style="margin-top:6px;">
+      <li>Línea azul continua = <span class="imp">hombres</span> (más alta en todas las edades)</li>
+      <li>Línea roja punteada = mujeres (más baja)</li>
+      <li>Ambas alcanzan mínimo ~30–40 años y luego <span class="imp">ascienden progresivamente</span> con la edad</li>
+      <li>Línea punteada horizontal en <span class="imp">1.12 mg/L</span> = umbral de referencia</li>
+    </ul>
+    <strong>Gráfica B</strong> (por etnia): No hispano blanco (morado) &lt; Mexicano-americano (verde) &lt; No hispano negro (naranja punteado) para el percentil 50 a edades mayores
+  </div>
+
+  <hr class="divider">
+  <div class="sub"><span class="star">⭐⭐</span> TFGe — Ecuación CKD-EPI 2021</div>
+  <div class="note"><strong>ASN + NKF recomiendan:</strong> ecuación CKD-EPI 2021 — <span class="imp">no incluye el término de raza</span> (ya no apropiado). Ligeramente menos precisa que 2009 pero clínicamente aceptable.</div>
+  <div class="formula">
+GFR = 142 × min(Cr sérica/kappa, 1)^alpha × max(Cr sérica/kappa, 1)^(-1.2) × 0.9938^Edad × SexFactor
+
+Para mujeres: SexFactor = 1.012 | alpha = -0.241 | kappa = 0.7
+Para hombres: SexFactor = 1      | alpha = -0.302 | kappa = 0.9
+  </div>
+  <p>Se recomienda <span class="imp">confirmación</span> de TFGe mediante CKD-EPI 2021 Cr-CysC, aclaramiento en orina 24h o TFGm cuando:</p>
+  <ul class="bullets">
+    <li>Existan factores que afecten creatinina</li>
+    <li>Confirmación de ERC cuando TFGe basada en Cr es <span class="imp">45–60 ml/min/1.73 m²</span> sin otras características</li>
+    <li>Evaluación de donador de riñón</li>
+  </ul>
+
+  <hr class="divider">
+  <div class="sub">TFGm — Medición directa</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+    <div>
+      <div class="sub" style="font-size:0.95em;">Con aclaramiento urinario</div>
+      <ul class="bullets">
+        <li><span class="star">⭐</span> <span class="imp">Inulina = gold estándar</span>: filtración completa por glomérulo, no se reabsorbe</li>
+        <li>Inconvenientes: administración IV, carga hídrica, alto costo</li>
+      </ul>
+      <div class="formula">Cx = (Ux × V) ÷ Px</div>
+    </div>
+    <div>
+      <div class="sub" style="font-size:0.95em;">Con aclaramiento plasmático</div>
+      <ul class="bullets">
+        <li>Mediciones plasmáticas cronometradas post-inyección IV en bolo</li>
+        <li>Marcadores: <span class="imp">⁵¹Cr-EDTA</span> o <span class="imp">iohexol</span></li>
+      </ul>
+      <div class="formula">Cx = Ax ÷ Px</div>
+    </div>
+  </div>
+
+  <hr class="divider">
+  <div class="sub">Aclaramiento de creatinina en orina de 24 horas</div>
+  <ul class="bullets">
+    <li>Una de las pruebas más utilizadas para calcular TFG</li>
+    <li>Tiende a exceder la TFG verdadera <span class="imp">10–20% o más</span> por secreción tubular</li>
+  </ul>
+  <div class="formula">Creatinine_clearance = Orina_creatinina × Volumen orina en mL / Creatinina_sérica / 1440 (minutos en 24h)</div>
+  <div class="note-red">Errores que limitan la precisión: recolección de orina, incremento en la secreción de creatinina, incremento en la degradación extrarrenal. <span class="star">⭐</span> Por ello se <span class="imp">prefiere la TFGe por ecuaciones</span></div>
+
+  <div class="red-box">
+    <strong>Gráficas: TFG valores normales por edad (medida con inulina)</strong><br>
+    <strong>Gráfica A — Hombres normales:</strong> Eje X = edad (20–90 años); Eje Y = clearance de inulina (mL/min/1.73m²)<br>
+    Tendencia: desde ~130–140 mL/min a los 20 años <span class="arrow">→</span> desciende progresivamente hasta ~65–70 mL/min a los 90 años<br><br>
+    <strong>Gráfica B — Mujeres normales:</strong> Inicio más bajo (~120 mL/min) con el mismo descenso progresivo con la edad, hasta ~90 mL/min a los 80 años<br><br>
+    <div class="note">Hay variación considerable incluso entre individuos sanos del mismo grupo de edad (nube de puntos dispersa)</div>
+  </div>
+</div>
+
+<!-- ======= 37-39. IRA / KDIGO ======= -->
+<div class="section" id="ira">
+  <div class="section-title"><span class="icon">🚨</span> 37–39. Insuficiencia Renal Aguda (IRA)</div>
+
+  <div class="sub"><span class="star">⭐⭐</span> Definición KDIGO (preferida):</div>
+  <div class="note-red">
+    Cualquiera de los siguientes:<br>
+    <span class="arrow">→</span> Aumento de creatinina sérica <span class="imp">≥ 0.3 mg/dL en 48 horas</span>, o<br>
+    <span class="arrow">→</span> Aumento a <span class="imp">≥ 1.5× el valor inicial</span> en 7 días, o<br>
+    <span class="arrow">→</span> Volumen de orina <span class="imp">&lt; 0.5 ml/kg/hora durante 6 horas</span>
+  </div>
+
+  <div class="sub">Estadificación IRA — KDIGO:</div>
+  <div class="red-box">
+    <strong>Tabla: Etapas de IRA según KDIGO</strong>
+    <table>
+      <thead><tr><th>Etapa</th><th>Criterio de creatinina</th><th>Criterio de diuresis</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><span class="badge" style="background:#f1c40f;color:#000">Etapa 1</span></td>
+          <td>Aumento 1.5–1.9× basal, o aumento ≥ 0.3 mg/dL</td>
+          <td>&lt;0.5 ml/kg/h por 6–12 horas</td>
+        </tr>
+        <tr>
+          <td><span class="badge" style="background:#e67e22">Etapa 2</span></td>
+          <td>Aumento 2.0–2.9× basal</td>
+          <td>&lt;0.5 ml/kg/h por ≥12 horas</td>
+        </tr>
+        <tr>
+          <td><span class="badge" style="background:#c0392b">Etapa 3</span></td>
+          <td>Aumento 3.0× basal, o Cr ≥ 4.0 mg/dL, o inicio de TRR, o en &lt;18 años TFGe &lt;35 ml/min/1.73m²</td>
+          <td>&lt;0.3 ml/kg/h por ≥24h, o anuria ≥12h</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="sub">Etiología IRA:</div>
+  <div class="red-box">
+    <strong>Diagrama: Clasificación etiológica de lesión renal aguda</strong>
+    <div class="flow">
+      <div class="flow-item" style="background:var(--navy);color:#fff;font-weight:bold;">Lesión Renal Aguda</div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:12px;">
+      <div class="stage-item stage-yellow">
+        <strong>PRERRENAL</strong><br>
+        Hipovolemia<br>
+        ↓ Gasto cardíaco<br>
+        ↓ Volumen circulante eficaz<br>
+        • ICC<br>• Insuf. hepática<br>
+        Deficiencia autorregulación renal:<br>
+        • NSAID • ACE-I/ARB • Ciclosporina
+      </div>
+      <div class="stage-item stage-orange">
+        <strong>INTRÍNSECA</strong><br>
+        <em>Glomerular:</em> glomerulonefritis aguda<br>
+        <em>Túbulos e intersticio:</em><br>
+        • Isquemia<br>
+        • Sepsis/infección<br>
+        • Nefrotoxinas exógenas: medios yodados, aminoglucósidos, cisplatino, anfotericina B<br>
+        • Endógenas: hemólisis, rabdomiólisis, mieloma, cristales intratubulares<br>
+        <em>Vascular:</em> vasculitis, HTA maligna, TTP-HUS
+      </div>
+      <div class="stage-item stage-green">
+        <strong>POSTRENAL</strong><br>
+        Obstrucción cuello vesical<br>
+        Obstrucción pelvicoureteral bilateral<br>
+        • HBP • Cáncer de próstata<br>• Coágulos • Estenosis • Válvulas
+      </div>
+    </div>
+  </div>
+
+  <div class="sub"><span class="star">⭐</span> Causas de IRA hospitalaria:</div>
+  <ul class="bullets">
+    <li><span class="imp">NTA (necrosis tubular aguda): 45%</span></li>
+    <li>Enfermedad prerrenal: 21%</li>
+    <li>IRA sobre ERC: 13% (principalmente NTA o prerrenal)</li>
+    <li>Obstrucción tracto urinario: 10%</li>
+    <li>Glomerulonefritis/vasculitis: 4%</li>
+    <li>Nefritis intersticial aguda: 2%</li>
+    <li>Ateroémbolos: 1%</li>
+  </ul>
+</div>
+
+<!-- ======= 40. BUN / FeNa ======= -->
+<div class="section" id="bun">
+  <div class="section-title"><span class="icon">🧮</span> 40. BUN, Relación BUN/Cr y FeNa</div>
+
+  <div class="sub">Nitrógeno Ureico en Sangre (BUN)</div>
+  <ul class="bullets">
+    <li>Puede cambiar <span class="imp">independientemente de la TFG</span></li>
+    <li>↑ BUN: dieta rica en proteínas, hemorragia, trauma, glucocorticoides</li>
+    <li>↓ BUN: dieta baja en proteínas, enfermedad hepática (sin cambios en TFG)</li>
+    <li><span class="imp">40–50%</span> de la urea filtrada se reabsorbe pasivamente (túbulo proximal)</li>
+    <li>Valor normal: <span class="imp">7–24 mg/dL</span></li>
+  </ul>
+
+  <div class="sub"><span class="star">⭐⭐</span> Relación BUN/Creatinina — Diagnóstico diferencial de IRA</div>
+  <div class="red-box">
+    <strong>Imágenes: Diagramas de flujo glomerular para cada escenario</strong>
+    <table>
+      <thead><tr><th>Escenario</th><th>Relación BUN/Cr</th><th>Mecanismo</th></tr></thead>
+      <tbody>
+        <tr><td>A) Normal</td><td><span class="imp">~20:1</span></td><td>Flujo normal, reabsorción proporcional de BUN y Cr</td></tr>
+        <tr><td>B) <span class="imp">Prerrenal</span></td><td><span class="imp">&gt;20:1</span></td><td>Flujo lento <span class="arrow">→</span> más reabsorción de BUN (pasiva) <span class="arrow">→</span> BUN sube más que Cr</td></tr>
+        <tr><td>C) <span class="imp">Intrínseco (NTA)</span></td><td><span class="imp">&lt;20:1</span></td><td>Lesión tubular <span class="arrow">→</span> no reabsorbe BUN <span class="arrow">→</span> BUN sube igual o menos que Cr</td></tr>
+        <tr><td>D) <span class="imp">Postrenal</span></td><td><span class="imp">&gt;20:1</span></td><td>Obstrucción <span class="arrow">→</span> flujo lento <span class="arrow">→</span> mayor reabsorción de BUN</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <hr class="divider">
+  <div class="sub"><span class="star">⭐⭐</span> Fracción de Excreción de Sodio (FeNa)</div>
+
+  <div class="note"><strong>Prueba preferida</strong> para distinguir enfermedad prerrenal de NTA. Se usa en sospecha de depleción de volumen.</div>
+
+  <div class="formula">
+FENa (%) = (UNa × SCr) / (SNa × UCr) × 100
+
+UNa = Sodio en orina | SCr = Creatinina sérica | SNa = Sodio sérico | UCr = Creatinina en orina
+  </div>
+
+  <table>
+    <thead><tr><th>Resultado</th><th>Interpretación</th></tr></thead>
+    <tbody>
+      <tr><td><span class="imp">FENa &lt; 1%</span></td><td><span class="imp">Enfermedad prerrenal</span> — retención de sodio compensatoria</td></tr>
+      <tr><td><span class="imp">FENa &gt; 2%</span></td><td><span class="imp">NTA (Necrosis Tubular Aguda)</span> — incapacidad para retener sodio</td></tr>
+    </tbody>
+  </table>
+
+  <div class="red-box">
+    <strong>Tabla: Limitaciones de la FeNa</strong>
+    <div class="fp-fn">
+      <div class="fp-fn-box fp-box">
+        <div class="fp-fn-title">FENa puede ser &lt;1% aunque NO sea prerrenal:</div>
+        NTA superpuesta con enfermedad prerrenal crónica<br>
+        NTA post-isquémica no oligúrica<br>
+        IRA intrínseca
+      </div>
+      <div class="fp-fn-box fn-box">
+        <div class="fp-fn-title">FENa puede ser &gt;2% aunque SÍ sea prerrenal:</div>
+        <span class="imp">Pacientes con IRA tratados con diuréticos</span><br>
+        → Usar <strong>FEUrea</strong> en su lugar
+      </div>
+    </div>
+  </div>
+
+  <div class="sub">3 enfoques diagnósticos para distinguir prerrenal de NTA:</div>
+  <div class="flow">
+    <div class="flow-item">① Análisis de orina y microscopía</div>
+    <div class="flow-arrow">+</div>
+    <div class="flow-item">② FeNa (y FEUrea en px con diuréticos)</div>
+    <div class="flow-arrow">+</div>
+    <div class="flow-item">③ Respuesta a repleción de líquidos (gold standard para prerrenal)</div>
+  </div>
+  <div class="note-red">Nota: la respuesta a líquidos <strong>no aplica</strong> si la causa es ICC (síndrome cardiorrenal) o cirrosis (síndrome hepatorrenal)</div>
+</div>
+
+<!-- ======= 41-42. ERC ======= -->
+<div class="section" id="erc">
+  <div class="section-title"><span class="icon">🕐</span> 41–42. Enfermedad Renal Crónica (ERC)</div>
+
+  <div class="note-teal"><span class="star">⭐⭐</span> Definición KDOQI/KDIGO: presencia de daño renal o disminución de la función renal durante <span class="imp">≥ 3 meses</span>, independientemente de la causa, o <span class="imp">TFG &lt; 60 ml/min/1.73 m²</span></div>
+
+  <div class="sub">Causas principales:</div>
+  <div class="flow">
+    <div class="flow-item">🩸 Diabetes mellitus<br><span class="imp">37%</span></div>
+    <div class="flow-arrow">+</div>
+    <div class="flow-item">💊 Hipertensión arterial<br><span class="imp">30%</span></div>
+    <div class="flow-arrow">+</div>
+    <div class="flow-item">🔬 Glomerulonefritis<br><span class="imp">12%</span></div>
+  </div>
+
+  <ul class="bullets">
+    <li>La ERC suele ser <span class="imp">asintomática en sus primeras etapas</span></li>
+    <li>En imagen: riñones poliquísticos, hidronefrosis, <span class="imp">riñones pequeños y ecogénicos</span></li>
+  </ul>
+
+  <div class="sub"><span class="star">⭐⭐</span> Estadificación de ERC:</div>
+  <div class="red-box">
+    <strong>Tabla: Estadios de ERC por TFG y albuminuria (KDIGO)</strong>
+    <table>
+      <thead><tr><th>Estadio GFR</th><th>GFR (mL/min/1.73m²)</th><th>Descripción</th></tr></thead>
+      <tbody>
+        <tr><td>G1</td><td><span class="imp">≥ 90</span></td><td>Normal o alto</td></tr>
+        <tr><td>G2</td><td>60–89</td><td>Ligeramente disminuido</td></tr>
+        <tr><td>G3a</td><td>45–59</td><td>Ligera a moderadamente disminuido</td></tr>
+        <tr><td>G3b</td><td>30–44</td><td>Moderada a severamente disminuido</td></tr>
+        <tr><td>G4</td><td>15–29</td><td>Severamente disminuido</td></tr>
+        <tr><td>G5</td><td><span class="imp">&lt; 15</span></td><td><span class="imp">Falla renal</span> (agregar D si diálisis)</td></tr>
+      </tbody>
+    </table>
+    <br>
+    <table>
+      <thead><tr><th>Estadio Albuminuria</th><th>AER (mg/día)</th><th>Descripción</th></tr></thead>
+      <tbody>
+        <tr><td>A1</td><td>&lt;30</td><td>Normal a ligeramente aumentada</td></tr>
+        <tr><td>A2</td><td>30–300</td><td>Moderadamente aumentada</td></tr>
+        <tr><td>A3</td><td>&gt;300</td><td>Severamente aumentada</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="sub"><span class="star">⭐⭐</span> Riesgo de progresión a mortalidad (mapa de calor KDIGO):</div>
+  <div class="red-box">
+    <strong>Tabla: Riesgo de progresión de ERC (verde → amarillo → naranja → rojo = mayor riesgo)</strong>
+    <table>
+      <thead>
+        <tr>
+          <th>Estadio GFR</th>
+          <th>GFR</th>
+          <th>A1 (&lt;30 mg/g)</th>
+          <th>A2 (30–300 mg/g)</th>
+          <th>A3 (&gt;300 mg/g)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>G1 — Normal o alto</td><td>≥90</td><td style="background:#e8f8e8;">1 si ERC</td><td style="background:#e8f8e8;">1</td><td style="background:#fffde7;">2</td></tr>
+        <tr><td>G2 — Ligeramente disminuido</td><td>60–89</td><td style="background:#e8f8e8;">1 si ERC</td><td style="background:#e8f8e8;">1</td><td style="background:#fffde7;">2</td></tr>
+        <tr><td>G3a</td><td>45–59</td><td style="background:#e8f8e8;">1</td><td style="background:#fffde7;">2</td><td style="background:#fff3e0;">3</td></tr>
+        <tr><td>G3b</td><td>30–44</td><td style="background:#fffde7;">2</td><td style="background:#fff3e0;">3</td><td style="background:#fff3e0;">3</td></tr>
+        <tr><td>G4</td><td>15–29</td><td style="background:#fff3e0;">3</td><td style="background:#fff3e0;">3</td><td style="background:#fdecea;"><strong>4+</strong></td></tr>
+        <tr><td>G5 — Falla renal</td><td>&lt;15</td><td style="background:#fdecea;"><strong>4+</strong></td><td style="background:#fdecea;"><strong>4+</strong></td><td style="background:#fdecea;"><strong>4+</strong></td></tr>
+      </tbody>
+    </table>
+    <div class="note" style="margin-top:8px;"><span class="star">⭐</span> "La evaluación de categorías de riesgo es de valor para la toma de decisiones sobre <span class="imp">derivar o no al paciente a nefrología</span> y desarrollar un plan de acción clínica."</div>
+  </div>
+</div>
+
+<!-- ======= 43. RESUMEN ALGORITMO ======= -->
+<div class="section" id="resumen">
+  <div class="section-title"><span class="icon">📋</span> 43. Resumen — Algoritmo Diagnóstico</div>
+  <div class="note-teal"><strong>Referencia:</strong> Adaptado del esquema de César Lecarnaqué (SECC) / Harrison 19a ed. / Summerville (Am Fam Phys 2005) / Kartik Rangaraj 2020</div>
+
+  <div class="red-box">
+    <strong>Algoritmo: Aproximación al paciente con injuria renal aguda (sospecha clínica de azoemia)</strong>
+    <br><br>
+    <strong>Punto de entrada:</strong><br>
+    FU &lt; 0.5 mL/kg/h en 6–12h, o ↑SCr 1.5–2× el basal o incremento ≥0.3 mg/dL en 48h<br><br>
+
+    <div class="flow">
+      <div class="flow-item" style="background:var(--accent);color:#fff;">EXAMEN COMPLETO DE ORINA + USG vías urinarias</div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:12px;">
+      <div>
+        <strong>¿Hidronefrosis?</strong>
+        <div class="flow" style="margin:6px 0;">
+          <div class="flow-item">SÍ</div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-item"><span class="imp">Descartar uropatía obstructiva</span><br>Investigar: HBP, cáncer próstata, estenosis ureteral, cálculos</div>
+        </div>
+      </div>
+      <div>
+        <strong>NO → Ver morfología y sedimento urinario</strong>
+        <ul class="bullets" style="font-size:0.9em;">
+          <li>Riñones pequeños, isostenuria, sedimento "blando", proteínas &lt;3.5 g/24h, ¿&gt;3 meses? <span class="arrow">→</span> <span class="imp">ERC</span></li>
+          <li>Tamaño y corteza normales <span class="arrow">→</span> evaluar sedimento</li>
+        </ul>
+      </div>
+    </div>
+
+    <br>
+    <strong>Sedimento urinario NORMAL → Electrolitos en orina:</strong>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:8px 0;">
+      <div class="stage-item stage-green">
+        FENa &lt;1% | Uosm &gt;500 | Na urinario &lt;20 mEq<br>
+        <span class="arrow">→</span> <span class="imp">INJURIA PRERRENAL</span>
+      </div>
+      <div class="stage-item stage-red">
+        FENa &gt;2% | Uosm &lt;500 | Na urinario &gt;20 mEq<br>
+        <span class="arrow">→</span> <span class="imp">NECROSIS TUBULAR AGUDA</span>
+      </div>
+    </div>
+
+    <br>
+    <strong>Sedimento urinario ANORMAL:</strong>
+    <table style="font-size:0.9em;">
+      <thead><tr><th>Hallazgo en sedimento</th><th>Investigar</th></tr></thead>
+      <tbody>
+        <tr><td>Bacterias, WBCs ± cilindros hialinos, nitritos, esterasa leucocitaria</td><td><span class="imp">Pielonefritis</span></td></tr>
+        <tr><td>WBCs, RBCs y cilindros de RBCs, albuminuria, proteinuria</td><td><span class="imp">Glomerulonefritis / Vasculitis</span></td></tr>
+        <tr><td>WBCs y cilindros de WBCs</td><td>Nefritis intersticial / Glomerulonefritis / Pielonefritis</td></tr>
+        <tr><td>Células epiteliales tubulares o cilindros de estas</td><td><span class="imp">NTA</span> / Nefritis tubulointersticial / Hemo-Mioglobinuria</td></tr>
+        <tr><td>Cristales</td><td>Ácido úrico / Oxalato de calcio / Fármacos</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="note" style="margin-top:16px;"><span class="star">⭐⭐⭐</span> <strong>Glosario del algoritmo:</strong><br>
+  FU = flujo urinario | SCr = creatinina sérica | NTA = necrosis tubular aguda | USG = ultrasonografía | HBP = hiperplasia benigna de próstata | FENa = fracción excretada de sodio | Uosm = osmolalidad urinaria</div>
+</div>
+
+<!-- FOOTER -->
+<div style="text-align:center;padding:30px 0 10px;color:#888;font-size:0.85em;font-family:'JetBrains Mono',monospace;">
+  ⭐ Notas elaboradas con texto íntegro de la presentación · Imágenes interpretadas en recuadros rojos · Dra. Dayra Nelly Huerta López
+</div>
+
+</div><!-- end wrapper -->
+</body>
+</html>

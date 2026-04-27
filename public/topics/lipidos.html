@@ -1,0 +1,1867 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Perfil de Lípidos — Notas de Estudio</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #fdf6ec;
+    --cream-dark: #f5e9d6;
+    --cream-border: #e8d5b7;
+    --text: #2c1f0e;
+    --text-light: #5a4228;
+    --red: #c0392b;
+    --red-light: #f8d7d4;
+    --red-border: #e74c3c;
+    --teal: #0e7872;
+    --teal-light: #d0f0ed;
+    --teal-border: #1abc9c;
+    --gold: #b8860b;
+    --gold-light: #fff3cd;
+    --gold-border: #f0ad4e;
+    --dark: #1a1008;
+    --section-bg: #2c1f0e;
+    --star: #d4ac0d;
+    --shadow: 0 4px 20px rgba(44,31,14,0.12);
+    --shadow-lg: 0 8px 40px rgba(44,31,14,0.18);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--cream);
+    color: var(--text);
+    font-family: 'Lora', Georgia, serif;
+    font-size: 16px;
+    line-height: 1.75;
+  }
+
+  /* ─── HEADER ─── */
+  .site-header {
+    background: linear-gradient(135deg, #2c1f0e 0%, #4a3220 40%, #6b4c2a 100%);
+    color: #fdf6ec;
+    padding: 3rem 2rem 2.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .site-header::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: repeating-linear-gradient(45deg, transparent, transparent 30px, rgba(255,255,255,0.02) 30px, rgba(255,255,255,0.02) 60px);
+  }
+  .site-header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 900;
+    letter-spacing: -0.02em;
+    color: #f5e4c0;
+    position: relative;
+  }
+  .site-header .subtitle {
+    font-family: 'Lora', serif;
+    font-style: italic;
+    color: #d4b896;
+    margin-top: 0.5rem;
+    font-size: 1.1rem;
+    position: relative;
+  }
+  .header-badge {
+    display: inline-block;
+    background: rgba(180,140,80,0.25);
+    border: 1px solid rgba(180,140,80,0.5);
+    color: #f5c97a;
+    padding: 0.3rem 1rem;
+    border-radius: 20px;
+    font-size: 0.82rem;
+    margin-top: 1rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    position: relative;
+  }
+
+  /* ─── LAYOUT ─── */
+  .container { max-width: 960px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+
+  /* ─── TABLE OF CONTENTS ─── */
+  .toc {
+    background: #fff8f0;
+    border: 2px solid var(--cream-border);
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 3rem;
+    box-shadow: var(--shadow);
+  }
+  .toc h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    color: var(--text);
+    margin-bottom: 1.2rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 2px solid var(--cream-border);
+  }
+  .toc ol { counter-reset: toc; padding-left: 0; list-style: none; }
+  .toc li { counter-increment: toc; margin: 0.4rem 0; }
+  .toc li::before {
+    content: counter(toc) ".";
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    color: var(--gold);
+    margin-right: 0.5rem;
+  }
+  .toc a { color: var(--teal); text-decoration: none; transition: color 0.2s; }
+  .toc a:hover { color: var(--red); text-decoration: underline; }
+
+  /* ─── SECTION DIVIDERS ─── */
+  .section-divider {
+    background: linear-gradient(135deg, var(--section-bg) 0%, #3d2b15 100%);
+    color: #f5e4c0;
+    border-radius: 12px;
+    padding: 2.2rem 2rem;
+    margin: 3rem 0 2rem;
+    box-shadow: var(--shadow-lg);
+    position: relative;
+    overflow: hidden;
+  }
+  .section-divider::after {
+    content: '';
+    position: absolute;
+    right: -20px; top: -20px;
+    width: 120px; height: 120px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.04);
+  }
+  .section-divider h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+  .section-divider p { color: #c8a97a; margin-top: 0.4rem; font-style: italic; }
+
+  /* ─── SLIDE CARDS ─── */
+  .slide-card {
+    background: #fff8f0;
+    border: 1px solid var(--cream-border);
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow);
+  }
+  .slide-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 1.2rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 2px solid var(--cream-border);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .slide-number {
+    background: var(--section-bg);
+    color: #f5c97a;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    font-weight: 600;
+  }
+
+  /* ─── TEXT STYLES ─── */
+  .crit { color: var(--red); text-decoration: underline; text-decoration-color: var(--red); text-decoration-thickness: 2px; font-weight: 600; }
+  .concept { color: var(--teal); text-decoration: underline; text-decoration-color: var(--teal); text-decoration-thickness: 2px; }
+  .value { color: var(--gold); text-decoration: underline; text-decoration-color: var(--gold); text-decoration-thickness: 2px; font-weight: 600; }
+  .star1::after { content: " ⭐"; }
+  .star2::after { content: " ⭐⭐"; }
+  .star3::after { content: " ⭐⭐⭐"; }
+
+  /* ─── LISTS ─── */
+  ul, ol { padding-left: 1.5rem; margin: 0.5rem 0; }
+  li { margin: 0.35rem 0; }
+  ul li::marker { color: var(--gold); }
+
+  /* ─── NOTES BOXES ─── */
+  .note { border-radius: 8px; padding: 1rem 1.2rem; margin: 1rem 0; border-left: 4px solid; }
+  .note-yellow { background: var(--gold-light); border-color: var(--gold); color: #5a4000; }
+  .note-red { background: var(--red-light); border-color: var(--red); color: #6b0f0f; }
+  .note-teal { background: var(--teal-light); border-color: var(--teal); color: #0a4a46; }
+  .note strong { font-weight: 700; text-transform: uppercase; font-size: 0.78rem; letter-spacing: 0.06em; display: block; margin-bottom: 0.3rem; }
+
+  /* ─── IMAGE BOX ─── */
+  .image-box {
+    border: 2px solid var(--red-border);
+    border-radius: 10px;
+    margin: 1.2rem 0;
+    overflow: hidden;
+  }
+  .image-box-header {
+    background: var(--red-border);
+    color: white;
+    padding: 0.5rem 1rem;
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 0.03em;
+  }
+  .image-box-body { padding: 1.2rem; background: #fff5f5; }
+
+  /* ─── FORMULA BOX ─── */
+  .formula {
+    background: #1a1008;
+    color: #f0c060;
+    font-family: 'JetBrains Mono', monospace;
+    padding: 1.2rem 1.5rem;
+    border-radius: 8px;
+    margin: 1rem 0;
+    font-size: 1.05rem;
+    border-left: 4px solid var(--gold);
+    overflow-x: auto;
+  }
+  .formula .formula-label { color: #a0e0d0; font-size: 0.8rem; margin-bottom: 0.4rem; display: block; }
+
+  /* ─── TABLES ─── */
+  .table-wrap { overflow-x: auto; margin: 1.2rem 0; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
+  thead { background: var(--section-bg); color: #f5e4c0; }
+  thead th { padding: 0.7rem 0.8rem; text-align: left; font-family: 'Playfair Display', serif; font-size: 0.9rem; }
+  tbody tr:nth-child(even) { background: #fdf0e0; }
+  tbody tr:hover { background: var(--teal-light); }
+  td { padding: 0.6rem 0.8rem; border-bottom: 1px solid var(--cream-border); }
+
+  /* ─── FLOW DIAGRAM ─── */
+  .flow { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; margin: 1.2rem 0; }
+  .flow-box {
+    background: white;
+    border: 2px solid var(--teal-border);
+    border-radius: 8px;
+    padding: 0.5rem 0.9rem;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--teal);
+    text-align: center;
+    min-width: 100px;
+  }
+  .flow-box.red { border-color: var(--red); color: var(--red); }
+  .flow-box.gold { border-color: var(--gold); color: var(--gold); }
+  .flow-box.dark { background: var(--section-bg); color: #f5e4c0; border-color: var(--section-bg); }
+  .flow-arrow { font-size: 1.3rem; color: var(--text-light); }
+
+  /* ─── SEVERITY CARDS ─── */
+  .severity-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 0.8rem; margin: 1rem 0; }
+  .sev-card { border-radius: 8px; padding: 0.8rem; text-align: center; font-size: 0.88rem; }
+  .sev-green { background: #d4edda; border: 2px solid #28a745; color: #155724; }
+  .sev-yellow { background: var(--gold-light); border: 2px solid var(--gold); color: #5a4000; }
+  .sev-orange { background: #ffe5cc; border: 2px solid #e67e22; color: #7a3e00; }
+  .sev-red { background: var(--red-light); border: 2px solid var(--red); color: #6b0f0f; }
+  .sev-card strong { display: block; font-family: 'Playfair Display', serif; font-size: 1rem; margin-bottom: 0.2rem; }
+
+  /* ─── CLASSIFICATION GRID ─── */
+  .classif-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; margin: 1rem 0; }
+  .classif-item { background: white; border-radius: 8px; padding: 1rem; border: 1px solid var(--cream-border); }
+  .classif-item h4 { font-family: 'Playfair Display', serif; color: var(--teal); font-size: 1rem; margin-bottom: 0.4rem; }
+
+  /* ─── LIPID TARGETS ─── */
+  .target-group { margin: 1rem 0; }
+  .target-header { font-family: 'Playfair Display', serif; font-weight: 700; color: var(--text); font-size: 1.05rem; margin-bottom: 0.5rem; border-left: 4px solid var(--gold); padding-left: 0.8rem; }
+
+  /* ─── RISK BANDS ─── */
+  .risk-bands { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 0.6rem; margin: 1rem 0; }
+  .risk-band { padding: 0.8rem; border-radius: 8px; text-align: center; font-size: 0.85rem; font-weight: 600; }
+  .rb-low { background: #d4edda; color: #155724; border: 2px solid #28a745; }
+  .rb-border { background: var(--gold-light); color: #5a4000; border: 2px solid var(--gold); }
+  .rb-inter { background: #ffe5cc; color: #7a3e00; border: 2px solid #e67e22; }
+  .rb-high { background: var(--red-light); color: #6b0f0f; border: 2px solid var(--red); }
+
+  /* ─── TWO COLUMN ─── */
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin: 1rem 0; }
+  @media (max-width: 640px) { .two-col { grid-template-columns: 1fr; } .flow { flex-direction: column; } }
+
+  /* ─── LIPOPROTEINS VISUAL ─── */
+  .lipoprotein-row { display: flex; flex-wrap: wrap; gap: 0.8rem; align-items: flex-end; margin: 1rem 0; }
+  .lp-item { text-align: center; }
+  .lp-circle { border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-family: 'Playfair Display', serif; margin: 0 auto 0.3rem; font-size: 0.75rem; }
+  .lp-name { font-size: 0.78rem; font-weight: 600; color: var(--text-light); }
+
+  /* ─── BACK TO TOP ─── */
+  .back-top { display: inline-block; color: var(--teal); text-decoration: none; font-size: 0.82rem; margin-bottom: 0.5rem; }
+  .back-top:hover { color: var(--red); }
+
+  /* ─── PRINT ─── */
+  @media print { .site-header { background: #2c1f0e !important; } }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!--                        HEADER                               -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<div class="site-header">
+  <h1>🩸 Perfil de Lípidos</h1>
+  <p class="subtitle">Patología Clínica — Facultad de Medicina</p>
+  <p class="subtitle">Hospital Universitario «Dr. José E. González»</p>
+  <span class="header-badge">Notas de Estudio Completas</span>
+</div>
+
+<div class="container">
+
+<!-- ─── TABLE OF CONTENTS ─── -->
+<nav class="toc">
+  <h2>📋 Índice</h2>
+  <ol>
+    <li><a href="#s1">Enfermedades Cardiovasculares — Epidemiología</a></li>
+    <li><a href="#s2">Introducción a los Lípidos</a></li>
+    <li><a href="#s3">Fisiología y Metabolismo</a></li>
+    <li><a href="#s4">Bioquímica del Colesterol</a></li>
+    <li><a href="#s5">Bioquímica de Acilgliceroles y AGL</a></li>
+    <li><a href="#s6">Lipoproteínas y Apolipoproteínas</a></li>
+    <li><a href="#s7">Consideraciones Analíticas — Pre-análisis</a></li>
+    <li><a href="#s8">Métodos Analíticos — Variación Aceptable</a></li>
+    <li><a href="#s9">Ecuación de Friedewald y LDL-c</a></li>
+    <li><a href="#s10">ApoB, hsCRP y Lp(a)</a></li>
+    <li><a href="#s11">Dislipidemias y Riesgo Cardiovascular</a></li>
+    <li><a href="#s12">Clasificación de Fredrickson</a></li>
+    <li><a href="#s13">Dislipidemias Secundarias</a></li>
+    <li><a href="#s14">Tamizaje</a></li>
+    <li><a href="#s15">Modelo PREVENT y Riesgo ASCVD</a></li>
+    <li><a href="#s16">Metas en Lipoproteínas</a></li>
+    <li><a href="#s17">Modelo SCORE (ESC/EAS)</a></li>
+  </ol>
+</nav>
+
+<!-- ═══════════════════════════ SECCIÓN 1 ═══════════════════════════ -->
+<div class="section-divider" id="s1">
+  <h2>1. Enfermedades Cardiovasculares (ECV)</h2>
+  <p>Epidemiología global y carga en México</p>
+</div>
+
+<div class="slide-card">
+  <h3><span class="slide-number">DIAP 2</span> ECV — Epidemiología Global <span class="star3"></span></h3>
+
+  <div class="note note-red">
+    <strong>⚠️ Dato Crítico</strong>
+    ECV es la <span class="crit">PRINCIPAL CAUSA DE DEFUNCIÓN A NIVEL MUNDIAL</span> (OMS 2013). Están vinculadas <span class="crit">3 de cada 4 muertes</span> en países de bajo nivel socioeconómico.
+  </div>
+
+  <div class="image-box">
+    <div class="image-box-header">🖼 IMAGEN / TABLA DE LA DIAPOSITIVA — Infografía ECV OMS 2013</div>
+    <div class="image-box-body">
+      <p><strong>Interpretación:</strong> La infografía muestra estadísticas clave de ECV:</p>
+      <ul>
+        <li>Casi <strong>715,000 estadounidenses</strong> sufren un infarto cada año</li>
+        <li>Casi <strong>600,000 personas</strong> mueren anualmente de enfermedades cardíacas en EE.UU.</li>
+        <li>En México, los índices superan el promedio de la OCDE en múltiples indicadores</li>
+      </ul>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Indicador</th><th>México</th><th>OCDE</th></tr></thead>
+          <tbody>
+            <tr><td>Diabetes (20–39 años)</td><td class="crit">5.9%</td><td>1.7%</td></tr>
+            <tr><td>Obesidad</td><td class="crit">32.4%</td><td>18%</td></tr>
+            <tr><td>Hombres fumadores</td><td class="crit">31%</td><td>26%</td></tr>
+            <tr><td>Mortalidad: Infarto al miocardio</td><td class="crit">27.2</td><td>7.9 por 100k</td></tr>
+            <tr><td>Mortalidad: Infarto isquémico</td><td class="crit">19.6</td><td>8.4 por 100k</td></tr>
+            <tr><td>Mortalidad: Infarto hemorrágico</td><td class="crit">29.7</td><td>22.6 por 100k</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="severity-grid">
+    <div class="sev-red"><strong>17.5 millones</strong>Murieron por ECV en 2012</div>
+    <div class="sev-orange"><strong>80%</strong>De infartos y AVC prematuros son prevenibles</div>
+    <div class="sev-red"><strong>&gt;75%</strong>Muertes por ECV en países de bajos/medios ingresos</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════ SECCIÓN 2 ═══════════════════════════ -->
+<div class="section-divider" id="s2">
+  <h2>2. Introducción a los Lípidos</h2>
+  <p>Definición, funciones y clasificación</p>
+</div>
+
+<div class="slide-card">
+  <h3><span class="slide-number">DIAP 3</span> Introducción</h3>
+  <a href="#" class="back-top">↑ Volver al índice</a>
+
+  <p>Los lípidos son biomoléculas con múltiples funciones esenciales:</p>
+  <ul>
+    <li><span class="concept">Hormonas y precursores</span> (esteroides, vitamina D)</li>
+    <li><span class="concept">Digestión</span> (ácidos biliares)</li>
+    <li><span class="concept">Energía y estructura</span> (membranas celulares)</li>
+    <li><span class="concept">Conducción nerviosa y termocontrol</span> (mielina, tejido adiposo)</li>
+  </ul>
+
+  <div class="image-box">
+    <div class="image-box-header">🖼 IMAGEN / TABLA DE LA DIAPOSITIVA — Clasificación de Lípidos Clínicamente Importantes (Box 34.1 Tietz)</div>
+    <div class="image-box-body">
+      <div class="classif-grid">
+        <div class="classif-item">
+          <h4>Derivados de Esterol</h4>
+          <ul>
+            <li>Colesterol y ésteres de colesterol</li>
+            <li>Hormonas esteroides</li>
+            <li>Ácidos biliares</li>
+            <li>Vitamina D</li>
+            <li>Esteroles no-colesterol</li>
+          </ul>
+        </div>
+        <div class="classif-item">
+          <h4>Ácidos Grasos</h4>
+          <ul>
+            <li>Cadena corta (2–4 carbonos)</li>
+            <li>Cadena media (6–10 carbonos)</li>
+            <li>Cadena larga (12–26 carbonos)</li>
+            <li>Prostaglandinas</li>
+          </ul>
+        </div>
+        <div class="classif-item">
+          <h4>Ésteres de Glicerilo</h4>
+          <ul>
+            <li>Triglicéridos, diglicéridos, monoglicéridos</li>
+            <li>Fosfogl icéridos</li>
+          </ul>
+        </div>
+        <div class="classif-item">
+          <h4>Derivados de Esfingosina</h4>
+          <ul>
+            <li>Esfingomielina</li>
+            <li>Glucoesfingolípidos</li>
+          </ul>
+        </div>
+        <div class="classif-item">
+          <h4>Terpenos (Polímeros de Isopreno)</h4>
+          <ul>
+            <li>Vitamina A</li>
+            <li>Vitamina E</li>
+            <li>Vitamina K</li>
+          </ul>
+        </div>
+      </div>
+      <p><em>Fuente: Remaley AT, Dayspring TD. Tietz Textbook of Clinical Chemistry and Molecular Diagnostics. Ch 34, 6th Ed, 2018.</em></p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════ SECCIÓN 3 ═══════════════════════════ -->
+<div class="section-divider" id="s3">
+  <h2>3. Fisiología y Metabolismo</h2>
+  <p>Vías de transporte de lípidos</p>
+</div>
+
+<div class="slide-card">
+  <h3><span class="slide-number">DIAP 5</span> Vías de Transporte de Lípidos <span class="star3"></span></h3>
+  <a href="#" class="back-top">↑ Volver al índice</a>
+
+  <div class="note note-teal">
+    <strong>📚 Concepto Clave</strong>
+    Existen <span class="concept">tres grandes vías</span> de transporte lipídico en el organismo.
+  </div>
+
+  <div class="two-col">
+    <div>
+      <div class="note note-yellow">
+        <strong>Vía 1: Intestinal (Exógena)</strong>
+        <ul>
+          <li>Grasa de la dieta → micelas en lumen intestinal</li>
+          <li>Enterocito forma <strong>quilomicrones</strong> con <span class="concept">Apo B-48</span></li>
+          <li>Quilomicrones entran al sistema linfático → ducto torácico → circulación sistémica</li>
+          <li>HDL transfiere ApoC-II y ApoE al quilomicrón</li>
+          <li>ApoC-II activa <span class="crit">LPL (lipasa lipoprotéica)</span> en endotelio capilar</li>
+          <li>LPL hidroliza TAG → FFA captados por tejido adiposo/muscular</li>
+          <li>Remanente de quilomicrón captado por hígado vía receptor ApoE / LDLR</li>
+        </ul>
+      </div>
+    </div>
+    <div>
+      <div class="note note-yellow">
+        <strong>Vía 2: Hepática (Endógena)</strong>
+        <ul>
+          <li>Hígado sintetiza <strong>VLDL</strong> (TAG endógenos + colesterol)</li>
+          <li>Contiene <span class="concept">Apo B-100</span></li>
+          <li>ApoC-II activa LPL → pérdida de TAG → VLDL → IDL → LDL</li>
+          <li>IDL puede captar ApoE y ser endocitada por hígado (receptor ApoE)</li>
+          <li>LDL captura el colesterol sobrante → captación periférica vía <span class="crit">receptor LDL (LDLR)</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="note note-teal">
+    <strong>Vía 3: Inversa (Transporte Inverso de Colesterol)</strong>
+    Las células periféricas exportan <strong>colesterol no esterificado (CNE)</strong> → HDL (convierte CNE → CE mediante LCAT) → hígado.
+    El HDL intercambia CE por TG con VLDL (vía CETP).
+  </div>
+
+  <div class="image-box">
+    <div class="image-box-header">🖼 IMAGEN / TABLA DE LA DIAPOSITIVA — Diagrama de Transporte de Lípidos (Tietz Fig. 34)</div>
+    <div class="image-box-body">
+      <p><strong>Interpretación del diagrama:</strong> El esquema ilustra las tres vías simultáneamente:</p>
+      <div class="flow">
+        <div class="flow-box dark">Lumen intestinal<br><small>Dieta + Bilis</small></div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-box">Enterocito<br><small>Esterificación</small></div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-box">Quilomicrón<br><small>ApoB-48</small></div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-box gold">Ducto torácico</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-box">Circulación<br><small>sistémica</small></div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-box red">LPL activa</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-box">Remanente CM<br><small>→ Hígado</small></div>
+      </div>
+      <div class="flow" style="margin-top:0.5rem">
+        <div class="flow-box dark">Hepatocito</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-box">VLDL<br><small>ApoB-100</small></div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-box">IDL</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-box gold">LDL<br><small>50% lípidos</small></div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-box red">LDLR<br><small>Endocitosis</small></div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-box">Metabolismo<br><small>celular</small></div>
+      </div>
+      <p style="margin-top:0.8rem"><strong>Cuadro resumen del intercambio HDL ↔ VLDL:</strong></p>
+      <div class="flow">
+        <div class="flow-box red">CNE (células periféricas)</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-box">HDL<br><small>CNE → CE (LCAT)</small></div>
+        <span class="flow-arrow">⇆ TG / CE</span>
+        <div class="flow-box gold">VLDL</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════ SECCIÓN 4 ═══════════════════════════ -->
+<div class="section-divider" id="s4">
+  <h2>4. Bioquímica del Colesterol</h2>
+</div>
+
+<div class="slide-card">
+  <h3><span class="slide-number">DIAP 6</span> Absorción del Colesterol</h3>
+  <a href="#" class="back-top">↑ Volver al índice</a>
+  <ul>
+    <li>El colesterol entra al intestino desde tres fuentes: <span class="concept">dieta, bilis e intestino mismo</span></li>
+    <li><span class="value">Dieta promedio: 300–450 mg/día</span></li>
+    <li>Proceso de <strong>des-esterificación</strong> por esterasas pancreáticas e intestinales antes de la absorción</li>
+    <li><span class="crit">En promedio se absorbe solo el 30–60%</span> del colesterol intestinal/dietético</li>
+  </ul>
+  <div class="note note-yellow">
+    <strong>Nota Clínica</strong>
+    La gran variabilidad en la absorción (30–60%) explica por qué la dieta sola tiene un efecto limitado y variable sobre el colesterol sérico en distintos individuos.
+  </div>
+</div>
+
+<!-- ═══════════════════════════ SECCIÓN 5 ═══════════════════════════ -->
+<div class="section-divider" id="s5">
+  <h2>5. Bioquímica de Acilgliceroles y AGL</h2>
+</div>
+
+<div class="slide-card">
+  <h3><span class="slide-number">DIAP 7–8</span> Triacilgliceroles y Ácidos Grasos <span class="star2"></span></h3>
+  <a href="#" class="back-top">↑ Volver al índice</a>
+
+  <div class="two-col">
+    <div>
+      <h4 style="font-family:'Playfair Display',serif; color:var(--teal); margin-bottom:0.5rem;">Triacilgliceroles (TAG)</h4>
+      <ul>
+        <li>Éster de glicerol <span class="crit">más abundante</span></li>
+        <li>Constituyen el <span class="value">95%</span> del almacenamiento en tejido graso</li>
+        <li>Vegetales: predominantemente <span class="value">C18:2</span> (ácido linoleico)</li>
+        <li>Animales/rumiantes: <span class="value">C12:0 – C18:0</span> (saturados)</li>
+        <li>Digestión: hidrólisis por <span class="concept">lipasa</span> → esterificación en enterocito → <span class="concept">Apo B-48</span> (quilomicrones)</li>
+      </ul>
+    </div>
+    <div>
+      <h4 style="font-family:'Playfair Display',serif; color:var(--teal); margin-bottom:0.5rem;">Ácidos Grasos (AG)</h4>
+      <ul>
+        <li>Fórmula general: <span class="concept">R-COOH</span></li>
+        <li>Clasificación por <strong>tamaño</strong> (número de carbonos)</li>
+        <li>Clasificación por <strong>saturación</strong> (dobles ligaduras)</li>
+        <li><strong>Nomenclatura</strong>: e.g., C18:2 = 18 carbonos, 2 insaturaciones</li>
+        <li><span class="crit">Cis vs. Trans</span>: configuración geométrica; las <em>trans</em> son aterogénicas</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="image-box">
+    <div class="image-box-header">🖼 IMAGEN / TABLA DE LA DIAPOSITIVA — Estructura de Glicéridos (Figura 27-13 Tietz)</div>
+    <div class="image-box-body">
+      <p><strong>Interpretación:</strong> La figura muestra la estructura química de mono, di y triglicéridos:</p>
+      <ul>
+        <li><strong>1-Monoglicérido:</strong> glicerol con un ácido graso (R₁) en posición sn-1</li>
+        <li><strong>2-Monoglicérido:</strong> ácido graso en posición sn-2 (central)</li>
+        <li><strong>1,2-Diglicérido:</strong> ácidos grasos R₁ y R₂ en sn-1 y sn-2</li>
+        <li><strong>1,3-Diglicérido:</strong> ácidos grasos en posiciones terminales sn-1 y sn-3</li>
+        <li><strong>Triglicérido:</strong> tres ácidos grasos (R₁, R₂, R₃) esterificando el glicerol en las tres posiciones</li>
+      </ul>
+      <div class="note note-teal">
+        <strong>Concepto</strong>
+        R₁, R₂ y R₃ representan ácidos grasos de longitud de cadena variable. La combinación de diferentes ácidos grasos genera la enorme diversidad de lípidos corporales.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════ SECCIÓN 6 ═══════════════════════════ -->
+<div class="section-divider" id="s6">
+  <h2>6. Lipoproteínas y Apolipoproteínas</h2>
+</div>
+
+<div class="slide-card">
+  <h3><span class="slide-number">DIAP 9–10</span> Quilomicrones, VLDL, LDL y Lp(a) <span class="star3"></span></h3>
+  <a href="#" class="back-top">↑ Volver al índice</a>
+
+  <div class="two-col">
+    <div>
+      <div class="note note-teal">
+        <strong>Quilomicrones (CM)</strong>
+        <ul>
+          <li>Producidos en <span class="concept">intestino</span>, apolipoproteína principal: <span class="crit">Apo B-48</span></li>
+          <li>Composición: TAG &gt;&gt; Colesterol &gt; Fosfolípidos &gt; Proteína</li>
+          <li>Procesados por <span class="concept">LPL en endotelio capilar</span></li>
+          <li>Remanentes captados por hígado vía <span class="concept">ApoE → LDLR</span></li>
+          <li>Plasma de aspecto <span class="crit">lechoso</span> (quilomicronemia)</li>
+        </ul>
+      </div>
+    </div>
+    <div>
+      <div class="note note-teal">
+        <strong>VLDL (Very Low Density Lipoprotein)</strong>
+        <ul>
+          <li>Producido en <span class="concept">hígado</span>: TAG endógenos + colesterol</li>
+          <li>Composición: <span class="value">50% TAG, 40% Colesterol, 10% Proteína</span></li>
+          <li>Genera remanentes VLDL → IDL → LDL</li>
+          <li>Plasma de aspecto <span class="value">turbio</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="two-col">
+    <div>
+      <div class="note note-yellow">
+        <strong>LDL (Low Density Lipoprotein) ⭐⭐⭐</strong>
+        <ul>
+          <li>Representa el <span class="crit">50%</span> de las lipoproteínas plasmáticas</li>
+          <li>Composición: <span class="value">50% colesterol, 25% proteína, 20% fosfolípidos</span></li>
+          <li>Subtipo: <span class="crit">LDL denso pequeño</span> (más aterogénico)</li>
+          <li>Apolipoproteína principal: <strong>Apo B-100</strong></li>
+        </ul>
+      </div>
+    </div>
+    <div>
+      <div class="note note-red">
+        <strong>⚠️ Lipoproteína(a) [Lp(a)]</strong>
+        <ul>
+          <li>Estructura similar a LDL</li>
+          <li>Movilidad electroforética: <span class="crit">pre-β</span></li>
+          <li>Une al receptor LDL (LDLR); posible interferencia con ApoB-100</li>
+          <li>Compite <em>in vitro</em> con plasminógeno → efecto protrombótico</li>
+          <li>Determinación principalmente <span class="crit">genética</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="slide-card">
+  <h3><span class="slide-number">DIAP 11</span> Composición Química de Lipoproteínas Plasmáticas <span class="star3"></span></h3>
+
+  <div class="image-box">
+    <div class="image-box-header">🖼 IMAGEN / TABLA DE LA DIAPOSITIVA — TABLE 34.5: Chemical Composition (%) of Normal Human Plasma Lipoproteins</div>
+    <div class="image-box-body">
+      <p><strong>Interpretación:</strong> Esta tabla fundamental muestra el porcentaje de cada componente en las principales lipoproteínas. Nótese cómo al avanzar de CM → VLDL → IDL → LDL aumenta la densidad (más proteína, menos TAG) y en HDL predominan proteínas y fosfolípidos.</p>
+    </div>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Lipoproteína</th>
+          <th colspan="3">Componentes de Superficie</th>
+          <th colspan="2">Lípidos del Núcleo</th>
+        </tr>
+        <tr>
+          <th></th>
+          <th>Colesterol (%)</th>
+          <th>Fosfolípidos (%)</th>
+          <th>Apolipoproteínas (%)</th>
+          <th>Triglicéridos (%)</th>
+          <th>Ésteres de Colesterol (%)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Quilomicrones (CM)</strong></td>
+          <td>2</td>
+          <td>7</td>
+          <td>2</td>
+          <td class="crit">86</td>
+          <td>3</td>
+        </tr>
+        <tr>
+          <td><strong>VLDL</strong></td>
+          <td>7</td>
+          <td>18</td>
+          <td>8</td>
+          <td class="crit">55</td>
+          <td>12</td>
+        </tr>
+        <tr>
+          <td><strong>IDL</strong></td>
+          <td>9</td>
+          <td>19</td>
+          <td>19</td>
+          <td>23</td>
+          <td>29</td>
+        </tr>
+        <tr>
+          <td><strong>LDL</strong></td>
+          <td>8</td>
+          <td>22</td>
+          <td>22</td>
+          <td>6</td>
+          <td class="crit">42</td>
+        </tr>
+        <tr>
+          <td><strong>HDL₂</strong></td>
+          <td>5</td>
+          <td>33</td>
+          <td class="crit">40</td>
+          <td>5</td>
+          <td>17</td>
+        </tr>
+        <tr>
+          <td><strong>HDL₃</strong></td>
+          <td>4</td>
+          <td>25</td>
+          <td class="crit">55</td>
+          <td>3</td>
+          <td>13</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="note note-teal">
+    <strong>Regla Mnemónica</strong>
+    A mayor densidad de la lipoproteína: ↑ proteína, ↑ colesterol esterificado, ↓ triglicéridos. CM y VLDL son ricas en TAG; LDL en ésteres de colesterol; HDL en proteínas (apolipoproteínas).
+  </div>
+</div>
+
+<div class="slide-card">
+  <h3><span class="slide-number">DIAP 12</span> Estructura de Lipoproteínas y Cascada de Degradación <span class="star2"></span></h3>
+
+  <div class="image-box">
+    <div class="image-box-header">🖼 IMAGEN / TABLA DE LA DIAPOSITIVA — Estructura de Lipoproteína y Cascada CM/VLDL → IDL → LDL</div>
+    <div class="image-box-body">
+      <p><strong>Interpretación de la figura 34.16 (Henry's):</strong></p>
+      <p>La figura izquierda muestra la <strong>estructura de una partícula de lipoproteína</strong>:</p>
+      <ul>
+        <li>Núcleo hidrófobo: <em>triglicéridos</em> + <em>ésteres de colesterol</em></li>
+        <li>Superficie anfipática: <em>fosfolípidos</em> + <em>colesterol no esterificado</em> + <em>apolipoproteínas</em></li>
+      </ul>
+      <p style="margin-top:0.8rem"><strong>El diagrama central muestra la cascada de degradación:</strong></p>
+      <div class="flow">
+        <div class="flow-box dark" style="width:80px;height:80px;border-radius:50%;font-size:0.85rem;">CM<br><small>Grande</small></div>
+        <span class="flow-arrow">→<small>1,5</small></span>
+        <div class="flow-box dark" style="width:55px;height:55px;border-radius:50%;font-size:0.75rem;">CM<br>Rem.</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-box dark" style="background:#4a3220; width:45px;height:45px;border-radius:50%;font-size:0.7rem;">Metab<br>celular</div>
+      </div>
+      <div class="flow" style="margin-top:0.5rem">
+        <div class="flow-box gold" style="width:70px;height:70px;border-radius:50%;font-size:0.85rem;">VLDL</div>
+        <span class="flow-arrow">→4</span>
+        <div class="flow-box gold" style="width:55px;height:55px;border-radius:50%;font-size:0.8rem;">IDL</div>
+        <span class="flow-arrow">→3</span>
+        <div class="flow-box gold" style="width:40px;height:40px;border-radius:50%;font-size:0.75rem;">LDL</div>
+        <span class="flow-arrow">→2</span>
+        <div class="flow-box dark" style="width:45px;height:45px;border-radius:50%;font-size:0.7rem;">Metab<br>celular</div>
+      </div>
+      <div class="two-col" style="margin-top:1rem">
+        <div class="note note-yellow"><strong>Lipoproteínas Grandes (CM, VLDL)</strong>Más triglicéridos · Menos proteína · Menos colesterol · Menos densas</div>
+        <div class="note note-teal"><strong>Lipoproteínas Pequeñas (IDL, LDL)</strong>Menos triglicéridos · Más proteína · Más colesterol · Más densas</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════ SECCIÓN 7 ═══════════════════════════ -->
+<div class="section-divider" id="s7">
+  <h2>7. Consideraciones Analíticas — Pre-análisis</h2>
+</div>
+
+<div class="slide-card">
+  <h3><span class="slide-number">DIAP 14,16</span> Variación Pre-analítica <span class="star3"></span></h3>
+  <a href="#" class="back-top">↑ Volver al índice</a>
+
+  <div class="two-col">
+    <div>
+      <h4 style="color:var(--teal);font-family:'Playfair Display',serif;margin-bottom:0.5rem;">Variación Fisiológica</h4>
+      <ul>
+        <li><strong>Dieta:</strong> impacto importante principalmente en <span class="crit">TAG</span></li>
+        <li>Para colesterol: se requieren <span class="value">&gt;2 semanas</span> de dieta estable</li>
+        <li><strong>Edad</strong> y <strong>medicamentos</strong> también influyen</li>
+      </ul>
+    </div>
+    <div>
+      <h4 style="color:var(--teal);font-family:'Playfair Display',serif;margin-bottom:0.5rem;">Ayuno — ¿Necesario?</h4>
+      <ul>
+        <li>Ayuno incrementa TAG en <span class="value">promedio 20–30 mg/dL</span></li>
+        <li>Ideal: <span class="value">12 horas</span></li>
+        <li>Quilomicrones eliminados en <span class="crit">6–9 horas</span></li>
+        <li>CM anormales: persisten <span class="crit">&gt;12 horas</span></li>
+        <li>NCEP ATP-III recomienda mínimo <span class="value">9 horas</span></li>
+        <li><span class="crit">Si TAG &gt;400 mg/dL → ayuno obligatorio</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="note note-red">
+    <strong>⚠️ Actualización Importante</strong>
+    Actualmente las <span class="crit">principales sociedades recomiendan tamizaje con o sin ayuno</span>. El ayuno no es estrictamente necesario para la mayoría de pacientes.
+  </div>
+</div>
+
+<div class="slide-card">
+  <h3><span class="slide-number">DIAP 15</span> Sociedades que Avalan el Perfil No-Ayuno <span class="star2"></span></h3>
+
+  <div class="image-box">
+    <div class="image-box-header">🖼 IMAGEN / TABLA DE LA DIAPOSITIVA — Endorsement of non-fasting lipid profiles</div>
+    <div class="image-box-body">
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Año</th><th>Región</th><th>Sociedad / Guía</th></tr></thead>
+          <tbody>
+            <tr><td>2017</td><td>EE.UU.</td><td>AACE/ACE (Endocrinólogos y Colegio de Endocrinología)</td></tr>
+            <tr><td>2016</td><td>Brasil</td><td>Consenso de 5 sociedades médicas</td></tr>
+            <tr><td>2016</td><td>Europa</td><td>ESC/EAS</td></tr>
+            <tr><td>2016</td><td>Canadá</td><td>CCS (Canadian Cardiovascular Society)</td></tr>
+            <tr><td>2016</td><td>Canadá</td><td>CHEP (Canadian Hypertension Education Program)</td></tr>
+            <tr><td>2016</td><td>Europa</td><td>EAS/EFLM</td></tr>
+            <tr><td>2014</td><td>EE.UU.</td><td>VA/DoD (Veterans Affairs &amp; DoD)</td></tr>
+            <tr><td>2014</td><td>UK</td><td>NICE</td></tr>
+            <tr><td>2011</td><td>EE.UU.</td><td>AHA (American Heart Association)</td></tr>
+            <tr><td>2009</td><td>Dinamarca</td><td>DSKB</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note note-red" style="margin-top:0.8rem">
+        <strong>⚠️ Antes de 2009</strong>
+        Esencialmente todas las guías requerían ayuno o no mencionaban requisitos. A partir de 2009, el paradigma cambió.
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="slide-card">
+  <h3><span class="slide-number">DIAP 17</span> Variación Fisiológica en Serie <span class="star2"></span></h3>
+
+  <div class="image-box">
+    <div class="image-box-header">🖼 IMAGEN / TABLA DE LA DIAPOSITIVA — TABLE 34.23: Physiologic Variation in Lipid and Lipoprotein Concentrations</div>
+    <div class="image-box-body">
+      <p><strong>Interpretación:</strong> Esta tabla indica la variabilidad biológica intraindividual (% CV) y el porcentaje de esa varianza que es fisiológica vs. analítica.</p>
+    </div>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Componente</th>
+          <th>Variación Fisiológica (% CV)</th>
+          <th>% Varianza por Factores Fisiológicos*</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Colesterol Total</td><td class="value">6.5%</td><td>91%</td></tr>
+        <tr><td>Triglicéridos</td><td class="crit">23.7%</td><td>98%</td></tr>
+        <tr><td>Colesterol HDL</td><td class="value">7.5%</td><td>69%</td></tr>
+        <tr><td>Colesterol LDL</td><td class="value">8.2%</td><td>81%</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="font-size:0.8rem;color:var(--text-light)">*Asumiendo CVs analíticos: CT 2%; TAG 3%; HDL-c 5%; LDL-c 4%.</p>
+
+  <div class="note note-red">
+    <strong>⚠️ Dato Clave</strong>
+    Los <span class="crit">triglicéridos tienen la mayor variabilidad (23.7% CV)</span> y el 98% de esa varianza es fisiológica, no analítica. Esto es fundamental para interpretar resultados.
+  </div>
+</div>
+
+<div class="slide-card">
+  <h3><span class="slide-number">DIAP 18</span> Postura, Torniquete y Espécimen <span class="star2"></span></h3>
+
+  <div class="two-col">
+    <div>
+      <h4 style="color:var(--teal);font-family:'Playfair Display',serif;margin-bottom:0.5rem;">Postura del Paciente</h4>
+      <ul>
+        <li>20 min en decúbito supino: <span class="crit">↓10% CT, HDL-c, LDL-c, ApoA-I y ApoB; ↓15% TAG</span></li>
+        <li>NCEP recomienda: <span class="value">5 minutos sentado</span> antes de la toma</li>
+        <li>Torniquete prolongado: <span class="crit">↑10–15% Colesterol total</span></li>
+      </ul>
+    </div>
+    <div>
+      <h4 style="color:var(--teal);font-family:'Playfair Display',serif;margin-bottom:0.5rem;">Espécimen de Elección</h4>
+      <ul>
+        <li>TAG, HDL-c y LDL-c: <span class="concept">plasma o suero</span></li>
+        <li>Separar de fase celular en <span class="value">&lt;3 horas</span></li>
+        <li><span class="concept">Plasma se prefiere</span> para lipoproteínas</li>
+        <li>Anticoagulante de elección: <span class="value">EDTA</span> sobre heparina</li>
+        <li><span class="crit">Citrato: NO recomendado</span></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="slide-card">
+  <h3><span class="slide-number">DIAP 19</span> Fuentes Pre-analíticas de Variación <span class="star2"></span></h3>
+
+  <div class="image-box">
+    <div class="image-box-header">🖼 IMAGEN / TABLA DE LA DIAPOSITIVA — TABLE 34.24: Representative Preanalytical Sources of Variation</div>
+    <div class="image-box-body">
+      <p><strong>Interpretación:</strong> La tabla usa símbolos: + = aumento leve/moderado; ++ = aumento moderado/alto; − = disminución leve/moderada; −− = disminución moderada/alta; NC = sin cambio.</p>
+    </div>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Factor</th><th>CT</th><th>HDL-c</th><th>TAG</th><th>LDL-c</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Variación biológica intraindividual (CV%)</strong></td><td>6.5%</td><td>7.5%</td><td>23.7%</td><td>8.2%</td></tr>
+        <tr><td>Sin ayuno (nonfasting)</td><td>NC</td><td>−</td><td class="crit">++</td><td>−</td></tr>
+        <tr><td>Ayuno prolongado total</td><td>++</td><td>−</td><td>+</td><td>+</td></tr>
+        <tr><td>Postura: decúbito → sentado</td><td>−</td><td>−</td><td>−−</td><td>−</td></tr>
+        <tr><td>Anticoagulante: plasma vs suero</td><td>−</td><td>−</td><td>−</td><td>−</td></tr>
+        <tr><td>Ingesta colesterol (dieta)</td><td>+</td><td>NC</td><td>NC</td><td>+</td></tr>
+        <tr><td>Aceite de pescado</td><td>NC</td><td>NC</td><td>−</td><td>NC</td></tr>
+        <tr><td>Obesidad</td><td>+</td><td>−−</td><td class="crit">++</td><td>+</td></tr>
+        <tr><td>Tabaquismo</td><td>+</td><td>−−</td><td class="crit">++</td><td>+</td></tr>
+        <tr><td>Ejercicio intenso</td><td>−</td><td>+</td><td>−</td><td>−</td></tr>
+        <tr><td>Consumo de alcohol</td><td>+</td><td>+</td><td class="crit">++</td><td>−</td></tr>
+        <tr><td>AG saturados (palmítico)</td><td>+</td><td>NC</td><td>+</td><td>+</td></tr>
+        <tr><td>AG monoinsaturados</td><td>−</td><td>NC</td><td>−</td><td>−</td></tr>
+        <tr><td>AG poliinsaturados</td><td>−−</td><td>−</td><td>NC</td><td>−−</td></tr>
+        <tr><td><em>Fuentes Clínicas:</em></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>IAM (24 horas)</td><td>NC</td><td>NC</td><td>NC</td><td>NC</td></tr>
+        <tr><td>IAM (6 semanas)</td><td>−</td><td>−</td><td>NC</td><td>−</td></tr>
+        <tr><td>Hipotiroidismo</td><td>+</td><td>−</td><td class="crit">++</td><td>+</td></tr>
+        <tr><td>Nefrosis</td><td class="crit">++</td><td>NC</td><td class="crit">++</td><td class="crit">++</td></tr>
+        <tr><td>Diabetes (resistencia a insulina)</td><td>+</td><td>−</td><td class="crit">++</td><td class="crit">++</td></tr>
+        <tr><td>Infecciones</td><td>−</td><td>−</td><td class="crit">++</td><td>−</td></tr>
+        <tr><td>Embarazo (2do trimestre)</td><td>+</td><td>NC</td><td class="crit">++</td><td>+</td></tr>
+        <tr><td>Ciclosporina (trasplante)</td><td class="crit">++</td><td>−</td><td>+</td><td class="crit">++</td></tr>
+        <tr><td>Prednisona</td><td>+</td><td>−</td><td class="crit">++</td><td>+</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ═══════════════════════════ SECCIÓN 8 ═══════════════════════════ -->
+<div class="section-divider" id="s8">
+  <h2>8. Métodos Analíticos — Variación Aceptable</h2>
+</div>
+
+<div class="slide-card">
+  <h3><span class="slide-number">DIAP 20</span> NCEP — Error de Medición Aceptable <span class="star2"></span></h3>
+  <a href="#" class="back-top">↑ Volver al índice</a>
+
+  <p>Se emplean <span class="concept">métodos químicos automatizados</span>. El NCEP establece límites de error aceptable:</p>
+
+  <div class="image-box">
+    <div class="image-box-header">🖼 IMAGEN / TABLA DE LA DIAPOSITIVA — TABLE 17-9: NCEP Guidelines for Acceptable Measurement Error</div>
+    <div class="image-box-body"><p>La tabla establece los límites de error total, sesgo y coeficiente de variación para cada analito del perfil de lípidos.</p></div>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Analito</th>
+          <th>Error Total Máximo</th>
+          <th>Sesgo (Bias) Máximo</th>
+          <th>CV Máximo</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Colesterol</td><td class="value">≤9%</td><td class="value">≤3%</td><td class="value">≤3%</td></tr>
+        <tr><td>Triglicéridos</td><td class="value">≤15%</td><td class="value">≤5%</td><td class="value">≤5%</td></tr>
+        <tr><td>Colesterol HDL</td><td class="value">≤13%</td><td class="value">≤5%</td><td class="value">≤4%†</td></tr>
+        <tr><td>Colesterol LDL</td><td class="value">≤12%</td><td class="value">≤4%</td><td class="value">≤4%</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="font-size:0.8rem;color:var(--text-light)">†Para HDL-c ≥42 mg/dL. A niveles menores, la DE no debe exceder 1.7 mg/dL.</p>
+
+  <div class="note note-yellow">
+    <strong>Nota</strong>
+    Estos umbrales se usan para la <em>validación analítica</em> de los métodos de laboratorio. Un método que exceda estos límites no es adecuado para el reporte clínico.
+  </div>
+</div>
+
+<!-- ═══════════════════════════ SECCIÓN 9 ═══════════════════════════ -->
+<div class="section-divider" id="s9">
+  <h2>9. Ecuación de Friedewald y LDL-c</h2>
+</div>
+
+<div class="slide-card">
+  <h3><span class="slide-number">DIAP 21</span> Cálculo de LDL-c <span class="star3"></span></h3>
+  <a href="#" class="back-top">↑ Volver al índice</a>
+
+  <p>El LDL-c puede <strong>medirse directamente</strong> (métodos homogéneos) o <strong>calcularse</strong> (más frecuente, más económico).</p>
+
+  <div class="formula">
+    <span class="formula-label">ECUACIÓN DE FRIEDEWALD (unidades en mg/dL)</span>
+    LDL-c = CT − HDL-c − (TAG / 5)
+    <br><br>
+    <span style="color:#a0e0d0">donde: VLDL-c ≈ TAG / 5</span>
+  </div>
+
+  <div class="note note-red">
+    <strong>⚠️ Limitaciones Críticas</strong>
+    <ul>
+      <li>Cuando <span class="crit">TAG &gt;400 mg/dL</span>: presencia de CM, remanentes y VLDL → <span class="crit">infraestimación &gt;10% del LDL-c</span></li>
+      <li>Excelente correlación cuando <span class="value">TAG &lt;200 mg/dL</span></li>
+      <li>Si TAG &gt;400 mg/dL: usar el factor de equivalencia de VLDLc ajustado (<strong>Martin et al. 2013</strong>)</li>
+    </ul>
+  </div>
+
+  <div class="note note-teal">
+    <strong>Concepto</strong>
+    El factor TAG/5 es una <em>aproximación</em> del contenido de colesterol en VLDL. En condiciones de hipertrigliceridemia severa, este factor subestima la VLDL real, distorsionando el cálculo de LDL-c.
+  </div>
+</div>
+
+<!-- ═══════════════════════════ SECCIÓN 10 ═══════════════════════════ -->
+<div class="section-divider" id="s10">
+  <h2>10. ApoB, hsCRP y Lipoproteína(a)</h2>
+  <p>Marcadores adicionales de riesgo cardiovascular</p>
+</div>
+
+<div class="slide-card">
+  <h3><span class="slide-number">DIAP 22</span> Apolipoproteína B (ApoB) <span class="star2"></span></h3>
+  <a href="#" class="back-top">↑ Volver al índice</a>
+
+  <div class="two-col">
+    <div>
+      <h4 style="color:var(--teal);font-family:'Playfair Display',serif;margin-bottom:0.5rem;">Método de medición</h4>
+      <ul>
+        <li>Inmunoensayos automatizados (<span class="concept">nefelometría / turbidimetría</span>)</li>
+      </ul>
+      <h4 style="color:var(--teal);font-family:'Playfair Display',serif;margin:0.8rem 0 0.4rem;">Significado clínico</h4>
+      <ul>
+        <li>Proteína estructural de <span class="crit">lipoproteínas aterogénicas</span> (LDL, VLDL, IDL, remanentes)</li>
+        <li>Refleja el <span class="crit">número de partículas aterogénicas circulantes</span></li>
+        <li>Alta correlación con colesterol no-HDL</li>
+      </ul>
+    </div>
+    <div>
+      <h4 style="color:var(--teal);font-family:'Playfair Display',serif;margin-bottom:0.5rem;">Indicaciones (No tamizaje rutinario)</h4>
+      <ul>
+        <li>Hipertrigliceridemia</li>
+        <li>Síndrome metabólico / diabetes</li>
+        <li>Discordancia LDL – no-HDL</li>
+        <li>En guías <span class="concept">ACC/AHA 2026</span>: potenciador de riesgo cardiovascular</li>
+        <li>Seguimiento y decisión de intensificación de tratamiento</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="slide-card">
+  <h3><span class="slide-number">DIAP 23</span> Proteína C Reactiva de Alta Sensibilidad (hsCRP) <span class="star2"></span></h3>
+
+  <div class="two-col">
+    <div>
+      <ul>
+        <li>Método: inmunoensayos automatizados (<span class="concept">nefelometría / turbidimetría</span>)</li>
+        <li><span class="concept">Marcador inflamatorio</span> asociado con aterosclerosis</li>
+        <li>La inflamación crónica participa en la fisiopatología de ASCVD</li>
+      </ul>
+    </div>
+    <div>
+      <div class="note note-red">
+        <strong>⭐ Guías ACC/AHA 2026</strong>
+        <ul>
+          <li><span class="crit">hs-CRP ≥2 mg/L en más de una determinación</span></li>
+          <li>Puede apoyar decisiones de intensificación de prevención primaria</li>
+          <li>Es un <strong>potenciador de riesgo</strong></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="slide-card">
+  <h3><span class="slide-number">DIAP 24</span> Lipoproteína(a) [Lp(a)] <span class="star3"></span></h3>
+
+  <div class="two-col">
+    <div>
+      <ul>
+        <li>Método: inmunoensayos automatizados (<span class="concept">nefelometría / turbidimetría</span>)</li>
+        <li>Estructura: similar a LDL con apolipoproteína(a)</li>
+        <li>Determinación principalmente <span class="crit">genética</span></li>
+        <li>Niveles <span class="value">estables a lo largo de la vida</span></li>
+      </ul>
+    </div>
+    <div>
+      <div class="note note-red">
+        <strong>⭐⭐⭐ Umbral de Riesgo</strong>
+        <span class="crit">Lp(a) ≥50 mg/dL (≈125 nmol/L)</span> → mayor riesgo de ASCVD y estenosis valvular aórtica.
+      </div>
+      <div class="note note-yellow">
+        <strong>Guías ACC/AHA 2026</strong>
+        <ul>
+          <li>Potenciador de riesgo cardiovascular</li>
+          <li>Se recomienda medición <span class="crit">al menos una vez en la vida</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════ SECCIÓN 11 ═══════════════════════════ -->
+<div class="section-divider" id="s11">
+  <h2>11. Dislipidemias y Riesgo Cardiovascular</h2>
+</div>
+
+<div class="slide-card">
+  <h3><span class="slide-number">DIAP 26</span> Definición y Clasificación de Dislipidemia <span class="star3"></span></h3>
+  <a href="#" class="back-top">↑ Volver al índice</a>
+
+  <div class="note note-yellow">
+    <strong>Contexto Histórico</strong>
+    La clasificación de Frederickson data de <strong>1967</strong>. Cada fenotipo no representa una enfermedad en específico. Las guías modernas principales son NCEP 2002 ATP-III y ACC/AHA 2013/2026.
+  </div>
+
+  <p style="margin:1rem 0">La <span class="concept">dislipidemia</span> incluye cualquiera de las siguientes condiciones (o sus combinaciones):</p>
+
+  <div class="severity-grid">
+    <div class="sev-red"><strong>TAG &gt;200 mg/dL</strong>Hipertrigliceridemia</div>
+    <div class="sev-orange"><strong>CT &gt;240 mg/dL</strong>Hipercolesterolemia</div>
+    <div class="sev-red"><strong>LDL-c &gt;160 mg/dL</strong>LDL elevado</div>
+    <div class="sev-yellow"><strong>HDL-c &lt;40 mg/dL</strong>HDL bajo</div>
+  </div>
+</div>
+
+<div class="slide-card">
+  <h3><span class="slide-number">DIAP 27–28</span> ↑CT con ↑LDL-c — Hipercolesterolemias <span class="star3"></span></h3>
+
+  <div class="two-col">
+    <div>
+      <div class="note note-yellow">
+        <strong>Hipercolesterolemia Poligénica</strong>
+        <ul>
+          <li>Multifactorial</li>
+          <li><span class="value">85%</span> de todas las hipercolesterolemias</li>
+          <li>Hipercolesterolemia relacionada con la edad que no responde a medidas no farmacológicas</li>
+        </ul>
+      </div>
+    </div>
+    <div>
+      <div class="note note-red">
+        <strong>⭐⭐⭐ Hipercolesterolemia Familiar (Tipo 2A)</strong>
+        <ul>
+          <li>Causa más común: <span class="crit">mutación LDLR</span> (Autosómica Dominante, Cr 19)</li>
+          <li>Heterocigoto: <span class="value">1/500</span> — ECV temprana</li>
+          <li>Homocigoto: presentación en infancia, <span class="crit">LDL-c &gt;400 mg/dL</span></li>
+          <li>LDLR &lt;2%: esperanza de vida ~<span class="crit">20 años</span></li>
+          <li>LDLR 2–25%: ECV a los ~<span class="crit">30 años</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <h4 style="font-family:'Playfair Display',serif;color:var(--text);margin:1rem 0 0.5rem;">Criterios Diagnósticos de HF</h4>
+  <div class="two-col">
+    <div class="note note-yellow">
+      <strong>Adultos</strong>
+      LDL-c <span class="crit">&gt;190 mg/dL</span> o colesterol no-HDL-c <span class="crit">&gt;220 mg/dL</span>
+    </div>
+    <div class="note note-yellow">
+      <strong>&lt;20 años</strong>
+      LDL-c <span class="crit">&gt;160 mg/dL</span> o colesterol no-HDL-c <span class="crit">&gt;190 mg/dL</span>
+    </div>
+  </div>
+
+  <div class="note note-teal">
+    <strong>Hallazgos Físicos Clásicos</strong>
+    <span class="concept">Xantoma tendinoso</span>, <span class="concept">Xantelasma</span>, <span class="concept">Arco corneal</span>
+  </div>
+
+  <h4 style="font-family:'Playfair Display',serif;color:var(--text);margin:1rem 0 0.5rem;">Metas de LDL-c según contexto en HF</h4>
+  <div class="severity-grid">
+    <div class="sev-yellow"><strong>LDL-c &gt;300 mg/dL</strong>0–1 Factor de riesgo</div>
+    <div class="sev-orange"><strong>LDL-c &gt;200 mg/dL</strong>2 Factores de riesgo</div>
+    <div class="sev-red"><strong>LDL-c &gt;160 mg/dL</strong>Con ECV establecida</div>
+  </div>
+
+  <div class="note note-red">
+    <strong>⚠️ Tratamiento</strong>
+    Estatinas de <span class="crit">ALTA POTENCIA</span> son el tratamiento de primera línea en HF.
+  </div>
+</div>
+
+<div class="slide-card">
+  <h3><span class="slide-number">DIAP 29</span> Hallazgos Físicos en Hipercolesterolemia</h3>
+
+  <div class="image-box">
+    <div class="image-box-header">🖼 IMAGEN / TABLA DE LA DIAPOSITIVA — Imágenes clínicas: Xantelasma, Xantomas y Arco Corneal</div>
+    <div class="image-box-body">
+      <p><strong>Interpretación de las imágenes clínicas:</strong></p>
+      <ul>
+        <li><strong>Imagen superior izquierda (EyeRounds.org):</strong> <span class="concept">Xantelasma</span> — depósitos amarillentos de lípidos en los párpados, especialmente en el canto medial. Sugiere dislipidemia, aunque puede ocurrir con lípidos normales.</li>
+        <li><strong>Imágenes superiores derecha (A y B):</strong> <span class="crit">Xantomas eruptivos</span> — pápulas amarillo-anaranjadas en regiones de presión (rodilla, codo). Clásicos de hipertrigliceridemia severa (tipos I y V de Frederickson).</li>
+        <li><strong>Imagen inferior central:</strong> <span class="concept">Arco corneal (gerontoxon)</span> — anillo lipídico blanquecino en la periferia de la córnea. En pacientes &lt;45 años sugiere HF; en mayores puede ser hallazgo normal.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="slide-card">
+  <h3><span class="slide-number">DIAP 30</span> ↑CT con ↑TAG — Tipo 2B: Hiperlipoproteinemia Combinada <span class="star2"></span></h3>
+
+  <ul>
+    <li>Frecuencia: <span class="value">1/100 población</span> (familiar)</li>
+    <li>También adquirida en síndrome metabólico y DM2</li>
+    <li>Puede presentarse como: hipercolesterolemia, hipertrigliceridemia, o <span class="concept">ambas combinadas</span></li>
+    <li>Heterogénea, <span class="concept">poligénica</span>, sin marcador definitivo único</li>
+    <li>Elevación de <span class="crit">VLDL y LDL</span></li>
+  </ul>
+</div>
+
+<div class="slide-card">
+  <h3><span class="slide-number">DIAP 31</span> ↑CT con ↑TAG — Tipo 3: Disbetalipoproteinemia <span class="star2"></span></h3>
+
+  <ul>
+    <li>Causada por <span class="crit">homocigotos para ApoE-2</span>; formas AD con mutaciones APOE</li>
+    <li>Frecuencia: <span class="value">1–5 / 5,000 habitantes</span></li>
+    <li>Elevación conjunta de <span class="crit">CT y TAG</span></li>
+    <li>Hallazgo laboratorial: <span class="crit">presencia de banda β ancha (broad beta)</span></li>
+    <li>Ratio diagnóstico: <span class="value">VLDL-c/TAG ≥ 0.3</span></li>
+    <li>ECV temprana, <span class="concept">xantomas tuberosos y palmares</span></li>
+  </ul>
+</div>
+
+<div class="slide-card">
+  <h3><span class="slide-number">DIAP 32</span> ↑CT con ↑TAG — Tipo 5: Hiperlipidemia Mixta <span class="star2"></span></h3>
+
+  <ul>
+    <li>Aumento simultáneo de <span class="crit">CM y VLDL</span></li>
+    <li>Incidencia: ~<span class="value">1/500</span></li>
+    <li>Poligénica; 10% con mutación de <span class="concept">LPL, APOC2 y APOA5</span> — comportamiento AD</li>
+    <li>Manifestaciones en adultos jóvenes:
+      <ul>
+        <li>Xantomas eruptivos</li>
+        <li><span class="crit">Lipemia retinalis</span></li>
+        <li><span class="crit">Pancreatitis aguda</span> (riesgo principal con TAG &gt;1000 mg/dL)</li>
+        <li>Intolerancia a carbohidratos</li>
+        <li>Enfermedad aterosclerótica temprana <em>no común</em></li>
+      </ul>
+    </li>
+  </ul>
+</div>
+
+<div class="slide-card">
+  <h3><span class="slide-number">DIAP 33</span> CT Normal con ↑TAG — Tipo 4: Hipertrigliceridemia Familiar <span class="star2"></span></h3>
+
+  <ul>
+    <li>Autosómica Dominante (AD)</li>
+    <li>Prevalencia: <span class="value">5–10%</span> de la población general</li>
+    <li>Variante común: <span class="concept">APOA5 S19W</span> (35% de casos)</li>
+    <li>VLDL elevada aislada con <span class="value">TAG 200–500 mg/dL</span></li>
+    <li>Resto de β-lipoproteínas normal</li>
+    <li>Puede tener <span class="crit">ECV prematura</span>; mayor prevalencia de síndrome metabólico</li>
+  </ul>
+</div>
+
+<div class="slide-card">
+  <h3><span class="slide-number">DIAP 34</span> HDL-c Bajo <span class="star2"></span></h3>
+
+  <div class="two-col">
+    <div>
+      <div class="note note-yellow">
+        <strong>Hipoalfalipoproteinemia Familiar</strong>
+        <ul>
+          <li>AD; incidencia <span class="value">1/400</span></li>
+          <li>Hombre: HDL-c <span class="crit">&lt;30 mg/dL</span></li>
+          <li>Mujer: HDL-c <span class="crit">&lt;40 mg/dL</span></li>
+          <li>ECV prematura</li>
+          <li>LDL-c y VLDL-c normales</li>
+          <li>Ausencia de factores secundarios</li>
+          <li>Patrón similar en familiar de 1er grado</li>
+          <li>Mutaciones: rearreglos <span class="concept">ApoA-I/CIII/AIV</span> o lipasa hepática</li>
+        </ul>
+      </div>
+    </div>
+    <div>
+      <div class="note note-red">
+        <strong>⚠️ Enfermedad de Tangier</strong>
+        <ul>
+          <li>Rara, autosómica recesiva (AR)</li>
+          <li>Mutación en gen <span class="crit">ABCA1</span> (Cr 9)</li>
+          <li>HDL prácticamente <span class="crit">indetectable</span></li>
+          <li>Hallazgos: hepatoesplenomegalia, neuropatía periférica, ECV prematura</li>
+          <li>Signo patognomónico: <span class="crit">amígdalas naranjas</span></li>
+          <li>Colesterol total muy bajo (↓↓)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════ SECCIÓN 12 ═══════════════════════════ -->
+<div class="section-divider" id="s12">
+  <h2>12. Clasificación de Frederickson (OMS)</h2>
+</div>
+
+<div class="slide-card">
+  <h3><span class="slide-number">DIAP 35–36</span> Fenotipos Clásicos de Hiperlipoproteinemia <span class="star3"></span></h3>
+  <a href="#" class="back-top">↑ Volver al índice</a>
+
+  <div class="image-box">
+    <div class="image-box-header">🖼 IMAGEN / TABLA DE LA DIAPOSITIVA — Tabla 1: Classical Hyperlipoproteinaemia Phenotypes + Fredrickson WHO Classification Visual</div>
+    <div class="image-box-body">
+      <p><strong>Interpretación visual:</strong> La clasificación muestra tubos de muestra con aspecto que varía según el tipo:
+        <ul>
+          <li>Tipo I: suero lechoso (capa cremosa superior) — quilomicronemia</li>
+          <li>Tipo IIa: suero claro ligeramente amarillo</li>
+          <li>Tipo IIb: suero turbio</li>
+          <li>Tipo III: suero turbio amarillento</li>
+          <li>Tipo IV: suero turbio/lechoso</li>
+          <li>Tipo V: capa cremosa + suero turbio</li>
+        </ul>
+      </p>
+    </div>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Tipo (Frederickson)</th>
+          <th>También conocido como</th>
+          <th>Lípido elevado</th>
+          <th>Lipoproteína elevada</th>
+          <th>Genética principal</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="concept"><strong>Tipo I</strong></td>
+          <td>Quilomicronemia familiar / Deficiencia LPL</td>
+          <td>TAG</td>
+          <td class="crit">Quilomicrones</td>
+          <td>AR: mutación LPL, APOC2; AD: APOA5, LMF1</td>
+        </tr>
+        <tr>
+          <td class="concept"><strong>Tipo IIa</strong></td>
+          <td>Hipercolesterolemia familiar (hetero/homo)</td>
+          <td>CT (percentil 95)</td>
+          <td class="crit">LDL (p95)</td>
+          <td>Mutación LDLR, APOB, PCSK9; homocigoto: LDLR o LDLRAP1</td>
+        </tr>
+        <tr>
+          <td class="concept"><strong>Tipo IIb</strong></td>
+          <td>Hiperlipoproteinemia combinada</td>
+          <td>CT + TAG (p95)</td>
+          <td class="crit">VLDL + LDL (p95)</td>
+          <td>Poligénica; ~35% APOA5 S19W</td>
+        </tr>
+        <tr>
+          <td class="concept"><strong>Tipo III</strong></td>
+          <td>Disbetalipoproteinemia</td>
+          <td>CT + TAG (p95)</td>
+          <td class="crit">IDL</td>
+          <td>Mutación APOE; homocigoto E2 necesario pero no suficiente</td>
+        </tr>
+        <tr>
+          <td class="concept"><strong>Tipo IV</strong></td>
+          <td>Hipertrigliceridemia primaria</td>
+          <td>TAG (p95)</td>
+          <td class="crit">VLDL</td>
+          <td>Poligénica; ~35% APOA5 S19W</td>
+        </tr>
+        <tr>
+          <td class="concept"><strong>Tipo V</strong></td>
+          <td>Hiperlipidemia mixta</td>
+          <td>CT + TAG (p95)</td>
+          <td class="crit">VLDL + CM</td>
+          <td>~10% LPL, APOC2, APOA5; ~55% APOA5 S19W</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="table-wrap" style="margin-top:1.5rem">
+    <table>
+      <thead>
+        <tr>
+          <th>Lipoproteína</th>
+          <th>CT</th>
+          <th>TG</th>
+          <th>LDL-c</th>
+          <th>HDL-c</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Tipo I</td><td>N o ↑</td><td class="crit">↑↑</td><td>N o ↓</td><td>N o ↓</td></tr>
+        <tr><td>Tipo IIa</td><td class="crit">↑</td><td>N</td><td class="crit">↑</td><td>N o ↓</td></tr>
+        <tr><td>Tipo IIb</td><td class="crit">↑</td><td class="crit">↑</td><td class="crit">↑</td><td>N o ↓</td></tr>
+        <tr><td>Tipo III</td><td class="crit">↑</td><td class="crit">↑</td><td>N o ↓</td><td>N o ↓</td></tr>
+        <tr><td>Tipo IV</td><td>N o ↑</td><td class="crit">↑</td><td>N</td><td>N o ↓</td></tr>
+        <tr><td>Tipo V</td><td>N o ↑</td><td class="crit">↑↑</td><td>N</td><td>N o ↓</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ═══════════════════════════ SECCIÓN 13 ═══════════════════════════ -->
+<div class="section-divider" id="s13">
+  <h2>13. Dislipidemias Secundarias</h2>
+</div>
+
+<div class="slide-card">
+  <h3><span class="slide-number">DIAP 37</span> Causas Secundarias Más Comunes <span class="star3"></span></h3>
+  <a href="#" class="back-top">↑ Volver al índice</a>
+
+  <div class="image-box">
+    <div class="image-box-header">🖼 IMAGEN / TABLA DE LA DIAPOSITIVA — Secondary Dyslipidemias Table</div>
+    <div class="image-box-body">
+      <p><strong>Interpretación:</strong> Tabla de dislipidemias secundarias clasificadas por condición y patrón lipídico resultante.</p>
+    </div>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Condición</th><th>Patrón lipídico sérico</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Diabetes mellitus</strong></td><td>↑ Triglicéridos, ↓ HDL</td></tr>
+        <tr><td><strong>Obesidad</strong></td><td>↑ Triglicéridos, ↓ HDL</td></tr>
+        <tr><td><strong>Hipotiroidismo</strong></td><td class="crit">↑ LDL, ↑ CT total, ↑ TAG (en algunos casos)</td></tr>
+        <tr><td><strong>Enfermedad renal crónica</strong></td><td class="crit">↑ LDL, ↓ HDL, ↑ Triglicéridos</td></tr>
+        <tr><td><strong>Exceso de alcohol</strong></td><td>↑ Triglicéridos, ↑ HDL</td></tr>
+        <tr><td><strong>Colestasis</strong></td><td>↑ LDL, ↑ CT total</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="note note-red">
+    <strong>⚠️ Práctica Clínica</strong>
+    Antes de diagnosticar una dislipidemia primaria (hereditaria), se deben <span class="crit">descartar siempre causas secundarias</span>: hipotiroidismo, DM, ERC, síndrome nefrótico, fármacos (corticoides, diuréticos, antirretrovirales).
+  </div>
+</div>
+
+<!-- ═══════════════════════════ SECCIÓN 14 ═══════════════════════════ -->
+<div class="section-divider" id="s14">
+  <h2>14. Tamizaje en Dislipidemias</h2>
+</div>
+
+<div class="slide-card">
+  <h3><span class="slide-number">DIAP 38–39</span> Recomendaciones de Tamizaje ACC/AHA 2026 <span class="star3"></span></h3>
+  <a href="#" class="back-top">↑ Volver al índice</a>
+
+  <div class="two-col">
+    <div>
+      <div class="note note-teal">
+        <strong>Población Pediátrica</strong>
+        <ul>
+          <li>Tamizaje universal: <span class="value">9–11 años</span></li>
+          <li>Repetir en: <span class="value">17–21 años</span></li>
+          <li><strong>Tamizaje temprano (≥2 años)</strong> si:
+            <ul>
+              <li>Historia familiar de ASCVD prematura</li>
+              <li>Hipercolesterolemia familiar</li>
+              <li>LDL ≥190 mg/dL en familiares</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div>
+      <div class="note note-teal">
+        <strong>Adultos</strong>
+        <ul>
+          <li>Iniciar tamizaje: <span class="value">≥19 años</span></li>
+          <li>Repetir: aproximadamente cada <span class="value">5 años</span></li>
+          <li><strong>Más frecuente si:</strong>
+            <ul>
+              <li>Diabetes</li>
+              <li>Obesidad / síndrome metabólico</li>
+              <li>Tabaquismo</li>
+              <li>Hipertensión</li>
+              <li>Historia familiar de ASCVD</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <p style="font-size:0.8rem;color:var(--text-light);margin-top:0.5rem">Fuente: Circulation. 2026;153:e00–e00. DOI: 10.1161/CIR.0000000000001423</p>
+</div>
+
+<div class="slide-card">
+  <h3><span class="slide-number">DIAP 40</span> ASCVD — Definición y Prevención <span class="star3"></span></h3>
+
+  <div class="two-col">
+    <div>
+      <div class="note note-red">
+        <strong>ASCVD (Atherosclerotic Cardiovascular Disease)</strong>
+        Enfermedad cardiovascular causada por aterosclerosis. Incluye:
+        <ul>
+          <li><span class="crit">Infarto agudo al miocardio</span></li>
+          <li>Muerte por enfermedad coronaria</li>
+          <li><span class="crit">ACV isquémico</span></li>
+          <li>Enfermedad arterial periférica aterosclerótica</li>
+          <li>Revascularización coronaria o arterial</li>
+        </ul>
+      </div>
+    </div>
+    <div>
+      <div class="note note-teal">
+        <strong>Prevención Primaria</strong>
+        Sin ASCVD conocida. Estrategias:
+        <ul>
+          <li>Modificación del estilo de vida</li>
+          <li>Control de factores de riesgo</li>
+          <li>Tratamiento hipolipemiante según riesgo calculado</li>
+        </ul>
+      </div>
+      <div class="note note-yellow">
+        <strong>Prevención Secundaria</strong>
+        ASCVD <strong>establecida</strong>. Objetivo: evitar recurrencias mediante <span class="crit">reducción intensiva de lipoproteínas aterogénicas</span>.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════ SECCIÓN 15 ═══════════════════════════ -->
+<div class="section-divider" id="s15">
+  <h2>15. Modelo PREVENT y Riesgo ASCVD</h2>
+</div>
+
+<div class="slide-card">
+  <h3><span class="slide-number">DIAP 42–44</span> Modelo PREVENT (ACC/AHA 2026) <span class="star3"></span></h3>
+  <a href="#" class="back-top">↑ Volver al índice</a>
+
+  <div class="two-col">
+    <div>
+      <h4 style="font-family:'Playfair Display',serif;color:var(--teal);margin-bottom:0.5rem;">El Modelo PREVENT estima:</h4>
+      <ul>
+        <li>Riesgo de <span class="concept">ASCVD</span></li>
+        <li>Riesgo de <span class="concept">enfermedad cardiovascular total</span></li>
+        <li>Riesgo de <span class="concept">insuficiencia cardíaca</span></li>
+        <li>Horizonte: <span class="crit">10 y 30 años</span></li>
+        <li><strong>Sustituye</strong> al modelo PCE (2013)</li>
+      </ul>
+    </div>
+    <div>
+      <h4 style="font-family:'Playfair Display',serif;color:var(--teal);margin-bottom:0.5rem;">¿En quién usar PREVENT para decisión terapéutica?</h4>
+      <ul>
+        <li>Edad: <span class="value">30–79 años</span></li>
+        <li>Sin ASCVD conocida</li>
+        <li>Sin diabetes mellitus</li>
+        <li>LDL-c: <span class="value">70–189 mg/dL</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="image-box">
+    <div class="image-box-header">🖼 IMAGEN / TABLA DE LA DIAPOSITIVA — Tabla 12: Crosswalk PCE vs PREVENT-ASCVD Risk Estimates</div>
+    <div class="image-box-body">
+      <p><strong>Interpretación:</strong> El modelo PREVENT calcula riesgos menores que el PCE para la misma categoría clínica. Los umbrales se ajustan hacia abajo.</p>
+    </div>
+  </div>
+
+  <div class="risk-bands">
+    <div class="rb-low">
+      <strong>BAJO</strong>
+      PCE: &lt;5% → PREVENT: &lt;3%
+    </div>
+    <div class="rb-border">
+      <strong>LIMÍTROFE</strong>
+      PCE: 5–&lt;7.5% → PREVENT: 3–&lt;5%
+    </div>
+    <div class="rb-inter">
+      <strong>INTERMEDIO</strong>
+      PCE: 7.5–&lt;20% → PREVENT: 5–&lt;10%
+    </div>
+    <div class="rb-high">
+      <strong>ALTO</strong>
+      PCE: ≥20% → PREVENT: ≥10%
+    </div>
+  </div>
+
+  <div class="note note-red">
+    <strong>⚠️ Indicaciones de Estatinas INDEPENDIENTEMENTE del Riesgo</strong>
+    <ul>
+      <li><span class="crit">DM 40–75 años</span> → estatina de moderada intensidad</li>
+      <li><span class="crit">LDL-c ≥190 mg/dL</span> → estatina de alta intensidad</li>
+      <li>ERC estadio 3–4</li>
+      <li>VIH</li>
+    </ul>
+    En DM, ERC y VIH: ajustar a estatinas de alta intensidad según factores de riesgo y estimación PREVENT-ASCVD.
+  </div>
+</div>
+
+<div class="slide-card">
+  <h3><span class="slide-number">DIAP 45–46</span> Algoritmo de Prevención Primaria (30–79 años sin ASCVD) <span class="star3"></span></h3>
+
+  <div class="note note-teal">
+    <strong>Principio fundamental ACC/AHA 2026</strong>
+    El resultado de la estimación PREVENT <span class="crit">NO es una indicación absoluta de tratamiento</span>. Es muy importante <strong>personalizar y discutir los riesgos y opciones terapéuticas con el paciente</strong>, quien debe ser partícipe en la toma de decisiones.
+  </div>
+
+  <div class="image-box">
+    <div class="image-box-header">🖼 IMAGEN / TABLA DE LA DIAPOSITIVA — Algoritmo: Primary Prevention in Adults 30–79Y Without ASCVD</div>
+    <div class="image-box-body">
+      <p><strong>Interpretación del algoritmo de prevención primaria (LDL-c 70–189 mg/dL):</strong></p>
+      <div style="overflow-x:auto">
+        <table>
+          <thead>
+            <tr>
+              <th>Categoría de Riesgo PREVENT</th>
+              <th>Acción</th>
+              <th>Meta LDL-c</th>
+              <th>Meta no-HDL-c</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="background:#d4edda">
+              <td><strong>Bajo (&lt;3%)</strong></td>
+              <td>Si LDL 160–189 o riesgo 30a ≥10%: estatina moderada. Si no: consejería de conductas de salud.</td>
+              <td>≥30% reducción; LDL &lt;100 mg/dL</td>
+              <td>&lt;130 mg/dL</td>
+            </tr>
+            <tr style="background:#fff3cd">
+              <td><strong>Limítrofe (3–&lt;5%)</strong></td>
+              <td>Decidir iniciar TLL. Si sí → estatina moderada.</td>
+              <td>≥30% reducción; LDL &lt;100 mg/dL</td>
+              <td>&lt;130 mg/dL</td>
+            </tr>
+            <tr style="background:#ffe5cc">
+              <td><strong>Intermedio (5–&lt;10%)</strong></td>
+              <td>Estatina moderada a alta. Si decisión incierta → evaluación CAC (calcio coronario).</td>
+              <td>≥30–50% reducción; LDL &lt;100 mg/dL</td>
+              <td>&lt;130 mg/dL</td>
+            </tr>
+            <tr style="background:#f8d7d4">
+              <td><strong>Alto (≥10%)</strong></td>
+              <td>Estatina alta intensidad + ezetimibe si metas no alcanzadas + PCSK9 mAb o ácido bempedoico si persiste.</td>
+              <td>≥50% reducción; LDL &lt;70 mg/dL</td>
+              <td>&lt;100 mg/dL</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note note-teal" style="margin-top:0.8rem">
+        <strong>CAC (Calcio Coronario)</strong>
+        Si CAC &gt;0 → iniciar terapia con estatinas. Si CAC = 0 → consejería de conductas de salud y repetir CAC.
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="slide-card">
+  <h3><span class="slide-number">DIAP 47</span> Potenciadores de Riesgo <span class="star2"></span></h3>
+
+  <p>Útiles principalmente para la decisión de iniciar estatinas en <span class="concept">riesgo limítrofe</span>.</p>
+
+  <div class="image-box">
+    <div class="image-box-header">🖼 IMAGEN / TABLA DE LA DIAPOSITIVA — Tabla 13: Risk Enhancers (ACC/AHA 2026)</div>
+    <div class="image-box-body">
+      <p><strong>Interpretación:</strong> Los potenciadores de riesgo aumentan la probabilidad de que un paciente con riesgo limítrofe se beneficie de iniciar estatinas.</p>
+    </div>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Potenciador de Riesgo</th></tr></thead>
+      <tbody>
+        <tr><td>Historia de ASCVD prematura en progenitor o hermano (hombre &lt;55 años; mujer &lt;65 años)</td></tr>
+        <tr><td>Ascendencia de mayor riesgo (ej. Sur Asiático, Filipino)</td></tr>
+        <tr><td>Alto riesgo poligénico (si se mide)</td></tr>
+        <tr><td>Enfermedades inflamatorias crónicas (lupus, artritis reumatoide, psoriasis avanzada, artritis inflamatoria)</td></tr>
+        <tr><td class="crit">Lp(a) ≥125 nmol/L o ≥50 mg/dL</td></tr>
+        <tr><td class="crit">hs-CRP ≥2 mg/L en más de una ocasión</td></tr>
+        <tr><td class="crit">TAG persistentemente ≥175 mg/dL (sin ayuno) o ≥150 mg/dL (con ayuno)</td></tr>
+        <tr><td>Síndrome CKM (cardiovascular-kidney-metabolic)</td></tr>
+        <tr><td>LDL-c persistentemente 160–189 mg/dL; no-HDL-c ≥190–219 mg/dL o ApoB ≥120 mg/dL*</td></tr>
+        <tr><td>Marcadores de riesgo reproductivo (menopausia prematura, preeclampsia, diabetes gestacional, HTA gestacional, parto prematuro)</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="font-size:0.8rem;color:var(--text-light)">*Meta de ApoB en presencia de TG 150–499 mg/dL.</p>
+</div>
+
+<!-- ═══════════════════════════ SECCIÓN 16 ═══════════════════════════ -->
+<div class="section-divider" id="s16">
+  <h2>16. Metas en Lipoproteínas</h2>
+</div>
+
+<div class="slide-card">
+  <h3><span class="slide-number">DIAP 48</span> Metas en Prevención Primaria (ACC/AHA 2026) <span class="star3"></span></h3>
+  <a href="#" class="back-top">↑ Volver al índice</a>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Escenario Clínico</th>
+          <th>Meta LDL-c</th>
+          <th>Meta no-HDL-c</th>
+          <th>Meta ApoB</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Prevención primaria con riesgo PREVENT-ASCVD <span class="value">&lt;10%</span></td>
+          <td class="value">&lt;100 mg/dL</td>
+          <td class="value">&lt;130 mg/dL</td>
+          <td class="value">&lt;90 mg/dL*</td>
+        </tr>
+        <tr>
+          <td>Prevención primaria con riesgo PREVENT-ASCVD <span class="crit">≥10%</span></td>
+          <td class="crit">&lt;70 mg/dL</td>
+          <td class="crit">&lt;100 mg/dL</td>
+          <td class="crit">&lt;70 mg/dL*</td>
+        </tr>
+        <tr>
+          <td>Hipercolesterolemia severa <em>sin HF</em>, sin FR ASCVD ni aterosclerosis subclínica</td>
+          <td class="value">&lt;100 mg/dL</td>
+          <td class="value">&lt;130 mg/dL</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td>Hipercolesterolemia severa <em>con HF</em>, FR ASCVD o aterosclerosis subclínica</td>
+          <td class="crit">&lt;70 mg/dL</td>
+          <td class="crit">&lt;100 mg/dL</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td>DM sin FR ASCVD ni potenciadores específicos</td>
+          <td class="value">&lt;100 mg/dL</td>
+          <td class="value">&lt;130 mg/dL</td>
+          <td class="value">&lt;90 mg/dL</td>
+        </tr>
+        <tr>
+          <td>DM con FR ASCVD o modificadores específicos de riesgo</td>
+          <td class="crit">&lt;70 mg/dL</td>
+          <td class="crit">&lt;100 mg/dL</td>
+          <td class="crit">&lt;70 mg/dL</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="font-size:0.8rem;color:var(--text-light)">*Meta de ApoB en presencia de TG entre 150 y 499 mg/dL. HF = hipercolesterolemia familiar.</p>
+  <p style="font-size:0.8rem;color:var(--text-light)">Fuente: Circulation. 2026;153:e00–e00. DOI: 10.1161/CIR.0000000000001423</p>
+</div>
+
+<!-- ═══════════════════════════ SECCIÓN 17 ═══════════════════════════ -->
+<div class="section-divider" id="s17">
+  <h2>17. Modelo SCORE (ESC/EAS)</h2>
+</div>
+
+<div class="slide-card">
+  <h3><span class="slide-number">DIAP 49–50</span> Guías ESC/EAS 2019 <span class="star2"></span></h3>
+  <a href="#" class="back-top">↑ Volver al índice</a>
+
+  <div class="image-box">
+    <div class="image-box-header">🖼 IMAGEN / TABLA DE LA DIAPOSITIVA — Modelo SCORE + Estrategias de Intervención según Riesgo y LDL-c</div>
+    <div class="image-box-body">
+      <p><strong>Modelo SCORE:</strong> Estima el riesgo a 10 años de <em>enfermedad cardiovascular fatal</em> en Europa. Variables: sexo, edad, tabaquismo, presión arterial sistólica y colesterol total. Se aplica en regiones de alto riesgo (Europa del Este y Este Europeo) o bajo riesgo (Europa Occidental y Norte).</p>
+
+      <div class="risk-bands">
+        <div class="rb-low"><strong>Bajo</strong>SCORE &lt;1%</div>
+        <div class="rb-border"><strong>Moderado</strong>SCORE ≥1 a &lt;5%</div>
+        <div class="rb-inter"><strong>Alto</strong>SCORE ≥5 a &lt;10%</div>
+        <div class="rb-high"><strong>Muy alto</strong>SCORE ≥10%</div>
+      </div>
+
+      <p style="margin-top:1rem"><strong>Recomendaciones de análisis lipídico (ESC/EAS 2019):</strong></p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Recomendación</th><th>Clase</th><th>Nivel</th></tr></thead>
+          <tbody>
+            <tr><td>CT para estimación de riesgo CV total (SCORE)</td><td>I</td><td>C</td></tr>
+            <tr><td>HDL-c para refinar estimación de riesgo</td><td>I</td><td>C</td></tr>
+            <tr><td>LDL-c como método primario de tamizaje, diagnóstico y manejo</td><td class="crit">I</td><td>C</td></tr>
+            <tr><td>TAG como parte del análisis lipídico rutinario</td><td>I</td><td>C</td></tr>
+            <tr><td>No-HDL-c recomendado para evaluación de riesgo (esp. TG altos, DM, obesidad, LDL-c muy bajos)</td><td>I</td><td>C</td></tr>
+            <tr><td>ApoB recomendado como alternativa a LDL-c (preferido sobre no-HDL-c en TG altos, DM, obesidad)</td><td>I</td><td>C</td></tr>
+            <tr><td>Lp(a): al menos una vez en la vida para identificar herencia &gt;180 mg/dL</td><td>IIa</td><td>C</td></tr>
+            <tr><td>Lp(a) en pacientes seleccionados con historia familiar de ECV prematura</td><td>IIa</td><td>C</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <p style="font-size:0.8rem;color:var(--text-light)">Fuente: 2019 ESC/EAS Guidelines for the management of dyslipidaemias. European Heart Journal (2020) 41, 111–188. doi:10.1093/eurheartj/ehz455</p>
+</div>
+
+<!-- ─── RESUMEN FINAL ─── -->
+<div class="section-divider">
+  <h2>📌 Resumen de Puntos Clave</h2>
+</div>
+
+<div class="slide-card">
+  <h3>Lo Más Importante del Perfil de Lípidos</h3>
+
+  <div class="note note-red">
+    <strong>⭐⭐⭐ Puntos Críticos</strong>
+    <ol>
+      <li>ECV es la <span class="crit">primera causa de muerte mundial</span>; México supera promedios OCDE</li>
+      <li>LDL-c se calcula con <span class="crit">Friedewald: CT − HDL-c − TAG/5</span>; no válido si TAG &gt;400</li>
+      <li>TAG tiene la mayor variabilidad biológica: <span class="crit">23.7% CV</span></li>
+      <li>Ayuno no obligatorio para tamizaje; sí requerido si <span class="crit">TAG &gt;400 mg/dL</span></li>
+      <li>EDTA es el anticoagulante de elección; <span class="crit">citrato NO</span></li>
+      <li>HF: tratar con <span class="crit">estatinas alta potencia</span>, LDL-c puede ser &gt;400 en homozigotos</li>
+      <li>Modelo PREVENT sustituye al PCE para calcular riesgo ASCVD a 10 y 30 años</li>
+      <li>Lp(a) ≥50 mg/dL y hsCRP ≥2 mg/L son <span class="crit">potenciadores de riesgo</span></li>
+    </ol>
+  </div>
+
+  <div class="note note-teal">
+    <strong>Conceptos Clave</strong>
+    <ul>
+      <li>Tres vías de transporte: exógena (CM/ApoB-48), endógena (VLDL/ApoB-100), inversa (HDL/transporte inverso)</li>
+      <li>Clasificación Frederickson tipos I–V según lipoproteína afectada</li>
+      <li>Dislipidemias secundarias siempre deben descartarse primero</li>
+    </ul>
+  </div>
+
+  <div class="note note-yellow">
+    <strong>Valores de Referencia Recordar</strong>
+    <ul>
+      <li>CT deseable: &lt;200 mg/dL; límite alto: 200–239; alto: &gt;240 mg/dL</li>
+      <li>LDL-c óptimo: &lt;100; casi óptimo: 100–129; límite alto: 130–159; alto: 160–189; muy alto: ≥190</li>
+      <li>HDL-c bajo riesgo: hombres &lt;40, mujeres &lt;50 mg/dL; deseable: ≥60 mg/dL</li>
+      <li>TAG normal: &lt;150 mg/dL; límite: 150–199; alto: 200–499; muy alto: ≥500 mg/dL</li>
+    </ul>
+  </div>
+</div>
+
+<p style="text-align:center;font-size:0.8rem;color:var(--text-light);margin-top:2rem;padding-top:1rem;border-top:1px solid var(--cream-border)">
+  Notas elaboradas a partir de: Remaley &amp; Dayspring, Tietz Textbook of Clinical Chemistry 6th Ed. (2018) · McPherson &amp; Pincus, Henry's Clinical Diagnosis (2017) · Hegele, Nat Rev Genet. 2009 · Kopin, Ann Intern Med. 2017 · Langsted &amp; Nordestgaard, Pathology 2018 · ACC/AHA Circulation 2026 · ESC/EAS Eur Heart J 2020
+</p>
+
+</div><!-- /container -->
+</body>
+</html>
